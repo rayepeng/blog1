@@ -79,14 +79,17 @@
 
 
 
+<meta name="description" content="shell命令复习 ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all),  lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字) md5sum，就是计算和检验MD5信息签名 uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细">
 <meta property="og:type" content="article">
 <meta property="og:title" content="shell脚本">
 <meta property="og:url" content="https://prontosil.club/2018/12/15/shell脚本/index.html">
 <meta property="og:site_name" content="prontosil">
+<meta property="og:description" content="shell命令复习 ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all),  lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字) md5sum，就是计算和检验MD5信息签名 uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T15:24:14.525Z">
+<meta property="og:updated_time" content="2018-12-16T08:51:30.630Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="shell脚本">
+<meta name="twitter:description" content="shell命令复习 ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all),  lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字) md5sum，就是计算和检验MD5信息签名 uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细">
 
 
 
@@ -308,12 +311,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-15T23:24:14+08:00">
-                2018-12-15
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-16T16:51:30+08:00">
+                2018-12-16
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -341,7 +366,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
+                  725
                 </span>
               
 
@@ -357,7 +382,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  3
                 </span>
               
             </div>
@@ -378,7 +403,57 @@
       
 
       
-        
+        <h4 id="shell命令复习"><a href="#shell命令复习" class="headerlink" title="shell命令复习"></a>shell命令复习</h4><ol>
+<li>ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), </li>
+<li>lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)</li>
+<li>md5sum，就是计算和检验MD5信息签名</li>
+<li>uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)</li>
+<li>history命令就是列出历史纪录</li>
+<li>touch创建文件，或者修改已存在的文件的上一次修改时间</li>
+<li>chmod和chown命令</li>
+<li>cal显示日历和date</li>
+<li>ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID</li>
+<li>ps -A | grep -i apache2 </li>
+<li>servive启动某个服务</li>
+</ol>
+<blockquote>
+<p>以上是一些常用的命令，下面是一些命令常见的用法</p>
+</blockquote>
+<h5 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h5><p>.代表当前目录， find . -print, 其中print0可以指明使用’\0’作为定界符</p>
+<p>-name 制定了文件名所必须匹配的字符串</p>
+<p>-iname 忽视大小写</p>
+<p>find . \(-name “<em>.txt” -o -name   “\</em>.pdf”\) -print</p>
+<p>find .  -regex “.*(\.py | \.sh\) $ “</p>
+<p>-type 指定搜索的类型，其中d是目录， f是普通文件， l是符号链接</p>
+<p>-atime 用户最近一次访问的时间， -mtime文件内容最后一次被修改时间 ， -ctime 文件元数据最后一次被修改的时间</p>
+<p>+7 代表访问时间超过七天的 7代表访问时间正好是七天， -7代表最近七天内被访问过的所有文件</p>
+<p>同样的还可以用-amin, -mmin, -cmin 分钟做计量单位</p>
+<p>-size 表示文件大小 w k M G 字 千 兆 吉</p>
+<p>-perm 表示权限</p>
+<p>-exec ，实例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -user root  -exec  chown XXXX &#123;&#125;\;</span><br><span class="line">find . -type f -name &quot;*.c&quot; -exec cat &#123;&#125;\; &gt; all_c_files.txt</span><br><span class="line">find . -type f -mtime +10 -name &quot;*.txt&quot; -exec cp &#123;&#125; OLD \;</span><br><span class="line">find . -type f -name &quot;*.txt&quot; -exec printf &quot;The file : %s\n&quot; &#123;&#125;\;</span><br></pre></td></tr></table></figure>
+<h5 id="玩转xargs"><a href="#玩转xargs" class="headerlink" title="玩转xargs"></a>玩转xargs</h5><p>cat example.txt | xargs</p>
+<p>将单行输入转化为多行</p>
+<p>cat example.txt | xargs -n 3</p>
+<blockquote>
+<p>结合fing使用xargs</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; find . -type f -name &quot;*,txt&quot; -print0 | xargs -0 rm -f</span><br><span class="line">&gt; find dir -type f -name &quot;*.c&quot; -print0 | xargs -0 wc -l</span><br><span class="line">&gt; </span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr ‘A-Z’ ‘a-z’</p>
+<p>tr -d ‘[set1]’   指定被删除的字符集合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello 1 char 2 next 4 | tr -d -c &apos;0-9&apos; \n&apos;</span><br><span class="line">tr -s &apos; &apos;压缩输入中重复的空白字符</span><br></pre></td></tr></table></figure>
+<h5 id="wget和cURL"><a href="#wget和cURL" class="headerlink" title="wget和cURL"></a>wget和cURL</h5><p>wget URL1 URL2 URL3</p>
+<p>-t 用来指定重复次数</p>
+<p>—limit-rate限速</p>
+<p>—quota或-Q 指定最大下载配额</p>
+<p>-c断点续传</p>
+<p>-O指定下载到的文件名 -o将输出写入日志文件</p>
+<p>cURL URL —silent</p>
+<p>cURL不会讲下载的写入文件，而是写入标准输出</p>
+<p>-O将下载到的内容写入到下载文件</p>
+<p>-o写入指定名称的文件中</p>
+<p>-C断点续传</p>
+
       
     </div>
     
@@ -411,6 +486,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/16/写博客的感想/" rel="prev" title="写博客的感想">
+                写博客的感想 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -462,8 +541,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -478,7 +566,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -489,7 +577,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -523,6 +611,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#shell命令复习"><span class="nav-number">1.</span> <span class="nav-text">shell命令复习</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#查找命令find"><span class="nav-number">1.1.</span> <span class="nav-text">查找命令find</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#玩转xargs"><span class="nav-number">1.2.</span> <span class="nav-text">玩转xargs</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#tr命令"><span class="nav-number">1.3.</span> <span class="nav-text">tr命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#wget和cURL"><span class="nav-number">1.4.</span> <span class="nav-text">wget和cURL</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
