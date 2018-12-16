@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$,或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod p),">
+<meta name="description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数论练习题">
 <meta property="og:url" content="https://prontosil.club/2018/12/11/练习题/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$,或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod p),">
+<meta property="og:description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-15T14:55:04.964Z">
+<meta property="og:updated_time" content="2018-12-16T07:39:18.021Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数论练习题">
-<meta name="twitter:description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$,或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod p),">
+<meta name="twitter:description" content="复习本来是想着能够把公式都显示出来的，但是hexo不支持。。。  求解同余式方程 3x\equiv 9(mod 10)   设p为素数， a,b\in Z ,求证： a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p) 若(p, a)=1, p ＞2， 则a \equiv b(mod">
 
 
 
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-15T22:55:04+08:00">
-                2018-12-15
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-16T15:39:18+08:00">
+                2018-12-16
               </time>
             
           </span>
@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  267
+                  389
                 </span>
               
 
@@ -407,8 +407,8 @@
 <ol>
 <li>求解同余式方程 <script type="math/tex">3x\equiv 9(mod 10)</script>  </li>
 <li>设p为素数， <script type="math/tex">a,b\in Z</script> ,求证：<ul>
-<li><script type="math/tex; mode=display">a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$,或者 $$ a \equiv -b (mod p)</script></li>
-<li>若(p, a)=1, p ＞2， 则<script type="math/tex">a \equiv b(mod p)</script>,与 <script type="math/tex">a \equiv -b (mod p)</script> 不能同时成立。</li>
+<li><script type="math/tex; mode=display">a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p)</script></li>
+<li>若(p, a)=1, p ＞2， 则<script type="math/tex">a \equiv b(mod p)</script>, 与  <script type="math/tex">a \equiv -b (mod p)</script> 不能同时成立。</li>
 </ul>
 </li>
 <li>设p为奇素数， <script type="math/tex">a_{0}, a_{1},..., a_{p-1};</script>  <script type="math/tex">b_{0}, b_{1}, ...,b_{p-1}</script>为模p的两组完全剩余系，求证：<script type="math/tex">a_{0}b_{0},...,a_{p-1}b_{p-1}</script>不是模p的完全剩余系。</li>
@@ -427,6 +427,14 @@
 <li>求证： </li>
 </ul>
 </li>
+</ol>
+</blockquote>
+<h5 id="关于Wilson定理"><a href="#关于Wilson定理" class="headerlink" title="关于Wilson定理"></a>关于Wilson定理</h5><blockquote>
+<p>如题：</p>
+<ol>
+<li>p是奇素数， 那么， <script type="math/tex">1^{2}\times 3^{2}\times \cdot \cdot \cdot \left ( p - 4 \right )^{2} \times  \left ( p - 2 \right )^{2} \equiv  \left ( -1 \right )^{\frac{p+1}{2}}\left ( mod  p\right )</script>.</li>
+<li>如果p是素数，并且<script type="math/tex">p \equiv 3(mod 4)</script>, 那么 <script type="math/tex">\left ( \frac{p-1}{2} \right )! \equiv  \pm 1\left ( mod p \right )</script>.</li>
+<li>用Wilson定理证明，如果p是素数，并且<script type="math/tex">p \equiv 1(mod 4)</script> , 那么， <script type="math/tex">x^{2} \equiv -1 (mod p)</script>, 有两个不同余的解，<script type="math/tex">x\equiv \pm \left ( \frac{p-1}{2} \right )! \left ( mod p \right  )</script> </li>
 </ol>
 </blockquote>
 
@@ -597,7 +605,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#复习"><span class="nav-number">1.</span> <span class="nav-text">复习</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#本来是想着能够把公式都显示出来的，但是hexo不支持。。。"><span class="nav-number">1.1.</span> <span class="nav-text">本来是想着能够把公式都显示出来的，但是hexo不支持。。。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text"> </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#12月11日"><span class="nav-number">2.1.</span> <span class="nav-text">12月11日</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#复习"><span class="nav-number">1.</span> <span class="nav-text">复习</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#本来是想着能够把公式都显示出来的，但是hexo不支持。。。"><span class="nav-number">1.1.</span> <span class="nav-text">本来是想着能够把公式都显示出来的，但是hexo不支持。。。</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#"><span class="nav-number">2.</span> <span class="nav-text"> </span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#12月11日"><span class="nav-number">2.1.</span> <span class="nav-text">12月11日</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#关于Wilson定理"><span class="nav-number">3.</span> <span class="nav-text">关于Wilson定理</span></a></li></ol></div>
             
 
           </div>
