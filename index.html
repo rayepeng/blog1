@@ -263,6 +263,200 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/01/25/灰色预测模型/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/25/灰色预测模型/" itemprop="url">灰色预测模型</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-25T07:45:54+08:00">
+                2019-01-25
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-01-25T07:53:49+08:00">
+                2019-01-25
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数学建模/" itemprop="url" rel="index">
+                    <span itemprop="name">数学建模</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  699
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li>灾变预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"><br> 这是某个地区降水量的数据，规定变量zeta &lt; 320为灾年</li>
+</ol>
+<p>计算用的matlab程序如下<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">clc, clear</span><br><span class="line"><span class="comment">%写出初始数据</span></span><br><span class="line">a=[<span class="number">390.6</span>, <span class="number">412</span>, <span class="number">320</span>, <span class="number">559.2</span>, <span class="number">380.8</span>, <span class="number">542.4</span>, <span class="number">553</span>, <span class="number">310</span>, <span class="number">561</span>, <span class="number">300</span>, <span class="number">632</span>,...</span><br><span class="line"><span class="number">540</span>, <span class="number">406.2</span>, <span class="number">540</span>, <span class="number">406.2</span>, <span class="number">313.8</span>, <span class="number">576</span>, <span class="number">587.6</span>, <span class="number">318.5</span>]';</span><br><span class="line">t0=<span class="built_in">find</span>(a&lt;= <span class="number">320</span>);</span><br><span class="line">n=<span class="built_in">length</span>(t0);</span><br><span class="line"><span class="comment">%做累加运算</span></span><br><span class="line">t1=cumsum(t0);</span><br><span class="line">z1=<span class="number">0.5</span>*t1(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>)+<span class="number">0.5</span>*t1(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%求出B矩阵</span></span><br><span class="line">B=[-z1, <span class="built_in">ones</span>(n<span class="number">-1</span>, <span class="number">1</span>)];</span><br><span class="line">Y=t0(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"><span class="comment">%左除法</span></span><br><span class="line">r=B\Y;</span><br><span class="line">y=dsolve(<span class="string">'Dy+a*y=b'</span>, <span class="string">'y(0)=y0'</span>);</span><br><span class="line"><span class="comment">%替换变量</span></span><br><span class="line">y=subs(y, &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'y0'</span>&#125;, &#123;r(<span class="number">1</span>), r(<span class="number">2</span>), t1(<span class="number">1</span>)&#125; );</span><br><span class="line">yucel=subs(y, <span class="string">'t'</span>, [<span class="number">0</span>:n+<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">%为了提高预测精度，先计算预测值，再显示微分方程的解</span></span><br><span class="line">y=vpa(y, <span class="number">6</span>);</span><br><span class="line">yuce=diff(yucel);</span><br><span class="line">yuce=[t0(<span class="number">1</span>), yuce]</span><br><span class="line">yuce_new=yuce(n+<span class="number">1</span>: <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure></p>
+<ol>
+<li>同样的一个类似的预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-440da227077d102d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实例计算"></li>
+</ol>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-14668ea460255bad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"></p>
+<p>代码如下<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">A=[<span class="number">83.0</span>, <span class="number">79.8</span>,<span class="number">78.1</span>,<span class="number">85.1</span>,<span class="number">86.6</span>,<span class="number">88.2</span>,<span class="number">90.3</span>,<span class="number">86.7</span>,<span class="number">93.3</span>,<span class="number">92.5</span>,<span class="number">90.9</span>,<span class="number">96.9</span>; </span><br><span class="line">    <span class="number">101.7</span>,<span class="number">85.1</span>,<span class="number">87.8</span>,<span class="number">91.6</span>,<span class="number">93.4</span>,<span class="number">94.5</span>,<span class="number">97.4</span>,<span class="number">99.5</span>,<span class="number">104.2</span>,<span class="number">102.3</span>,<span class="number">101.0</span>,<span class="number">123.5</span>; </span><br><span class="line">    <span class="number">92.2</span>,<span class="number">114.0</span>,<span class="number">93.3</span>,<span class="number">101.0</span>,<span class="number">103.5</span>,<span class="number">105.2</span>,<span class="number">109.5</span>,<span class="number">109.2</span>,<span class="number">109.6</span>,<span class="number">111.2</span>,<span class="number">121.7</span>,<span class="number">131.3</span>; </span><br><span class="line">    <span class="number">105.0</span>,<span class="number">125.7</span>,<span class="number">106.6</span>,<span class="number">116.0</span>,<span class="number">117.6</span>,<span class="number">118.0</span>,<span class="number">121.7</span>,<span class="number">118.7</span>,<span class="number">120.2</span>,<span class="number">127.8</span>,<span class="number">121.8</span>,<span class="number">121.9</span>; </span><br><span class="line">    <span class="number">139.3</span>,<span class="number">129.5</span>,<span class="number">122.5</span>,<span class="number">124.5</span>,<span class="number">135.7</span>,<span class="number">130.8</span>,<span class="number">138.7</span>,<span class="number">133.7</span>,<span class="number">136.8</span>,<span class="number">138.9</span>,<span class="number">129.6</span>,<span class="number">133.7</span>; </span><br><span class="line">    <span class="number">137.5</span>,<span class="number">135.3</span>,<span class="number">133.0</span>,<span class="number">133.4</span>,<span class="number">142.8</span>,<span class="number">141.6</span>,<span class="number">142.9</span>,<span class="number">147.3</span>,<span class="number">159.6</span>,<span class="number">162.1</span>,<span class="number">153.5</span>,<span class="number">155.9</span>; </span><br><span class="line">    <span class="number">163.2</span>,<span class="number">159.7</span>,<span class="number">158.4</span>,<span class="number">145.2</span>,<span class="number">124</span>,<span class="number">144.1</span>,<span class="number">157.0</span>,<span class="number">162.6</span>,<span class="number">171.8</span>,<span class="number">180.7</span>,<span class="number">173.5</span>, <span class="number">176.5</span>]; </span><br><span class="line">T=A(<span class="number">1</span>:<span class="number">6</span>, <span class="number">1</span>:<span class="number">12</span>);</span><br><span class="line"><span class="comment">%对前六年求平均</span></span><br><span class="line">x0=<span class="built_in">mean</span>(T');</span><br><span class="line">x1=<span class="built_in">zeros</span>(<span class="built_in">size</span>(x0));</span><br><span class="line">n=<span class="built_in">length</span>(x1);</span><br><span class="line">x1(<span class="number">1</span>)=x0(<span class="number">1</span>);</span><br><span class="line"><span class="comment">%做一次累加求和</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    x1(<span class="built_in">i</span>)=x1(<span class="built_in">i</span><span class="number">-1</span>)+x0(<span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">z=<span class="built_in">zeros</span>(<span class="built_in">size</span>(x0));</span><br><span class="line">af=<span class="number">0.4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    z(<span class="built_in">i</span>)=af*x1(<span class="built_in">i</span>)+(<span class="number">1</span>-af)*x1(<span class="built_in">i</span><span class="number">-1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Y=<span class="built_in">zeros</span>(n<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line">B=<span class="built_in">zeros</span>(n<span class="number">-1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%构造出B和Y矩阵，也就是灰色方程</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    Y(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">1</span>)=x0(<span class="built_in">i</span>);</span><br><span class="line">    B(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">1</span>)=-z(<span class="built_in">i</span>);</span><br><span class="line">    B(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">2</span>)=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%计算(a, b)'</span></span><br><span class="line">Para=inv(B'*B)*B'*Y;</span><br><span class="line">a=Para(<span class="number">1</span>);</span><br><span class="line">b=Para(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测值</span></span><br><span class="line">Pred=(x0(<span class="number">1</span>)-b/a)*<span class="built_in">exp</span>(-a*n)*(<span class="number">1</span>-<span class="built_in">exp</span>(a));</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测第n+1年的数据</span></span><br><span class="line">Total=<span class="number">12</span>*Pred;</span><br><span class="line"></span><br><span class="line"><span class="comment">%估计各月所占比重</span></span><br><span class="line">r=sum(T)/sum(sum(T));</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测各个月销售量</span></span><br><span class="line">Px=Total*r;</span><br><span class="line">fprintf(<span class="string">'输出203年预测值与实际值.\n'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%5d '</span>, <span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%6.1f'</span>, Px(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%6.1f'</span>, A(<span class="number">7</span>, <span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line">Error=sum(Px(<span class="number">4</span>:<span class="number">6</span>))-sum(A(<span class="number">7</span>, <span class="number">4</span>:<span class="number">6</span>));</span><br><span class="line">fprintf(<span class="string">'2003年4,5,6月SARS导致减少销售额%6.2f亿元\n'</span>,Error);</span><br><span class="line"><span class="comment">%作图 </span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>); </span><br><span class="line">PA=[A(<span class="number">1</span>,:),A(<span class="number">2</span>,:),A(<span class="number">3</span>,:),A(<span class="number">4</span>,:),A(<span class="number">5</span>,:),A(<span class="number">6</span>,:),A(<span class="number">7</span>,:)];</span><br><span class="line"><span class="comment">%变为一行数据 </span></span><br><span class="line"><span class="built_in">plot</span>(PA); </span><br><span class="line">grid on </span><br><span class="line">title(<span class="string">'原始数据'</span>); </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>); </span><br><span class="line"><span class="built_in">plot</span>(<span class="number">1</span>:<span class="number">12</span>,A(<span class="number">7</span>,:),<span class="string">'b*'</span>,<span class="number">1</span>:<span class="number">12</span>,Px,<span class="string">'r'</span>); </span><br><span class="line">title(<span class="string">'2003年对比数据'</span>); grid on</span><br></pre></td></tr></table></figure></p>
+<p>最后得到的图形为<br><img src="https://upload-images.jianshu.io/upload_images/10651191-d0aa228c70d6f6e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/21/我和Linux的故事/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2027,214 +2221,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/13/也谈读书和博客/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/13/也谈读书和博客/" itemprop="url">也谈读书和博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-13T20:46:32+08:00">
-                2018-12-13
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-13T21:00:00+08:00">
-                2018-12-13
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂念/" itemprop="url" rel="index">
-                    <span itemprop="name">杂念</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  536
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="也谈读书和博客"><a href="#也谈读书和博客" class="headerlink" title="也谈读书和博客"></a>也谈读书和博客</h5><h6 id="先谈读书"><a href="#先谈读书" class="headerlink" title="先谈读书"></a>先谈读书</h6><p>读书自然是必不可少的，尤其是作为一个IT人员，时时刻刻都要保持自身基础知识完备的同时，还需要不断地去扩展自己的能力。</p>
-<p>最近这一个学期，虽说看的书也不算很多，主要是借了很多书但是没有时间看，为什么会没有时间呢，其实我早该反思一下这件事情了。</p>
-<p>为什么会有拖延症呢，其实还是你没有把那件事情放在心上，人总是这样，会把心头上记得最紧切的事情先做完。所以很多看似很小的事情，或者很难的事情，抑或又是很不想做的事情，就会持续不断地往后推。</p>
-<p>拖延症，或者可以说是假装忘记，ddl不是你想不起来，只是你想起来之后会假装忘记它，可是这和掩耳盗铃又有什么区别呢。该发生的都会发生，忘记了，不是你的借口，只能欺骗你自己的。</p>
-<blockquote>
-<p>读书的建议</p>
-</blockquote>
-<ol>
-<li>书要多读</li>
-<li>不能盲目，一定要想清楚书里面写的是什么，看不懂的直接跳过，代码比较多的，耐心看</li>
-<li>多花时间</li>
-</ol>
-<blockquote>
-<p>关于博客</p>
-</blockquote>
-<p>我的本意还是搭建一个技术类的博客，所以目前来说，复习什么的，就不随便写了。</p>
-<p>当然杂念，随笔，还是坚持写的比较好。日记其实也可以坚持写写的。</p>
-<blockquote>
-<p>今天感悟到的，代码之道</p>
-</blockquote>
-<p>代码，不是你写不出，而是你根本没有想好怎么写。只要方向和目的明确，没有写不出来的。</p>
-<p>所以，写代码之前一定是要写草稿的。</p>
-<p>所以，读代码不等于看语法，而是弄清楚每一块代码的意思。看代码不等于学语法，而是弄清楚意思。</p>
-<p>就想中文翻译成英语有多种翻译方法，同样一个功能，实现的代码也分为很多种，更何况还有那么多种语言。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2285,7 +2271,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2296,7 +2282,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
