@@ -263,6 +263,864 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/12/折腾docker的那些事儿/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/12/折腾docker的那些事儿/" itemprop="url">折腾docker的那些事儿</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-12T15:24:23+08:00">
+                2018-12-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-13T07:49:34+08:00">
+                2018-12-13
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/瞎折腾/" itemprop="url" rel="index">
+                    <span itemprop="name">瞎折腾</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  863
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="关于docker"><a href="#关于docker" class="headerlink" title="关于docker"></a>关于docker</h5><p>其实我也不知道docker是干嘛的，不过听说它很强大，所以试着玩一玩呗。</p>
+<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><h5 id="下载docker"><a href="#下载docker" class="headerlink" title="下载docker"></a>下载docker</h5><p><a href="http://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<p>通过docker-toolbox来安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">下载地址</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Docker CLI 客户端，用来运行docker引擎创建镜像和容器</span><br><span class="line">Docker Machine. 可以让你在windows的命令行中运行docker引擎命令</span><br><span class="line">Docker Compose. 用来运行docker-compose命令</span><br><span class="line">Kitematic. 这是Docker的GUI版本</span><br><span class="line">Docker QuickStart shell. 这是一个已经配置好Docker的命令行环境</span><br><span class="line">Oracle VM Virtualbox. 虚拟机</span><br></pre></td></tr></table></figure>
+<p>然后我的电脑里面就塞满了这些东西</p>
+<p>刚下载之后，桌面上确实会有三个图标，但是Windows好像找不到，所以自己手动去目录里面翻了一下。</p>
+<p><img src="..\imag\1544599795010.png" alt="1544599795010"></p>
+<p>无他，shift加右键打开start.sh脚本，不过Windows命令行是没办法运行这个脚本的，所有它会默认用git bash打开。(突然发现git是不是就相当于一个Linux的bash？好多命令都可以用，那我不是可以通过它来管理我的电脑？这个坑之后再去补上)</p>
+<p>会经过一段时间的等待，</p>
+<p><img src="..\imag\1544599953613.png" alt="1544599953613"></p>
+<p>通过提示信息可以看到它正在进行默认的配置。</p>
+<p>之后会打开virtual box，可以看到正在分配IP地址。</p>
+<p>我这里貌似尝试了一次之后失败了，所以接着又尝试了一下，</p>
+<p><img src="..\imag\1544600085479.png" alt="1544600085479"></p>
+<p>成功了！！！</p>
+<p>之后尝试了第一个命令：</p>
+<p>docker run hello-world</p>
+<p><img src="..\imag\1544600133896.png" alt="1544600133896"></p>
+<p>可以看到docker先在本地查找hello-world的镜像，没找到，然后去一个hub里面检查并下载，</p>
+<blockquote>
+<p>Hello from Docker!<br>This message shows that your installation appears to be working correctly.</p>
+<p>To generate this message, Docker took the following steps:</p>
+<ol>
+<li>The Docker client contacted the Docker daemon.</li>
+<li>The Docker daemon pulled the “hello-world” image from the Docker Hub.<br>(amd64)</li>
+<li>The Docker daemon created a new container from that image which runs the<br>executable that produces the output you are currently reading.</li>
+<li>The Docker daemon streamed that output to the Docker client, which sent it<br>to your terminal.</li>
+</ol>
+<p>To try something more ambitious, you can run an Ubuntu container with:<br>$ docker run -it ubuntu bash</p>
+</blockquote>
+<p>这就是docker入门的开始啦！</p>
+<blockquote>
+<p>12月12日晚上</p>
+</blockquote>
+<p>运行docker命令总是报错,如下：</p>
+<p><img src="..\imag\1544625260953.png" alt="1544625260953"></p>
+<p>报错提示如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">E:\ProgramFiles\Docker Toolbox\docker.exe: error during connect: Post https://192.168.99.100:2376/v1.37/containers/create: dial tcp 192.168.99.100:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.</span><br><span class="line">See &apos;E:\ProgramFiles\Docker Toolbox\docker.exe run --help&apos;.</span><br></pre></td></tr></table></figure>
+<p>根据报错提示，可能是超时了，没有接收到响应。</p>
+<p>另外记个笔记:</p>
+<p>docker运行的时候，是有一个虚拟机开着的，这就是为啥安装Docker Toolbox的时候需要同时安装virtual box了。</p>
+<p>所以重启电脑之后，需要手动开启虚拟机。</p>
+<blockquote>
+<p><a href="https://cr.console.aliyun.com/cn-hangzhou/mirrors" target="_blank" rel="noopener">阿里镜像</a></p>
+<p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-for-windows/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">win10安装docker</a></p>
+<p><a href="https://docs.docker.com/engine/reference/commandline/cli/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker文档</a></p>
+<p><a href="https://docs.docker.com/engine/reference/builder/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker documentation</a></p>
+<p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">toolbox</a></p>
+</blockquote>
+<p>之前说过win10安装docker有两种方式，但是win190更加推荐docker for Windows。</p>
+<p>但是这个功能必须要求电脑开启了了hyper-v服务(应该就是win10自带的创建虚拟机的服务)</p>
+<p>第一部当然是看一下处理器支不支持了，命令行下输入systeminfo</p>
+<p>然而，如果是win10家庭版，默认是没有显示hyper-v服务的。</p>
+<p><a href="https://jingyan.baidu.com/article/d7130635e5678113fcf4757f.html" target="_blank" rel="noopener">家庭版添加hyper-v</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line"></span><br><span class="line">for /f %%i in (&apos;findstr /i . hyper-v.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line"></span><br><span class="line">del hyper-v.txt</span><br><span class="line"></span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure>
+<p>就是运行一个批处理程序。</p>
+<p>然后我们就能愉快的找到hyper-v服务啦。</p>
+<p><img src="..\imag\1544658550748.png" alt="1544658550748"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/11/200天啦/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/200天啦/" itemprop="url">200天啦</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T21:57:01+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-11T22:13:21+08:00">
+                2018-12-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/杂念/" itemprop="url" rel="index">
+                    <span itemprop="name">杂念</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  397
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="200天啦"><a href="#200天啦" class="headerlink" title="200天啦"></a>200天啦</h4><blockquote>
+<p>我和我最爱的宝宝在一起已经200天啦！！！</p>
+</blockquote>
+<p>还记得懵懂的6月，情窦初开的我们牵手了。在你我的扶持下，携手走过了期末考试的旅程，又经过了暑假漫长的思念，到如今掐指，200个日夜已经流过。</p>
+<p>虽然表面上嫌弃你这只zz，但是我怎么舍得丢下你呢，都是因为我，曾经那么聪慧的xjy变得这么zz了，我如果不好好惯着你，今后的日子你又该怎么过呢。</p>
+<p>宝宝，虽然我会生你的气，但是我在生气的时候也是爱着你的鸭，如果哪一天我们之间再也没有争吵，那才不正常呢，那只能说明我们俩的心都已经死了。</p>
+<p>宝宝，对不起呀，今天是我激动了一点。原本200天的纪念日应该给你惊喜的，可是却让你落泪了。都是你的zz的错嘛。唉，你的zz有时候太敏感了，虽然知道你的话没有恶意，可是还是忍不住往别的方向想，因为我童年的时候受到过太多的欺凌了，所以很容易将一句话误解成伤害我的话。</p>
+<p>但是我可能防范地过度了，我不该对我的宝宝那么认真的(大哭.jpg)，宝宝是我最爱的人，又怎么会伤害我呢。</p>
+<p>最爱我的宝宝，不管她zz也好，不过机智点就更好啦。</p>
+<p>谨以此作为我们200天纪念日的祝福</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/11/练习题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/练习题/" itemprop="url">数论练习题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:35:48+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-16T15:39:18+08:00">
+                2018-12-16
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/数论/" itemprop="url" rel="index">
+                    <span itemprop="name">数论</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  389
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h5 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h5><h6 id="本来是想着能够把公式都显示出来的，但是hexo不支持。。。"><a href="#本来是想着能够把公式都显示出来的，但是hexo不支持。。。" class="headerlink" title="本来是想着能够把公式都显示出来的，但是hexo不支持。。。"></a>本来是想着能够把公式都显示出来的，但是hexo不支持。。。</h6><blockquote>
+<ol>
+<li>求解同余式方程 <script type="math/tex">3x\equiv 9(mod 10)</script>  </li>
+<li>设p为素数， <script type="math/tex">a,b\in Z</script> ,求证：<ul>
+<li><script type="math/tex; mode=display">a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p)</script></li>
+<li>若(p, a)=1, p ＞2， 则<script type="math/tex">a \equiv b(mod p)</script>, 与  <script type="math/tex">a \equiv -b (mod p)</script> 不能同时成立。</li>
+</ul>
+</li>
+<li>设p为奇素数， <script type="math/tex">a_{0}, a_{1},..., a_{p-1};</script>  <script type="math/tex">b_{0}, b_{1}, ...,b_{p-1}</script>为模p的两组完全剩余系，求证：<script type="math/tex">a_{0}b_{0},...,a_{p-1}b_{p-1}</script>不是模p的完全剩余系。</li>
+<li>利用 <script type="math/tex">\varphi (n)=n\prod _{p|n} (1-p^{-1})</script>, p为素数，</li>
+</ol>
+</blockquote>
+<h5 id=""><a href="#" class="headerlink" title=" "></a> </h5><h6 id="12月11日"><a href="#12月11日" class="headerlink" title="12月11日"></a>12月11日</h6><blockquote>
+<ol>
+<li>设p为奇素数，求证<script type="math/tex">\forall a,b \in \mathbb{Z}</script>, 同余式方程<script type="math/tex">\left ( x^{2}-a \right )\left ( x^{2} - b \right )\left ( x^{2} - ab \right )\equiv 0(mod p)</script> 必有解。</li>
+<li>设p为奇素数，且<script type="math/tex">p | x^{4} + 1</script> 求证：<script type="math/tex">p \equiv 1(mod 8)</script> </li>
+<li>求解 <script type="math/tex">ax^{2}+bx+c \equiv 0(mod 2)</script> (分情况讨论)</li>
+<li>求解： <script type="math/tex">3x^{2} + x+6 \equiv 0(mod 45)</script> </li>
+</ol>
+<ol>
+<li>设<script type="math/tex">a_{1}, a_{2}, ..., a_{n}</script> 为模n的一个完全剩余系，<ul>
+<li>求证： </li>
+</ul>
+</li>
+</ol>
+</blockquote>
+<h5 id="关于Wilson定理"><a href="#关于Wilson定理" class="headerlink" title="关于Wilson定理"></a>关于Wilson定理</h5><blockquote>
+<p>如题：</p>
+<ol>
+<li>p是奇素数， 那么， <script type="math/tex">1^{2}\times 3^{2}\times \cdot \cdot \cdot \left ( p - 4 \right )^{2} \times  \left ( p - 2 \right )^{2} \equiv  \left ( -1 \right )^{\frac{p+1}{2}}\left ( mod  p\right )</script>.</li>
+<li>如果p是素数，并且<script type="math/tex">p \equiv 3(mod 4)</script>, 那么 <script type="math/tex">\left ( \frac{p-1}{2} \right )! \equiv  \pm 1\left ( mod p \right )</script>.</li>
+<li>用Wilson定理证明，如果p是素数，并且<script type="math/tex">p \equiv 1(mod 4)</script> , 那么， <script type="math/tex">x^{2} \equiv -1 (mod p)</script>, 有两个不同余的解，<script type="math/tex">x\equiv \pm \left ( \frac{p-1}{2} \right )! \left ( mod p \right  )</script> </li>
+</ol>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/11/git-进阶/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/11/git-进阶/" itemprop="url">git 进阶</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:13:00+08:00">
+                2018-12-11
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2018-12-11T16:34:48+08:00">
+                2018-12-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/git/" itemprop="url" rel="index">
+                    <span itemprop="name">git</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  259
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="git-tql"><a href="#git-tql" class="headerlink" title="git tql!!!"></a>git tql!!!</h4><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">最全的git教程</a></p>
+<blockquote>
+<p>git可以很方便地解决多人协作写代码的问题，同时还可以有效地管理你的文件</p>
+</blockquote>
+<p><code>git reset --hard</code>命令可以修改你的工作取得状态，包括将删除的文件重新找回。</p>
+<p>(今天动手做实验的时候才发现的，值得收藏)</p>
+<blockquote>
+<p>git 可以很方便地多人同时开发，就好像其他人不存在一样，最后只需要合并每个人的分支即可</p>
+</blockquote>
+<ul>
+<li>注意一下</li>
+</ul>
+<p>git branch 是创建一个分支，不过你需要知道自己是在哪个分支的基础上创建的分支，(git 好像没有可以显示分支的相对位置的命令?这个坑稍后再去补充)</p>
+<blockquote>
+<p>合并分支</p>
+</blockquote>
+<p>你想要把哪个分支合并到另一个分支上，你就需要在那个分支上工作，同时使用 <code>git merge</code>命令</p>
+<h6 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h6><blockquote>
+<p>emmmm分支冲突这种事先放着，以后遇到了坑之后再解决</p>
+</blockquote>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/10/英语/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1494,805 +2352,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/08/学习部-加油！/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/08/学习部-加油！/" itemprop="url">学习部 加油！</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T23:12:03+08:00">
-                2018-12-08
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-08T23:37:15+08:00">
-                2018-12-08
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/随笔/" itemprop="url" rel="index">
-                    <span itemprop="name">随笔</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  851
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>12月8日，元旦晚会和部门聚餐</p>
-</blockquote>
-<p>好兴奋呀，这一次的部门节目很成功。当我在台上演戏的时候，听到台下传来一阵阵的笑声，心里着实是激动呀，毕竟我们努力了那么久，观众的笑声就是对我们最大的回馈。</p>
-<p>当然也要感谢我们的婌婌，当初让她当节目负责人的时候还只是我草率的决定，没想到竟让平时言辞比较少的婌婌变得那么活跃，婌婌真的好棒，有这样一个部委让我好骄傲呀。当然还有我们的广哥，无私的牺牲自己，穿上了女装，哈哈哈，抽风的七九。</p>
-<p>哈哈哈我就不想放图了，不想让我的博客变得那么不正经。</p>
-<p>虽然我也很不情愿地女装了，不过还是不太到位，虽然口红涂得的比较艳丽，最有趣的是表演完出来之后还遇见了炳哥和郝宇涵，看郝宇涵那个表情，简直了，还有炳哥都直接拿起手机准备拍照了哈哈哈。</p>
-<p>还忘了在进去的时候看见了我的熊哥哥，和他打招呼的时候，也把他给吓着了，然后很淡定地说了一句，“你好骚啊”</p>
-<p>平生第一次女装，不过还是比不过体育部的全员女装了，看的我触目心惊，全员女装，假发，黑丝。太震惊了</p>
-<p>之后就是愉快的聚餐环节啦。</p>
-<p><img src="..\imag\Cache_b5cc1d51b4fe338..jpg" alt="聚餐"></p>
-<p><img src="..\imag\Cache_3b79b4fb71a8668e..jpg" alt="全家福"></p>
-<p>不得不说，学习部真的是一个很温馨的大家庭呢。</p>
-<p>婌婌，搏鸿和皮皮是之后才来的，搏鸿和皮皮点好餐之后，给婌婌点餐的时候，婌婌不乐意了，“你们俩孤立我，哼”结果两个男生没办法只好重新点餐，婌婌还一脸正经的威胁到“你们俩点餐，必须是三个人吃的份，不然就是孤立我”惹得我们吃完饭的哈哈大笑。</p>
-<p>之后呢，又是精彩的狼人杀呀，慧玲妹妹说，自从第一次聚餐玩狼人杀之后就再也没玩了，不过一玩起来，大家从开始的不大会玩，到现在一个比一个精。婌婌还说，我发现跳预言家真好玩，结果第二把的时候她跳了预言家，接着果断地给我发了金水。可是没想到她是个坏人，叶皮皮却是好人，所以叶皮皮在验证了婌婌的身份之后，果断号召大家把我也票走了。我还能说啥呢嘤嘤嘤。</p>
-<p>从上面的图中显而易见地看出，婌婌当初刚来学习部的时候还不是那么活泼，现在经过一场元旦晚会之后的历练，已经变得越来越善于与人交往了。今天她也显得格外的活跃呀，没有再像往常一样盯着手机，而是时而开个玩笑，时而做一个表情，或者发出一声怪叫。哈，我的部委们越来越优秀了呀。</p>
-<blockquote>
-<p>有这样一个优秀，温馨的大家庭，让我感到很兴奋呀，想当初这些人都是我一手拉进来的，现在看来除了<code>ycx</code>和<code>zjz</code>有点分散之外，其他人都融入了这个大家庭。</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/08/零杯网页设计/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/08/零杯网页设计/" itemprop="url">零杯网页设计</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-08T10:03:35+08:00">
-                2018-12-08
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-09T18:05:58+08:00">
-                2018-12-09
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/网页设计/" itemprop="url" rel="index">
-                    <span itemprop="name">网页设计</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  659
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <blockquote>
-<p>网页设计是个坑</p>
-</blockquote>
-<p>11月份入坑网页设计，然后就被折磨的死去活来，不过万幸还是提交了作品，还勉强进了决赛。</p>
-<p>响应式网页设计主流框架:<code>bootstrap</code></p>
-<p><code>bootstrap</code>框架确实很好用，包括响应式导航栏的设计，排版，轮播图(不过目前我好像也只会用这些)</p>
-<p>不过最然人头疼的还是网格系统，先记在小本本上，暂时还没弄明白</p>
-<p>先说说我入坑网页设计的吧</p>
-<p>一个之前没有任何前端开发经验的，想要设计网页，其实也不算是一件难事，因为我看的懂<code>html</code>语言呀，有很多标记的用法是可以直接参考的，这里先对比一下菜鸟和w3c吧，菜鸟教程确实很良心，先放两个链接：</p>
-<p><a href="http://www.runoob.com/bootstrap/bootstrap-tutorial.html" target="_blank" rel="noopener">bootstrap教程</a></p>
-<p><a href="http://www.runoob.com/try/bootstrap/layoutit/" target="_blank" rel="noopener">bootstrap可视化布局系统</a></p>
-<p>可视化布局系统可以直接托托拽拽，一个简单的网页结构就出来了</p>
-<p>不过短短的时间内让我直接写那么多的css和js文件确实不太可能，所以我们去网上参考了几个模板，不过网站好像忘了，因为网上的模板实在是太多了</p>
-<p>这里真的很感谢我的宝宝，是她在我最忙的时候，独自一人熬夜选择素材，本来对网页设计完全不入门的她而言，最多简单地知道开发者工具怎么使用，那几天，她一直在修图，去网上找素材和文字。等我闲下来的时候，她已经将一个大体成型的网页摆在我面前了。我真的好想抱住她，然后给她一个吻。由于她前期的努力，后期我只是简单地对网页的布局进行了一定的修改，包括最后的文档的完成。</p>
-<blockquote>
-<p>网页设计的经验总结</p>
-</blockquote>
-<ul>
-<li><p>css的各个属性之间是有优先级的,有以下几种插入css的方式</p>
-<ul>
-<li>通过id和class选择器，通过标签选择器<code>&lt;style&gt;h3{color:red}&lt;/style&gt;</code>,第四种就是直接在标签内部书写css代码(这是最不推荐的方式)<code>&lt;h3 style =&quot;color:red&quot;&gt;&lt;/h3&gt;</code> </li>
-<li>以上几种优先级为：第四种 &gt; id 选择器&gt; class选择器 &gt; 第三种</li>
-</ul>
-</li>
-<li><p>css还有一种包含的选择器， 指定目标选择器必须处在某个选择器对应的元素内部，语法格式：<code>A B{...}</code> A、B为HTML元素/标签，表示对处于A中的B标签有效</p>
-</li>
-<li></li>
-</ul>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/07/思维导图/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/07/思维导图/" itemprop="url">思维导图</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T22:39:59+08:00">
-                2018-12-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-07T22:40:37+08:00">
-                2018-12-07
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/思维导图/" itemprop="url" rel="index">
-                    <span itemprop="name">思维导图</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/07/next主题优化/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/07/next主题优化/" itemprop="url">next主题优化</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-07T22:19:53+08:00">
-                2018-12-07
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-08T00:25:38+08:00">
-                2018-12-08
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/瞎折腾/" itemprop="url" rel="index">
-                    <span itemprop="name">瞎折腾</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  399
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="next主题添加背景音乐"><a href="#next主题添加背景音乐" class="headerlink" title="next主题添加背景音乐"></a>next主题添加背景音乐</h5><blockquote>
-<p>主要参考这篇博客<a href="https://www.jianshu.com/p/93341c0aacbf" target="_blank" rel="noopener">next主题添加网页音乐播放器功能</a></p>
-<p>这篇博客给出的方法貌似有些不一样<a href="https://blog.csdn.net/yjwan521/article/details/80899992" target="_blank" rel="noopener">给next博客添加主题音乐</a></p>
-</blockquote>
-<p>当腾讯推出QQ空间这个功能的时候，确实迎合了大多数人的需求，那就是在茫茫的网络世界里面，有一个自己的温馨小家。如果是自己的小窝，当让更舍得花钱啦，腾讯因此推出的黄钻，绿钻功能让它赚的盆满钵满。这一次腾讯不是逼着用户交钱，而是用户心甘情愿的掏钱。不得不惊叹其营销手段的高明，百合网也是如此，它的创始人，网名小龙女，在做这件事的时候压根没想到怎么挣钱，但是有慧眼的投资人却相信她一定有将流量变现的妙招。后来，小龙女从写情书这一点想到，可以通过对虚拟邮票进行收费，鼓励男女之间相互写情书。我第一次看到这的时候，确实惊叹于小龙女的奇思妙想。如此既有文化内涵，又能让用户心甘情愿地掏钱的好点子可真是不容易想到。</p>
-<p>商业中其实有很多与此类似的故事，在慢慢地丰富自己阅历的同时，也不断开拓者自己的思路。</p>
-<h5 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h5><blockquote>
-<p>主要参考以下几篇文章</p>
-</blockquote>
-<p><a href="https://www.jianshu.com/p/d23d67d318c7" target="_blank" rel="noopener">Hexo-Next主题优化(三)</a></p>
-<p><a href="https://www.jianshu.com/p/428244cd2caa" target="_blank" rel="noopener">Hexo_Next主题优化(二)</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2338,7 +2402,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2349,7 +2413,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2397,7 +2461,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
