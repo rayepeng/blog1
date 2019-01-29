@@ -263,6 +263,203 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/01/29/flag-php-未完成的wp/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/29/flag-php-未完成的wp/" itemprop="url">flag.php 未完成的wp</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-29T20:51:54+08:00">
+                2019-01-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-01-29T20:58:31+08:00">
+                2019-01-29
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/bugkuctf/" itemprop="url" rel="index">
+                    <span itemprop="name">bugkuctf</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  623
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>好吧我承认我是看了别人的wp，目前还很菜</p>
+<hr>
+<p>然而我看了wp也不会做。</p>
+<h4 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="页面"><br>进去之后是一个什么都点不动的页面。。</p>
+<p>然后有提示 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">联系到可能是SQL注入</span><br><span class="line"></span><br><span class="line">于是在URL后面加一个hint参数</span><br><span class="line">http://123.206.87.240:8002/flagphp/?hint=1</span><br><span class="line"></span><br><span class="line">得到一串代码：</span><br><span class="line">```php+HTML</span><br><span class="line">&lt;?php </span><br><span class="line">error_reporting(0); </span><br><span class="line">include_once(&quot;flag.php&quot;); </span><br><span class="line">$cookie = $_COOKIE[&apos;ISecer&apos;]; </span><br><span class="line">if(isset($_GET[&apos;hint&apos;]))&#123; </span><br><span class="line">    show_source(__FILE__); </span><br><span class="line">&#125; </span><br><span class="line">elseif (unserialize($cookie) === &quot;$KEY&quot;) </span><br><span class="line">&#123;    </span><br><span class="line">    echo &quot;$flag&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else &#123; </span><br><span class="line">?&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; </span><br><span class="line">&lt;title&gt;Login&lt;/title&gt; </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;admin.css&quot; type=&quot;text/css&quot;&gt; </span><br><span class="line">&lt;/head&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;br&gt; </span><br><span class="line">&lt;div class=&quot;container&quot; align=&quot;center&quot;&gt; </span><br><span class="line">  &lt;form method=&quot;POST&quot; action=&quot;#&quot;&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input value=&quot;Login&quot; type=&quot;button&quot;/&gt;&lt;/p&gt; </span><br><span class="line">  &lt;/form&gt; </span><br><span class="line">&lt;/div&gt; </span><br><span class="line">&lt;/body&gt; </span><br><span class="line">&lt;/html&gt; </span><br><span class="line"></span><br><span class="line">&lt;?php </span><br><span class="line">&#125; </span><br><span class="line">$KEY=&apos;ISecer:www.isecer.com&apos;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<h4 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h4><p>第一句话把报错信息都关掉了<br>然后包含了一个文件flag.php(这不正好是题目的名字？)<br>然后设置cookie<br>额。。<br>然后如果GET得到了hint， 就会把文件的代码都展示出来</p>
+<p>否则如果\$cookie反序列化后得到的结果等于字符串”$KEY”，就会显示flag！</p>
+<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>目前为止这个题目还没做出来。<br>主要是对cookie和serialize这两个不熟悉</p>
+<h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>目前看到一篇 <a href="https://blog.csdn.net/u013982161/article/details/55005542" target="_blank" rel="noopener">cookie详解</a></p>
+<p>到底什么是cookie，怎样才会产生cookie， cookie的作用自不必言。<br>产生cookie有几种方式：<br>server端 的response中包含cookie设置</p>
+<p>脚本方式种植cookie， 主要就是用javascript里的document.cookie对象来实现</p>
+<p>通过在URL栏输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以查看这个页面的cookie</span><br><span class="line"></span><br><span class="line">当然cookie还有很多 **属性**， 比如为了安全而设置的http only属性， cookie的生存周期等。</span><br><span class="line"></span><br><span class="line">##### serialize</span><br><span class="line">serialize() 函数用于序列化对象或数组，并返回一个字符串。</span><br><span class="line">**serialize()** 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。</span><br><span class="line"></span><br><span class="line">如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()</span><br><span class="line"></span><br><span class="line">语法如下：</span><br><span class="line">```string serialize ( mixed $value )</span><br></pre></td></tr></table></figure></p>
+<p>将其看作一种变化或许可以</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/01/25/灰色预测模型/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2091,224 +2288,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/11/练习题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/练习题/" itemprop="url">数论练习题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:35:48+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-16T15:39:18+08:00">
-                2018-12-16
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/数论/" itemprop="url" rel="index">
-                    <span itemprop="name">数论</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  389
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h5 id="复习"><a href="#复习" class="headerlink" title="复习"></a>复习</h5><h6 id="本来是想着能够把公式都显示出来的，但是hexo不支持。。。"><a href="#本来是想着能够把公式都显示出来的，但是hexo不支持。。。" class="headerlink" title="本来是想着能够把公式都显示出来的，但是hexo不支持。。。"></a>本来是想着能够把公式都显示出来的，但是hexo不支持。。。</h6><blockquote>
-<ol>
-<li>求解同余式方程 <script type="math/tex">3x\equiv 9(mod 10)</script>  </li>
-<li>设p为素数， <script type="math/tex">a,b\in Z</script> ,求证：<ul>
-<li><script type="math/tex; mode=display">a^2\equiv b^2(mod p)\Leftrightarrow a\equiv b(mod p)$$    或者 $$ a \equiv -b (mod p)</script></li>
-<li>若(p, a)=1, p ＞2， 则<script type="math/tex">a \equiv b(mod p)</script>, 与  <script type="math/tex">a \equiv -b (mod p)</script> 不能同时成立。</li>
-</ul>
-</li>
-<li>设p为奇素数， <script type="math/tex">a_{0}, a_{1},..., a_{p-1};</script>  <script type="math/tex">b_{0}, b_{1}, ...,b_{p-1}</script>为模p的两组完全剩余系，求证：<script type="math/tex">a_{0}b_{0},...,a_{p-1}b_{p-1}</script>不是模p的完全剩余系。</li>
-<li>利用 <script type="math/tex">\varphi (n)=n\prod _{p|n} (1-p^{-1})</script>, p为素数，</li>
-</ol>
-</blockquote>
-<h5 id=""><a href="#" class="headerlink" title=" "></a> </h5><h6 id="12月11日"><a href="#12月11日" class="headerlink" title="12月11日"></a>12月11日</h6><blockquote>
-<ol>
-<li>设p为奇素数，求证<script type="math/tex">\forall a,b \in \mathbb{Z}</script>, 同余式方程<script type="math/tex">\left ( x^{2}-a \right )\left ( x^{2} - b \right )\left ( x^{2} - ab \right )\equiv 0(mod p)</script> 必有解。</li>
-<li>设p为奇素数，且<script type="math/tex">p | x^{4} + 1</script> 求证：<script type="math/tex">p \equiv 1(mod 8)</script> </li>
-<li>求解 <script type="math/tex">ax^{2}+bx+c \equiv 0(mod 2)</script> (分情况讨论)</li>
-<li>求解： <script type="math/tex">3x^{2} + x+6 \equiv 0(mod 45)</script> </li>
-</ol>
-<ol>
-<li>设<script type="math/tex">a_{1}, a_{2}, ..., a_{n}</script> 为模n的一个完全剩余系，<ul>
-<li>求证： </li>
-</ul>
-</li>
-</ol>
-</blockquote>
-<h5 id="关于Wilson定理"><a href="#关于Wilson定理" class="headerlink" title="关于Wilson定理"></a>关于Wilson定理</h5><blockquote>
-<p>如题：</p>
-<ol>
-<li>p是奇素数， 那么， <script type="math/tex">1^{2}\times 3^{2}\times \cdot \cdot \cdot \left ( p - 4 \right )^{2} \times  \left ( p - 2 \right )^{2} \equiv  \left ( -1 \right )^{\frac{p+1}{2}}\left ( mod  p\right )</script>.</li>
-<li>如果p是素数，并且<script type="math/tex">p \equiv 3(mod 4)</script>, 那么 <script type="math/tex">\left ( \frac{p-1}{2} \right )! \equiv  \pm 1\left ( mod p \right )</script>.</li>
-<li>用Wilson定理证明，如果p是素数，并且<script type="math/tex">p \equiv 1(mod 4)</script> , 那么， <script type="math/tex">x^{2} \equiv -1 (mod p)</script>, 有两个不同余的解，<script type="math/tex">x\equiv \pm \left ( \frac{p-1}{2} \right )! \left ( mod p \right  )</script> </li>
-</ol>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2359,7 +2338,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2370,7 +2349,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2381,7 +2360,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
