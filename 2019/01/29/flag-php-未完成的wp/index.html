@@ -88,7 +88,7 @@
 <meta property="og:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 123456789101112131415161718192021222324252627282930313233343536373839404142联系到可能是SQL注入于是在URL后面加一个hint参数http://123.206.87.240:8002/flag">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-29T12:58:31.333Z">
+<meta property="og:updated_time" content="2019-01-31T12:50:20.205Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flag.php 未完成的wp">
 <meta name="twitter:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 123456789101112131415161718192021222324252627282930313233343536373839404142联系到可能是SQL注入于是在URL后面加一个hint参数http://123.206.87.240:8002/flag">
@@ -314,8 +314,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-01-29T20:58:31+08:00">
-                2019-01-29
+              <time title="Post modified" itemprop="dateModified" datetime="2019-01-31T20:50:20+08:00">
+                2019-01-31
               </time>
             
           </span>
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  623
+                  628
                 </span>
               
 
@@ -417,8 +417,12 @@
 <h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>目前看到一篇 <a href="https://blog.csdn.net/u013982161/article/details/55005542" target="_blank" rel="noopener">cookie详解</a></p>
 <p>到底什么是cookie，怎样才会产生cookie， cookie的作用自不必言。<br>产生cookie有几种方式：<br>server端 的response中包含cookie设置</p>
 <p>脚本方式种植cookie， 主要就是用javascript里的document.cookie对象来实现</p>
-<p>通过在URL栏输入 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">可以查看这个页面的cookie</span><br><span class="line"></span><br><span class="line">当然cookie还有很多 **属性**， 比如为了安全而设置的http only属性， cookie的生存周期等。</span><br><span class="line"></span><br><span class="line">##### serialize</span><br><span class="line">serialize() 函数用于序列化对象或数组，并返回一个字符串。</span><br><span class="line">**serialize()** 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。</span><br><span class="line"></span><br><span class="line">如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()</span><br><span class="line"></span><br><span class="line">语法如下：</span><br><span class="line">```string serialize ( mixed $value )</span><br></pre></td></tr></table></figure></p>
-<p>将其看作一种变化或许可以</p>
+<p>通过在URL栏输入  javascript:alert(document.cookie)</p>
+<p>可以查看这个页面的cookie</p>
+<p>当然cookie还有很多 <strong>属性</strong>， 比如为了安全而设置的http only属性， cookie的生存周期等。</p>
+<h5 id="serialize"><a href="#serialize" class="headerlink" title="serialize"></a>serialize</h5><p>serialize() 函数用于序列化对象或数组，并返回一个字符串。<br><strong>serialize()</strong> 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。</p>
+<p>如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()</p>
+<p>语法如下：<br>string serialize ( mixed $value )<br>将其看作一种变化或许可以</p>
 
       
     </div>
@@ -534,7 +538,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">22</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -556,7 +560,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -589,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初探"><span class="nav-number">2.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析代码"><span class="nav-number">3.</span> <span class="nav-text">分析代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充："><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">4.1.</span> <span class="nav-text">cookie</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初探"><span class="nav-number">2.</span> <span class="nav-text">初探</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#分析代码"><span class="nav-number">3.</span> <span class="nav-text">分析代码</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#补充："><span class="nav-number">4.</span> <span class="nav-text">补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#cookie"><span class="nav-number">4.1.</span> <span class="nav-text">cookie</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#serialize"><span class="nav-number">4.2.</span> <span class="nav-text">serialize</span></a></li></ol></li></ol></div>
             
 
           </div>
