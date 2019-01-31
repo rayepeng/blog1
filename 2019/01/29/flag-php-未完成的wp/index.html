@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 123456789101112131415161718192021222324252627282930313233343536373839404142联系到可能是SQL注入于是在URL后面加一个hint参数http://123.206.87.240:8002/flag">
+<meta name="description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 hint联系到可能是SQL注入 于是在URL后面加一个hint参数http://123.206.87.240:8002/flagphp/?hint=1 得到一串代码：123456789101112131415161718192021222324252627282930">
 <meta name="keywords" content="cookie">
 <meta property="og:type" content="article">
 <meta property="og:title" content="flag.php 未完成的wp">
 <meta property="og:url" content="https://prontosil.club/2019/01/29/flag-php-未完成的wp/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 123456789101112131415161718192021222324252627282930313233343536373839404142联系到可能是SQL注入于是在URL后面加一个hint参数http://123.206.87.240:8002/flag">
+<meta property="og:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 hint联系到可能是SQL注入 于是在URL后面加一个hint参数http://123.206.87.240:8002/flagphp/?hint=1 得到一串代码：123456789101112131415161718192021222324252627282930">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-31T12:50:20.205Z">
+<meta property="og:updated_time" content="2019-01-31T13:07:07.873Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="flag.php 未完成的wp">
-<meta name="twitter:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 123456789101112131415161718192021222324252627282930313233343536373839404142联系到可能是SQL注入于是在URL后面加一个hint参数http://123.206.87.240:8002/flag">
+<meta name="twitter:description" content="写在前面好吧我承认我是看了别人的wp，目前还很菜  然而我看了wp也不会做。 初探进去之后是一个什么都点不动的页面。。 然后有提示 hint联系到可能是SQL注入 于是在URL后面加一个hint参数http://123.206.87.240:8002/flagphp/?hint=1 得到一串代码：123456789101112131415161718192021222324252627282930">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -314,7 +314,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-01-31T20:50:20+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-01-31T21:07:07+08:00">
                 2019-01-31
               </time>
             
@@ -410,19 +410,21 @@
 <hr>
 <p>然而我看了wp也不会做。</p>
 <h4 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="页面"><br>进去之后是一个什么都点不动的页面。。</p>
-<p>然后有提示 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">联系到可能是SQL注入</span><br><span class="line"></span><br><span class="line">于是在URL后面加一个hint参数</span><br><span class="line">http://123.206.87.240:8002/flagphp/?hint=1</span><br><span class="line"></span><br><span class="line">得到一串代码：</span><br><span class="line">```php+HTML</span><br><span class="line">&lt;?php </span><br><span class="line">error_reporting(0); </span><br><span class="line">include_once(&quot;flag.php&quot;); </span><br><span class="line">$cookie = $_COOKIE[&apos;ISecer&apos;]; </span><br><span class="line">if(isset($_GET[&apos;hint&apos;]))&#123; </span><br><span class="line">    show_source(__FILE__); </span><br><span class="line">&#125; </span><br><span class="line">elseif (unserialize($cookie) === &quot;$KEY&quot;) </span><br><span class="line">&#123;    </span><br><span class="line">    echo &quot;$flag&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else &#123; </span><br><span class="line">?&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; </span><br><span class="line">&lt;title&gt;Login&lt;/title&gt; </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;admin.css&quot; type=&quot;text/css&quot;&gt; </span><br><span class="line">&lt;/head&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;br&gt; </span><br><span class="line">&lt;div class=&quot;container&quot; align=&quot;center&quot;&gt; </span><br><span class="line">  &lt;form method=&quot;POST&quot; action=&quot;#&quot;&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input value=&quot;Login&quot; type=&quot;button&quot;/&gt;&lt;/p&gt; </span><br><span class="line">  &lt;/form&gt; </span><br><span class="line">&lt;/div&gt; </span><br><span class="line">&lt;/body&gt; </span><br><span class="line">&lt;/html&gt; </span><br><span class="line"></span><br><span class="line">&lt;?php </span><br><span class="line">&#125; </span><br><span class="line">$KEY=&apos;ISecer:www.isecer.com&apos;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后有提示 <code>hint</code><br>联系到可能是SQL注入</p>
+<p>于是在URL后面加一个hint参数<br><a href="http://123.206.87.240:8002/flagphp/?hint=1" target="_blank" rel="noopener">http://123.206.87.240:8002/flagphp/?hint=1</a></p>
+<p>得到一串代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">error_reporting(0); </span><br><span class="line">include_once(&quot;flag.php&quot;); </span><br><span class="line">$cookie = $_COOKIE[&apos;ISecer&apos;]; </span><br><span class="line">if(isset($_GET[&apos;hint&apos;]))&#123; </span><br><span class="line">    show_source(__FILE__); </span><br><span class="line">&#125; </span><br><span class="line">elseif (unserialize($cookie) === &quot;$KEY&quot;) </span><br><span class="line">&#123;    </span><br><span class="line">    echo &quot;$flag&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else &#123; </span><br><span class="line">?&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; </span><br><span class="line">&lt;title&gt;Login&lt;/title&gt; </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;admin.css&quot; type=&quot;text/css&quot;&gt; </span><br><span class="line">&lt;/head&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;br&gt; </span><br><span class="line">&lt;div class=&quot;container&quot; align=&quot;center&quot;&gt; </span><br><span class="line">  &lt;form method=&quot;POST&quot; action=&quot;#&quot;&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input value=&quot;Login&quot; type=&quot;button&quot;/&gt;&lt;/p&gt; </span><br><span class="line">  &lt;/form&gt; </span><br><span class="line">&lt;/div&gt; </span><br><span class="line">&lt;/body&gt; </span><br><span class="line">&lt;/html&gt; </span><br><span class="line"></span><br><span class="line">&lt;?php </span><br><span class="line">&#125; </span><br><span class="line">$KEY=&apos;ISecer:www.isecer.com&apos;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p>
 <h4 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h4><p>第一句话把报错信息都关掉了<br>然后包含了一个文件flag.php(这不正好是题目的名字？)<br>然后设置cookie<br>额。。<br>然后如果GET得到了hint， 就会把文件的代码都展示出来</p>
 <p>否则如果\$cookie反序列化后得到的结果等于字符串”$KEY”，就会显示flag！</p>
 <h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>目前为止这个题目还没做出来。<br>主要是对cookie和serialize这两个不熟悉</p>
 <h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>目前看到一篇 <a href="https://blog.csdn.net/u013982161/article/details/55005542" target="_blank" rel="noopener">cookie详解</a></p>
 <p>到底什么是cookie，怎样才会产生cookie， cookie的作用自不必言。<br>产生cookie有几种方式：<br>server端 的response中包含cookie设置</p>
 <p>脚本方式种植cookie， 主要就是用javascript里的document.cookie对象来实现</p>
-<p>通过在URL栏输入  javascript:alert(document.cookie)</p>
+<p>通过在URL栏输入  <code>javascript:alert(document.cookie)</code></p>
 <p>可以查看这个页面的cookie</p>
 <p>当然cookie还有很多 <strong>属性</strong>， 比如为了安全而设置的http only属性， cookie的生存周期等。</p>
 <h5 id="serialize"><a href="#serialize" class="headerlink" title="serialize"></a>serialize</h5><p>serialize() 函数用于序列化对象或数组，并返回一个字符串。<br><strong>serialize()</strong> 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。</p>
 <p>如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()</p>
-<p>语法如下：<br>string serialize ( mixed $value )<br>将其看作一种变化或许可以</p>
+<p>语法如下：<br><code>string serialize ( mixed $value )</code><br>将其看作一种变化或许可以</p>
 
       
     </div>
@@ -538,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -549,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -560,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
