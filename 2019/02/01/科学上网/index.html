@@ -89,9 +89,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-2252ca4aed23b156.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-1f97f929db4d2a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-1afef07288cf34e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-ab85693bbfeb95b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-10f625c23daf93cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-6475288e3364b8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-01T06:30:01.785Z">
+<meta property="og:updated_time" content="2019-02-01T06:33:34.680Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="科学上网">
 <meta name="twitter:description" content="写在前面就在昨天，我在逛推特的时候，无意中发现了一个似曾相识的人，竟然还是twitter推荐给我的！ 于是果断地扣了一下学长，学长告诉我可以自己组建vpn，但是觉得好神奇，后来试了一下，别说，还真行。 知识储备中国国家防火墙 是SOCKetS的缩写12345678[是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。](https://zh.wikipedia.org/wiki/SO">
@@ -317,7 +318,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-01T14:30:01+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-01T14:33:34+08:00">
                 2019-02-01
               </time>
             
@@ -372,7 +373,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  788
+                  765
                 </span>
               
 
@@ -420,7 +421,11 @@
 <h4 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h4><p>使用<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬瓦工</a>搭建VPS</p>
 <p>进入之后就可以看到这个界面了，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1f97f929db4d2a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="界面"></p>
 <p>当然是选择最便宜的啦<br>不过要注意我们一定要选KVM架构的，只有KVM架构才能使用bbr加速</p>
-<p>之后登陆控制面板<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1afef07288cf34e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制面板"><br>我们需要安装一个<figure class="highlight plain"><figcaption><span>64```位的操作系统</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后这个时候在本地去连接VPS</span><br><span class="line">ssh root@[ip地址] -P[端口号]</span><br><span class="line"></span><br><span class="line">使用下面这串代码进行ssr搭建</span><br><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</span><br><span class="line"></span><br><span class="line">大部分都是默认安装</span><br><span class="line">![ssr安装后的结果](https://upload-images.jianshu.io/upload_images/10651191-ab85693bbfeb95b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)</span><br><span class="line"></span><br><span class="line">之后 ```bash ssr.sh</span><br></pre></td></tr></table></figure></p>
+<p>之后登陆控制面板<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1afef07288cf34e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制面板"><br>我们需要安装一个<code>debian 64</code>位的操作系统</p>
+<p>然后这个时候在本地去连接VPS<br>ssh root@[ip地址] -P[端口号]</p>
+<p>使用下面这串代码进行ssr搭建<br>wget -N —no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh</a> &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</p>
+<p>大部分都是默认安装<br><img src="https://upload-images.jianshu.io/upload_images/10651191-ab85693bbfeb95b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ssr安装后的结果"></p>
+<p>之后 <code>bash ssr.sh</code></p>
 <p>安装bbr加速<br>wget —no-check-certificate <a href="https://github.com/teddysun/across/raw/master/bbr.sh" target="_blank" rel="noopener">https://github.com/teddysun/across/raw/master/bbr.sh</a></p>
 <p>chmod +x bbr.sh<br>./bbr.sh<br><img src="https://upload-images.jianshu.io/upload_images/10651191-10f625c23daf93cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
 <hr>
