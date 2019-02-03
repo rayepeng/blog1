@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,FHS,">
 
 
 
@@ -79,19 +79,20 @@
 
 
 
-<meta name="description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
+<meta name="description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。">
+<meta name="keywords" content="Linux,FHS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux目录配置与分区">
 <meta property="og:url" content="https://prontosil.club/2019/02/03/Linux目录配置与分区/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
+<meta property="og:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-549937925edb9ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-03T01:25:38.653Z">
+<meta property="og:updated_time" content="2019-02-03T11:53:19.312Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux目录配置与分区">
-<meta name="twitter:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
+<meta name="twitter:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -314,7 +315,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T09:25:38+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T19:53:19+08:00">
                 2019-02-03
               </time>
             
@@ -405,6 +406,7 @@
 <h4 id="Linux的目录配置"><a href="#Linux的目录配置" class="headerlink" title="Linux的目录配置"></a>Linux的目录配置</h4><p>FHS 文件层次结构标准</p>
 <p><img src="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="约定"></p>
 <p>说实话我没看懂上面那张图。</p>
+<a id="more"></a>
 <p>事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：</p>
 <ul>
 <li>/ （root, 根目录）：与开机系统有关；</li>
@@ -443,6 +445,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/FHS/" rel="tag"># FHS</a>
+          
+        </div>
       
 
       
@@ -566,7 +576,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -576,6 +586,28 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xinyongp" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/IXjh7vA3Zr2Ma2G" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/story/10970029" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
           
 
           

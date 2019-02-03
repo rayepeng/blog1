@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,磁盘管理,">
 
 
 
@@ -80,6 +80,7 @@
 
 
 <meta name="description" content="写在前面还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz 磁盘管理磁盘的构造这部分的内容其实是很重要的，但是我现在还不想写， 虽然">
+<meta name="keywords" content="Linux,磁盘管理">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux文件与磁盘管理">
 <meta property="og:url" content="https://prontosil.club/2019/02/03/Linux文件与磁盘管理/index.html">
@@ -89,7 +90,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-b050045de693ff1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-7a113ff572f68046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-02-03T01:25:59.863Z">
+<meta property="og:updated_time" content="2019-02-03T11:52:25.257Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux文件与磁盘管理">
 <meta name="twitter:description" content="写在前面还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz 磁盘管理磁盘的构造这部分的内容其实是很重要的，但是我现在还不想写， 虽然">
@@ -315,7 +316,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T09:25:59+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T19:52:25+08:00">
                 2019-02-03
               </time>
             
@@ -404,6 +405,7 @@
       
         <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz</p>
 <h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><h5 id="磁盘的构造"><a href="#磁盘的构造" class="headerlink" title="磁盘的构造"></a>磁盘的构造</h5><p>这部分的内容其实是很重要的，但是我现在还不想写， 虽然这部分的内容我是看了不下很多次， 但是始终不是很明白。</p>
+<a id="more"></a>
 <h5 id="Linux磁盘管理的命令"><a href="#Linux磁盘管理的命令" class="headerlink" title="Linux磁盘管理的命令"></a>Linux磁盘管理的命令</h5><p><code>df</code><br><strong>用来检查文件系统的磁盘空间占用情况</strong><br>-a 列出所有的文件系统， 包括系统特有的/proc等文件系统<br>(记得曾经写过/proc是一个虚拟的文件系统)<br>df可以列出所有的文件系统但是不包括/proc等比较特殊的文件系统）<br><img src="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="df - a"></p>
 <p>这里用的是WSL系统， 反映出的文件系统居然没有NTFS。emm不造了</p>
 <p>-k , -m, -h 其中 -k是以KB， -m是以MB， -h以一种比较友好的方式显示出来<br>-H 以千进制 替换 1024进制</p>
@@ -451,6 +453,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/磁盘管理/" rel="tag"># 磁盘管理</a>
+          
+        </div>
       
 
       
@@ -574,7 +584,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -584,6 +594,28 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xinyongp" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/IXjh7vA3Zr2Ma2G" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/story/10970029" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
           
 
           

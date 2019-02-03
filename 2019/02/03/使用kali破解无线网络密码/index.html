@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="kali,WLAN,aircrack-ng,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络具体操作如下： 1 使用airmon-ng命令查看当前系统中的无线网络接口。2 修改wlan0接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。命令如下： airmon-ng stop wlan0或者如下： ifconfig wlan0 down 执行以上命令使得">
+<meta name="description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络">
+<meta name="keywords" content="kali,WLAN,aircrack-ng">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用kali破解无线网络密码">
 <meta property="og:url" content="https://prontosil.club/2019/02/03/使用kali破解无线网络密码/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络具体操作如下： 1 使用airmon-ng命令查看当前系统中的无线网络接口。2 修改wlan0接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。命令如下： airmon-ng stop wlan0或者如下： ifconfig wlan0 down 执行以上命令使得">
+<meta property="og:description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-03T01:24:54.546Z">
+<meta property="og:updated_time" content="2019-02-03T11:57:17.670Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用kali破解无线网络密码">
-<meta name="twitter:description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络具体操作如下： 1 使用airmon-ng命令查看当前系统中的无线网络接口。2 修改wlan0接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。命令如下： airmon-ng stop wlan0或者如下： ifconfig wlan0 down 执行以上命令使得">
+<meta name="twitter:description" content="使用Aircrack-ng破解无线网络无线网络的加密工具有哪些？ 破解WEP加密的无线网络">
 
 
 
@@ -311,7 +312,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T09:24:54+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T19:57:17+08:00">
                 2019-02-03
               </time>
             
@@ -399,7 +400,8 @@
 
       
         <h3 id="使用Aircrack-ng破解无线网络"><a href="#使用Aircrack-ng破解无线网络" class="headerlink" title="使用Aircrack-ng破解无线网络"></a>使用<code>Aircrack-ng</code>破解无线网络</h3><h5 id="无线网络的加密工具有哪些？"><a href="#无线网络的加密工具有哪些？" class="headerlink" title="无线网络的加密工具有哪些？"></a>无线网络的加密工具有哪些？</h5><hr>
-<h4 id="破解WEP加密的无线网络"><a href="#破解WEP加密的无线网络" class="headerlink" title="破解WEP加密的无线网络"></a>破解WEP加密的无线网络</h4><p><strong>具体操作如下：</strong></p>
+<h4 id="破解WEP加密的无线网络"><a href="#破解WEP加密的无线网络" class="headerlink" title="破解WEP加密的无线网络"></a>破解WEP加密的无线网络</h4><a id="more"></a>
+<p><strong>具体操作如下：</strong></p>
 <h5 id="1-使用airmon-ng命令查看当前系统中的无线网络接口。"><a href="#1-使用airmon-ng命令查看当前系统中的无线网络接口。" class="headerlink" title="1 使用airmon-ng命令查看当前系统中的无线网络接口。"></a>1 使用<code>airmon-ng</code>命令查看当前系统中的无线网络接口。</h5><h5 id="2-修改wlan0接口的MAC地址，-因为MAC地址标识主机所在的网络，-在修改MAC地址之前，-需要停止该接口。"><a href="#2-修改wlan0接口的MAC地址，-因为MAC地址标识主机所在的网络，-在修改MAC地址之前，-需要停止该接口。" class="headerlink" title="2 修改wlan0接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。"></a>2 修改<code>wlan0</code>接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。</h5><p>命令如下： <code>airmon-ng stop wlan0</code><br>或者如下： <code>ifconfig wlan0 down</code></p>
 <p>执行以上命令使得wlan0接口停止了， 此时可以修改MAC地址了，命令如下：</p>
 <p><code>macchanger --mac 00:11:22:33:44:55 wlan0</code></p>
@@ -437,6 +439,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/kali/" rel="tag"># kali</a>
+          
+            <a href="/tags/WLAN/" rel="tag"># WLAN</a>
+          
+            <a href="/tags/aircrack-ng/" rel="tag"># aircrack-ng</a>
+          
+        </div>
       
 
       
@@ -560,7 +572,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -570,6 +582,28 @@
 
           
 
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xinyongp" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/IXjh7vA3Zr2Ma2G" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://stackoverflow.com/users/story/10970029" target="_blank" title="StackOverflow">
+                      
+                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
+                  </span>
+                
+            </div>
           
 
           
