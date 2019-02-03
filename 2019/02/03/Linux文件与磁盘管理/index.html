@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
-<meta name="keywords" content="git">
+<meta name="description" content="写在前面还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz 磁盘管理磁盘的构造这部分的内容其实是很重要的，但是我现在还不想写， 虽然">
 <meta property="og:type" content="article">
-<meta property="og:title" content="折腾git的那些事儿">
-<meta property="og:url" content="https://prontosil.club/2018/12/09/折腾git的那些事儿/index.html">
+<meta property="og:title" content="Linux文件与磁盘管理">
+<meta property="og:url" content="https://prontosil.club/2019/02/03/Linux文件与磁盘管理/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
+<meta property="og:description" content="写在前面还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz 磁盘管理磁盘的构造这部分的内容其实是很重要的，但是我现在还不想写， 虽然">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T11:39:01.513Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-b050045de693ff1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-7a113ff572f68046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-02-03T01:25:59.863Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="折腾git的那些事儿">
-<meta name="twitter:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
+<meta name="twitter:title" content="Linux文件与磁盘管理">
+<meta name="twitter:description" content="写在前面还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz 磁盘管理磁盘的构造这部分的内容其实是很重要的，但是我现在还不想写， 虽然">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -120,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/2018/12/09/折腾git的那些事儿/">
+  <link rel="canonical" href="https://prontosil.club/2019/02/03/Linux文件与磁盘管理/">
 
 
 
 
 
-  <title>折腾git的那些事儿 | prontosil</title>
+  <title>Linux文件与磁盘管理 | prontosil</title>
   
 
 
@@ -267,7 +270,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/09/折腾git的那些事儿/">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/03/Linux文件与磁盘管理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="百浪多息">
@@ -284,7 +287,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">折腾git的那些事儿</h1>
+          <h1 class="post-title" itemprop="name headline">Linux文件与磁盘管理</h1>
         
 
         <div class="post-meta">
@@ -296,8 +299,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-09T19:29:38+08:00">
-                2018-12-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-03T09:24:23+08:00">
+                2019-02-03
               </time>
             
 
@@ -312,8 +315,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-09T19:39:01+08:00">
-                2018-12-09
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T09:25:59+08:00">
+                2019-02-03
               </time>
             
           </span>
@@ -331,8 +334,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -367,7 +370,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  404
+                  812
                 </span>
               
 
@@ -383,7 +386,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -404,36 +407,41 @@
       
 
       
-        <blockquote>
-<p>git是一个很强大的工具</p>
+        <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz</p>
+<h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><h5 id="磁盘的构造"><a href="#磁盘的构造" class="headerlink" title="磁盘的构造"></a>磁盘的构造</h5><p>这部分的内容其实是很重要的，但是我现在还不想写， 虽然这部分的内容我是看了不下很多次， 但是始终不是很明白。</p>
+<h5 id="Linux磁盘管理的命令"><a href="#Linux磁盘管理的命令" class="headerlink" title="Linux磁盘管理的命令"></a>Linux磁盘管理的命令</h5><p><code>df</code><br><strong>用来检查文件系统的磁盘空间占用情况</strong><br>-a 列出所有的文件系统， 包括系统特有的/proc等文件系统<br>(记得曾经写过/proc是一个虚拟的文件系统)<br>df可以列出所有的文件系统但是不包括/proc等比较特殊的文件系统）<br><img src="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="df - a"></p>
+<p>这里用的是WSL系统， 反映出的文件系统居然没有NTFS。emm不造了</p>
+<p>-k , -m, -h 其中 -k是以KB， -m是以MB， -h以一种比较友好的方式显示出来<br>-H 以千进制 替换 1024进制</p>
+<h2 id="T-显示文件系统类型"><a href="#T-显示文件系统类型" class="headerlink" title="-T 显示文件系统类型"></a>-T 显示文件系统类型</h2><blockquote>
+<p>写道这里我突然明白了， 文件系统和文件系统类型是两个东西， 一个是FileSystem, 另外一个是 FileSystemType 这是不同的概念</p>
 </blockquote>
-<p>最基本的命令，包括 </p>
-<ul>
-<li><code>git init</code> 初始化一个git仓库</li>
-<li><code>git status</code>查看当前的状态</li>
-<li><code>git add</code>将本地仓库中的内容添加到暂存区</li>
-<li><code>git commit</code>将本地仓库(emmmm)好像还没弄明白</li>
-<li><code>git clone</code>克隆一个仓库</li>
-<li><code>git push</code>将本地上传到远程仓库</li>
-</ul>
-<p>以往我都是直接新建一个仓库，然后<code>git remote add origin</code>这个仓库的</p>
-<p>但是这次我忘记本地与远程那个连接的仓库放在电脑哪个位置了。</p>
-<p>所以我直接<code>git init</code>了一个，然后就<code>git remote add origin</code>了一个现有的远程仓库</p>
-<p>悲剧来了</p>
-<p>当我<code>git push</code>的时候，报错了！！！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to &apos;git@github.com:xinyongpeng/Data.git&apos;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &apos;git pull ...&apos;) before pushing again.</span><br><span class="line">hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</span><br></pre></td></tr></table></figure>
-<p>参考<a href="https://blog.csdn.net/u013120247/article/details/53263169" target="_blank" rel="noopener">这篇文章</a></p>
-<p>解决步骤：</p>
-<ul>
-<li><code>git clone git@github.com:xinyongpeng/Data.git</code> 是不行的，会报错</li>
-<li><code>git pull --rebase origin master</code>先运行这个命令</li>
-</ul>
-<p>提示如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase for key &apos;/c/Users/zz/.ssh/id_rsa&apos;:</span><br><span class="line">warning: no common commits</span><br><span class="line">remote: Enumerating objects: 22, done.</span><br><span class="line">remote: Counting objects: 100% (22/22), done.</span><br><span class="line">remote: Compressing objects: 100% (16/16), done.</span><br><span class="line">remote: Total 22 (delta 4), reused 21 (delta 3), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (22/22), done.</span><br><span class="line">From github.com:xinyongpeng/Data</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: 贝贝的代码</span><br></pre></td></tr></table></figure>
-<p>之后再<code>git push origin master</code>就行了</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-b050045de693ff1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="df -Tha"></p>
+<p>-i 不用硬盘容量， 而以inode的数量来显示</p>
+<hr>
+<p>inode 的坑之后再补</p>
+<p><code>du</code><br><strong>也是查看空间的， 但du是对文件和目录磁盘使用的空间的查看</strong><br>参数如下<br>-a 列出所有的文件与目录容量<br>-h 友好的方式<br>-s 列出总量<br>-S 不包括子目录下的总计<br>-k, -m 与df命令一样</p>
+<p><code>fdisk</code><br><strong>磁盘分区表的操作工具</strong><br>-l 输出后面的接的装置所有的内容</p>
+<p><code>mkfs</code><br><strong>磁盘格式化命令</strong></p>
 <blockquote>
-<p>原理不是太明白，先解决问题吧</p>
+<p>mkfs [-t 文件系统格式] 装置文件名</p>
 </blockquote>
+<p><code>fsck</code><br><strong>用来检查和维护不一致的文件系统</strong></p>
+<blockquote>
+<p>fsck [-t 文件系统] [-ACay] 装置名称</p>
+</blockquote>
+<p><code>mount</code>  与<code>umount</code><br>磁盘挂载与卸载命令</p>
+<blockquote>
+<p>mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点</p>
+</blockquote>
+<hr>
+<p>一次性写这么多我的懵了</p>
+<p>这里补充一点笔记</p>
+<blockquote>
+<p>Linux 操作系统的文件数据除了文件实际内容外，通常含有非常多的属性，例如 Linux 操作系统的文件权限（rwx）与文件属性（拥有者、群组、时间参数等）。文件系统通常会将这两部分的数据分别存放在不同的区块，权限与属性存放在 inode 中，至于实际数据则放置到 data block 区块中。另外，还有一个超级区块（superblock）会记录整个文件系统的整体信息，包括 inode 与 block 的总量、使用量、剩余量等。</p>
+<p>inode：记录文件的属性，一个文件占用一个 inode，同时记录此文件的数据所在的 block。</p>
+<p>在 Linux 中，可以使用 stat 命令查看某个文件的 inode 信息：</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-7a113ff572f68046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="stat命令"></p>
 
       
     </div>
@@ -449,12 +457,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/git/" rel="tag"># git</a>
-          
-        </div>
-      
 
       
       
@@ -464,8 +466,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/08/学习部-加油！/" rel="next" title="学习部 加油！">
-                <i class="fa fa-chevron-left"></i> 学习部 加油！
+              <a href="/2019/02/03/Linux目录配置与分区/" rel="next" title="Linux目录配置与分区">
+                <i class="fa fa-chevron-left"></i> Linux目录配置与分区
               </a>
             
           </div>
@@ -473,10 +475,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/12/10/申请pycharm专业版/" rel="prev" title="申请pycharm专业版">
-                申请pycharm专业版 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -528,8 +526,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -589,6 +596,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#磁盘管理"><span class="nav-number">2.</span> <span class="nav-text">磁盘管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#磁盘的构造"><span class="nav-number">2.1.</span> <span class="nav-text">磁盘的构造</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Linux磁盘管理的命令"><span class="nav-number">2.2.</span> <span class="nav-text">Linux磁盘管理的命令</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#T-显示文件系统类型"><span class="nav-number"></span> <span class="nav-text">-T 显示文件系统类型</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

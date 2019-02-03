@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="git,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
-<meta name="keywords" content="git">
+<meta name="description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
 <meta property="og:type" content="article">
-<meta property="og:title" content="折腾git的那些事儿">
-<meta property="og:url" content="https://prontosil.club/2018/12/09/折腾git的那些事儿/index.html">
+<meta property="og:title" content="Linux目录配置与分区">
+<meta property="og:url" content="https://prontosil.club/2019/02/03/Linux目录配置与分区/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
+<meta property="og:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-12-09T11:39:01.513Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-549937925edb9ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-02-03T01:25:38.653Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="折腾git的那些事儿">
-<meta name="twitter:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库  以往我都是直接新建一个仓库，然后git remote add origin这个仓库的 但是这">
+<meta name="twitter:title" content="Linux目录配置与分区">
+<meta name="twitter:description" content="写在前面我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了 Linux的目录配置FHS 文件层次结构标准  说实话我没看懂上面那张图。 事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：  / （root, 根目录）：与开机系统有关； /usr （unix software r">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/2018/12/09/折腾git的那些事儿/">
+  <link rel="canonical" href="https://prontosil.club/2019/02/03/Linux目录配置与分区/">
 
 
 
 
 
-  <title>折腾git的那些事儿 | prontosil</title>
+  <title>Linux目录配置与分区 | prontosil</title>
   
 
 
@@ -267,7 +269,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/09/折腾git的那些事儿/">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/03/Linux目录配置与分区/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="百浪多息">
@@ -284,7 +286,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">折腾git的那些事儿</h1>
+          <h1 class="post-title" itemprop="name headline">Linux目录配置与分区</h1>
         
 
         <div class="post-meta">
@@ -296,8 +298,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-09T19:29:38+08:00">
-                2018-12-09
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-03T09:24:09+08:00">
+                2019-02-03
               </time>
             
 
@@ -312,8 +314,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-09T19:39:01+08:00">
-                2018-12-09
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T09:25:38+08:00">
+                2019-02-03
               </time>
             
           </span>
@@ -331,8 +333,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -367,7 +369,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  404
+                  783
                 </span>
               
 
@@ -383,7 +385,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -404,36 +406,34 @@
       
 
       
-        <blockquote>
-<p>git是一个很强大的工具</p>
-</blockquote>
-<p>最基本的命令，包括 </p>
+        <h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了</p>
+<h4 id="Linux的目录配置"><a href="#Linux的目录配置" class="headerlink" title="Linux的目录配置"></a>Linux的目录配置</h4><p>FHS 文件层次结构标准</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="约定"></p>
+<p>说实话我没看懂上面那张图。</p>
+<p>事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：</p>
 <ul>
-<li><code>git init</code> 初始化一个git仓库</li>
-<li><code>git status</code>查看当前的状态</li>
-<li><code>git add</code>将本地仓库中的内容添加到暂存区</li>
-<li><code>git commit</code>将本地仓库(emmmm)好像还没弄明白</li>
-<li><code>git clone</code>克隆一个仓库</li>
-<li><code>git push</code>将本地上传到远程仓库</li>
+<li>/ （root, 根目录）：与开机系统有关；</li>
+<li>/usr （unix software resource）：与软件安装/执行有关；</li>
+<li>/var （variable）：与系统运行过程有关。<br>（还是鸟哥总结的精辟）</li>
 </ul>
-<p>以往我都是直接新建一个仓库，然后<code>git remote add origin</code>这个仓库的</p>
-<p>但是这次我忘记本地与远程那个连接的仓库放在电脑哪个位置了。</p>
-<p>所以我直接<code>git init</code>了一个，然后就<code>git remote add origin</code>了一个现有的远程仓库</p>
-<p>悲剧来了</p>
-<p>当我<code>git push</code>的时候，报错了！！！</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to &apos;git@github.com:xinyongpeng/Data.git&apos;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &apos;git pull ...&apos;) before pushing again.</span><br><span class="line">hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</span><br></pre></td></tr></table></figure>
-<p>参考<a href="https://blog.csdn.net/u013120247/article/details/53263169" target="_blank" rel="noopener">这篇文章</a></p>
-<p>解决步骤：</p>
+<h5 id="根目录约定"><a href="#根目录约定" class="headerlink" title="根目录约定"></a>根目录约定</h5><h6 id="FHS规定必须存在-根目录下的"><a href="#FHS规定必须存在-根目录下的" class="headerlink" title="FHS规定必须存在 根目录下的"></a>FHS规定必须存在 根目录下的</h6><p>/bin   放置可执行文件的目录<br>/boot 放置开机会使用到的文件<br>/dev 设备文件， 比较重要的文件有： /dev/zero， /dev/tty， /dev/sd<br>/etc 系统主要的配置文件几乎都存放在这个目录<br>特别重要的目录有： /etc/modprobe.d/, /etc/passwd, /etc/fstab, /etc/issue<br>/lib 放置函数库的目录<br>/media 软盘， 光盘， DVD等设备都暂时挂载于此<br>/mnt  也是挂载设备的目录， 其中 Windows上的Ubuntu就是通过这个目录去挂载windows上的其他的目录的<br>/opt 第三方协力软件放置的目录<br>/run 开机所产生的信息放置到这个目录下<br>/sbin 设置系统环境的文件的目录<br>/srv 服务的目录<br>/tmp 暂时存放的目录</p>
+<p>/usr<br>/var<br>以上两个目录是另外设置的， 但是也位于根目录中。</p>
+<h6 id="可选的目录"><a href="#可选的目录" class="headerlink" title="可选的目录"></a>可选的目录</h6><p>/home /lib<qual> /root</qual></p>
+<p>先放这张图便于理解目录的层次结构<br><img src="https://upload-images.jianshu.io/upload_images/10651191-549937925edb9ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录树架构"></p>
+<p>其中 /proc  是一个虚拟文件系统<br>/sys 也是一个虚拟的文件系统<br>/lost+found 当文件发生错误的时候， 将一些遗失的片段放入到这个目录</p>
+<h5 id="usr目录约定"><a href="#usr目录约定" class="headerlink" title="/usr目录约定"></a>/usr目录约定</h5><p>是 Unix software resource 的缩写， 不是User的缩写</p>
+<h6 id="必须的目录"><a href="#必须的目录" class="headerlink" title="必须的目录"></a>必须的目录</h6><p>/usr/bin 所有一般用户能够用到的指令都放在这里<br>/usr/lib 功能与/lib相同， 可以将/lib链接到这个目录<br>/usr/local 系统管理员下载的软件，建议安装到这个目录<br>/usr/sbin 非系统正常运行所需要的指令， 所以可以将/sbin 链接到此目录<br>/usr/share 主要放置只读架构的数据文件，当然也包括共享文件<br>其中可能存在次目录 /usr/share/man 线上说明文档<br>/usr/share/doc 软件杂项的文件说明<br>/usr/share/zoneinfo 与时区有关的文件</p>
+<h5 id="var目录约定"><a href="#var目录约定" class="headerlink" title="/var目录约定"></a>/var目录约定</h5><h6 id="必须的目录-1"><a href="#必须的目录-1" class="headerlink" title="必须的目录"></a>必须的目录</h6><p>/var/cache 缓存目录<br>/var/lib 程序执行时候的数据文件放置的目录<br>/var/lock 上锁的目录<br>/var/log 登陆文件放置的目录<br>/var/mail 电子邮件信箱的目录， 不过这个目录也被放置到/var/spool/mail<br>/var/run 放置PID的目录<br>/var/spool 伫列数据的目录</p>
+<hr>
+<p>不过鸟哥也总结了，centos 稍做了修改</p>
 <ul>
-<li><code>git clone git@github.com:xinyongpeng/Data.git</code> 是不行的，会报错</li>
-<li><code>git pull --rebase origin master</code>先运行这个命令</li>
+<li>/bin —&gt; /usr/bin</li>
+<li>/sbin —&gt; /usr/sbin</li>
+<li>/lib —&gt; /usr/lib</li>
+<li>/lib64 —&gt; /usr/lib64</li>
+<li>/var/lock —&gt; /run/lock</li>
+<li>/var/run —&gt; /run</li>
 </ul>
-<p>提示如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase for key &apos;/c/Users/zz/.ssh/id_rsa&apos;:</span><br><span class="line">warning: no common commits</span><br><span class="line">remote: Enumerating objects: 22, done.</span><br><span class="line">remote: Counting objects: 100% (22/22), done.</span><br><span class="line">remote: Compressing objects: 100% (16/16), done.</span><br><span class="line">remote: Total 22 (delta 4), reused 21 (delta 3), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (22/22), done.</span><br><span class="line">From github.com:xinyongpeng/Data</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: 贝贝的代码</span><br></pre></td></tr></table></figure>
-<p>之后再<code>git push origin master</code>就行了</p>
-<blockquote>
-<p>原理不是太明白，先解决问题吧</p>
-</blockquote>
 
       
     </div>
@@ -449,12 +449,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/git/" rel="tag"># git</a>
-          
-        </div>
-      
 
       
       
@@ -464,8 +458,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/08/学习部-加油！/" rel="next" title="学习部 加油！">
-                <i class="fa fa-chevron-left"></i> 学习部 加油！
+              <a href="/2019/02/03/使用kali破解无线网络密码/" rel="next" title="使用kali破解无线网络密码">
+                <i class="fa fa-chevron-left"></i> 使用kali破解无线网络密码
               </a>
             
           </div>
@@ -474,8 +468,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/10/申请pycharm专业版/" rel="prev" title="申请pycharm专业版">
-                申请pycharm专业版 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/03/Linux文件与磁盘管理/" rel="prev" title="Linux文件与磁盘管理">
+                Linux文件与磁盘管理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -528,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -589,6 +592,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#写在前面"><span class="nav-number">1.</span> <span class="nav-text">写在前面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Linux的目录配置"><span class="nav-number">2.</span> <span class="nav-text">Linux的目录配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#根目录约定"><span class="nav-number">2.1.</span> <span class="nav-text">根目录约定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#FHS规定必须存在-根目录下的"><span class="nav-number">2.1.1.</span> <span class="nav-text">FHS规定必须存在 根目录下的</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#可选的目录"><span class="nav-number">2.1.2.</span> <span class="nav-text">可选的目录</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#usr目录约定"><span class="nav-number">2.2.</span> <span class="nav-text">/usr目录约定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#必须的目录"><span class="nav-number">2.2.1.</span> <span class="nav-text">必须的目录</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#var目录约定"><span class="nav-number">2.3.</span> <span class="nav-text">/var目录约定</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#必须的目录-1"><span class="nav-number">2.3.1.</span> <span class="nav-text">必须的目录</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
