@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="UEFI,legacy,">
 
 
 
@@ -79,17 +79,18 @@
 
 
 
-<meta name="description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。 然后开始装Ubuntu 好像我很傻逼。。。 看了这篇博客 才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？  分区的建议: /boot - 200MB 实际需求 100~200MB /  15~20GB  /ho">
+<meta name="description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。">
+<meta name="keywords" content="UEFI,legacy">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UEFI和legacy">
 <meta property="og:url" content="https://prontosil.club/2018/12/20/UEFI和legacy/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。 然后开始装Ubuntu 好像我很傻逼。。。 看了这篇博客 才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？  分区的建议: /boot - 200MB 实际需求 100~200MB /  15~20GB  /ho">
+<meta property="og:description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-31T12:52:02.295Z">
+<meta property="og:updated_time" content="2019-02-03T13:50:22.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UEFI和legacy">
-<meta name="twitter:description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。 然后开始装Ubuntu 好像我很傻逼。。。 看了这篇博客 才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？  分区的建议: /boot - 200MB 实际需求 100~200MB /  15~20GB  /ho">
+<meta name="twitter:description" content="UEFI和legacy闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。 天哪，这就是联想的厉害吗。">
 
 
 
@@ -311,8 +312,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-01-31T20:52:02+08:00">
-                2019-01-31
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T21:50:22+08:00">
+                2019-02-03
               </time>
             
           </span>
@@ -361,7 +362,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  365
+                  519
                 </span>
               
 
@@ -400,6 +401,7 @@
       
         <h5 id="UEFI和legacy"><a href="#UEFI和legacy" class="headerlink" title="UEFI和legacy"></a>UEFI和legacy</h5><p>闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。</p>
 <p>天哪，这就是联想的厉害吗。</p>
+<a id="more"></a>
 <p>然后开始装Ubuntu</p>
 <p>好像我很傻逼。。。</p>
 <p>看了<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">这篇博客</a></p>
@@ -419,6 +421,10 @@
 <p>其实我主要的问题就是</p>
 <p>在我装双系统的时候，为什么legacy是无法引导U盘中的系统的</p>
 <p>只要当我全部启用了UEFI引导的时候才成功了。</p>
+<hr>
+<p>2019年2月3日更新一波</p>
+<h4 id="UEFI"><a href="#UEFI" class="headerlink" title="UEFI"></a>UEFI</h4><p>UEFI 是一种新兴的启动方式， 就是一个特定的分区， 200M左右， 让bios启动的时候直接把引导权限交给这个分区，这样你就可以使用鼠标了，因为传统的legacy模式下只能用键盘， 还可以做到连接无线自动下载镜像安装。</p>
+<h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>这就是为什么， 有时候安装Linux需要切换到legacy模式了，然而如果原来的系统是UEFI模式下安装的， 在lagacy模式是进不了的， 因为…bios不知道咋办了， 找不到UEFI</p>
 
       
     </div>
@@ -433,6 +439,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/UEFI/" rel="tag"># UEFI</a>
+          
+            <a href="/tags/legacy/" rel="tag"># legacy</a>
+          
+        </div>
       
 
       
@@ -534,7 +548,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -545,7 +559,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -556,7 +570,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -612,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#UEFI和legacy"><span class="nav-number">1.</span> <span class="nav-text">UEFI和legacy</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#UEFI和legacy"><span class="nav-number">1.</span> <span class="nav-text">UEFI和legacy</span></a></li></ol><li class="nav-item nav-level-4"><a class="nav-link" href="#UEFI"><span class="nav-number"></span> <span class="nav-text">UEFI</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#问题"><span class="nav-number"></span> <span class="nav-text">问题</span></a></li></div>
             
 
           </div>

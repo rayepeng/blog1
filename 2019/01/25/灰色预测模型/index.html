@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年  计算用的matlab程序如下12345678910111213141516171819202122232425clc, clear%写出初始数据a=[390.6, 412, 320, 559.2, 380.8, 542.4, 553, 310, 561, 300, 632,...540, 406.2, 540,">
+<meta name="description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年">
 <meta name="keywords" content="matlab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="灰色预测模型">
 <meta property="og:url" content="https://prontosil.club/2019/01/25/灰色预测模型/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年  计算用的matlab程序如下12345678910111213141516171819202122232425clc, clear%写出初始数据a=[390.6, 412, 320, 559.2, 380.8, 542.4, 553, 310, 561, 300, 632,...540, 406.2, 540,">
+<meta property="og:description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-440da227077d102d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-14668ea460255bad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-d0aa228c70d6f6e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-01-31T12:51:08.312Z">
+<meta property="og:updated_time" content="2019-02-03T14:10:12.057Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="灰色预测模型">
-<meta name="twitter:description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年  计算用的matlab程序如下12345678910111213141516171819202122232425clc, clear%写出初始数据a=[390.6, 412, 320, 559.2, 380.8, 542.4, 553, 310, 561, 300, 632,...540, 406.2, 540,">
+<meta name="twitter:description" content="灾变预测模型  这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -317,8 +317,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-01-31T20:51:08+08:00">
-                2019-01-31
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T22:10:12+08:00">
+                2019-02-03
               </time>
             
           </span>
@@ -407,6 +407,7 @@
         <ol>
 <li>灾变预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"><br> 这是某个地区降水量的数据，规定变量zeta &lt; 320为灾年</li>
 </ol>
+<a id="more"></a>
 <p>计算用的matlab程序如下<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">clc, clear</span><br><span class="line"><span class="comment">%写出初始数据</span></span><br><span class="line">a=[<span class="number">390.6</span>, <span class="number">412</span>, <span class="number">320</span>, <span class="number">559.2</span>, <span class="number">380.8</span>, <span class="number">542.4</span>, <span class="number">553</span>, <span class="number">310</span>, <span class="number">561</span>, <span class="number">300</span>, <span class="number">632</span>,...</span><br><span class="line"><span class="number">540</span>, <span class="number">406.2</span>, <span class="number">540</span>, <span class="number">406.2</span>, <span class="number">313.8</span>, <span class="number">576</span>, <span class="number">587.6</span>, <span class="number">318.5</span>]';</span><br><span class="line">t0=<span class="built_in">find</span>(a&lt;= <span class="number">320</span>);</span><br><span class="line">n=<span class="built_in">length</span>(t0);</span><br><span class="line"><span class="comment">%做累加运算</span></span><br><span class="line">t1=cumsum(t0);</span><br><span class="line">z1=<span class="number">0.5</span>*t1(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>)+<span class="number">0.5</span>*t1(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%求出B矩阵</span></span><br><span class="line">B=[-z1, <span class="built_in">ones</span>(n<span class="number">-1</span>, <span class="number">1</span>)];</span><br><span class="line">Y=t0(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"><span class="comment">%左除法</span></span><br><span class="line">r=B\Y;</span><br><span class="line">y=dsolve(<span class="string">'Dy+a*y=b'</span>, <span class="string">'y(0)=y0'</span>);</span><br><span class="line"><span class="comment">%替换变量</span></span><br><span class="line">y=subs(y, &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'y0'</span>&#125;, &#123;r(<span class="number">1</span>), r(<span class="number">2</span>), t1(<span class="number">1</span>)&#125; );</span><br><span class="line">yucel=subs(y, <span class="string">'t'</span>, [<span class="number">0</span>:n+<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">%为了提高预测精度，先计算预测值，再显示微分方程的解</span></span><br><span class="line">y=vpa(y, <span class="number">6</span>);</span><br><span class="line">yuce=diff(yucel);</span><br><span class="line">yuce=[t0(<span class="number">1</span>), yuce]</span><br><span class="line">yuce_new=yuce(n+<span class="number">1</span>: <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure></p>
 <ol>
 <li>同样的一个类似的预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-440da227077d102d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实例计算"></li>
@@ -526,7 +527,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -537,7 +538,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -548,7 +549,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">24</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
