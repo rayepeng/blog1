@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>prontosil</title>
+  
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="https://prontosil.club/"/>
+  <updated>2019-02-04T01:35:07.259Z</updated>
+  <id>https://prontosil.club/</id>
+  
+  <author>
+    <name>百浪多息</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LinuxShellScrips</title>
+    <link href="https://prontosil.club/2019/02/04/LinuxShellScrips/"/>
+    <id>https://prontosil.club/2019/02/04/LinuxShellScrips/</id>
+    <published>2019-02-04T01:29:46.000Z</published>
+    <updated>2019-02-04T01:35:07.259Z</updated>
+    
+    <content type="html"><![CDATA[<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Redhat or Fedora /etc/localtime</span></span><br><span class="line">date</span><br></pre></td></tr></table></figure><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export TZ=America/Los_Angeles</span><br><span class="line">echo "Your Timezone is = $TZ"</span><br><span class="line">date</span><br><span class="line">export TZ=Asia/Tokyo</span><br><span class="line">echo "Your Timezone is = $TZ"</span><br><span class="line">date</span><br><span class="line">unset TZ</span><br><span class="line">echo "Your Timezone is = $(cat /etc/timezone)"</span><br><span class="line"><span class="meta">#</span> For Redhat or Fedora /etc/localtime</span><br><span class="line">date</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;figure class=&quot;highlight sh&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;l
+      
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>对月思故人</title>
+    <link href="https://prontosil.club/2019/02/03/%E5%AF%B9%E6%9C%88%E6%80%9D%E6%95%85%E4%BA%BA/"/>
+    <id>https://prontosil.club/2019/02/03/对月思故人/</id>
+    <published>2019-02-03T14:12:12.000Z</published>
+    <updated>2019-02-03T14:27:43.494Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>掐指一算， 自己已经快20的人了， 这一路上， 不能说感谢有你， 也是至少有你们吧， 我才会走到今天</p><a id="more"></a><h4 id="2018年"><a href="#2018年" class="headerlink" title="2018年"></a>2018年</h4><ul><li>不用说， 2018年是我最快乐的一年， 不管其中是遭遇了考试失利呢， 也不管是奖学金评选的暗箱操作。 至少我遇到了一个我爱和爱我的人， 从此花前月下， 执子之手不再是梦想， 就好像被风吹起的一片叶子遇到了另一片叶子， 共同抵御吹起来的狂沙。爱护她，心疼她， 恨不得无时无刻不陪伴着她， 会有吵架， 会有伤心的时候，但情一字， 让我们经常是谁也不想离开谁。 会因为想看她笑而变蠢， 做出一些傻事来， 但是在那情人的眼中， 双目的对视中永远只有对方， 恁谁也别想阻拦。</li></ul><p>（我好想用一篇博客记录下来我们zz的故事， 但是碍于记忆不好， 难能实现）</p><ul><li>还有我的雨姐姐， 毕竟我有时候太急了，不过还好克制的住，才没和我的雨姐姐闹矛盾， 有你守候在锦盈的身旁，就算是借我十个胆子也不敢欺负锦盈呀。 虽然你比我和锦盈都大， 但是很多时候比我俩还放得开， 真的好像一个永远十八岁， 永远年轻的小姑娘。 嗯对， 我是故意说你的坏话呢， 但是在我心中你应该是我的妹妹才对呀。 是你一直默默关注着我和锦盈， 为我们爱情的小舟保驾护航呢。</li><li>宁宁， 这是我最之前暗恋过的人， 但是不像其他故事中发生一样， 我们还一直是很要好的朋友， 不管有什么东西， 总会想分享给对方。 而我们俩的爱好总是能保持一致， 最令人惊奇的当然是大一下学期的公选课居然能3节课都一模一样了。唉， 要是你是男生， 没准我们还能成为结拜兄弟呢。  有时候我累了， 往往会去找你聊天，这时候你总是会分享一些B站的视频给我看， 唉你怎么就知道我一定喜欢看呢， 不过我也确实喜欢看呀， 谢谢你给疲惫的我带来了一丝丝的清凉。</li><li>笑笑哥， 我怎么会把你给忘了呢， </li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;掐指一算， 自己已经快20的人了， 这一路上， 不能说感谢有你， 也是至少有你们吧， 我才会走到今天&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="随笔" scheme="https://prontosil.club/categories/%E9%9A%8F%E7%AC%94/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>next主题优化</title>
+    <link href="https://prontosil.club/2019/02/03/next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96-1/"/>
+    <id>https://prontosil.club/2019/02/03/next主题优化-1/</id>
+    <published>2019-02-03T11:10:30.000Z</published>
+    <updated>2019-02-03T11:50:09.536Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>爱美之心人皆有之</p></blockquote><h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>说实话我已经不记得当初是怎么搭建好博客的了，只是感觉next主题的风格实在是太美了，尤其是那些飘动的浮线。 新年要有新气象。 所以我也需要重新考虑自己是不是要针对自己的主题进行一次优化了。</p><h4 id="hexo搭建博客"><a href="#hexo搭建博客" class="headerlink" title="hexo搭建博客"></a>hexo搭建博客</h4><h5 id="在本地搭建hexo博客页面"><a href="#在本地搭建hexo博客页面" class="headerlink" title="在本地搭建hexo博客页面"></a>在本地搭建hexo博客页面</h5><p>建立在已经安装好了node.js的基础之上</p><blockquote><p>mkdir blog<br>cd blog</p></blockquote><p>之后在blog目录下运行</p><blockquote><p>npm install -g hexo-cli<br>hexo init blog</p></blockquote><p>这个时候的博客雏形就已经基本完成了</p><p>基本的四个命令如下</p><blockquote><p>hexo clean //清楚静态文件<br>hexo g //生成博客页面<br>hexo s //在本地运行， 默认在4000端口， 可以预览一下效果<br>hexo d //部署到GitHub page上</p></blockquote><a id="more"></a><p>hexo的主目录下会有如下一些文件和目录</p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-c91008f2bbadd333.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hexo主目录"></p><p><strong>需要注意的是我们此时的操作都是在这个目录下进行的</strong><br>其中的<strong>_config.yml</strong>文件我们称之为 <strong>站点配置文件</strong></p><p>默认的主题是 <strong>landscape</strong></p><h6 id="与GitHub相关联"><a href="#与GitHub相关联" class="headerlink" title="与GitHub相关联"></a>与GitHub相关联</h6><ul><li><p>打开我们的站点配置文件<br> 翻到最后修改为:<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-564d2fb7c472fa7e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="修改站点配置文件"></p></li><li><p>最后安装一下git部署插件</p><blockquote><p>npm install hexo-deployer-git —save</p></blockquote></li><li><p>markdown语法进阶<br>之后再来补坑</p></li><li><p>寻找图床<br>这个很简单， 平时直接用简书写作就行， 然后直接复制粘贴到自己想要发表的博客上</p></li><li><p>然后还有一些自我描述， 社交， 打赏什么的也很简单</p></li><li><p>添加网易云音乐<br>用网易云播放器生成外链， 修改blog\themes\next\layout_macro的sidebar.swig文件，添加刚刚复制的外链代码，<br><img src="https://pic4.zhimg.com/80/v2-03db51002497b27e4d5888e0efd577c7_hd.jpg" alt="修改代码"></p></li></ul><p>应该就能达到效果了， next主题的配置之后再谈</p><ul><li>设置背景<br>挑选图片， 命名为background.jpg ， 放在blog\themes\next\source\images里面，<br>在blog\themes\next\source\css_custom文件的custom.styl首部添加<blockquote><p>body {<br>background:url(/images/background.jpg);<br>background-attachment: fixed;<br>}</p></blockquote></li></ul><ul><li>增加侧边栏菜单条目<br>默认的侧栏菜单条目有：首页、归档、标签、关于、搜索等。如果你想要增加其他的菜单条目，修改主题配置文件_config.yml里的Menu Settings中的menu和menu_icons两个地方<br><img src="https://upload-images.jianshu.io/upload_images/10651191-974cc41833f48959.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></li></ul><p>一个是配置页面位置的， 一个是配置图标的，图标来源是<a href="http://link.zhihu.com/?target=http%3A//fontawesome.io/" target="_blank" rel="noopener">Font Awesome</a> , 设置好之后需要在命令行中输入</p><blockquote><p>hexo new page “你所要增加的菜单项名称（要和你在menu中的填写要匹配）”</p></blockquote><h4 id="next主题优化"><a href="#next主题优化" class="headerlink" title="next主题优化"></a>next主题优化</h4><h5 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h5><blockquote><p> cd your-hexo-site<br> git clone <a href="https://github.com/iissnan/hexo-theme-next" target="_blank" rel="noopener">https://github.com/iissnan/hexo-theme-next</a> themes/next</p></blockquote><h5 id="启用next"><a href="#启用next" class="headerlink" title="启用next"></a>启用next</h5><p>修改一下 站点配置文件的theme</p><blockquote><p>theme: next</p></blockquote><h5 id="next主题设置"><a href="#next主题设置" class="headerlink" title="next主题设置"></a>next主题设置</h5><ul><li>Muse - 默认 Scheme，这是 NexT 最初的版本，黑白主调，大量留白</li><li>Mist - Muse 的紧凑版本，整洁有序的单栏外观</li><li>Pisces - 双栏 Scheme，小家碧玉似的清新</li></ul><h5 id="设置语言"><a href="#设置语言" class="headerlink" title="设置语言"></a>设置语言</h5><p>修改站点配置文件的</p><blockquote><p>language: zh-Hans</p></blockquote><h5 id="设置菜单"><a href="#设置菜单" class="headerlink" title="设置菜单"></a>设置菜单</h5><p>修改主题<br><img src="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="鱼.jpg"><br>配置文件的menu</p><p>—-这里略过， 我很懵</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;爱美之心人皆有之&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;说实话我已经不记得当初是怎么搭建好博客的了，只是感觉next主题的风格实在是太美了，尤其是那些飘动的浮线。 新年要有新气象。 所以我也需要重新考虑自己是不是要针对自己的主题进行一次优化了。&lt;/p&gt;
+&lt;h4 id=&quot;hexo搭建博客&quot;&gt;&lt;a href=&quot;#hexo搭建博客&quot; class=&quot;headerlink&quot; title=&quot;hexo搭建博客&quot;&gt;&lt;/a&gt;hexo搭建博客&lt;/h4&gt;&lt;h5 id=&quot;在本地搭建hexo博客页面&quot;&gt;&lt;a href=&quot;#在本地搭建hexo博客页面&quot; class=&quot;headerlink&quot; title=&quot;在本地搭建hexo博客页面&quot;&gt;&lt;/a&gt;在本地搭建hexo博客页面&lt;/h5&gt;&lt;p&gt;建立在已经安装好了node.js的基础之上&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;mkdir blog&lt;br&gt;cd blog&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之后在blog目录下运行&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install -g hexo-cli&lt;br&gt;hexo init blog&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;这个时候的博客雏形就已经基本完成了&lt;/p&gt;
+&lt;p&gt;基本的四个命令如下&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;hexo clean //清楚静态文件&lt;br&gt;hexo g //生成博客页面&lt;br&gt;hexo s //在本地运行， 默认在4000端口， 可以预览一下效果&lt;br&gt;hexo d //部署到GitHub page上&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="hexo" scheme="https://prontosil.club/tags/hexo/"/>
+    
+      <category term="折腾" scheme="https://prontosil.club/tags/%E6%8A%98%E8%85%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux文件与磁盘管理</title>
+    <link href="https://prontosil.club/2019/02/03/Linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
+    <id>https://prontosil.club/2019/02/03/Linux文件与磁盘管理/</id>
+    <published>2019-02-03T01:24:23.000Z</published>
+    <updated>2019-02-03T11:52:25.257Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz</p><h4 id="磁盘管理"><a href="#磁盘管理" class="headerlink" title="磁盘管理"></a>磁盘管理</h4><h5 id="磁盘的构造"><a href="#磁盘的构造" class="headerlink" title="磁盘的构造"></a>磁盘的构造</h5><p>这部分的内容其实是很重要的，但是我现在还不想写， 虽然这部分的内容我是看了不下很多次， 但是始终不是很明白。</p><a id="more"></a><h5 id="Linux磁盘管理的命令"><a href="#Linux磁盘管理的命令" class="headerlink" title="Linux磁盘管理的命令"></a>Linux磁盘管理的命令</h5><p><code>df</code><br><strong>用来检查文件系统的磁盘空间占用情况</strong><br>-a 列出所有的文件系统， 包括系统特有的/proc等文件系统<br>(记得曾经写过/proc是一个虚拟的文件系统)<br>df可以列出所有的文件系统但是不包括/proc等比较特殊的文件系统）<br><img src="https://upload-images.jianshu.io/upload_images/10651191-721790b4dbffc71a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="df - a"></p><p>这里用的是WSL系统， 反映出的文件系统居然没有NTFS。emm不造了</p><p>-k , -m, -h 其中 -k是以KB， -m是以MB， -h以一种比较友好的方式显示出来<br>-H 以千进制 替换 1024进制</p><h2 id="T-显示文件系统类型"><a href="#T-显示文件系统类型" class="headerlink" title="-T 显示文件系统类型"></a>-T 显示文件系统类型</h2><blockquote><p>写道这里我突然明白了， 文件系统和文件系统类型是两个东西， 一个是FileSystem, 另外一个是 FileSystemType 这是不同的概念</p></blockquote><p><img src="https://upload-images.jianshu.io/upload_images/10651191-b050045de693ff1e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="df -Tha"></p><p>-i 不用硬盘容量， 而以inode的数量来显示</p><hr><p>inode 的坑之后再补</p><p><code>du</code><br><strong>也是查看空间的， 但du是对文件和目录磁盘使用的空间的查看</strong><br>参数如下<br>-a 列出所有的文件与目录容量<br>-h 友好的方式<br>-s 列出总量<br>-S 不包括子目录下的总计<br>-k, -m 与df命令一样</p><p><code>fdisk</code><br><strong>磁盘分区表的操作工具</strong><br>-l 输出后面的接的装置所有的内容</p><p><code>mkfs</code><br><strong>磁盘格式化命令</strong></p><blockquote><p>mkfs [-t 文件系统格式] 装置文件名</p></blockquote><p><code>fsck</code><br><strong>用来检查和维护不一致的文件系统</strong></p><blockquote><p>fsck [-t 文件系统] [-ACay] 装置名称</p></blockquote><p><code>mount</code>  与<code>umount</code><br>磁盘挂载与卸载命令</p><blockquote><p>mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点</p></blockquote><hr><p>一次性写这么多我的懵了</p><p>这里补充一点笔记</p><blockquote><p>Linux 操作系统的文件数据除了文件实际内容外，通常含有非常多的属性，例如 Linux 操作系统的文件权限（rwx）与文件属性（拥有者、群组、时间参数等）。文件系统通常会将这两部分的数据分别存放在不同的区块，权限与属性存放在 inode 中，至于实际数据则放置到 data block 区块中。另外，还有一个超级区块（superblock）会记录整个文件系统的整体信息，包括 inode 与 block 的总量、使用量、剩余量等。</p><p>inode：记录文件的属性，一个文件占用一个 inode，同时记录此文件的数据所在的 block。</p><p>在 Linux 中，可以使用 stat 命令查看某个文件的 inode 信息：</p></blockquote><p><img src="https://upload-images.jianshu.io/upload_images/10651191-7a113ff572f68046.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="stat命令"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;还记得第一次安装虚拟机之后，安装VMware tools的痛苦经历，安装tools的时候会自动弹入一个.tar的文件， 当然我一看就知道是压缩文件， 但是在Linux的图形界面中是怎么也打不开的。 后来百度之后才知道需要用命令行去解压缩， 我的个乖乖， 那么长的文件名我硬是一个个输进去的。。。想想都觉得自己当时好zz&lt;/p&gt;
+&lt;h4 id=&quot;磁盘管理&quot;&gt;&lt;a href=&quot;#磁盘管理&quot; class=&quot;headerlink&quot; title=&quot;磁盘管理&quot;&gt;&lt;/a&gt;磁盘管理&lt;/h4&gt;&lt;h5 id=&quot;磁盘的构造&quot;&gt;&lt;a href=&quot;#磁盘的构造&quot; class=&quot;headerlink&quot; title=&quot;磁盘的构造&quot;&gt;&lt;/a&gt;磁盘的构造&lt;/h5&gt;&lt;p&gt;这部分的内容其实是很重要的，但是我现在还不想写， 虽然这部分的内容我是看了不下很多次， 但是始终不是很明白。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="磁盘管理" scheme="https://prontosil.club/tags/%E7%A3%81%E7%9B%98%E7%AE%A1%E7%90%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Linux目录配置与分区</title>
+    <link href="https://prontosil.club/2019/02/03/Linux%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE%E4%B8%8E%E5%88%86%E5%8C%BA/"/>
+    <id>https://prontosil.club/2019/02/03/Linux目录配置与分区/</id>
+    <published>2019-02-03T01:24:09.000Z</published>
+    <updated>2019-02-03T11:53:19.312Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了</p><h4 id="Linux的目录配置"><a href="#Linux的目录配置" class="headerlink" title="Linux的目录配置"></a>Linux的目录配置</h4><p>FHS 文件层次结构标准</p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="约定"></p><p>说实话我没看懂上面那张图。</p><a id="more"></a><p>事实上，FHS针对目录树架构仅定义出三层目录下面应该放置什么数据而已，分别是下面这三个目录的定义：</p><ul><li>/ （root, 根目录）：与开机系统有关；</li><li>/usr （unix software resource）：与软件安装/执行有关；</li><li>/var （variable）：与系统运行过程有关。<br>（还是鸟哥总结的精辟）</li></ul><h5 id="根目录约定"><a href="#根目录约定" class="headerlink" title="根目录约定"></a>根目录约定</h5><h6 id="FHS规定必须存在-根目录下的"><a href="#FHS规定必须存在-根目录下的" class="headerlink" title="FHS规定必须存在 根目录下的"></a>FHS规定必须存在 根目录下的</h6><p>/bin   放置可执行文件的目录<br>/boot 放置开机会使用到的文件<br>/dev 设备文件， 比较重要的文件有： /dev/zero， /dev/tty， /dev/sd<br>/etc 系统主要的配置文件几乎都存放在这个目录<br>特别重要的目录有： /etc/modprobe.d/, /etc/passwd, /etc/fstab, /etc/issue<br>/lib 放置函数库的目录<br>/media 软盘， 光盘， DVD等设备都暂时挂载于此<br>/mnt  也是挂载设备的目录， 其中 Windows上的Ubuntu就是通过这个目录去挂载windows上的其他的目录的<br>/opt 第三方协力软件放置的目录<br>/run 开机所产生的信息放置到这个目录下<br>/sbin 设置系统环境的文件的目录<br>/srv 服务的目录<br>/tmp 暂时存放的目录</p><p>/usr<br>/var<br>以上两个目录是另外设置的， 但是也位于根目录中。</p><h6 id="可选的目录"><a href="#可选的目录" class="headerlink" title="可选的目录"></a>可选的目录</h6><p>/home /lib<qual> /root</qual></p><p>先放这张图便于理解目录的层次结构<br><img src="https://upload-images.jianshu.io/upload_images/10651191-549937925edb9ca6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="目录树架构"></p><p>其中 /proc  是一个虚拟文件系统<br>/sys 也是一个虚拟的文件系统<br>/lost+found 当文件发生错误的时候， 将一些遗失的片段放入到这个目录</p><h5 id="usr目录约定"><a href="#usr目录约定" class="headerlink" title="/usr目录约定"></a>/usr目录约定</h5><p>是 Unix software resource 的缩写， 不是User的缩写</p><h6 id="必须的目录"><a href="#必须的目录" class="headerlink" title="必须的目录"></a>必须的目录</h6><p>/usr/bin 所有一般用户能够用到的指令都放在这里<br>/usr/lib 功能与/lib相同， 可以将/lib链接到这个目录<br>/usr/local 系统管理员下载的软件，建议安装到这个目录<br>/usr/sbin 非系统正常运行所需要的指令， 所以可以将/sbin 链接到此目录<br>/usr/share 主要放置只读架构的数据文件，当然也包括共享文件<br>其中可能存在次目录 /usr/share/man 线上说明文档<br>/usr/share/doc 软件杂项的文件说明<br>/usr/share/zoneinfo 与时区有关的文件</p><h5 id="var目录约定"><a href="#var目录约定" class="headerlink" title="/var目录约定"></a>/var目录约定</h5><h6 id="必须的目录-1"><a href="#必须的目录-1" class="headerlink" title="必须的目录"></a>必须的目录</h6><p>/var/cache 缓存目录<br>/var/lib 程序执行时候的数据文件放置的目录<br>/var/lock 上锁的目录<br>/var/log 登陆文件放置的目录<br>/var/mail 电子邮件信箱的目录， 不过这个目录也被放置到/var/spool/mail<br>/var/run 放置PID的目录<br>/var/spool 伫列数据的目录</p><hr><p>不过鸟哥也总结了，centos 稍做了修改</p><ul><li>/bin —&gt; /usr/bin</li><li>/sbin —&gt; /usr/sbin</li><li>/lib —&gt; /usr/lib</li><li>/lib64 —&gt; /usr/lib64</li><li>/var/lock —&gt; /run/lock</li><li>/var/run —&gt; /run</li></ul>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;我害怕装Linux双系统， 其实最大的一个原因就是不会分区， 害怕自己分区不对把原有的Windows覆盖掉了，那就得不偿失了&lt;/p&gt;
+&lt;h4 id=&quot;Linux的目录配置&quot;&gt;&lt;a href=&quot;#Linux的目录配置&quot; class=&quot;headerlink&quot; title=&quot;Linux的目录配置&quot;&gt;&lt;/a&gt;Linux的目录配置&lt;/h4&gt;&lt;p&gt;FHS 文件层次结构标准&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-15c60d964b636706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;约定&quot;&gt;&lt;/p&gt;
+&lt;p&gt;说实话我没看懂上面那张图。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="FHS" scheme="https://prontosil.club/tags/FHS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>使用kali破解无线网络密码</title>
+    <link href="https://prontosil.club/2019/02/03/%E4%BD%BF%E7%94%A8kali%E7%A0%B4%E8%A7%A3%E6%97%A0%E7%BA%BF%E7%BD%91%E7%BB%9C%E5%AF%86%E7%A0%81/"/>
+    <id>https://prontosil.club/2019/02/03/使用kali破解无线网络密码/</id>
+    <published>2019-02-03T01:23:50.000Z</published>
+    <updated>2019-02-03T11:57:17.670Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="使用Aircrack-ng破解无线网络"><a href="#使用Aircrack-ng破解无线网络" class="headerlink" title="使用Aircrack-ng破解无线网络"></a>使用<code>Aircrack-ng</code>破解无线网络</h3><h5 id="无线网络的加密工具有哪些？"><a href="#无线网络的加密工具有哪些？" class="headerlink" title="无线网络的加密工具有哪些？"></a>无线网络的加密工具有哪些？</h5><hr><h4 id="破解WEP加密的无线网络"><a href="#破解WEP加密的无线网络" class="headerlink" title="破解WEP加密的无线网络"></a>破解WEP加密的无线网络</h4><a id="more"></a><p><strong>具体操作如下：</strong></p><h5 id="1-使用airmon-ng命令查看当前系统中的无线网络接口。"><a href="#1-使用airmon-ng命令查看当前系统中的无线网络接口。" class="headerlink" title="1 使用airmon-ng命令查看当前系统中的无线网络接口。"></a>1 使用<code>airmon-ng</code>命令查看当前系统中的无线网络接口。</h5><h5 id="2-修改wlan0接口的MAC地址，-因为MAC地址标识主机所在的网络，-在修改MAC地址之前，-需要停止该接口。"><a href="#2-修改wlan0接口的MAC地址，-因为MAC地址标识主机所在的网络，-在修改MAC地址之前，-需要停止该接口。" class="headerlink" title="2 修改wlan0接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。"></a>2 修改<code>wlan0</code>接口的MAC地址， 因为MAC地址标识主机所在的网络， 在修改MAC地址之前， 需要停止该接口。</h5><p>命令如下： <code>airmon-ng stop wlan0</code><br>或者如下： <code>ifconfig wlan0 down</code></p><p>执行以上命令使得wlan0接口停止了， 此时可以修改MAC地址了，命令如下：</p><p><code>macchanger --mac 00:11:22:33:44:55 wlan0</code></p><h5 id="3-重新启动wlan0"><a href="#3-重新启动wlan0" class="headerlink" title="3 重新启动wlan0"></a>3 重新启动wlan0</h5><p>命令如下： <code>airmon-ng start wlan0</code></p><h5 id="4-使用airodump-命令定位附近所有可用的无线网络："><a href="#4-使用airodump-命令定位附近所有可用的无线网络：" class="headerlink" title="4 使用airodump 命令定位附近所有可用的无线网络："></a>4 使用airodump 命令定位附近所有可用的无线网络：</h5><p>命令如下： <code>airodump-ng wlan0</code></p><p>输出的信息含义如下：<br><strong>BSSID</strong> 无线的IP地址<br><strong>PWR</strong> 网卡报告的信号水平<br><strong>Beacons</strong> 无线发出的通告编号<br><strong>#Data</strong> 被捕获到的数据分组的数量， 包括广播分组<br><strong> #/s </strong>  过去10秒钟内每秒捕获的数据分组的数量</p><h5 id="5-使用airodump-ng-捕获指定BSSID的文件"><a href="#5-使用airodump-ng-捕获指定BSSID的文件" class="headerlink" title="5 使用airodump-ng 捕获指定BSSID的文件"></a>5 使用airodump-ng 捕获指定BSSID的文件</h5><p>airodump-ng命令常用的选项如下所示。</p><ul><li>-c：指定选择的频道。</li><li>-w：指定一个文件名，用于保存捕获的数据。</li><li>-bssid：指定攻击的BSSID。</li></ul><p>示例命令如下： <code>airodump-ng    -c wirelessattack -bssid Haddr</code></p><h5 id="6-打开一个新的终端窗口，运行aireplay命令"><a href="#6-打开一个新的终端窗口，运行aireplay命令" class="headerlink" title="6 打开一个新的终端窗口，运行aireplay命令"></a>6 打开一个新的终端窗口，运行aireplay命令</h5><p><code>airplay</code> 命令的语法格式如下：</p><blockquote><p>aireplay-ng -1 0 -a [BSSID] -h [our Chosen MAC address] -e [ESSID] [Interface]<br>aireplay-ng -dauth 1 -a [BSSID] -c [our Chosen MAC address] [Interface]</p></blockquote><p>示例命令如下: <code>aireplay-ng -1 0 -a 14:E6:E4:AC:FB:20 -h 00:11:22:33:44:55 -e Test mon0</code></p><h5 id="7-使用aireplay发送一些数据给无线路由器，以至于能捕获到数据"><a href="#7-使用aireplay发送一些数据给无线路由器，以至于能捕获到数据" class="headerlink" title="7 使用aireplay发送一些数据给无线路由器，以至于能捕获到数据"></a>7 使用aireplay发送一些数据给无线路由器，以至于能捕获到数据</h5><blockquote><p>aireplay-ng 3 -b [BSSID] -h [Our chosen MAC address] [Interface]</p></blockquote><p>示例命令：<br><code>aireplay-ng -3 -b 14:E6:E4:AC:FB:20 -h 00:11:22:33:44:55 mon0</code></p><h5 id="8-使用Aircrack破解密码"><a href="#8-使用Aircrack破解密码" class="headerlink" title="8 使用Aircrack破解密码"></a>8 使用Aircrack破解密码</h5><p>示例命令： `aircrack-ng -b Haddr </p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;使用Aircrack-ng破解无线网络&quot;&gt;&lt;a href=&quot;#使用Aircrack-ng破解无线网络&quot; class=&quot;headerlink&quot; title=&quot;使用Aircrack-ng破解无线网络&quot;&gt;&lt;/a&gt;使用&lt;code&gt;Aircrack-ng&lt;/code&gt;破解无线网络&lt;/h3&gt;&lt;h5 id=&quot;无线网络的加密工具有哪些？&quot;&gt;&lt;a href=&quot;#无线网络的加密工具有哪些？&quot; class=&quot;headerlink&quot; title=&quot;无线网络的加密工具有哪些？&quot;&gt;&lt;/a&gt;无线网络的加密工具有哪些？&lt;/h5&gt;&lt;hr&gt;
+&lt;h4 id=&quot;破解WEP加密的无线网络&quot;&gt;&lt;a href=&quot;#破解WEP加密的无线网络&quot; class=&quot;headerlink&quot; title=&quot;破解WEP加密的无线网络&quot;&gt;&lt;/a&gt;破解WEP加密的无线网络&lt;/h4&gt;
+    
+    </summary>
+    
+      <category term="kali" scheme="https://prontosil.club/categories/kali/"/>
+    
+    
+      <category term="kali" scheme="https://prontosil.club/tags/kali/"/>
+    
+      <category term="WLAN" scheme="https://prontosil.club/tags/WLAN/"/>
+    
+      <category term="aircrack-ng" scheme="https://prontosil.club/tags/aircrack-ng/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>科学上网</title>
+    <link href="https://prontosil.club/2019/02/01/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
+    <id>https://prontosil.club/2019/02/01/科学上网/</id>
+    <published>2019-02-01T06:29:44.000Z</published>
+    <updated>2019-02-03T11:54:12.976Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>就在昨天，我在逛推特的时候，无意中发现了一个似曾相识的人，竟然还是twitter推荐给我的！<br><img src="https://upload-images.jianshu.io/upload_images/10651191-2252ca4aed23b156.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="偶遇故人"></p><p>于是果断地扣了一下学长，学长告诉我可以自己组建vpn，但是觉得好神奇，后来试了一下，别说，还真行。</p><h4 id="知识储备"><a href="#知识储备" class="headerlink" title="知识储备"></a>知识储备</h4><p><a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E" target="_blank" rel="noopener">中国国家防火墙</a></p><p><code>SOCKS</code> 是SOCKetS的缩写<br><a href="https://zh.wikipedia.org/wiki/SOCKS#SOCK5" target="_blank" rel="noopener">是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。</a></p><p>SOCKS是会话层协议，位于表示层和传输层之间。<br>SOCKS的实际例子：</p><a id="more"></a><blockquote><p>Bill希望通过互联网与Jane沟通，但他们的网络之间存在一个<a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E5%A2%99" title="防火墙" target="_blank" rel="noopener">防火墙</a>，Bill不能直接与Jane沟通。所以，Bill连接到他的网络上的SOCKS代理，告知它他想要与Jane创建连接；SOCKS代理打开一个能穿过防火墙的连接，并促进Bill和Jane之间的通信。</p></blockquote><p><code>Shadowsocks</code><br>一种基于<a href="https://zh.wikipedia.org/wiki/SOCKS#SOCK5" title="SOCKS" target="_blank" rel="noopener">Socks5</a>代理方式的加密传输协议，也可以指实现这个协议的各种开发包。<br><a href="https://zh.wikipedia.org/wiki/Shadowsocks" target="_blank" rel="noopener">维基百科定义</a></p><p>Shadowsocks的运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。<br>运行原理：</p><p>在服务器端部署完成后，用户需要按照指定的密码、加密方式和端口，使用客户端软件与其连接。在成功连接到服务器后，客户端会在本机上构建一个本地Socks5代理（或VPN、透明代理）。浏览网络时，网络流量会被分到本地Socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p><p>主要项目分支：<br>ShadowsocksR</p><h4 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h4><p>使用<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬瓦工</a>搭建VPS</p><p>进入之后就可以看到这个界面了，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1f97f929db4d2a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="界面"></p><p>当然是选择最便宜的啦<br>不过要注意我们一定要选KVM架构的，只有KVM架构才能使用bbr加速</p><p>之后登陆控制面板<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1afef07288cf34e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制面板"><br>我们需要安装一个<code>debian 64</code>位的操作系统</p><p>然后这个时候在本地去连接VPS<br>ssh root@[ip地址] -P[端口号]</p><p>使用下面这串代码进行ssr搭建<br>wget -N —no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh</a> &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</p><p>大部分都是默认安装<br><img src="https://upload-images.jianshu.io/upload_images/10651191-ab85693bbfeb95b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ssr安装后的结果"></p><p>之后 <code>bash ssr.sh</code></p><p>安装bbr加速<br>wget —no-check-certificate <a href="https://github.com/teddysun/across/raw/master/bbr.sh" target="_blank" rel="noopener">https://github.com/teddysun/across/raw/master/bbr.sh</a></p><p>chmod +x bbr.sh<br>./bbr.sh<br><img src="https://upload-images.jianshu.io/upload_images/10651191-10f625c23daf93cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><hr><p>然而上面写的用搬瓦工搭建的一个翻墙只是一个教程， 而且由于跟风者众多， 所以其实效果并不怎么样。</p><p>而我呢， 看的是这个刘伟的教程， 不过我经常访问不了他的网站。</p><p>用vultr购买服务器之后搭建ss服务， 目前来看ssr服务已经用不了了。 </p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-6475288e3364b8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ss小飞机"></p><p>科学上网需谨慎呀</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;就在昨天，我在逛推特的时候，无意中发现了一个似曾相识的人，竟然还是twitter推荐给我的！&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-2252ca4aed23b156.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;偶遇故人&quot;&gt;&lt;/p&gt;
+&lt;p&gt;于是果断地扣了一下学长，学长告诉我可以自己组建vpn，但是觉得好神奇，后来试了一下，别说，还真行。&lt;/p&gt;
+&lt;h4 id=&quot;知识储备&quot;&gt;&lt;a href=&quot;#知识储备&quot; class=&quot;headerlink&quot; title=&quot;知识储备&quot;&gt;&lt;/a&gt;知识储备&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;中国国家防火墙&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SOCKS&lt;/code&gt; 是SOCKetS的缩写&lt;br&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/SOCKS#SOCK5&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;SOCKS是会话层协议，位于表示层和传输层之间。&lt;br&gt;SOCKS的实际例子：&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="折腾" scheme="https://prontosil.club/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="fq" scheme="https://prontosil.club/tags/fq/"/>
+    
+      <category term="VPS" scheme="https://prontosil.club/tags/VPS/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>docker 实战</title>
+    <link href="https://prontosil.club/2019/02/01/docker-%E5%AE%9E%E6%88%98/"/>
+    <id>https://prontosil.club/2019/02/01/docker-实战/</id>
+    <published>2019-02-01T06:23:51.000Z</published>
+    <updated>2019-02-03T11:57:25.296Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h4><p>我花了大概半天多的时间去学习了一些关于docker底层的知识，看的是华为的那本docker实战， 同样的第一遍是一头雾水， 但是之后感觉其中写到的cgroup和namespace， 还有docker最底层的东西的介绍，其实都加深了对docker的认识。在此之上，我使用了我们之前打hctf比赛的源码， 利用它提供的dockerfile成功地搭建了一个ruby on rails网站，第一次领悟到了docker的魅力， 这篇文章讲讲述我使用docker所做的事情， 不断更新中。</p><h4 id="利用docker镜像"><a href="#利用docker镜像" class="headerlink" title="利用docker镜像"></a>利用docker镜像</h4><h5 id="tensorflow环境搭建"><a href="#tensorflow环境搭建" class="headerlink" title="tensorflow环境搭建"></a>tensorflow环境搭建</h5><p><a href="https://segmentfault.com/a/1190000015053704" target="_blank" rel="noopener">基于docker搭建tensorflow环境</a></p><p>关于tensorflow我之后再还会继续写一个专题， 暂且按下不表。</p><p>从docker hub上pull下一个tensorflow image<br>之后如果想用jupyter notebook来开发， 可以参考如下命令</p><blockquote><p>docker run -it -p 8888:8888 tensorflow/tensorflow</p></blockquote><p>但是我现在都还没有处理好jupyter notebook的远程访问问题(我自己起的名字)，所以还是直接用bash的好<br>其实shell环境下的ipython也是很不错的</p><blockquote><p>docker run -it tensorflow/tensorflow bash</p></blockquote><a id="more"></a><h5 id="ruby-on-rails-web网站搭建"><a href="#ruby-on-rails-web网站搭建" class="headerlink" title="ruby on rails web网站搭建"></a>ruby on rails web网站搭建</h5><p>这里用到的是hctf的一道web题提供的<a href="https://github.com/fantasyqt/hctf2018_share" target="_blank" rel="noopener">源码</a></p><p>其实步骤也挺简单的，不过毕竟是自己第一次成功地搭建了一个网站</p><blockquote><p>sudo docker build -t hctf:test .<br>sudo docker run -dt -p 2000:3000  hctf:test bash</p></blockquote><p>然后需要运行一个 ./run.sh</p><hr><p>补充一下docker 运行容器内命令的方法， </p><ol><li>docker exec</li><li>进入bash之后再运行</li></ol><p><a href="http://www.runoob.com/docker/docker-exec-command.html" target="_blank" rel="noopener">docker exec命令详解</a></p><p>在docker中以交互模式运行一个容器内的sh脚本命令如下：</p><blockquote><p>docker exec -it containerID /bin/sh    sh脚本的文件路径</p></blockquote><p>或者开启一个bash</p><blockquote><p>docker exec -it containerID /bin/bash</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;引子&quot;&gt;&lt;a href=&quot;#引子&quot; class=&quot;headerlink&quot; title=&quot;引子&quot;&gt;&lt;/a&gt;引子&lt;/h4&gt;&lt;p&gt;我花了大概半天多的时间去学习了一些关于docker底层的知识，看的是华为的那本docker实战， 同样的第一遍是一头雾水， 但是之后感觉其中写到的cgroup和namespace， 还有docker最底层的东西的介绍，其实都加深了对docker的认识。在此之上，我使用了我们之前打hctf比赛的源码， 利用它提供的dockerfile成功地搭建了一个ruby on rails网站，第一次领悟到了docker的魅力， 这篇文章讲讲述我使用docker所做的事情， 不断更新中。&lt;/p&gt;
+&lt;h4 id=&quot;利用docker镜像&quot;&gt;&lt;a href=&quot;#利用docker镜像&quot; class=&quot;headerlink&quot; title=&quot;利用docker镜像&quot;&gt;&lt;/a&gt;利用docker镜像&lt;/h4&gt;&lt;h5 id=&quot;tensorflow环境搭建&quot;&gt;&lt;a href=&quot;#tensorflow环境搭建&quot; class=&quot;headerlink&quot; title=&quot;tensorflow环境搭建&quot;&gt;&lt;/a&gt;tensorflow环境搭建&lt;/h5&gt;&lt;p&gt;&lt;a href=&quot;https://segmentfault.com/a/1190000015053704&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;基于docker搭建tensorflow环境&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;关于tensorflow我之后再还会继续写一个专题， 暂且按下不表。&lt;/p&gt;
+&lt;p&gt;从docker hub上pull下一个tensorflow image&lt;br&gt;之后如果想用jupyter notebook来开发， 可以参考如下命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker run -it -p 8888:8888 tensorflow/tensorflow&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;但是我现在都还没有处理好jupyter notebook的远程访问问题(我自己起的名字)，所以还是直接用bash的好&lt;br&gt;其实shell环境下的ipython也是很不错的&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;docker run -it tensorflow/tensorflow bash&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="docker" scheme="https://prontosil.club/categories/docker/"/>
+    
+    
+      <category term="docker" scheme="https://prontosil.club/tags/docker/"/>
+    
+      <category term="tensorflow" scheme="https://prontosil.club/tags/tensorflow/"/>
+    
+      <category term="ruby" scheme="https://prontosil.club/tags/ruby/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>新一年的想法</title>
+    <link href="https://prontosil.club/2019/02/01/%E6%96%B0%E4%B8%80%E5%B9%B4%E7%9A%84%E6%83%B3%E6%B3%95/"/>
+    <id>https://prontosil.club/2019/02/01/新一年的想法/</id>
+    <published>2019-02-01T03:38:37.000Z</published>
+    <updated>2019-02-03T14:08:22.754Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>回家之后确实颓废了蛮久， 前十天左右都是在忙数模竞赛的事情， 抱着司守奎老师的书啃了半天没看懂讲的是啥。然后回到家之后也挺不适应的， 想想有大概一年没听我妈唠叨了，突然exposed in this situation ， 自然有点令人抓狂。 最令我有点想打人的是， 为啥一到家我的电脑和pad全部罢工， 充不进电！！开始吓坏我了，还以为刚买的就坏了， 后来才之后原来pad这么娇气的呀， 非得用被子裹着， 暖着它， 才肯充进去电。 电脑的问题我也没怎么弄清楚。先放一张图片吧，反正目前能用就行。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1a9d08e07adc86a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><a id="more"></a><h4 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h4><p>不过那几天学的也挺多的， 虽然司老师那本书确实有些难， 不过耐不住我天天抱着看嘛(补充一句我看的是电子版,冒得钱), 学会了好多个算法， 像层次分析法， 灰度预测， 线性规划， 熵权法， 还有神经网络算法等等。也让我明白了计算机这个学科的某些特殊性。<br>之后就是连着几天的昏天黑地的写论文了， 不过在这段时间我迷上了铁齿铜牙纪晓岚， 从中也学会了许多做人的道理， 甚至，还有一些为官的道理， 毛主席说的好嘛， 政治，就是把支持我们的人搞得多多的， 把反对我们的人搞得少少的， 这就是政治了， 想想去年一年担任学习部部长， 要是早点知道这条道理，也不至于过的那么惨嘛hhh。<br>某一天想起来逛了以下szf大佬的博客， 看到他也写了一篇新一年的规划什么的， 不过字数肯定没我的多。 本来想着当时也写一篇的， 但是由于种种原因耽误了， 现在想想， 我所谓的新年嘛， 当然是指农历的新年咯， 所以在还有三天之后就过年的这个时间点， 我就写下这篇新年的想法吧。</p><h4 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h4><p>回顾2018吧， 我现在想想又做了些啥呢？ 其实2018年做的好多事都是一个引子， 就比如简书吧， 那是我2018年年初的时候开始入坑的， 现在我已经离不开这个平台了， 再之后是git， 一个版本控制工具， 我曾今还把git和GitHub傻傻分不清， 然而现在， GitHub这个最大的源代码托管平台， git这个及其强大的版本控制工具， 不管是管理自己的文件还是开发， 都是我最离不开的。 除此之外， 还有很多， 2018年我打开了好多个事物的大门， 2019年就需要我不断地在这些方面发力了。总结一下我需要在哪些东西上面发力吧。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol><li>云计算： docker， gcp， AWS</li><li>后端： Django， flask</li><li>游戏： Unity</li><li>软件： 逆向， pwn</li><li>web： 各种渗透测试的工具</li><li>操作系统：Linux， 主要是ubuntu&amp;kali</li></ol><p>有时候很悲观，总觉得自己想学那么多，结果啥都学不会<br>但是有时候又很乐观， 想不断地去学习新的东西， 以至于什么都去钻。<br>维持这种不断往外扩张的，我觉得也行，但是一定要集中精力学完一样之后方可开始去学的新的东西。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;起因&quot;&gt;&lt;a href=&quot;#起因&quot; class=&quot;headerlink&quot; title=&quot;起因&quot;&gt;&lt;/a&gt;起因&lt;/h4&gt;&lt;p&gt;回家之后确实颓废了蛮久， 前十天左右都是在忙数模竞赛的事情， 抱着司守奎老师的书啃了半天没看懂讲的是啥。然后回到家之后也挺不适应的， 想想有大概一年没听我妈唠叨了，突然exposed in this situation ， 自然有点令人抓狂。 最令我有点想打人的是， 为啥一到家我的电脑和pad全部罢工， 充不进电！！开始吓坏我了，还以为刚买的就坏了， 后来才之后原来pad这么娇气的呀， 非得用被子裹着， 暖着它， 才肯充进去电。 电脑的问题我也没怎么弄清楚。先放一张图片吧，反正目前能用就行。&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-1a9d08e07adc86a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;image.png&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="杂念" scheme="https://prontosil.club/categories/%E6%9D%82%E5%BF%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>flag.php 未完成的wp</title>
+    <link href="https://prontosil.club/2019/01/29/flag-php-%E6%9C%AA%E5%AE%8C%E6%88%90%E7%9A%84wp/"/>
+    <id>https://prontosil.club/2019/01/29/flag-php-未完成的wp/</id>
+    <published>2019-01-29T12:51:54.000Z</published>
+    <updated>2019-02-03T14:08:40.847Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>好吧我承认我是看了别人的wp，目前还很菜</p><hr><p>然而我看了wp也不会做。</p><a id="more"></a><h4 id="初探"><a href="#初探" class="headerlink" title="初探"></a>初探</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-271a38ff478ea62c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="页面"><br>进去之后是一个什么都点不动的页面。。</p><p>然后有提示 <code>hint</code><br>联系到可能是SQL注入</p><p>于是在URL后面加一个hint参数<br><a href="http://123.206.87.240:8002/flagphp/?hint=1" target="_blank" rel="noopener">http://123.206.87.240:8002/flagphp/?hint=1</a></p><p>得到一串代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php </span><br><span class="line">error_reporting(0); </span><br><span class="line">include_once(&quot;flag.php&quot;); </span><br><span class="line">$cookie = $_COOKIE[&apos;ISecer&apos;]; </span><br><span class="line">if(isset($_GET[&apos;hint&apos;]))&#123; </span><br><span class="line">    show_source(__FILE__); </span><br><span class="line">&#125; </span><br><span class="line">elseif (unserialize($cookie) === &quot;$KEY&quot;) </span><br><span class="line">&#123;    </span><br><span class="line">    echo &quot;$flag&quot;; </span><br><span class="line">&#125; </span><br><span class="line">else &#123; </span><br><span class="line">?&gt; </span><br><span class="line">&lt;html&gt; </span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot;&gt; </span><br><span class="line">&lt;title&gt;Login&lt;/title&gt; </span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;admin.css&quot; type=&quot;text/css&quot;&gt; </span><br><span class="line">&lt;/head&gt; </span><br><span class="line">&lt;body&gt; </span><br><span class="line">&lt;br&gt; </span><br><span class="line">&lt;div class=&quot;container&quot; align=&quot;center&quot;&gt; </span><br><span class="line">  &lt;form method=&quot;POST&quot; action=&quot;#&quot;&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;user&quot; type=&quot;text&quot; placeholder=&quot;Username&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input name=&quot;password&quot; type=&quot;password&quot; placeholder=&quot;Password&quot;&gt;&lt;/p&gt; </span><br><span class="line">    &lt;p&gt;&lt;input value=&quot;Login&quot; type=&quot;button&quot;/&gt;&lt;/p&gt; </span><br><span class="line">  &lt;/form&gt; </span><br><span class="line">&lt;/div&gt; </span><br><span class="line">&lt;/body&gt; </span><br><span class="line">&lt;/html&gt; </span><br><span class="line"></span><br><span class="line">&lt;?php </span><br><span class="line">&#125; </span><br><span class="line">$KEY=&apos;ISecer:www.isecer.com&apos;; </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><h4 id="分析代码"><a href="#分析代码" class="headerlink" title="分析代码"></a>分析代码</h4><p>第一句话把报错信息都关掉了<br>然后包含了一个文件flag.php(这不正好是题目的名字？)<br>然后设置cookie<br>额。。<br>然后如果GET得到了hint， 就会把文件的代码都展示出来</p><p>否则如果\$cookie反序列化后得到的结果等于字符串”$KEY”，就会显示flag！</p><h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4><p>目前为止这个题目还没做出来。<br>主要是对cookie和serialize这两个不熟悉</p><h5 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h5><p>目前看到一篇 <a href="https://blog.csdn.net/u013982161/article/details/55005542" target="_blank" rel="noopener">cookie详解</a></p><p>到底什么是cookie，怎样才会产生cookie， cookie的作用自不必言。<br>产生cookie有几种方式：<br>server端 的response中包含cookie设置</p><p>脚本方式种植cookie， 主要就是用javascript里的document.cookie对象来实现</p><p>通过在URL栏输入  <code>javascript:alert(document.cookie)</code></p><p>可以查看这个页面的cookie</p><p>当然cookie还有很多 <strong>属性</strong>， 比如为了安全而设置的http only属性， cookie的生存周期等。</p><h5 id="serialize"><a href="#serialize" class="headerlink" title="serialize"></a>serialize</h5><p>serialize() 函数用于序列化对象或数组，并返回一个字符串。<br><strong>serialize()</strong> 函数序列化对象后，可以很方便的将它传递给其他需要它的地方，且其类型和结构不会改变。</p><p>如果想要将已序列化的字符串变回 PHP 的值，可使用 unserialize()</p><p>语法如下：<br><code>string serialize ( mixed $value )</code><br>将其看作一种变化或许可以</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;好吧我承认我是看了别人的wp，目前还很菜&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;然而我看了wp也不会做。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="bugkuctf" scheme="https://prontosil.club/categories/bugkuctf/"/>
+    
+    
+      <category term="cookie" scheme="https://prontosil.club/tags/cookie/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>灰色预测模型</title>
+    <link href="https://prontosil.club/2019/01/25/%E7%81%B0%E8%89%B2%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B/"/>
+    <id>https://prontosil.club/2019/01/25/灰色预测模型/</id>
+    <published>2019-01-24T23:45:54.000Z</published>
+    <updated>2019-02-03T14:10:12.057Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li>灾变预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"><br> 这是某个地区降水量的数据，规定变量zeta &lt; 320为灾年</li></ol><a id="more"></a><p>计算用的matlab程序如下<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">clc, clear</span><br><span class="line"><span class="comment">%写出初始数据</span></span><br><span class="line">a=[<span class="number">390.6</span>, <span class="number">412</span>, <span class="number">320</span>, <span class="number">559.2</span>, <span class="number">380.8</span>, <span class="number">542.4</span>, <span class="number">553</span>, <span class="number">310</span>, <span class="number">561</span>, <span class="number">300</span>, <span class="number">632</span>,...</span><br><span class="line"><span class="number">540</span>, <span class="number">406.2</span>, <span class="number">540</span>, <span class="number">406.2</span>, <span class="number">313.8</span>, <span class="number">576</span>, <span class="number">587.6</span>, <span class="number">318.5</span>]';</span><br><span class="line">t0=<span class="built_in">find</span>(a&lt;= <span class="number">320</span>);</span><br><span class="line">n=<span class="built_in">length</span>(t0);</span><br><span class="line"><span class="comment">%做累加运算</span></span><br><span class="line">t1=cumsum(t0);</span><br><span class="line">z1=<span class="number">0.5</span>*t1(<span class="number">1</span>:<span class="keyword">end</span><span class="number">-1</span>)+<span class="number">0.5</span>*t1(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%求出B矩阵</span></span><br><span class="line">B=[-z1, <span class="built_in">ones</span>(n<span class="number">-1</span>, <span class="number">1</span>)];</span><br><span class="line">Y=t0(<span class="number">2</span>:<span class="keyword">end</span>);</span><br><span class="line"><span class="comment">%左除法</span></span><br><span class="line">r=B\Y;</span><br><span class="line">y=dsolve(<span class="string">'Dy+a*y=b'</span>, <span class="string">'y(0)=y0'</span>);</span><br><span class="line"><span class="comment">%替换变量</span></span><br><span class="line">y=subs(y, &#123;<span class="string">'a'</span>,<span class="string">'b'</span>,<span class="string">'y0'</span>&#125;, &#123;r(<span class="number">1</span>), r(<span class="number">2</span>), t1(<span class="number">1</span>)&#125; );</span><br><span class="line">yucel=subs(y, <span class="string">'t'</span>, [<span class="number">0</span>:n+<span class="number">1</span>]);</span><br><span class="line"></span><br><span class="line"><span class="comment">%为了提高预测精度，先计算预测值，再显示微分方程的解</span></span><br><span class="line">y=vpa(y, <span class="number">6</span>);</span><br><span class="line">yuce=diff(yucel);</span><br><span class="line">yuce=[t0(<span class="number">1</span>), yuce]</span><br><span class="line">yuce_new=yuce(n+<span class="number">1</span>: <span class="keyword">end</span>)</span><br></pre></td></tr></table></figure></p><ol><li>同样的一个类似的预测模型<br> <img src="https://upload-images.jianshu.io/upload_images/10651191-440da227077d102d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="实例计算"></li></ol><p><img src="https://upload-images.jianshu.io/upload_images/10651191-14668ea460255bad.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"></p><p>代码如下<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">A=[<span class="number">83.0</span>, <span class="number">79.8</span>,<span class="number">78.1</span>,<span class="number">85.1</span>,<span class="number">86.6</span>,<span class="number">88.2</span>,<span class="number">90.3</span>,<span class="number">86.7</span>,<span class="number">93.3</span>,<span class="number">92.5</span>,<span class="number">90.9</span>,<span class="number">96.9</span>; </span><br><span class="line">    <span class="number">101.7</span>,<span class="number">85.1</span>,<span class="number">87.8</span>,<span class="number">91.6</span>,<span class="number">93.4</span>,<span class="number">94.5</span>,<span class="number">97.4</span>,<span class="number">99.5</span>,<span class="number">104.2</span>,<span class="number">102.3</span>,<span class="number">101.0</span>,<span class="number">123.5</span>; </span><br><span class="line">    <span class="number">92.2</span>,<span class="number">114.0</span>,<span class="number">93.3</span>,<span class="number">101.0</span>,<span class="number">103.5</span>,<span class="number">105.2</span>,<span class="number">109.5</span>,<span class="number">109.2</span>,<span class="number">109.6</span>,<span class="number">111.2</span>,<span class="number">121.7</span>,<span class="number">131.3</span>; </span><br><span class="line">    <span class="number">105.0</span>,<span class="number">125.7</span>,<span class="number">106.6</span>,<span class="number">116.0</span>,<span class="number">117.6</span>,<span class="number">118.0</span>,<span class="number">121.7</span>,<span class="number">118.7</span>,<span class="number">120.2</span>,<span class="number">127.8</span>,<span class="number">121.8</span>,<span class="number">121.9</span>; </span><br><span class="line">    <span class="number">139.3</span>,<span class="number">129.5</span>,<span class="number">122.5</span>,<span class="number">124.5</span>,<span class="number">135.7</span>,<span class="number">130.8</span>,<span class="number">138.7</span>,<span class="number">133.7</span>,<span class="number">136.8</span>,<span class="number">138.9</span>,<span class="number">129.6</span>,<span class="number">133.7</span>; </span><br><span class="line">    <span class="number">137.5</span>,<span class="number">135.3</span>,<span class="number">133.0</span>,<span class="number">133.4</span>,<span class="number">142.8</span>,<span class="number">141.6</span>,<span class="number">142.9</span>,<span class="number">147.3</span>,<span class="number">159.6</span>,<span class="number">162.1</span>,<span class="number">153.5</span>,<span class="number">155.9</span>; </span><br><span class="line">    <span class="number">163.2</span>,<span class="number">159.7</span>,<span class="number">158.4</span>,<span class="number">145.2</span>,<span class="number">124</span>,<span class="number">144.1</span>,<span class="number">157.0</span>,<span class="number">162.6</span>,<span class="number">171.8</span>,<span class="number">180.7</span>,<span class="number">173.5</span>, <span class="number">176.5</span>]; </span><br><span class="line">T=A(<span class="number">1</span>:<span class="number">6</span>, <span class="number">1</span>:<span class="number">12</span>);</span><br><span class="line"><span class="comment">%对前六年求平均</span></span><br><span class="line">x0=<span class="built_in">mean</span>(T');</span><br><span class="line">x1=<span class="built_in">zeros</span>(<span class="built_in">size</span>(x0));</span><br><span class="line">n=<span class="built_in">length</span>(x1);</span><br><span class="line">x1(<span class="number">1</span>)=x0(<span class="number">1</span>);</span><br><span class="line"><span class="comment">%做一次累加求和</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    x1(<span class="built_in">i</span>)=x1(<span class="built_in">i</span><span class="number">-1</span>)+x0(<span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">z=<span class="built_in">zeros</span>(<span class="built_in">size</span>(x0));</span><br><span class="line">af=<span class="number">0.4</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    z(<span class="built_in">i</span>)=af*x1(<span class="built_in">i</span>)+(<span class="number">1</span>-af)*x1(<span class="built_in">i</span><span class="number">-1</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Y=<span class="built_in">zeros</span>(n<span class="number">-1</span>, <span class="number">1</span>);</span><br><span class="line">B=<span class="built_in">zeros</span>(n<span class="number">-1</span>, <span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%构造出B和Y矩阵，也就是灰色方程</span></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">2</span>:n</span><br><span class="line">    Y(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">1</span>)=x0(<span class="built_in">i</span>);</span><br><span class="line">    B(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">1</span>)=-z(<span class="built_in">i</span>);</span><br><span class="line">    B(<span class="built_in">i</span><span class="number">-1</span>, <span class="number">2</span>)=<span class="number">1</span>;</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">%计算(a, b)'</span></span><br><span class="line">Para=inv(B'*B)*B'*Y;</span><br><span class="line">a=Para(<span class="number">1</span>);</span><br><span class="line">b=Para(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测值</span></span><br><span class="line">Pred=(x0(<span class="number">1</span>)-b/a)*<span class="built_in">exp</span>(-a*n)*(<span class="number">1</span>-<span class="built_in">exp</span>(a));</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测第n+1年的数据</span></span><br><span class="line">Total=<span class="number">12</span>*Pred;</span><br><span class="line"></span><br><span class="line"><span class="comment">%估计各月所占比重</span></span><br><span class="line">r=sum(T)/sum(sum(T));</span><br><span class="line"></span><br><span class="line"><span class="comment">%预测各个月销售量</span></span><br><span class="line">Px=Total*r;</span><br><span class="line">fprintf(<span class="string">'输出203年预测值与实际值.\n'</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%5d '</span>, <span class="built_in">i</span>);</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%6.1f'</span>, Px(<span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line"><span class="keyword">for</span> <span class="built_in">i</span>=<span class="number">1</span>:<span class="number">12</span></span><br><span class="line">    fprintf(<span class="string">'%6.1f'</span>, A(<span class="number">7</span>, <span class="built_in">i</span>));</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br><span class="line">fprintf(<span class="string">'\n'</span>);</span><br><span class="line">Error=sum(Px(<span class="number">4</span>:<span class="number">6</span>))-sum(A(<span class="number">7</span>, <span class="number">4</span>:<span class="number">6</span>));</span><br><span class="line">fprintf(<span class="string">'2003年4,5,6月SARS导致减少销售额%6.2f亿元\n'</span>,Error);</span><br><span class="line"><span class="comment">%作图 </span></span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">1</span>); </span><br><span class="line">PA=[A(<span class="number">1</span>,:),A(<span class="number">2</span>,:),A(<span class="number">3</span>,:),A(<span class="number">4</span>,:),A(<span class="number">5</span>,:),A(<span class="number">6</span>,:),A(<span class="number">7</span>,:)];</span><br><span class="line"><span class="comment">%变为一行数据 </span></span><br><span class="line"><span class="built_in">plot</span>(PA); </span><br><span class="line">grid on </span><br><span class="line">title(<span class="string">'原始数据'</span>); </span><br><span class="line">subplot(<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>); </span><br><span class="line"><span class="built_in">plot</span>(<span class="number">1</span>:<span class="number">12</span>,A(<span class="number">7</span>,:),<span class="string">'b*'</span>,<span class="number">1</span>:<span class="number">12</span>,Px,<span class="string">'r'</span>); </span><br><span class="line">title(<span class="string">'2003年对比数据'</span>); grid on</span><br></pre></td></tr></table></figure></p><p>最后得到的图形为<br><img src="https://upload-images.jianshu.io/upload_images/10651191-d0aa228c70d6f6e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="结果"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;ol&gt;
+&lt;li&gt;灾变预测模型&lt;br&gt; &lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-6c4e72427c1b4c4d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;数据&quot;&gt;&lt;br&gt; 这是某个地区降水量的数据，规定变量zeta &amp;lt; 320为灾年&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="数学建模" scheme="https://prontosil.club/categories/%E6%95%B0%E5%AD%A6%E5%BB%BA%E6%A8%A1/"/>
+    
+    
+      <category term="matlab" scheme="https://prontosil.club/tags/matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我和Linux的故事</title>
+    <link href="https://prontosil.club/2018/12/21/%E6%88%91%E5%92%8CLinux%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <id>https://prontosil.club/2018/12/21/我和Linux的故事/</id>
+    <published>2018-12-21T12:01:44.000Z</published>
+    <updated>2019-02-03T14:04:29.280Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>依稀记得是去年这个时候接触到的Linux，当时装了一个Ubuntu的虚拟机，但是没怎么用，虽然感觉和Windows系统很像，但是毕竟不熟练，所以就没怎么关注这个系统，转眼间，Ubuntu系统都已经更新到了18.04LTS版本了。</p><a id="more"></a><p>由于参加ctf比赛的经历让我意识到Linux是一个很重要的操作系统，以后也会和它接触的很多，所以今年的年末不知道怎么心血来潮，开始折腾Linux， docker， git， bash这些工具了。</p><p>先把一些东西记在小本本上:</p><blockquote><p>deb <a href="https://mirrors.ustc.edu.cn/linuxmint/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/linuxmint/</a> tara main upstream import backport<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-updates main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-backports main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-security main restricted universe multiverse<br>deb <a href="http://archive.canonical.com/ubuntu/" target="_blank" rel="noopener">http://archive.canonical.com/ubuntu/</a> bionic partner</p></blockquote><p>对，这是Linux mint发行版的镜像源。</p><hr><h5 id="一点小感慨"><a href="#一点小感慨" class="headerlink" title="一点小感慨"></a>一点小感慨</h5><p>第一次接触Linux的感觉已经淡淡消去了， 不过那个时候没有花很多的力气去了解这个操作系统， 直到很多工具在Linux上用的特别顺手的时候才真正的体会到Linux是有多么的好用。 不过就个人来说， Linux确实不适合个人计算机， 我当时就是囿于个人思维， 无法领会到为什么Linux要把文件权限分的那么清楚。不过就计算机发展的早期来说， 多任务， 分时， 支持多个用户的计算机操作系统才是主流， 那会儿都没有个人计算机这个概念呢！</p><h4 id="Linux好用在哪"><a href="#Linux好用在哪" class="headerlink" title="Linux好用在哪"></a>Linux好用在哪</h4><ul><li>apt-get 快速安装自己想要的软件包</li><li>正则表达式方便我们查找文件</li><li>vim编辑器</li><li>管道命令， shell scripts</li><li>各种实用工具</li></ul><h4 id="我能用Linux干什么"><a href="#我能用Linux干什么" class="headerlink" title="我能用Linux干什么"></a>我能用Linux干什么</h4><ul><li>毫无疑问， 管理自己的服务器！只有自己亲自部署一个服务器，然后在本地去远程连接的时候你才知道Linux是多么的有用</li><li>docker虚拟化技术， 使用docker file快速的在云端部署生产环境</li><li>黑客工具箱， kali操作系统(不过我现在很不喜欢这个操作系统了， burp是社区版， ssh服务开启贼麻烦， 想装双系统更是遇到一些神奇的错误)</li><li>管理Linux系统， 维护云端的环境</li><li>目前来看，使用Linux直接编辑代码还有一定的难度， 主要是vim和gcc， gdb这些工具使用的不是很熟悉。不知道怎么调试代码， 缺少GUI的直观</li></ul><h4 id="Linux怎么学"><a href="#Linux怎么学" class="headerlink" title="Linux怎么学"></a>Linux怎么学</h4><p>学Linux真的就像小学学九九乘法口诀表， 不背点东西是啥都不会的。</p><p>Linux好用， 这是对于那些熟悉了命令的人来说，就想乘法也很好算， 但是这是对那些熟悉了乘法表的人来说</p><p>乘法也就是小菜一碟</p><p>所以啊， 学Linux必须要过几关， 一关是bash， shell scripts， 一关是vim编辑器， 还有就是各种命令的常见参数要记得。</p><p>这些， 都要练呀。</p><hr><p>最后修改于2019年2月3日</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;依稀记得是去年这个时候接触到的Linux，当时装了一个Ubuntu的虚拟机，但是没怎么用，虽然感觉和Windows系统很像，但是毕竟不熟练，所以就没怎么关注这个系统，转眼间，Ubuntu系统都已经更新到了18.04LTS版本了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="随笔" scheme="https://prontosil.club/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UEFI和legacy</title>
+    <link href="https://prontosil.club/2018/12/20/UEFI%E5%92%8Clegacy/"/>
+    <id>https://prontosil.club/2018/12/20/UEFI和legacy/</id>
+    <published>2018-12-20T11:54:18.000Z</published>
+    <updated>2019-02-03T13:50:22.419Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="UEFI和legacy"><a href="#UEFI和legacy" class="headerlink" title="UEFI和legacy"></a>UEFI和legacy</h5><p>闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。</p><p>天哪，这就是联想的厉害吗。</p><a id="more"></a><p>然后开始装Ubuntu</p><p>好像我很傻逼。。。</p><p>看了<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">这篇博客</a></p><p>才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？</p><blockquote><p>分区的建议:</p><p>/boot - 200MB 实际需求 100~200MB</p><p>/  15~20GB </p><p>/home 存放用户数据，多多益善。</p><p>/swap 可以不用吧</p></blockquote><p>别跑题了，我本来是想探究用UEFI和legacy引导方式的区别的</p><blockquote><p>EFI全称“统一的可扩展固件接口”(Unified Extensible Firmware Interface)， 是一种详细描述类型接口的标准。这种接口用于操作系统自动从预启动的操作环境，加载到一种操作系统上。通俗的说，UEFI是一种新的主板引导初始化的标注设置，具有启动速度快、安全性高和支持大容量硬盘而闻名。出现这种技术的主要作用基本上就是为了实现开机快的效果，由于win8系统支持这种引导方式的启动，所以速度略显的有点快，</p></blockquote><p>上面说的好像不是人话23333</p><p>其实我主要的问题就是</p><p>在我装双系统的时候，为什么legacy是无法引导U盘中的系统的</p><p>只要当我全部启用了UEFI引导的时候才成功了。</p><hr><p>2019年2月3日更新一波</p><h4 id="UEFI"><a href="#UEFI" class="headerlink" title="UEFI"></a>UEFI</h4><p>UEFI 是一种新兴的启动方式， 就是一个特定的分区， 200M左右， 让bios启动的时候直接把引导权限交给这个分区，这样你就可以使用鼠标了，因为传统的legacy模式下只能用键盘， 还可以做到连接无线自动下载镜像安装。</p><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>这就是为什么， 有时候安装Linux需要切换到legacy模式了，然而如果原来的系统是UEFI模式下安装的， 在lagacy模式是进不了的， 因为…bios不知道咋办了， 找不到UEFI</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;UEFI和legacy&quot;&gt;&lt;a href=&quot;#UEFI和legacy&quot; class=&quot;headerlink&quot; title=&quot;UEFI和legacy&quot;&gt;&lt;/a&gt;UEFI和legacy&lt;/h5&gt;&lt;p&gt;闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。&lt;/p&gt;
+&lt;p&gt;天哪，这就是联想的厉害吗。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="小白学电脑" scheme="https://prontosil.club/categories/%E5%B0%8F%E7%99%BD%E5%AD%A6%E7%94%B5%E8%84%91/"/>
+    
+    
+      <category term="UEFI" scheme="https://prontosil.club/tags/UEFI/"/>
+    
+      <category term="legacy" scheme="https://prontosil.club/tags/legacy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本</title>
+    <link href="https://prontosil.club/2018/12/15/shell%E8%84%9A%E6%9C%AC/"/>
+    <id>https://prontosil.club/2018/12/15/shell脚本/</id>
+    <published>2018-12-15T15:24:14.000Z</published>
+    <updated>2019-02-03T14:10:37.260Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="shell命令复习"><a href="#shell命令复习" class="headerlink" title="shell命令复习"></a>shell命令复习</h4><ol><li>ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), </li><li>lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)</li><li>md5sum，就是计算和检验MD5信息签名</li><li>uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)</li><li>history命令就是列出历史纪录</li><li>touch创建文件，或者修改已存在的文件的上一次修改时间</li><li>chmod和chown命令</li><li>cal显示日历和date</li><li>ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID</li><li>ps -A | grep -i apache2 </li><li>servive启动某个服务</li></ol><a id="more"></a><blockquote><p>以上是一些常用的命令，下面是一些命令常见的用法</p></blockquote><h5 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h5><p>.代表当前目录， find . -print, 其中print0可以指明使用’\0’作为定界符</p><p>-name 制定了文件名所必须匹配的字符串</p><p>-iname 忽视大小写</p><p>find . \(-name “<em>.txt” -o -name   “\</em>.pdf”\) -print</p><p>find .  -regex “.*(\.py | \.sh\) $ “</p><p>-type 指定搜索的类型，其中d是目录， f是普通文件， l是符号链接</p><p>-atime 用户最近一次访问的时间， -mtime文件内容最后一次被修改时间 ， -ctime 文件元数据最后一次被修改的时间</p><p>+7 代表访问时间超过七天的 7代表访问时间正好是七天， -7代表最近七天内被访问过的所有文件</p><p>同样的还可以用-amin, -mmin, -cmin 分钟做计量单位</p><p>-size 表示文件大小 w k M G 字 千 兆 吉</p><p>-perm 表示权限</p><p>-exec ，实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -user root  -exec  chown XXXX &#123;&#125;\;</span><br><span class="line">find . -type f -name &quot;*.c&quot; -exec cat &#123;&#125;\; &gt; all_c_files.txt</span><br><span class="line">find . -type f -mtime +10 -name &quot;*.txt&quot; -exec cp &#123;&#125; OLD \;</span><br><span class="line">find . -type f -name &quot;*.txt&quot; -exec printf &quot;The file : %s\n&quot; &#123;&#125;\;</span><br></pre></td></tr></table></figure><h5 id="玩转xargs"><a href="#玩转xargs" class="headerlink" title="玩转xargs"></a>玩转xargs</h5><p>cat example.txt | xargs</p><p>将单行输入转化为多行</p><p>cat example.txt | xargs -n 3</p><blockquote><p>结合fing使用xargs</p><p>find . -type f -name “<em>,txt” -print0 | xargs -0 rm -f<br>find dir -type f -name “</em>.c” -print0 | xargs -0 wc -l</p></blockquote><h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr ‘A-Z’ ‘a-z’</p><p>tr -d ‘[set1]’   指定被删除的字符集合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello 1 char 2 next 4 | tr -d -c &apos;0-9&apos; \n&apos;</span><br><span class="line">tr -s &apos; &apos;压缩输入中重复的空白字符</span><br></pre></td></tr></table></figure><h5 id="wget和cURL"><a href="#wget和cURL" class="headerlink" title="wget和cURL"></a>wget和cURL</h5><p>wget URL1 URL2 URL3</p><p>-t 用来指定重复次数</p><p>—limit-rate限速</p><p>—quota或-Q 指定最大下载配额</p><p>-c断点续传</p><p>-O指定下载到的文件名 -o将输出写入日志文件</p><p>cURL URL —silent</p><p>cURL不会讲下载的写入文件，而是写入标准输出</p><p>-O将下载到的内容写入到下载文件</p><p>-o写入指定名称的文件中</p><p>-C断点续传</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;shell命令复习&quot;&gt;&lt;a href=&quot;#shell命令复习&quot; class=&quot;headerlink&quot; title=&quot;shell命令复习&quot;&gt;&lt;/a&gt;shell命令复习&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), &lt;/li&gt;
+&lt;li&gt;lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)&lt;/li&gt;
+&lt;li&gt;md5sum，就是计算和检验MD5信息签名&lt;/li&gt;
+&lt;li&gt;uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)&lt;/li&gt;
+&lt;li&gt;history命令就是列出历史纪录&lt;/li&gt;
+&lt;li&gt;touch创建文件，或者修改已存在的文件的上一次修改时间&lt;/li&gt;
+&lt;li&gt;chmod和chown命令&lt;/li&gt;
+&lt;li&gt;cal显示日历和date&lt;/li&gt;
+&lt;li&gt;ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID&lt;/li&gt;
+&lt;li&gt;ps -A | grep -i apache2 &lt;/li&gt;
+&lt;li&gt;servive启动某个服务&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="shell" scheme="https://prontosil.club/categories/shell/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>假如生活能像vim一样</title>
+    <link href="https://prontosil.club/2018/12/15/%E5%81%87%E5%A6%82%E7%94%9F%E6%B4%BB%E8%83%BD%E5%83%8Fvim%E4%B8%80%E6%A0%B7/"/>
+    <id>https://prontosil.club/2018/12/15/假如生活能像vim一样/</id>
+    <published>2018-12-15T15:23:52.000Z</published>
+    <updated>2019-02-03T14:11:42.791Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="假如生活能像vim一样"><a href="#假如生活能像vim一样" class="headerlink" title="假如生活能像vim一样"></a>假如生活能像vim一样</h5><h4 id="复习一下vim中的快捷键"><a href="#复习一下vim中的快捷键" class="headerlink" title="复习一下vim中的快捷键"></a>复习一下vim中的快捷键</h4><p>emmm这个其实我自己也不太想总结，直接搬别人的东西吧<br><img src="https://upload-images.jianshu.io/upload_images/10651191-79ecb05edcf8ce91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim思维导图"></p><a id="more"></a><h5 id="关于vim的思想"><a href="#关于vim的思想" class="headerlink" title="关于vim的思想"></a>关于vim的思想</h5><p>vim好用吗，我觉得确实比Windows自带的记事本要好多了。但是如果用来做开发环境，其实并不见得就一定特别好。不过我倒是很喜欢这个编辑器，以前一直觉得它很神秘，尤其是我第一次打开这个编辑器，然后只看到一堆的波浪线的时候，就觉得。。。这他妈是个什么玩意儿.连输入东西都输不进去。其实吧，这也是vim的哲学了，不要着急着输入，先好好看看，构思一下从哪里输入，当你每次操作完之后，是不是该停下来思考一下，就像画家把笔放一下，vim的普通模式也正是如此。</p><p>vim中的好多操作我觉得都特别好，dd删除一行的快感，G直接跳到文末，daw直接删除一个单词而不是要先高亮之后再去删除，/开始搜索文本，不需要每次同时按下ctrl+f， w和b在单词之间跳来跳去，不需要每次按着ctrl然后同时按方向键，A直接在行末添加，I直接在行首添加，还有dt.删除直到某个字符，这简直就是在写作文鸭23333.这些动作确实很精简，也很有效，当然，如果你喜欢了GUI，习惯了在word里面用鼠标不断地搜索你要替换的文本然后高亮（我觉得我会疯掉了去），vim对你来说当然不又好了，因为它甚至不允许你用鼠标，连最简单的方向键盘，都可以直接用hjkl四个键来替代。vim确实很好玩，但是目前来说，至少不太适合我写C语言。</p><blockquote><p>vim的小技巧？</p></blockquote><ol><li>我们知道每次安装新的Linux操作系统的时候，一般都是需要去修改镜像源的，<code>vim /etc/apt/source.list</code>，然后复制粘贴你从网上弄下来的镜像源，当然对于曾今小白的我来说，我是一个个敲上去的…..我不知道虚拟机和主机是不是共用一个剪切板，不过我知道如果用ssh连接bash之后，是可以粘贴的。首先你需要删除原来所有的内容，或者选择注释掉，这个操作emmmm，以后再来填坑，然后粘贴，或者另起一行啥的。。。哎呀有点乱，我先歇会。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;假如生活能像vim一样&quot;&gt;&lt;a href=&quot;#假如生活能像vim一样&quot; class=&quot;headerlink&quot; title=&quot;假如生活能像vim一样&quot;&gt;&lt;/a&gt;假如生活能像vim一样&lt;/h5&gt;&lt;h4 id=&quot;复习一下vim中的快捷键&quot;&gt;&lt;a href=&quot;#复习一下vim中的快捷键&quot; class=&quot;headerlink&quot; title=&quot;复习一下vim中的快捷键&quot;&gt;&lt;/a&gt;复习一下vim中的快捷键&lt;/h4&gt;&lt;p&gt;emmm这个其实我自己也不太想总结，直接搬别人的东西吧&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-79ecb05edcf8ce91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;vim思维导图&quot;&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="折腾" scheme="https://prontosil.club/categories/%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="vim" scheme="https://prontosil.club/tags/vim/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>折腾docker的那些事儿</title>
+    <link href="https://prontosil.club/2018/12/12/%E6%8A%98%E8%85%BEdocker%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
+    <id>https://prontosil.club/2018/12/12/折腾docker的那些事儿/</id>
+    <published>2018-12-12T07:24:23.000Z</published>
+    <updated>2019-02-03T14:09:38.491Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="关于docker"><a href="#关于docker" class="headerlink" title="关于docker"></a>关于docker</h5><p>其实我也不知道docker是干嘛的，不过听说它很强大，所以试着玩一玩呗。</p><a id="more"></a><h5 id="下载docker"><a href="#下载docker" class="headerlink" title="下载docker"></a>下载docker</h5><p><a href="http://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">菜鸟教程</a></p><p>通过docker-toolbox来安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">下载地址</a></p><blockquote><p>Docker CLI 客户端，用来运行docker引擎创建镜像和容器<br>Docker Machine. 可以让你在windows的命令行中运行docker引擎命令<br>Docker Compose. 用来运行docker-compose命令<br>Kitematic. 这是Docker的GUI版本<br>Docker QuickStart shell. 这是一个已经配置好Docker的命令行环境<br>Oracle VM Virtualbox. 虚拟机<br>然后我的电脑里面就塞满了这些东西</p></blockquote><p>刚下载之后，桌面上确实会有三个图标，但是Windows好像找不到，所以自己手动去目录里面翻了一下。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-c216468a2d79b2db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件"></p><p>无他，shift加右键打开start.sh脚本，不过Windows命令行是没办法运行这个脚本的，所有它会默认用git bash打开。(突然发现git是不是就相当于一个Linux的bash？好多命令都可以用，那我不是可以通过它来管理我的电脑？这个坑之后再去补上)</p><p>会经过一段时间的等待，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-537ea3f96ecc2936.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="start.sh"></p><p>通过提示信息可以看到它正在进行默认的配置。</p><p>之后会打开virtual box，可以看到正在分配IP地址。</p><p>我这里貌似尝试了一次之后失败了，所以接着又尝试了一下，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-75439e732c5daddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="docker"></p><p>成功了！！！</p><p>之后尝试了第一个命令：</p><p>docker run hello-world<br><img src="https://upload-images.jianshu.io/upload_images/10651191-123889bba280b779.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello-world"></p><p>可以看到docker先在本地查找hello-world的镜像，没找到，然后去一个hub里面检查并下载，</p><p>这就是docker入门的开始啦！</p><blockquote><p>12月12日晚上</p></blockquote><p>运行docker命令总是报错,如下：</p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-81c9d3de67632584.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报错"></p><blockquote><p>E:\ProgramFiles\Docker Toolbox\docker.exe: error during connect: Post <a href="https://192.168.99.100:2376/v1.37/containers/create" target="_blank" rel="noopener">https://192.168.99.100:2376/v1.37/containers/create</a>: dial tcp 192.168.99.100:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.<br>See ‘E:\ProgramFiles\Docker Toolbox\docker.exe run —help’.</p></blockquote><p>根据报错提示，可能是超时了，没有接收到响应。</p><p>另外记个笔记:</p><p>docker运行的时候，是有一个虚拟机开着的，这就是为啥安装Docker Toolbox的时候需要同时安装virtual box了。</p><p>所以重启电脑之后，需要手动开启虚拟机。</p><blockquote><p><a href="https://cr.console.aliyun.com/cn-hangzhou/mirrors" target="_blank" rel="noopener">阿里镜像</a></p><p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-for-windows/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">win10安装docker</a></p><p><a href="https://docs.docker.com/engine/reference/commandline/cli/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker文档</a></p><p><a href="https://docs.docker.com/engine/reference/builder/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker documentation</a></p><p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">toolbox</a></p></blockquote><p>之前说过win10安装docker有两种方式，但是win190更加推荐docker for Windows。</p><p>但是这个功能必须要求电脑开启了了hyper-v服务(应该就是win10自带的创建虚拟机的服务)</p><p>第一部当然是看一下处理器支不支持了，命令行下输入systeminfo</p><p>然而，如果是win10家庭版，默认是没有显示hyper-v服务的。</p><p><a href="https://jingyan.baidu.com/article/d7130635e5678113fcf4757f.html" target="_blank" rel="noopener">家庭版添加hyper-v</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line"></span><br><span class="line">for /f %%i in (&apos;findstr /i . hyper-v.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line"></span><br><span class="line">del hyper-v.txt</span><br><span class="line"></span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure></p><p>就是运行一个批处理程序。</p><p>然后我们就能愉快的找到hyper-v服务啦。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-3fb991a84fa6f1e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hyper-v"></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;关于docker&quot;&gt;&lt;a href=&quot;#关于docker&quot; class=&quot;headerlink&quot; title=&quot;关于docker&quot;&gt;&lt;/a&gt;关于docker&lt;/h5&gt;&lt;p&gt;其实我也不知道docker是干嘛的，不过听说它很强大，所以试着玩一玩呗。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>200天啦</title>
+    <link href="https://prontosil.club/2018/12/11/200%E5%A4%A9%E5%95%A6/"/>
+    <id>https://prontosil.club/2018/12/11/200天啦/</id>
+    <published>2018-12-11T13:57:01.000Z</published>
+    <updated>2019-02-03T14:10:56.136Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="200天啦"><a href="#200天啦" class="headerlink" title="200天啦"></a>200天啦</h4><blockquote><p>我和我最爱的宝宝在一起已经200天啦！！！</p></blockquote><p>还记得懵懂的6月，情窦初开的我们牵手了。在你我的扶持下，携手走过了期末考试的旅程，又经过了暑假漫长的思念，到如今掐指，200个日夜已经流过。</p><p>虽然表面上嫌弃你这只zz，但是我怎么舍得丢下你呢，都是因为我，曾经那么聪慧的xjy变得这么zz了，我如果不好好惯着你，今后的日子你又该怎么过呢。</p><a id="more"></a><p>宝宝，虽然我会生你的气，但是我在生气的时候也是爱着你的鸭，如果哪一天我们之间再也没有争吵，那才不正常呢，那只能说明我们俩的心都已经死了。</p><p>宝宝，对不起呀，今天是我激动了一点。原本200天的纪念日应该给你惊喜的，可是却让你落泪了。都是你的zz的错嘛。唉，你的zz有时候太敏感了，虽然知道你的话没有恶意，可是还是忍不住往别的方向想，因为我童年的时候受到过太多的欺凌了，所以很容易将一句话误解成伤害我的话。</p><p>但是我可能防范地过度了，我不该对我的宝宝那么认真的(大哭.jpg)，宝宝是我最爱的人，又怎么会伤害我呢。</p><p>最爱我的宝宝，不管她zz也好，不过机智点就更好啦。</p><p>谨以此作为我们200天纪念日的祝福</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;200天啦&quot;&gt;&lt;a href=&quot;#200天啦&quot; class=&quot;headerlink&quot; title=&quot;200天啦&quot;&gt;&lt;/a&gt;200天啦&lt;/h4&gt;&lt;blockquote&gt;
+&lt;p&gt;我和我最爱的宝宝在一起已经200天啦！！！&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;还记得懵懂的6月，情窦初开的我们牵手了。在你我的扶持下，携手走过了期末考试的旅程，又经过了暑假漫长的思念，到如今掐指，200个日夜已经流过。&lt;/p&gt;
+&lt;p&gt;虽然表面上嫌弃你这只zz，但是我怎么舍得丢下你呢，都是因为我，曾经那么聪慧的xjy变得这么zz了，我如果不好好惯着你，今后的日子你又该怎么过呢。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="杂念" scheme="https://prontosil.club/categories/%E6%9D%82%E5%BF%B5/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>git 进阶</title>
+    <link href="https://prontosil.club/2018/12/11/git-%E8%BF%9B%E9%98%B6/"/>
+    <id>https://prontosil.club/2018/12/11/git-进阶/</id>
+    <published>2018-12-11T08:13:00.000Z</published>
+    <updated>2018-12-11T08:34:48.264Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="git-tql"><a href="#git-tql" class="headerlink" title="git tql!!!"></a>git tql!!!</h4><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">最全的git教程</a></p><blockquote><p>git可以很方便地解决多人协作写代码的问题，同时还可以有效地管理你的文件</p></blockquote><p><code>git reset --hard</code>命令可以修改你的工作取得状态，包括将删除的文件重新找回。</p><p>(今天动手做实验的时候才发现的，值得收藏)</p><blockquote><p>git 可以很方便地多人同时开发，就好像其他人不存在一样，最后只需要合并每个人的分支即可</p></blockquote><ul><li>注意一下</li></ul><p>git branch 是创建一个分支，不过你需要知道自己是在哪个分支的基础上创建的分支，(git 好像没有可以显示分支的相对位置的命令?这个坑稍后再去补充)</p><blockquote><p>合并分支</p></blockquote><p>你想要把哪个分支合并到另一个分支上，你就需要在那个分支上工作，同时使用 <code>git merge</code>命令</p><h6 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h6><blockquote><p>emmmm分支冲突这种事先放着，以后遇到了坑之后再解决</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;git-tql&quot;&gt;&lt;a href=&quot;#git-tql&quot; class=&quot;headerlink&quot; title=&quot;git tql!!!&quot;&gt;&lt;/a&gt;git tql!!!&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/00
+      
+    
+    </summary>
+    
+      <category term="git" scheme="https://prontosil.club/categories/git/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>申请pycharm专业版</title>
+    <link href="https://prontosil.club/2018/12/10/%E7%94%B3%E8%AF%B7pycharm%E4%B8%93%E4%B8%9A%E7%89%88/"/>
+    <id>https://prontosil.club/2018/12/10/申请pycharm专业版/</id>
+    <published>2018-12-10T14:24:33.000Z</published>
+    <updated>2019-02-03T13:51:16.022Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id=""><a href="#" class="headerlink" title=" "></a> </h4><p>发现自己的pycharm和别人的博客里面的不一样，百度之后发现pycharm分为几个版本</p><p><a href="https://www.zhihu.com/question/47511825" target="_blank" rel="noopener">如何申请专业版</a></p><p><a href="https://www.jetbrains.com/student/" target="_blank" rel="noopener">申请专业版</a></p><p>武大邮箱<code>2017301510012@whu.edu.cn</code></p><p>使用武大的邮箱可以申请！！！</p><p><a href="https://account.jetbrains.com/licenses/assets" target="_blank" rel="noopener">我的license</a></p><p>从此可以用上pycham的专业版了，开森。</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h4 id=&quot;&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;headerlink&quot; title=&quot; &quot;&gt;&lt;/a&gt; &lt;/h4&gt;&lt;p&gt;发现自己的pycharm和别人的博客里面的不一样，百度之后发现pycharm分为几个版本&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.zhi
+      
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="pycharm专业版" scheme="https://prontosil.club/tags/pycharm%E4%B8%93%E4%B8%9A%E7%89%88/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>折腾git的那些事儿</title>
+    <link href="https://prontosil.club/2018/12/09/%E6%8A%98%E8%85%BEgit%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
+    <id>https://prontosil.club/2018/12/09/折腾git的那些事儿/</id>
+    <published>2018-12-09T11:29:38.000Z</published>
+    <updated>2019-02-03T14:11:25.065Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>git是一个很强大的工具</p></blockquote><p>最基本的命令，包括 </p><ul><li><code>git init</code> 初始化一个git仓库</li><li><code>git status</code>查看当前的状态</li><li><code>git add</code>将本地仓库中的内容添加到暂存区</li><li><code>git commit</code>将本地仓库(emmmm)好像还没弄明白</li><li><code>git clone</code>克隆一个仓库</li><li><code>git push</code>将本地上传到远程仓库</li></ul><a id="more"></a><p>以往我都是直接新建一个仓库，然后<code>git remote add origin</code>这个仓库的</p><p>但是这次我忘记本地与远程那个连接的仓库放在电脑哪个位置了。</p><p>所以我直接<code>git init</code>了一个，然后就<code>git remote add origin</code>了一个现有的远程仓库</p><p>悲剧来了</p><p>当我<code>git push</code>的时候，报错了！！！</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">error: failed to push some refs to &apos;git@github.com:xinyongpeng/Data.git&apos;</span><br><span class="line">hint: Updates were rejected because the remote contains work that you do</span><br><span class="line">hint: not have locally. This is usually caused by another repository pushing</span><br><span class="line">hint: to the same ref. You may want to first integrate the remote changes</span><br><span class="line">hint: (e.g., &apos;git pull ...&apos;) before pushing again.</span><br><span class="line">hint: See the &apos;Note about fast-forwards&apos; in &apos;git push --help&apos; for details.</span><br></pre></td></tr></table></figure><p>参考<a href="https://blog.csdn.net/u013120247/article/details/53263169" target="_blank" rel="noopener">这篇文章</a></p><p>解决步骤：</p><ul><li><code>git clone git@github.com:xinyongpeng/Data.git</code> 是不行的，会报错</li><li><code>git pull --rebase origin master</code>先运行这个命令</li></ul><p>提示如下：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Enter passphrase for key &apos;/c/Users/zz/.ssh/id_rsa&apos;:</span><br><span class="line">warning: no common commits</span><br><span class="line">remote: Enumerating objects: 22, done.</span><br><span class="line">remote: Counting objects: 100% (22/22), done.</span><br><span class="line">remote: Compressing objects: 100% (16/16), done.</span><br><span class="line">remote: Total 22 (delta 4), reused 21 (delta 3), pack-reused 0</span><br><span class="line">Unpacking objects: 100% (22/22), done.</span><br><span class="line">From github.com:xinyongpeng/Data</span><br><span class="line"> * branch            master     -&gt; FETCH_HEAD</span><br><span class="line"> * [new branch]      master     -&gt; origin/master</span><br><span class="line">First, rewinding head to replay your work on top of it...</span><br><span class="line">Applying: 贝贝的代码</span><br></pre></td></tr></table></figure><p>之后再<code>git push origin master</code>就行了</p><blockquote><p>原理不是太明白，先解决问题吧</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;git是一个很强大的工具&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最基本的命令，包括 &lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;git init&lt;/code&gt; 初始化一个git仓库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git status&lt;/code&gt;查看当前的状态&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git add&lt;/code&gt;将本地仓库中的内容添加到暂存区&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git commit&lt;/code&gt;将本地仓库(emmmm)好像还没弄明白&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git clone&lt;/code&gt;克隆一个仓库&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;git push&lt;/code&gt;将本地上传到远程仓库&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="git" scheme="https://prontosil.club/categories/git/"/>
+    
+    
+      <category term="git" scheme="https://prontosil.club/tags/git/"/>
+    
+  </entry>
+  
+</feed>
