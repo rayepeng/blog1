@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-04T05:33:32.916Z">
+<meta property="og:updated_time" content="2019-02-04T06:55:58.877Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="折腾git的那些事儿">
 <meta name="twitter:description" content="git是一个很强大的工具  最基本的命令，包括   git init 初始化一个git仓库 git status查看当前的状态 git add将本地仓库中的内容添加到暂存区 git commit将本地仓库(emmmm)好像还没弄明白 git clone克隆一个仓库 git push将本地上传到远程仓库">
@@ -289,7 +289,10 @@
           <h1 class="post-title" itemprop="name headline">折腾git的那些事儿</h1>
         
 
+		
+
         <div class="post-meta">
+         
           <span class="post-time">
             
               <span class="post-meta-item-icon">
@@ -314,7 +317,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T13:33:32+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T14:55:58+08:00">
                 2019-02-04
               </time>
             
@@ -364,7 +367,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  485
+                  593
                 </span>
               
 
@@ -441,6 +444,11 @@
 <p>git fetch： 从远程获取最新版本到本地， 但不会自动merge</p>
 <p>git pull： 是git fetch 与 git merge 两个步骤的结合</p>
 </blockquote>
+<p>如果需要有选择的合并， git fetch 是最好的选择</p>
+<p>如果没有这个需要， git pull 是最快的</p>
+<p>所以如果不是在原来的那个文件夹(即最初的与远程仓库连接的文件夹)， 想要直接git  push当然会报错</p>
+<p>必须把远端仓库拿下来， 做一次git merge， 这样才能推送到远程仓库</p>
+<p><a href="https://github.com/pcottle/learnGitBranching?utm_campaign=explore-email&amp;utm_medium=email&amp;utm_source=newsletter&amp;utm_term=weekly" target="_blank" rel="noopener">一个可视化的git项目</a></p>
 
       
     </div>
@@ -553,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
