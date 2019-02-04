@@ -315,7 +315,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T11:41:29+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T13:45:19+08:00">
                 2019-02-04
               </time>
             
@@ -365,7 +365,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  481
+                  482
                 </span>
               
 
@@ -435,8 +435,8 @@
 <p>echo Enter some text<br>read planet<br>echo \’\$planet\’ now equals \$planet<br>exit 0</p>
 </blockquote>
 <h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>先来看一个恶作剧脚本</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br></pre></td></tr></table></figure>
-<h1 id="For-Redhat-or-Fedora-etc-localtime"><a href="#For-Redhat-or-Fedora-etc-localtime" class="headerlink" title="For Redhat or Fedora /etc/localtime"></a>For Redhat or Fedora /etc/localtime</h1><p>date</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Redhat or Fedora /etc/localtime</span></span><br></pre></td></tr></table></figure>
+<p>date</p>
 <p>TZ即是TimeZone， 在双引号下 $TZ 会被对应的值取代。在设置好TZ之后显示的date会随着变化。</p>
 <p>最好玩的是这句：</p>
 <blockquote>

@@ -89,7 +89,7 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="echo命令echo嵌入变量 echo “Hello $LOGNAME, Have a nice day !”  echo 使用一对双引号， 同时会把对应的变量，转化为对应的值 echo嵌入命令 echo “Your are working in directory `pwd`.”  使用一对 ` ` 在echo中嵌入命令  echo “You are working on a machine c">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-04T03:41:29.984Z">
+<meta property="og:updated_time" content="2019-02-04T05:45:19.159Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="LinuxShellScrips">
 <meta name="twitter:description" content="echo命令echo嵌入变量 echo “Hello $LOGNAME, Have a nice day !”  echo 使用一对双引号， 同时会把对应的变量，转化为对应的值 echo嵌入命令 echo “Your are working in directory `pwd`.”  使用一对 ` ` 在echo中嵌入命令  echo “You are working on a machine c">
@@ -314,7 +314,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T11:41:29+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T13:45:19+08:00">
                 2019-02-04
               </time>
             
@@ -364,7 +364,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  481
+                  482
                 </span>
               
 
@@ -432,8 +432,8 @@
 <p>echo Enter some text<br>read planet<br>echo \’\$planet\’ now equals \$planet<br>exit 0</p>
 </blockquote>
 <h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>先来看一个恶作剧脚本</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br></pre></td></tr></table></figure>
-<h1 id="For-Redhat-or-Fedora-etc-localtime"><a href="#For-Redhat-or-Fedora-etc-localtime" class="headerlink" title="For Redhat or Fedora /etc/localtime"></a>For Redhat or Fedora /etc/localtime</h1><p>date</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Redhat or Fedora /etc/localtime</span></span><br></pre></td></tr></table></figure>
+<p>date</p>
 <p>TZ即是TimeZone， 在双引号下 $TZ 会被对应的值取代。在设置好TZ之后显示的date会随着变化。</p>
 <p>最好玩的是这句：</p>
 <blockquote>
@@ -658,7 +658,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#echo命令"><span class="nav-number">1.</span> <span class="nav-text">echo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#echo嵌入变量"><span class="nav-number">1.1.</span> <span class="nav-text">echo嵌入变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo嵌入命令"><span class="nav-number">1.2.</span> <span class="nav-text">echo嵌入命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#显示时间"><span class="nav-number">1.3.</span> <span class="nav-text">显示时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo，-单引号，-变量"><span class="nav-number">1.4.</span> <span class="nav-text">echo， 单引号， 变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo与-read交互"><span class="nav-number">1.5.</span> <span class="nav-text">echo与 read交互</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#For-Redhat-or-Fedora-etc-localtime"><span class="nav-number"></span> <span class="nav-text">For Redhat or Fedora /etc/localtime</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">1.</span> <span class="nav-text">数组</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#echo命令"><span class="nav-number">1.</span> <span class="nav-text">echo命令</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#echo嵌入变量"><span class="nav-number">1.1.</span> <span class="nav-text">echo嵌入变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo嵌入命令"><span class="nav-number">1.2.</span> <span class="nav-text">echo嵌入命令</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#显示时间"><span class="nav-number">1.3.</span> <span class="nav-text">显示时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo，-单引号，-变量"><span class="nav-number">1.4.</span> <span class="nav-text">echo， 单引号， 变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo与-read交互"><span class="nav-number">1.5.</span> <span class="nav-text">echo与 read交互</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#环境变量"><span class="nav-number">2.</span> <span class="nav-text">环境变量</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组"><span class="nav-number">3.</span> <span class="nav-text">数组</span></a></li></ol></div>
             
 
           </div>
