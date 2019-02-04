@@ -315,12 +315,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T09:35:07+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T11:41:29+08:00">
                 2019-02-04
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/shell/" itemprop="url" rel="index">
+                    <span itemprop="name">shell</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -343,7 +365,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  60
+                  481
                 </span>
               
 
@@ -359,7 +381,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -382,8 +404,59 @@
       
         
           
-            <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Redhat or Fedora /etc/localtime</span></span><br><span class="line">date</span><br></pre></td></tr></table></figure>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">export TZ=America/Los_Angeles</span><br><span class="line">echo "Your Timezone is = $TZ"</span><br><span class="line">date</span><br><span class="line">export TZ=Asia/Tokyo</span><br><span class="line">echo "Your Timezone is = $TZ"</span><br><span class="line">date</span><br><span class="line">unset TZ</span><br><span class="line">echo "Your Timezone is = $(cat /etc/timezone)"</span><br><span class="line"><span class="meta">#</span> For Redhat or Fedora /etc/localtime</span><br><span class="line">date</span><br></pre></td></tr></table></figure>
+            <h4 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h4><h5 id="echo嵌入变量"><a href="#echo嵌入变量" class="headerlink" title="echo嵌入变量"></a>echo嵌入变量</h5><blockquote>
+<p>echo “Hello $LOGNAME, Have a nice day !”</p>
+</blockquote>
+<p>echo 使用一对双引号， 同时会把对应的变量，转化为对应的值</p>
+<h5 id="echo嵌入命令"><a href="#echo嵌入命令" class="headerlink" title="echo嵌入命令"></a>echo嵌入命令</h5><blockquote>
+<p>echo “Your are working in directory `pwd`.”</p>
+</blockquote>
+<p>使用一对 ` ` 在echo中嵌入命令</p>
+<blockquote>
+<p>echo “You are working on a machine called `uname -n`.”</p>
+</blockquote>
+<p>uname -n<br>-n, —nodename : print the network node hostname</p>
+<h5 id="显示时间"><a href="#显示时间" class="headerlink" title="显示时间"></a>显示时间</h5><blockquote>
+<p> echo “Bye for now $LOGNAME. The time is <code>date +%T</code>!”</p>
+</blockquote>
+<p>date输出的结果</p>
+<blockquote>
+<p>Mon Feb  4 09:08:50 DST 2019<br>date +%T<br>使用 %H:%M:%S来显示时间</p>
+</blockquote>
+<h5 id="echo，-单引号，-变量"><a href="#echo，-单引号，-变量" class="headerlink" title="echo， 单引号， 变量"></a>echo， 单引号， 变量</h5><blockquote>
+<p>planet=”Earth”<br>echo \$planet<br># Earth<br>echo ‘\$planet’<br># \$planet<br>echo “\$planet”<br>#Earth</p>
+</blockquote>
+<p>echo也可以不加单引号在屏幕上打印出 $planet</p>
+<blockquote>
+<p>echo \$planet</p>
+</blockquote>
+<p>可以理解成单引号会里面的所有字符都会原样的打印出来， 而双引号中的变量会被对应的值取代， 不加引号和加了双引号的效果是一样的。不过同样的在双引号和不加双引号都可以用转义符。</p>
+<h5 id="echo与-read交互"><a href="#echo与-read交互" class="headerlink" title="echo与 read交互"></a>echo与 read交互</h5><blockquote>
+<p>echo Enter some text<br>read planet<br>echo \’\$planet\’ now equals \$planet<br>exit 0</p>
+</blockquote>
+<h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>先来看一个恶作剧脚本</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br></pre></td></tr></table></figure>
+<h1 id="For-Redhat-or-Fedora-etc-localtime"><a href="#For-Redhat-or-Fedora-etc-localtime" class="headerlink" title="For Redhat or Fedora /etc/localtime"></a>For Redhat or Fedora /etc/localtime</h1><p>date</p>
+<p>TZ即是TimeZone， 在双引号下 $TZ 会被对应的值取代。在设置好TZ之后显示的date会随着变化。</p>
+<p>最好玩的是这句：</p>
+<blockquote>
+<p>echo “Your Timezone is = \$(cat /etc/timezone)”</p>
+</blockquote>
+<p>等价于</p>
+<blockquote>
+<p>echo “Your Timezone is = `cat /etc/timezone`“</p>
+</blockquote>
+<h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">FRUIT[0]=&quot;Pears&quot;</span><br><span class="line">FRUIT[1]=&quot;Apple&quot;</span><br><span class="line">FRUIT[2]=&quot;Mango&quot;</span><br><span class="line">FRUIT[3]=&quot;Banana&quot;</span><br><span class="line">FRUIT[4]=&quot;Papaya&quot;</span><br><span class="line">echo &quot;First Index: $&#123;FRUIT[0]&#125;&quot;</span><br><span class="line">echo &quot;Second Index: $&#123;FRUIT[1]&#125;&quot;</span><br></pre></td></tr></table></figure>
+<p>先设置一系列的数组的值，通过在echo使用 <code>${}</code><br>如果我们这样做</p>
+<blockquote>
+<p>echo “First Index: $FRUIT[0] “</p>
+</blockquote>
+<p>打印出来的结果为：</p>
+<blockquote>
+<p>First Index: Pears[0]</p>
+</blockquote>
+<p>所以我们必须用一个大括号</p>
+<p>如果要一次性打印出数组内所有的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Method One : $&#123;FRUIT[*]&#125;&quot;</span><br><span class="line">echo &quot;Method Two : $&#123;FRUIT[@]&#125;&quot;</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -2230,7 +2303,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
