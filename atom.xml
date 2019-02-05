@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://prontosil.club/"/>
-  <updated>2019-02-04T06:53:00.961Z</updated>
+  <updated>2019-02-05T13:14:46.160Z</updated>
   <id>https://prontosil.club/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>博客摘录</title>
+    <link href="https://prontosil.club/2019/02/05/%E5%8D%9A%E5%AE%A2%E6%91%98%E5%BD%95/"/>
+    <id>https://prontosil.club/2019/02/05/博客摘录/</id>
+    <published>2019-02-05T13:08:18.000Z</published>
+    <updated>2019-02-05T13:14:46.160Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="我已经收藏了不少大佬的博客了，-可是却很少仔仔细细的全面看过，-趁着今天有点累又闲来无事，-摘录其中比较有用的内容"><a href="#我已经收藏了不少大佬的博客了，-可是却很少仔仔细细的全面看过，-趁着今天有点累又闲来无事，-摘录其中比较有用的内容" class="headerlink" title="我已经收藏了不少大佬的博客了， 可是却很少仔仔细细的全面看过， 趁着今天有点累又闲来无事， 摘录其中比较有用的内容"></a>我已经收藏了不少大佬的博客了， 可是却很少仔仔细细的全面看过， 趁着今天有点累又闲来无事， 摘录其中比较有用的内容</h4><a id="more"></a><h5 id="一些免费的翻墙软件"><a href="#一些免费的翻墙软件" class="headerlink" title="一些免费的翻墙软件"></a>一些免费的翻墙软件</h5><p>来自刘伟的博客， 不过我筛选了一些， 因为很多已经没用了</p><hr><p>蓝灯</p><ul><li>优点：有免费版，并且抗封能力较强<br>缺点：有流量限制：每月500MB，不支持iPhone、iPad<br>系统：Linux、Windows、MacOS、Android<br>中文：支持中文<br>下载：<a href="https://getlantern.org/" title="蓝灯官网" target="_blank" rel="noopener">蓝灯官网</a>(需翻墙), <a href="https://github.com/getlantern/forum/issues/833" title="GitHub地址" target="_blank" rel="noopener">GitHub地址</a>(不需要翻墙)</li></ul><hr><p>无界</p><ul><li>优点：无流量限制<br>缺点：不稳定，不支持iPhone、iPad<br>系统：Linux、Windows、Android<br>中文：支持中文<br>下载：<a href="http://www.wujieliulan.com/download.htm" title="无界官网" target="_blank" rel="noopener">无界官网</a>(需翻墙)</li></ul><hr><p>Tor</p><ul><li>优点：无流量限制<br>缺点：速度很慢，不稳定，翻墙时需使用专门的浏览器Tor Browser，不支持iPhone、iPad<br>系统：Linux、Windows、MacOS、Android<br>中文：网站无中文版，但软件有中文版<br>下载：<a href="https://www.torproject.org/" title="Tor官网" target="_blank" rel="noopener">Tor官网</a>(需翻墙)</li></ul><p><a href="https://sphard2.github.io/gfw/" target="_blank" rel="noopener">科学上网翻墙教程</a></p><h5 id="了解一下iptables"><a href="#了解一下iptables" class="headerlink" title="了解一下iptables"></a>了解一下iptables</h5><p><a href="https://wangchujiang.com/linux-command/c/iptables.html" target="_blank" rel="noopener">iptables</a><br>iptables命令 是Linux上常用的防火墙软件，是netfilter项目的一部分。可以直接配置，也可以通过许多前端和图形界面配置。</p><p>防火墙的策略<br>防火墙策略一般分为两种，一种叫通策略，一种叫堵策略，通策略，默认门是关着的，必须要定义谁能进。堵策略则是，大门是洞开的，但是你必须有身份认证，否则不能进，所以通，是要全通，而堵，则是要选择。</p><p> 实际例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -F  # 清空所有的防火墙规则</span><br><span class="line">iptables -X  # 删除用户自定义的空链</span><br><span class="line">iptables -Z  # 清空计数</span><br></pre></td></tr></table></figure></p><p>配置允许ssh端口连接<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">iptables -A INPUT -s 192.168.1.0/24 -p tcp --dport 22 -j ACCEPT</span><br><span class="line"># 22为你的ssh端口， -s 192.168.1.0/24表示允许这个网段的机器来连接，</span><br><span class="line">#其它网段的ip地址是登陆不了你的机器的。 -j ACCEPT表示接受这样的请求</span><br></pre></td></tr></table></figure></p><p>允许本地回环地址可以正常使用</p><h5 id="推荐几个图床"><a href="#推荐几个图床" class="headerlink" title="推荐几个图床"></a>推荐几个图床</h5><blockquote><ol><li>imgur(非常流行,强烈推荐): <a href="https://imgur.com/" target="_blank" rel="noopener">https://imgur.com</a></li><li>SM.MS(适合国内用户,但自己很难控制图片): <a href="https://sm.ms/" target="_blank" rel="noopener">https://sm.ms</a></li><li>upload.cc(繁体界面): <a href="https://upload.cc/" target="_blank" rel="noopener">https://upload.cc</a></li><li>路过图床: <a href="https://imgchr.com/" target="_blank" rel="noopener">https://imgchr.com</a></li><li>img9.top 无限图床: <a href="https://img9.top/" target="_blank" rel="noopener">https://img9.top</a></li><li>imgbox(英文界面): <a href="https://imgbox.com/" target="_blank" rel="noopener">https://imgbox.com</a></li><li>ooxx.ooo(英文界面): <a href="https://ooxx.ooo/" target="_blank" rel="noopener">https://ooxx.ooo</a></li><li>postimage(英文界面): <a href="https://postimages.org/" target="_blank" rel="noopener">https://postimages.org</a></li><li>imgurl(中文界面): <a href="https://imgurl.org/" target="_blank" rel="noopener">https://imgurl.org</a></li></ol></blockquote><h5 id="next主题进一步优化"><a href="#next主题进一步优化" class="headerlink" title="next主题进一步优化"></a>next主题进一步优化</h5><p><a href="https://reishin.me/hexo-next-optimization/#%E6%96%B0%E5%BB%BA%E6%96%87%E7%AB%A0" target="_blank" rel="noopener">next主题优化</a></p><p><a href="https://reishin.me/blog-seo-optimization/" target="_blank" rel="noopener">提交博客到Google和百度的方法</a></p><h5 id="docker-基础知识"><a href="#docker-基础知识" class="headerlink" title="docker 基础知识"></a>docker 基础知识</h5><p><a href="https://reishin.me/docker-base/" target="_blank" rel="noopener">docker基础知识总结</a></p><h5 id="php命令行调试"><a href="#php命令行调试" class="headerlink" title="php命令行调试"></a>php命令行调试</h5><p><a href="https://han8gui.github.io/2017/05/17/PHP%E7%A8%8B%E5%BA%8F%E5%A6%82%E4%BD%95debug/" target="_blank" rel="noopener">PHP 程序如何debug</a></p><h6 id="检查是否有语法错误"><a href="#检查是否有语法错误" class="headerlink" title="检查是否有语法错误"></a>检查是否有语法错误</h6><blockquote><p>php -l test.php</p></blockquote><h6 id="基本调试API"><a href="#基本调试API" class="headerlink" title="基本调试API"></a>基本调试API</h6><blockquote><p>var_dump(\$var);print_r(\$var);echo \$var;</p></blockquote><h6 id="基本的配置"><a href="#基本的配置" class="headerlink" title="基本的配置"></a>基本的配置</h6><blockquote><p>display_errors、log_errors、error_reporting、error_log</p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;我已经收藏了不少大佬的博客了，-可是却很少仔仔细细的全面看过，-趁着今天有点累又闲来无事，-摘录其中比较有用的内容&quot;&gt;&lt;a href=&quot;#我已经收藏了不少大佬的博客了，-可是却很少仔仔细细的全面看过，-趁着今天有点累又闲来无事，-摘录其中比较有用的内容&quot; class=&quot;headerlink&quot; title=&quot;我已经收藏了不少大佬的博客了， 可是却很少仔仔细细的全面看过， 趁着今天有点累又闲来无事， 摘录其中比较有用的内容&quot;&gt;&lt;/a&gt;我已经收藏了不少大佬的博客了， 可是却很少仔仔细细的全面看过， 趁着今天有点累又闲来无事， 摘录其中比较有用的内容&lt;/h4&gt;
+    
+    </summary>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="docker" scheme="https://prontosil.club/tags/docker/"/>
+    
+      <category term="VPN" scheme="https://prontosil.club/tags/VPN/"/>
+    
+      <category term="fq" scheme="https://prontosil.club/tags/fq/"/>
+    
+      <category term="iptables" scheme="https://prontosil.club/tags/iptables/"/>
+    
+  </entry>
   
   <entry>
     <title>sed命令详解</title>
@@ -35,9 +63,9 @@
     <link href="https://prontosil.club/2019/02/04/%E5%BA%8F/"/>
     <id>https://prontosil.club/2019/02/04/序/</id>
     <published>2019-02-04T06:46:32.000Z</published>
-    <updated>2019-02-04T06:49:19.828Z</updated>
+    <updated>2019-02-05T13:12:16.211Z</updated>
     
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>我总是在不断地追寻着， 却又时常忘记自己身在何方</p></blockquote><p>欢迎光临百浪多息的博客！</p>]]></content>
+    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>我总是在不断地追寻着， 却又时常忘记自己身在何方</p></blockquote><p>欢迎光临百浪多息的博客！</p><p>挂上一些友情链接</p><p><a href="http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg</a></p><p><a href="https://blog.szfszf.top/" target="_blank" rel="noopener">https://blog.szfszf.top/</a></p><p><a href="https://darrenliuwei.com/" target="_blank" rel="noopener">https://darrenliuwei.com/</a></p><p><a href="https://blankj.com/" target="_blank" rel="noopener">https://blankj.com/</a></p><p><a href="https://sphard.com/" target="_blank" rel="noopener">https://sphard.com/</a></p><p><a href="http://iamwr.com/" target="_blank" rel="noopener">http://iamwr.com/</a></p><p><a href="https://leaferx.online/" target="_blank" rel="noopener">https://leaferx.online/</a></p><p><a href="https://kinegratii.github.io/" target="_blank" rel="noopener">https://kinegratii.github.io/</a></p><p><a href="http://iamwr.com/" target="_blank" rel="noopener">http://iamwr.com/</a></p>]]></content>
     
     <summary type="html">
     
@@ -46,7 +74,8 @@
         &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;我总是在不断地追寻着， 却又时常忘记自己身在何方&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;欢迎光临百浪多息的博客！&lt;/p&gt;
-
+&lt;p&gt;挂上一些友情链接&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://s
       
     
     </summary>
@@ -494,29 +523,6 @@
     </summary>
     
       <category term="杂念" scheme="https://prontosil.club/categories/%E6%9D%82%E5%BF%B5/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>git 进阶</title>
-    <link href="https://prontosil.club/2018/12/11/git-%E8%BF%9B%E9%98%B6/"/>
-    <id>https://prontosil.club/2018/12/11/git-进阶/</id>
-    <published>2018-12-11T08:13:00.000Z</published>
-    <updated>2018-12-11T08:34:48.264Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="git-tql"><a href="#git-tql" class="headerlink" title="git tql!!!"></a>git tql!!!</h4><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">最全的git教程</a></p><blockquote><p>git可以很方便地解决多人协作写代码的问题，同时还可以有效地管理你的文件</p></blockquote><p><code>git reset --hard</code>命令可以修改你的工作取得状态，包括将删除的文件重新找回。</p><p>(今天动手做实验的时候才发现的，值得收藏)</p><blockquote><p>git 可以很方便地多人同时开发，就好像其他人不存在一样，最后只需要合并每个人的分支即可</p></blockquote><ul><li>注意一下</li></ul><p>git branch 是创建一个分支，不过你需要知道自己是在哪个分支的基础上创建的分支，(git 好像没有可以显示分支的相对位置的命令?这个坑稍后再去补充)</p><blockquote><p>合并分支</p></blockquote><p>你想要把哪个分支合并到另一个分支上，你就需要在那个分支上工作，同时使用 <code>git merge</code>命令</p><h6 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h6><blockquote><p>emmmm分支冲突这种事先放着，以后遇到了坑之后再解决</p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h4 id=&quot;git-tql&quot;&gt;&lt;a href=&quot;#git-tql&quot; class=&quot;headerlink&quot; title=&quot;git tql!!!&quot;&gt;&lt;/a&gt;git tql!!!&lt;/h4&gt;&lt;p&gt;&lt;a href=&quot;https://www.liaoxuefeng.com/wiki/00
-      
-    
-    </summary>
-    
-      <category term="git" scheme="https://prontosil.club/categories/git/"/>
     
     
   </entry>

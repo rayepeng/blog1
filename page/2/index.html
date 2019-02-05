@@ -268,6 +268,208 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/01/docker-实战/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/02/01/docker-实战/" itemprop="url">docker 实战</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-01T14:23:51+08:00">
+                2019-02-01
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-03T19:57:25+08:00">
+                2019-02-03
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/docker/" itemprop="url" rel="index">
+                    <span itemprop="name">docker</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  440
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h4 id="引子"><a href="#引子" class="headerlink" title="引子"></a>引子</h4><p>我花了大概半天多的时间去学习了一些关于docker底层的知识，看的是华为的那本docker实战， 同样的第一遍是一头雾水， 但是之后感觉其中写到的cgroup和namespace， 还有docker最底层的东西的介绍，其实都加深了对docker的认识。在此之上，我使用了我们之前打hctf比赛的源码， 利用它提供的dockerfile成功地搭建了一个ruby on rails网站，第一次领悟到了docker的魅力， 这篇文章讲讲述我使用docker所做的事情， 不断更新中。</p>
+<h4 id="利用docker镜像"><a href="#利用docker镜像" class="headerlink" title="利用docker镜像"></a>利用docker镜像</h4><h5 id="tensorflow环境搭建"><a href="#tensorflow环境搭建" class="headerlink" title="tensorflow环境搭建"></a>tensorflow环境搭建</h5><p><a href="https://segmentfault.com/a/1190000015053704" target="_blank" rel="noopener">基于docker搭建tensorflow环境</a></p>
+<p>关于tensorflow我之后再还会继续写一个专题， 暂且按下不表。</p>
+<p>从docker hub上pull下一个tensorflow image<br>之后如果想用jupyter notebook来开发， 可以参考如下命令</p>
+<blockquote>
+<p>docker run -it -p 8888:8888 tensorflow/tensorflow</p>
+</blockquote>
+<p>但是我现在都还没有处理好jupyter notebook的远程访问问题(我自己起的名字)，所以还是直接用bash的好<br>其实shell环境下的ipython也是很不错的</p>
+<blockquote>
+<p>docker run -it tensorflow/tensorflow bash</p>
+</blockquote>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/01/docker-实战/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/01/新一年的想法/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2004,213 +2206,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2018/12/11/git-进阶/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/12/11/git-进阶/" itemprop="url">git 进阶</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-11T16:13:00+08:00">
-                2018-12-11
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2018-12-11T16:34:48+08:00">
-                2018-12-11
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/git/" itemprop="url" rel="index">
-                    <span itemprop="name">git</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  259
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h4 id="git-tql"><a href="#git-tql" class="headerlink" title="git tql!!!"></a>git tql!!!</h4><p><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="noopener">最全的git教程</a></p>
-<blockquote>
-<p>git可以很方便地解决多人协作写代码的问题，同时还可以有效地管理你的文件</p>
-</blockquote>
-<p><code>git reset --hard</code>命令可以修改你的工作取得状态，包括将删除的文件重新找回。</p>
-<p>(今天动手做实验的时候才发现的，值得收藏)</p>
-<blockquote>
-<p>git 可以很方便地多人同时开发，就好像其他人不存在一样，最后只需要合并每个人的分支即可</p>
-</blockquote>
-<ul>
-<li>注意一下</li>
-</ul>
-<p>git branch 是创建一个分支，不过你需要知道自己是在哪个分支的基础上创建的分支，(git 好像没有可以显示分支的相对位置的命令?这个坑稍后再去补充)</p>
-<blockquote>
-<p>合并分支</p>
-</blockquote>
-<p>你想要把哪个分支合并到另一个分支上，你就需要在那个分支上工作，同时使用 <code>git merge</code>命令</p>
-<h6 id="分支冲突"><a href="#分支冲突" class="headerlink" title="分支冲突"></a>分支冲突</h6><blockquote>
-<p>emmmm分支冲突这种事先放着，以后遇到了坑之后再解决</p>
-</blockquote>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2263,7 +2258,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2285,7 +2280,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
