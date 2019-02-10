@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://prontosil.club/"/>
-  <updated>2019-02-05T13:14:46.160Z</updated>
+  <updated>2019-02-07T07:15:56.510Z</updated>
   <id>https://prontosil.club/</id>
   
   <author>
@@ -15,6 +15,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>vim 使用之道 </title>
+    <link href="https://prontosil.club/2019/02/07/vim-%E4%BD%BF%E7%94%A8%E4%B9%8B%E9%81%93/"/>
+    <id>https://prontosil.club/2019/02/07/vim-使用之道/</id>
+    <published>2019-02-07T07:15:56.000Z</published>
+    <updated>2019-02-07T07:15:56.510Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用Linux架设服务器</title>
+    <link href="https://prontosil.club/2019/02/07/%E4%BD%BF%E7%94%A8Linux%E6%9E%B6%E8%AE%BE%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+    <id>https://prontosil.club/2019/02/07/使用Linux架设服务器/</id>
+    <published>2019-02-07T07:15:34.000Z</published>
+    <updated>2019-02-07T07:15:34.656Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>bugku web题目的wp</title>
+    <link href="https://prontosil.club/2019/02/07/bugku-web%E9%A2%98%E7%9B%AE%E7%9A%84wp/"/>
+    <id>https://prontosil.club/2019/02/07/bugku-web题目的wp/</id>
+    <published>2019-02-07T07:15:09.000Z</published>
+    <updated>2019-02-07T07:15:10.003Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>PHP语法摘录</title>
+    <link href="https://prontosil.club/2019/02/07/PHP%E8%AF%AD%E6%B3%95%E6%91%98%E5%BD%95/"/>
+    <id>https://prontosil.club/2019/02/07/PHP语法摘录/</id>
+    <published>2019-02-07T07:14:52.000Z</published>
+    <updated>2019-02-07T07:16:33.267Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>最近在复习PHP的语法， 毕竟代码审计这方面还是比较弱。 过年的这几天也提不上学习的动力， 就只好不断地更新自己的博客比较好了</p><a id="more"></a><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</span><br><span class="line">echo &quot;I like &quot; . $cars[0] . &quot;, &quot; . $cars[1] . &quot; and &quot; . $cars[2] . &quot;.&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><p>. 拼接字符串</p><p>PHP大致有三种类型的数组</p><ul><li>数值数组， 和C语言的数组很相似， 键值默认从0开始</li><li>关联数组， 相当于python中的dict类型</li><li>多维数组</li></ul><p>涉及到几个函数</p><h5 id="获取数组的长度-count-函数"><a href="#获取数组的长度-count-函数" class="headerlink" title="获取数组的长度-count()函数"></a>获取数组的长度-count()函数</h5><h5 id="遍历数值数组"><a href="#遍历数值数组" class="headerlink" title="遍历数值数组"></a>遍历数值数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$cars=array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</span><br><span class="line">$arrlength=count($cars);</span><br><span class="line"> </span><br><span class="line">for($x=0;$x&lt;$arrlength;$x++)</span><br><span class="line">&#123;</span><br><span class="line">    echo $cars[$x];</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h5 id="遍历关联数组"><a href="#遍历关联数组" class="headerlink" title="遍历关联数组"></a>遍历关联数组</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$age=array(&quot;Peter&quot;=&gt;&quot;35&quot;,&quot;Ben&quot;=&gt;&quot;37&quot;,&quot;Joe&quot;=&gt;&quot;43&quot;);</span><br><span class="line"> </span><br><span class="line">foreach($age as $x=&gt;$x_value)</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;Key=&quot; . $x . &quot;, Value=&quot; . $x_value;</span><br><span class="line">    echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h4 id="多维数组"><a href="#多维数组" class="headerlink" title="多维数组"></a>多维数组</h4><p>实例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 二维数组:</span><br><span class="line">$cars = array</span><br><span class="line">(</span><br><span class="line">    array(&quot;Volvo&quot;,100,96),</span><br><span class="line">    array(&quot;BMW&quot;,60,59),</span><br><span class="line">    array(&quot;Toyota&quot;,110,100)</span><br><span class="line">);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><hr><h4 id="几个函数的区别"><a href="#几个函数的区别" class="headerlink" title="几个函数的区别"></a>几个函数的区别</h4><h5 id="echo函数"><a href="#echo函数" class="headerlink" title="echo函数"></a>echo函数</h5><p>可以一次输出多个值， echo是语言结构， 并不是真正的函数</p><h5 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h5><p>打印一个值， 打印成功返回true， 打印失败返回false</p><h5 id="print-r"><a href="#print-r" class="headerlink" title="print_r()"></a>print_r()</h5><p>可以把字符串和数字简单地打印出来，而数组则以括起来的键和值得列表形式显示，并以Array开头。但print_r()输出布尔值和NULL的结果没有意义，因为都是打印”\n”。因此用var_dump()函数更适合调试。</p><h6 id="var-dump"><a href="#var-dump" class="headerlink" title="var_dump()"></a>var_dump()</h6><p>判断一个变量的类型与长度,并输出变量的数值,如果变量有值输的是变量的值并回返数据类型。此函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p><h4 id="PHP-Cookie"><a href="#PHP-Cookie" class="headerlink" title="PHP Cookie"></a>PHP Cookie</h4><p>我的理解： client在请求的时候， server 端会 通过 setcookie函数 将一些键值对发送给 client端， 之后 client端 再去访问的时候就会带上 cookie</p><h5 id="如何创建cookie"><a href="#如何创建cookie" class="headerlink" title="如何创建cookie"></a>如何创建cookie</h5><p>setcookie() 函数用于设置 cookie。</p><p><strong>注释</strong>：setcookie() 函数必须位于 <html> 标签之前。</html></p><p>创建一个名字为 “user” 的cookie， 并赋值为 “runoob”, 并规定cookie在一小时后失效<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">setcookie(&quot;user&quot;, &quot;runoob&quot;, time()+3600);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><p><strong>注释</strong>：在发送 cookie 时，cookie 的值会自动进行 URL 编码，在取回时进行自动解码。（为防止 URL 编码，请使用 setrawcookie() 取而代之。）</p><h5 id="获得cookie的值"><a href="#获得cookie的值" class="headerlink" title="获得cookie的值"></a>获得cookie的值</h5><p>PHP 的 $_COOKIE 变量用于取回 cookie 的值。</p><p>在下面的实例中，我们取回了名为 “user” 的 cookie 的值，并把它显示在了页面上：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 输出 cookie 值</span><br><span class="line">echo $_COOKIE[&quot;user&quot;];</span><br><span class="line"></span><br><span class="line">// 查看所有 cookie</span><br><span class="line">print_r($_COOKIE);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><p>可以使用 <code>isset()</code>函数来确定是否这是了cookie</p><h5 id="如何删除cookie"><a href="#如何删除cookie" class="headerlink" title="如何删除cookie"></a>如何删除cookie</h5><p>将cookie失效的时间改成过去的时间点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">// 设置 cookie 过期时间为过去 1 小时</span><br><span class="line">setcookie(&quot;user&quot;, &quot;&quot;, time()-3600);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><h4 id="PHP-session"><a href="#PHP-session" class="headerlink" title="PHP session"></a>PHP session</h4><p>PHP session 变量用于存储关于用户会话（session）的信息，或者更改用户会话（session）的设置。Session 变量存储单一用户的信息，并且对于应用程序中的所有页面都是可用的。</p><h5 id="开始PHP-session"><a href="#开始PHP-session" class="headerlink" title="开始PHP session"></a>开始PHP session</h5><p>首先必须启动会话</p><p><code>session_start()</code>函数必须位于<html>标签之前<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php session_start(); ?&gt;</span><br><span class="line"></span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure></html></p><h5 id="存储session变量"><a href="#存储session变量" class="headerlink" title="存储session变量"></a>存储session变量</h5><p>存储和取回 session 变量的正确方法是使用 PHP $_SESSION 变量：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">session_start();</span><br><span class="line">// 存储 session 数据</span><br><span class="line">$_SESSION[&apos;views&apos;]=1;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><h5 id="创建一个简单地page-view计数器"><a href="#创建一个简单地page-view计数器" class="headerlink" title="创建一个简单地page-view计数器"></a>创建一个简单地page-view计数器</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">session_start();</span><br><span class="line"></span><br><span class="line">if(isset($_SESSION[&apos;views&apos;]))</span><br><span class="line">&#123;</span><br><span class="line">    $_SESSION[&apos;views&apos;]=$_SESSION[&apos;views&apos;]+1;</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    $_SESSION[&apos;views&apos;]=1;</span><br><span class="line">&#125;</span><br><span class="line">echo &quot;浏览量：&quot;. $_SESSION[&apos;views&apos;];</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h5 id="销毁session"><a href="#销毁session" class="headerlink" title="销毁session"></a>销毁session</h5><p>unset() 函数用于释放指定的 session 变量</p><p>通过调用 session_destroy() 函数彻底销毁 session</p><h4 id="PHP过滤器简介"><a href="#PHP过滤器简介" class="headerlink" title="PHP过滤器简介"></a>PHP过滤器简介</h4><p>常见的过滤器函数</p><ul><li>filter_var() - 通过一个指定的过滤器来过滤单一的变量</li><li>filter_var_array() - 通过相同的或不同的过滤器来过滤多个变量</li><li>filter_input() - 获取一个输入变量，并对它进行过滤</li><li>filter_input_array() - 获取多个输入变量，并通过相同的或不同的过滤器对它们进行过滤</li></ul><p>示例1：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$int = 123;</span><br><span class="line"> </span><br><span class="line">if(!filter_var($int, FILTER_VALIDATE_INT))</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;不是一个合法的整数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;是个合法的整数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure></p><h5 id="options"><a href="#options" class="headerlink" title="options"></a>options</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$var=300;</span><br><span class="line"> </span><br><span class="line">$int_options = array(</span><br><span class="line">    &quot;options&quot;=&gt;array</span><br><span class="line">    (</span><br><span class="line">        &quot;min_range&quot;=&gt;0,</span><br><span class="line">        &quot;max_range&quot;=&gt;256</span><br><span class="line">    )</span><br><span class="line">);</span><br><span class="line"> </span><br><span class="line">if(!filter_var($var, FILTER_VALIDATE_INT, $int_options))</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;不是一个合法的整数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;是个合法的整数&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h5 id="过滤多个输入"><a href="#过滤多个输入" class="headerlink" title="过滤多个输入"></a>过滤多个输入</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$filters = array</span><br><span class="line">(</span><br><span class="line">    &quot;name&quot; =&gt; array</span><br><span class="line">    (</span><br><span class="line">        &quot;filter&quot;=&gt;FILTER_SANITIZE_STRING</span><br><span class="line">    ),</span><br><span class="line">    &quot;age&quot; =&gt; array</span><br><span class="line">    (</span><br><span class="line">        &quot;filter&quot;=&gt;FILTER_VALIDATE_INT,</span><br><span class="line">        &quot;options&quot;=&gt;array</span><br><span class="line">        (</span><br><span class="line">            &quot;min_range&quot;=&gt;1,</span><br><span class="line">            &quot;max_range&quot;=&gt;120</span><br><span class="line">        )</span><br><span class="line">    ),</span><br><span class="line">    &quot;email&quot;=&gt; FILTER_VALIDATE_EMAIL</span><br><span class="line">);</span><br><span class="line"> </span><br><span class="line">$result = filter_input_array(INPUT_GET, $filters);</span><br><span class="line"> </span><br><span class="line">if (!$result[&quot;age&quot;])</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;年龄必须在 1 到 120 之间。&lt;br&gt;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">elseif(!$result[&quot;email&quot;])</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;E-Mail 不合法&lt;br&gt;&quot;);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo(&quot;输入正确&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure><h4 id="关于form表单"><a href="#关于form表单" class="headerlink" title="关于form表单"></a>关于form表单</h4><h5 id="form表单的四种属性"><a href="#form表单的四种属性" class="headerlink" title="form表单的四种属性"></a>form表单的四种属性</h5><blockquote><ul><li>action : url 地址， 服务器接收表单数据的地址</li><li>method : 提交服务器的http方法，一般为post或者get</li><li>name：</li><li>enctype: 表单数据提交使用的编码类型， 默认使用 “application/x-www-form-urlencoded”  如果使用的是post请求，则请求头中的 <code>content-type</code> 指定值就是改值。 如果表单中有上传文件， 编码类型需要使用 <code>multipart/form-data</code> 类型才能完成传递文件数据</li></ul></blockquote><h5 id="浏览器提交表单时执行的步骤"><a href="#浏览器提交表单时执行的步骤" class="headerlink" title="浏览器提交表单时执行的步骤"></a>浏览器提交表单时执行的步骤</h5><blockquote><p>1、识别出表单中表单元素的有效项，作为提交项<br>2、构建一个表单数据集<br>3、根据form表单中的enctype属性的值作为content-type对数据进行编码<br>4、根据form表单中的action属性和method属性向指定的地址发送数据</p></blockquote><h5 id="四种常见的post请求提交数据的方式"><a href="#四种常见的post请求提交数据的方式" class="headerlink" title="四种常见的post请求提交数据的方式"></a>四种常见的post请求提交数据的方式</h5><p>1.application/x-www-form-urlencoded<br>2.multipart/form-data<br>3.application/json<br>4.text/xml</p><hr><p>总算沉下心来花时间把这些东西整理了一下。 PHP， form， http， 这几样东西其实本身是联系在一起的， 可能之前学习的时候把它们忽视掉了。</p><h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a href="http://www.runoob.com/php/php-tutorial.html" target="_blank" rel="noopener">菜鸟教程</a><br><a href="https://www.cnblogs.com/tylerdonet/p/3702527.html" target="_blank" rel="noopener">echo, print(), print_r(), var_dump()的区别</a><br><a href="http://www.runoob.com/try/showphp.php?filename=demo_array_multi" target="_blank" rel="noopener">多维数组示例</a><br><a href="https://blog.csdn.net/bigtree_3721/article/details/82809459" target="_blank" rel="noopener">Form表单、四种常见的POST请求提交数据方式</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;最近在复习PHP的语法， 毕竟代码审计这方面还是比较弱。 过年的这几天也提不上学习的动力， 就只好不断地更新自己的博客比较好了&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>博客摘录</title>
@@ -49,12 +109,26 @@
     <link href="https://prontosil.club/2019/02/04/sed%E5%91%BD%E4%BB%A4%E8%AF%A6%E8%A7%A3/"/>
     <id>https://prontosil.club/2019/02/04/sed命令详解/</id>
     <published>2019-02-04T06:53:00.000Z</published>
-    <updated>2019-02-04T06:53:00.961Z</updated>
+    <updated>2019-02-10T13:38:43.679Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><p>哪怕是除夕也要坚持更新博客</p><h4 id="sed-简介"><a href="#sed-简介" class="headerlink" title="sed 简介"></a>sed 简介</h4><p>sed 是一个很强大的文本编辑器。 可以对来自文本， 以及标准输入的文本进行编辑<br>sed会从文件或者标准输入中读取一行，将其复制到缓冲区，对文本编辑完成之后，读取下一行直到所有的文本行都编辑完毕。</p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-e4ab0e50bbf3371f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选项及其作用"></p><p>话不多说直接上示例</p><ul><li><p>替换文本中的字符串</p><blockquote><p>sed ‘s/book/books/‘ filename</p></blockquote></li><li><p>-n 打印行号， p打印。 打印出那些发生替换的行</p><blockquote><p>sed -n ‘s/test/TEST/p’ filename</p></blockquote></li><li><p>直接编辑文件选项-i， 匹配文件中的每一行并替换</p><blockquote><p>sed  -i ‘s/book/books/g’ filename</p></blockquote></li><li><p>全面替换标记g</p><blockquote><p>sed ‘s/book/books/g’  filename</p></blockquote></li><li><p>当需要从第N处开始匹配时， 可以使用/Ng<br>echo sksksksks | sed ‘s/sk/SK/2g’</p></li><li><p>/经常被用来做定界符， 同时也可以使用任意的定界符， 如: or |</p></li><li><p>定界符出现在内部时， 需要进行转义</p><blockquote><p>sed ‘s/\\/bin/\\/usr\\/local\\/bin/g’</p></blockquote></li></ul><h4 id="命令参数如下"><a href="#命令参数如下" class="headerlink" title="命令参数如下"></a>命令参数如下</h4><blockquote><p><strong>a\\</strong> 在当前行下面插入文本。<br><strong>i\\</strong> 在当前行上面插入文本。<br><strong>c\\</strong> 把选定的行改为新的文本。<br><strong>d</strong> 删除，删除选择的行。<br><strong>D</strong> 删除模板块的第一行。<br><strong>s</strong> 替换指定字符<br><strong>h</strong> 拷贝模板块的内容到内存中的缓冲区。<br><strong>H</strong> 追加模板块的内容到内存中的缓冲区。<br><strong>g</strong> 获得内存缓冲区的内容，并替代当前模板块中的文本。<br><strong>G</strong> 获得内存缓冲区的内容，并追加到当前模板块文本的后面。<br><strong>l</strong> 列表不能打印字符的清单。<br><strong>n</strong> 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。<br><strong>N</strong> 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。<br><strong>p</strong> 打印模板块的行。<br><strong>P</strong>(大写) 打印模板块的第一行。<br><strong>q</strong> 退出Sed。<br><strong>b lable</strong> 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。<br><strong>r file</strong> 从file中读行。<br><strong>t label</strong> if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。<br><strong>T label</strong> 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。<br><strong><a href="http://man.linuxde.net/w" title="w命令" target="_blank" rel="noopener">w</a> file</strong> 写并追加模板块到file末尾。<br><strong>W file</strong> 写并追加模板块的第一行到file末尾。<br><strong>!</strong> 表示后面的命令对所有没有被选定的行发生作用。<br><strong>=</strong> 打印当前行号码。<br><strong>#</strong> 把注释扩展到下一个换行符以前。 </p></blockquote>]]></content>
     
     <summary type="html">
     
+      
+      
+        &lt;h4 id=&quot;abstract&quot;&gt;&lt;a href=&quot;#abstract&quot; class=&quot;headerlink&quot; title=&quot;abstract&quot;&gt;&lt;/a&gt;abstract&lt;/h4&gt;&lt;p&gt;哪怕是除夕也要坚持更新博客&lt;/p&gt;
+&lt;h4 id=&quot;sed-简介&quot;&gt;&lt;a href=&quot;#se
+      
+    
     </summary>
     
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="shell" scheme="https://prontosil.club/tags/shell/"/>
     
   </entry>
   
@@ -88,7 +162,7 @@
     <link href="https://prontosil.club/2019/02/04/LinuxShellScrips/"/>
     <id>https://prontosil.club/2019/02/04/LinuxShellScrips/</id>
     <published>2019-02-04T01:29:46.000Z</published>
-    <updated>2019-02-04T05:45:19.159Z</updated>
+    <updated>2019-02-10T13:38:05.645Z</updated>
     
     <content type="html"><![CDATA[<h4 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h4><h5 id="echo嵌入变量"><a href="#echo嵌入变量" class="headerlink" title="echo嵌入变量"></a>echo嵌入变量</h5><blockquote><p>echo “Hello $LOGNAME, Have a nice day !”</p></blockquote><p>echo 使用一对双引号， 同时会把对应的变量，转化为对应的值</p><h5 id="echo嵌入命令"><a href="#echo嵌入命令" class="headerlink" title="echo嵌入命令"></a>echo嵌入命令</h5><blockquote><p>echo “Your are working in directory `pwd`.”</p></blockquote><p>使用一对 ` ` 在echo中嵌入命令</p><blockquote><p>echo “You are working on a machine called `uname -n`.”</p></blockquote><p>uname -n<br>-n, —nodename : print the network node hostname</p><h5 id="显示时间"><a href="#显示时间" class="headerlink" title="显示时间"></a>显示时间</h5><blockquote><p> echo “Bye for now $LOGNAME. The time is <code>date +%T</code>!”</p></blockquote><p>date输出的结果</p><blockquote><p>Mon Feb  4 09:08:50 DST 2019<br>date +%T<br>使用 %H:%M:%S来显示时间</p></blockquote><h5 id="echo，-单引号，-变量"><a href="#echo，-单引号，-变量" class="headerlink" title="echo， 单引号， 变量"></a>echo， 单引号， 变量</h5><blockquote><p>planet=”Earth”<br>echo \$planet<br># Earth<br>echo ‘\$planet’<br># \$planet<br>echo “\$planet”<br>#Earth</p></blockquote><p>echo也可以不加单引号在屏幕上打印出 $planet</p><blockquote><p>echo \$planet</p></blockquote><p>可以理解成单引号会里面的所有字符都会原样的打印出来， 而双引号中的变量会被对应的值取代， 不加引号和加了双引号的效果是一样的。不过同样的在双引号和不加双引号都可以用转义符。</p><h5 id="echo与-read交互"><a href="#echo与-read交互" class="headerlink" title="echo与 read交互"></a>echo与 read交互</h5><blockquote><p>echo Enter some text<br>read planet<br>echo \’\$planet\’ now equals \$planet<br>exit 0</p></blockquote><h4 id="环境变量"><a href="#环境变量" class="headerlink" title="环境变量"></a>环境变量</h4><p>先来看一个恶作剧脚本</p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> TZ=America/Los_Angeles</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">export</span> TZ=Asia/Tokyo</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$TZ</span>"</span></span><br><span class="line">date</span><br><span class="line"><span class="built_in">unset</span> TZ</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"Your Timezone is = <span class="variable">$(cat /etc/timezone)</span>"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># For Redhat or Fedora /etc/localtime</span></span><br></pre></td></tr></table></figure><p>date</p><p>TZ即是TimeZone， 在双引号下 $TZ 会被对应的值取代。在设置好TZ之后显示的date会随着变化。</p><p>最好玩的是这句：</p><blockquote><p>echo “Your Timezone is = \$(cat /etc/timezone)”</p></blockquote><p>等价于</p><blockquote><p>echo “Your Timezone is = `cat /etc/timezone`“</p></blockquote><h4 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">FRUIT[0]=&quot;Pears&quot;</span><br><span class="line">FRUIT[1]=&quot;Apple&quot;</span><br><span class="line">FRUIT[2]=&quot;Mango&quot;</span><br><span class="line">FRUIT[3]=&quot;Banana&quot;</span><br><span class="line">FRUIT[4]=&quot;Papaya&quot;</span><br><span class="line">echo &quot;First Index: $&#123;FRUIT[0]&#125;&quot;</span><br><span class="line">echo &quot;Second Index: $&#123;FRUIT[1]&#125;&quot;</span><br></pre></td></tr></table></figure><p>先设置一系列的数组的值，通过在echo使用 <code>${}</code><br>如果我们这样做</p><blockquote><p>echo “First Index: $FRUIT[0] “</p></blockquote><p>打印出来的结果为：</p><blockquote><p>First Index: Pears[0]</p></blockquote><p>所以我们必须用一个大括号</p><p>如果要一次性打印出数组内所有的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Method One : $&#123;FRUIT[*]&#125;&quot;</span><br><span class="line">echo &quot;Method Two : $&#123;FRUIT[@]&#125;&quot;</span><br></pre></td></tr></table></figure></p>]]></content>
     
@@ -101,7 +175,7 @@
     
     </summary>
     
-      <category term="shell" scheme="https://prontosil.club/categories/shell/"/>
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
     
     
       <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
@@ -253,7 +327,7 @@
     <link href="https://prontosil.club/2019/02/01/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/"/>
     <id>https://prontosil.club/2019/02/01/科学上网/</id>
     <published>2019-02-01T06:29:44.000Z</published>
-    <updated>2019-02-03T11:54:12.976Z</updated>
+    <updated>2019-02-10T13:39:47.052Z</updated>
     
     <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>就在昨天，我在逛推特的时候，无意中发现了一个似曾相识的人，竟然还是twitter推荐给我的！<br><img src="https://upload-images.jianshu.io/upload_images/10651191-2252ca4aed23b156.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="偶遇故人"></p><p>于是果断地扣了一下学长，学长告诉我可以自己组建vpn，但是觉得好神奇，后来试了一下，别说，还真行。</p><h4 id="知识储备"><a href="#知识储备" class="headerlink" title="知识储备"></a>知识储备</h4><p><a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E9%95%BF%E5%9F%8E" target="_blank" rel="noopener">中国国家防火墙</a></p><p><code>SOCKS</code> 是SOCKetS的缩写<br><a href="https://zh.wikipedia.org/wiki/SOCKS#SOCK5" target="_blank" rel="noopener">是一种网络传输协议，主要用于客户端与外网服务器之间通讯的中间传递。</a></p><p>SOCKS是会话层协议，位于表示层和传输层之间。<br>SOCKS的实际例子：</p><a id="more"></a><blockquote><p>Bill希望通过互联网与Jane沟通，但他们的网络之间存在一个<a href="https://zh.wikipedia.org/wiki/%E9%98%B2%E7%81%AB%E5%A2%99" title="防火墙" target="_blank" rel="noopener">防火墙</a>，Bill不能直接与Jane沟通。所以，Bill连接到他的网络上的SOCKS代理，告知它他想要与Jane创建连接；SOCKS代理打开一个能穿过防火墙的连接，并促进Bill和Jane之间的通信。</p></blockquote><p><code>Shadowsocks</code><br>一种基于<a href="https://zh.wikipedia.org/wiki/SOCKS#SOCK5" title="SOCKS" target="_blank" rel="noopener">Socks5</a>代理方式的加密传输协议，也可以指实现这个协议的各种开发包。<br><a href="https://zh.wikipedia.org/wiki/Shadowsocks" target="_blank" rel="noopener">维基百科定义</a></p><p>Shadowsocks的运行原理与其他代理工具基本相同，使用特定的中转服务器完成数据传输。<br>运行原理：</p><p>在服务器端部署完成后，用户需要按照指定的密码、加密方式和端口，使用客户端软件与其连接。在成功连接到服务器后，客户端会在本机上构建一个本地Socks5代理（或VPN、透明代理）。浏览网络时，网络流量会被分到本地Socks5代理，客户端将其加密之后发送到服务器，服务器以同样的加密方式将流量回传给客户端，以此实现代理上网。</p><p>主要项目分支：<br>ShadowsocksR</p><h4 id="科学上网"><a href="#科学上网" class="headerlink" title="科学上网"></a>科学上网</h4><p>使用<a href="https://bandwagonhost.com/index.php" target="_blank" rel="noopener">搬瓦工</a>搭建VPS</p><p>进入之后就可以看到这个界面了，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1f97f929db4d2a2f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="界面"></p><p>当然是选择最便宜的啦<br>不过要注意我们一定要选KVM架构的，只有KVM架构才能使用bbr加速</p><p>之后登陆控制面板<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1afef07288cf34e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="控制面板"><br>我们需要安装一个<code>debian 64</code>位的操作系统</p><p>然后这个时候在本地去连接VPS<br>ssh root@[ip地址] -P[端口号]</p><p>使用下面这串代码进行ssr搭建<br>wget -N —no-check-certificate <a href="https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh" target="_blank" rel="noopener">https://raw.githubusercontent.com/ToyoDAdoubi/doubi/master/ssr.sh</a> &amp;&amp; chmod +x ssr.sh &amp;&amp; bash ssr.sh</p><p>大部分都是默认安装<br><img src="https://upload-images.jianshu.io/upload_images/10651191-ab85693bbfeb95b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ssr安装后的结果"></p><p>之后 <code>bash ssr.sh</code></p><p>安装bbr加速<br>wget —no-check-certificate <a href="https://github.com/teddysun/across/raw/master/bbr.sh" target="_blank" rel="noopener">https://github.com/teddysun/across/raw/master/bbr.sh</a></p><p>chmod +x bbr.sh<br>./bbr.sh<br><img src="https://upload-images.jianshu.io/upload_images/10651191-10f625c23daf93cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><hr><p>然而上面写的用搬瓦工搭建的一个翻墙只是一个教程， 而且由于跟风者众多， 所以其实效果并不怎么样。</p><p>而我呢， 看的是这个刘伟的教程， 不过我经常访问不了他的网站。</p><p>用vultr购买服务器之后搭建ss服务， 目前来看ssr服务已经用不了了。 </p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-6475288e3364b8f6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ss小飞机"></p><p>科学上网需谨慎呀</p>]]></content>
     
@@ -267,7 +341,7 @@
     
     </summary>
     
-      <category term="折腾" scheme="https://prontosil.club/categories/%E6%8A%98%E8%85%BE/"/>
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
       <category term="fq" scheme="https://prontosil.club/tags/fq/"/>
@@ -317,7 +391,7 @@
     <link href="https://prontosil.club/2019/02/01/%E6%96%B0%E4%B8%80%E5%B9%B4%E7%9A%84%E6%83%B3%E6%B3%95/"/>
     <id>https://prontosil.club/2019/02/01/新一年的想法/</id>
     <published>2019-02-01T03:38:37.000Z</published>
-    <updated>2019-02-03T14:08:22.754Z</updated>
+    <updated>2019-02-10T13:40:51.247Z</updated>
     
     <content type="html"><![CDATA[<h4 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h4><p>回家之后确实颓废了蛮久， 前十天左右都是在忙数模竞赛的事情， 抱着司守奎老师的书啃了半天没看懂讲的是啥。然后回到家之后也挺不适应的， 想想有大概一年没听我妈唠叨了，突然exposed in this situation ， 自然有点令人抓狂。 最令我有点想打人的是， 为啥一到家我的电脑和pad全部罢工， 充不进电！！开始吓坏我了，还以为刚买的就坏了， 后来才之后原来pad这么娇气的呀， 非得用被子裹着， 暖着它， 才肯充进去电。 电脑的问题我也没怎么弄清楚。先放一张图片吧，反正目前能用就行。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-1a9d08e07adc86a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p><a id="more"></a><h4 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h4><p>不过那几天学的也挺多的， 虽然司老师那本书确实有些难， 不过耐不住我天天抱着看嘛(补充一句我看的是电子版,冒得钱), 学会了好多个算法， 像层次分析法， 灰度预测， 线性规划， 熵权法， 还有神经网络算法等等。也让我明白了计算机这个学科的某些特殊性。<br>之后就是连着几天的昏天黑地的写论文了， 不过在这段时间我迷上了铁齿铜牙纪晓岚， 从中也学会了许多做人的道理， 甚至，还有一些为官的道理， 毛主席说的好嘛， 政治，就是把支持我们的人搞得多多的， 把反对我们的人搞得少少的， 这就是政治了， 想想去年一年担任学习部部长， 要是早点知道这条道理，也不至于过的那么惨嘛hhh。<br>某一天想起来逛了以下szf大佬的博客， 看到他也写了一篇新一年的规划什么的， 不过字数肯定没我的多。 本来想着当时也写一篇的， 但是由于种种原因耽误了， 现在想想， 我所谓的新年嘛， 当然是指农历的新年咯， 所以在还有三天之后就过年的这个时间点， 我就写下这篇新年的想法吧。</p><h4 id="回顾"><a href="#回顾" class="headerlink" title="回顾"></a>回顾</h4><p>回顾2018吧， 我现在想想又做了些啥呢？ 其实2018年做的好多事都是一个引子， 就比如简书吧， 那是我2018年年初的时候开始入坑的， 现在我已经离不开这个平台了， 再之后是git， 一个版本控制工具， 我曾今还把git和GitHub傻傻分不清， 然而现在， GitHub这个最大的源代码托管平台， git这个及其强大的版本控制工具， 不管是管理自己的文件还是开发， 都是我最离不开的。 除此之外， 还有很多， 2018年我打开了好多个事物的大门， 2019年就需要我不断地在这些方面发力了。总结一下我需要在哪些东西上面发力吧。</p><h4 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h4><ol><li>云计算： docker， gcp， AWS</li><li>后端： Django， flask</li><li>游戏： Unity</li><li>软件： 逆向， pwn</li><li>web： 各种渗透测试的工具</li><li>操作系统：Linux， 主要是ubuntu&amp;kali</li></ol><p>有时候很悲观，总觉得自己想学那么多，结果啥都学不会<br>但是有时候又很乐观， 想不断地去学习新的东西， 以至于什么都去钻。<br>维持这种不断往外扩张的，我觉得也行，但是一定要集中精力学完一样之后方可开始去学的新的东西。</p>]]></content>
     
@@ -327,7 +401,7 @@
     
     </summary>
     
-      <category term="杂念" scheme="https://prontosil.club/categories/%E6%9D%82%E5%BF%B5/"/>
+      <category term="随笔" scheme="https://prontosil.club/categories/%E9%9A%8F%E7%AC%94/"/>
     
     
   </entry>
@@ -411,7 +485,7 @@
     <link href="https://prontosil.club/2018/12/20/UEFI%E5%92%8Clegacy/"/>
     <id>https://prontosil.club/2018/12/20/UEFI和legacy/</id>
     <published>2018-12-20T11:54:18.000Z</published>
-    <updated>2019-02-03T13:50:22.419Z</updated>
+    <updated>2019-02-10T13:39:28.256Z</updated>
     
     <content type="html"><![CDATA[<h5 id="UEFI和legacy"><a href="#UEFI和legacy" class="headerlink" title="UEFI和legacy"></a>UEFI和legacy</h5><p>闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。</p><p>天哪，这就是联想的厉害吗。</p><a id="more"></a><p>然后开始装Ubuntu</p><p>好像我很傻逼。。。</p><p>看了<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">这篇博客</a></p><p>才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？</p><blockquote><p>分区的建议:</p><p>/boot - 200MB 实际需求 100~200MB</p><p>/  15~20GB </p><p>/home 存放用户数据，多多益善。</p><p>/swap 可以不用吧</p></blockquote><p>别跑题了，我本来是想探究用UEFI和legacy引导方式的区别的</p><blockquote><p>EFI全称“统一的可扩展固件接口”(Unified Extensible Firmware Interface)， 是一种详细描述类型接口的标准。这种接口用于操作系统自动从预启动的操作环境，加载到一种操作系统上。通俗的说，UEFI是一种新的主板引导初始化的标注设置，具有启动速度快、安全性高和支持大容量硬盘而闻名。出现这种技术的主要作用基本上就是为了实现开机快的效果，由于win8系统支持这种引导方式的启动，所以速度略显的有点快，</p></blockquote><p>上面说的好像不是人话23333</p><p>其实我主要的问题就是</p><p>在我装双系统的时候，为什么legacy是无法引导U盘中的系统的</p><p>只要当我全部启用了UEFI引导的时候才成功了。</p><hr><p>2019年2月3日更新一波</p><h4 id="UEFI"><a href="#UEFI" class="headerlink" title="UEFI"></a>UEFI</h4><p>UEFI 是一种新兴的启动方式， 就是一个特定的分区， 200M左右， 让bios启动的时候直接把引导权限交给这个分区，这样你就可以使用鼠标了，因为传统的legacy模式下只能用键盘， 还可以做到连接无线自动下载镜像安装。</p><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>这就是为什么， 有时候安装Linux需要切换到legacy模式了，然而如果原来的系统是UEFI模式下安装的， 在lagacy模式是进不了的， 因为…bios不知道咋办了， 找不到UEFI</p>]]></content>
     
@@ -422,110 +496,12 @@
     
     </summary>
     
-      <category term="小白学电脑" scheme="https://prontosil.club/categories/%E5%B0%8F%E7%99%BD%E5%AD%A6%E7%94%B5%E8%84%91/"/>
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
     
     
       <category term="UEFI" scheme="https://prontosil.club/tags/UEFI/"/>
     
       <category term="legacy" scheme="https://prontosil.club/tags/legacy/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>shell脚本</title>
-    <link href="https://prontosil.club/2018/12/15/shell%E8%84%9A%E6%9C%AC/"/>
-    <id>https://prontosil.club/2018/12/15/shell脚本/</id>
-    <published>2018-12-15T15:24:14.000Z</published>
-    <updated>2019-02-03T14:10:37.260Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="shell命令复习"><a href="#shell命令复习" class="headerlink" title="shell命令复习"></a>shell命令复习</h4><ol><li>ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), </li><li>lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)</li><li>md5sum，就是计算和检验MD5信息签名</li><li>uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)</li><li>history命令就是列出历史纪录</li><li>touch创建文件，或者修改已存在的文件的上一次修改时间</li><li>chmod和chown命令</li><li>cal显示日历和date</li><li>ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID</li><li>ps -A | grep -i apache2 </li><li>servive启动某个服务</li></ol><a id="more"></a><blockquote><p>以上是一些常用的命令，下面是一些命令常见的用法</p></blockquote><h5 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h5><p>.代表当前目录， find . -print, 其中print0可以指明使用’\0’作为定界符</p><p>-name 制定了文件名所必须匹配的字符串</p><p>-iname 忽视大小写</p><p>find . \(-name “<em>.txt” -o -name   “\</em>.pdf”\) -print</p><p>find .  -regex “.*(\.py | \.sh\) $ “</p><p>-type 指定搜索的类型，其中d是目录， f是普通文件， l是符号链接</p><p>-atime 用户最近一次访问的时间， -mtime文件内容最后一次被修改时间 ， -ctime 文件元数据最后一次被修改的时间</p><p>+7 代表访问时间超过七天的 7代表访问时间正好是七天， -7代表最近七天内被访问过的所有文件</p><p>同样的还可以用-amin, -mmin, -cmin 分钟做计量单位</p><p>-size 表示文件大小 w k M G 字 千 兆 吉</p><p>-perm 表示权限</p><p>-exec ，实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -user root  -exec  chown XXXX &#123;&#125;\;</span><br><span class="line">find . -type f -name &quot;*.c&quot; -exec cat &#123;&#125;\; &gt; all_c_files.txt</span><br><span class="line">find . -type f -mtime +10 -name &quot;*.txt&quot; -exec cp &#123;&#125; OLD \;</span><br><span class="line">find . -type f -name &quot;*.txt&quot; -exec printf &quot;The file : %s\n&quot; &#123;&#125;\;</span><br></pre></td></tr></table></figure><h5 id="玩转xargs"><a href="#玩转xargs" class="headerlink" title="玩转xargs"></a>玩转xargs</h5><p>cat example.txt | xargs</p><p>将单行输入转化为多行</p><p>cat example.txt | xargs -n 3</p><blockquote><p>结合fing使用xargs</p><p>find . -type f -name “<em>,txt” -print0 | xargs -0 rm -f<br>find dir -type f -name “</em>.c” -print0 | xargs -0 wc -l</p></blockquote><h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr ‘A-Z’ ‘a-z’</p><p>tr -d ‘[set1]’   指定被删除的字符集合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello 1 char 2 next 4 | tr -d -c &apos;0-9&apos; \n&apos;</span><br><span class="line">tr -s &apos; &apos;压缩输入中重复的空白字符</span><br></pre></td></tr></table></figure><h5 id="wget和cURL"><a href="#wget和cURL" class="headerlink" title="wget和cURL"></a>wget和cURL</h5><p>wget URL1 URL2 URL3</p><p>-t 用来指定重复次数</p><p>—limit-rate限速</p><p>—quota或-Q 指定最大下载配额</p><p>-c断点续传</p><p>-O指定下载到的文件名 -o将输出写入日志文件</p><p>cURL URL —silent</p><p>cURL不会讲下载的写入文件，而是写入标准输出</p><p>-O将下载到的内容写入到下载文件</p><p>-o写入指定名称的文件中</p><p>-C断点续传</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;shell命令复习&quot;&gt;&lt;a href=&quot;#shell命令复习&quot; class=&quot;headerlink&quot; title=&quot;shell命令复习&quot;&gt;&lt;/a&gt;shell命令复习&lt;/h4&gt;&lt;ol&gt;
-&lt;li&gt;ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), &lt;/li&gt;
-&lt;li&gt;lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)&lt;/li&gt;
-&lt;li&gt;md5sum，就是计算和检验MD5信息签名&lt;/li&gt;
-&lt;li&gt;uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)&lt;/li&gt;
-&lt;li&gt;history命令就是列出历史纪录&lt;/li&gt;
-&lt;li&gt;touch创建文件，或者修改已存在的文件的上一次修改时间&lt;/li&gt;
-&lt;li&gt;chmod和chown命令&lt;/li&gt;
-&lt;li&gt;cal显示日历和date&lt;/li&gt;
-&lt;li&gt;ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID&lt;/li&gt;
-&lt;li&gt;ps -A | grep -i apache2 &lt;/li&gt;
-&lt;li&gt;servive启动某个服务&lt;/li&gt;
-&lt;/ol&gt;
-    
-    </summary>
-    
-      <category term="shell" scheme="https://prontosil.club/categories/shell/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>假如生活能像vim一样</title>
-    <link href="https://prontosil.club/2018/12/15/%E5%81%87%E5%A6%82%E7%94%9F%E6%B4%BB%E8%83%BD%E5%83%8Fvim%E4%B8%80%E6%A0%B7/"/>
-    <id>https://prontosil.club/2018/12/15/假如生活能像vim一样/</id>
-    <published>2018-12-15T15:23:52.000Z</published>
-    <updated>2019-02-03T14:11:42.791Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="假如生活能像vim一样"><a href="#假如生活能像vim一样" class="headerlink" title="假如生活能像vim一样"></a>假如生活能像vim一样</h5><h4 id="复习一下vim中的快捷键"><a href="#复习一下vim中的快捷键" class="headerlink" title="复习一下vim中的快捷键"></a>复习一下vim中的快捷键</h4><p>emmm这个其实我自己也不太想总结，直接搬别人的东西吧<br><img src="https://upload-images.jianshu.io/upload_images/10651191-79ecb05edcf8ce91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="vim思维导图"></p><a id="more"></a><h5 id="关于vim的思想"><a href="#关于vim的思想" class="headerlink" title="关于vim的思想"></a>关于vim的思想</h5><p>vim好用吗，我觉得确实比Windows自带的记事本要好多了。但是如果用来做开发环境，其实并不见得就一定特别好。不过我倒是很喜欢这个编辑器，以前一直觉得它很神秘，尤其是我第一次打开这个编辑器，然后只看到一堆的波浪线的时候，就觉得。。。这他妈是个什么玩意儿.连输入东西都输不进去。其实吧，这也是vim的哲学了，不要着急着输入，先好好看看，构思一下从哪里输入，当你每次操作完之后，是不是该停下来思考一下，就像画家把笔放一下，vim的普通模式也正是如此。</p><p>vim中的好多操作我觉得都特别好，dd删除一行的快感，G直接跳到文末，daw直接删除一个单词而不是要先高亮之后再去删除，/开始搜索文本，不需要每次同时按下ctrl+f， w和b在单词之间跳来跳去，不需要每次按着ctrl然后同时按方向键，A直接在行末添加，I直接在行首添加，还有dt.删除直到某个字符，这简直就是在写作文鸭23333.这些动作确实很精简，也很有效，当然，如果你喜欢了GUI，习惯了在word里面用鼠标不断地搜索你要替换的文本然后高亮（我觉得我会疯掉了去），vim对你来说当然不又好了，因为它甚至不允许你用鼠标，连最简单的方向键盘，都可以直接用hjkl四个键来替代。vim确实很好玩，但是目前来说，至少不太适合我写C语言。</p><blockquote><p>vim的小技巧？</p></blockquote><ol><li>我们知道每次安装新的Linux操作系统的时候，一般都是需要去修改镜像源的，<code>vim /etc/apt/source.list</code>，然后复制粘贴你从网上弄下来的镜像源，当然对于曾今小白的我来说，我是一个个敲上去的…..我不知道虚拟机和主机是不是共用一个剪切板，不过我知道如果用ssh连接bash之后，是可以粘贴的。首先你需要删除原来所有的内容，或者选择注释掉，这个操作emmmm，以后再来填坑，然后粘贴，或者另起一行啥的。。。哎呀有点乱，我先歇会。</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;假如生活能像vim一样&quot;&gt;&lt;a href=&quot;#假如生活能像vim一样&quot; class=&quot;headerlink&quot; title=&quot;假如生活能像vim一样&quot;&gt;&lt;/a&gt;假如生活能像vim一样&lt;/h5&gt;&lt;h4 id=&quot;复习一下vim中的快捷键&quot;&gt;&lt;a href=&quot;#复习一下vim中的快捷键&quot; class=&quot;headerlink&quot; title=&quot;复习一下vim中的快捷键&quot;&gt;&lt;/a&gt;复习一下vim中的快捷键&lt;/h4&gt;&lt;p&gt;emmm这个其实我自己也不太想总结，直接搬别人的东西吧&lt;br&gt;&lt;img src=&quot;https://upload-images.jianshu.io/upload_images/10651191-79ecb05edcf8ce91.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240&quot; alt=&quot;vim思维导图&quot;&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="折腾" scheme="https://prontosil.club/categories/%E6%8A%98%E8%85%BE/"/>
-    
-    
-      <category term="vim" scheme="https://prontosil.club/tags/vim/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>折腾docker的那些事儿</title>
-    <link href="https://prontosil.club/2018/12/12/%E6%8A%98%E8%85%BEdocker%E7%9A%84%E9%82%A3%E4%BA%9B%E4%BA%8B%E5%84%BF/"/>
-    <id>https://prontosil.club/2018/12/12/折腾docker的那些事儿/</id>
-    <published>2018-12-12T07:24:23.000Z</published>
-    <updated>2019-02-03T14:09:38.491Z</updated>
-    
-    <content type="html"><![CDATA[<h5 id="关于docker"><a href="#关于docker" class="headerlink" title="关于docker"></a>关于docker</h5><p>其实我也不知道docker是干嘛的，不过听说它很强大，所以试着玩一玩呗。</p><a id="more"></a><h5 id="下载docker"><a href="#下载docker" class="headerlink" title="下载docker"></a>下载docker</h5><p><a href="http://www.runoob.com/docker/windows-docker-install.html" target="_blank" rel="noopener">菜鸟教程</a></p><p>通过docker-toolbox来安装<a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/" target="_blank" rel="noopener">下载地址</a></p><blockquote><p>Docker CLI 客户端，用来运行docker引擎创建镜像和容器<br>Docker Machine. 可以让你在windows的命令行中运行docker引擎命令<br>Docker Compose. 用来运行docker-compose命令<br>Kitematic. 这是Docker的GUI版本<br>Docker QuickStart shell. 这是一个已经配置好Docker的命令行环境<br>Oracle VM Virtualbox. 虚拟机<br>然后我的电脑里面就塞满了这些东西</p></blockquote><p>刚下载之后，桌面上确实会有三个图标，但是Windows好像找不到，所以自己手动去目录里面翻了一下。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-c216468a2d79b2db.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="文件"></p><p>无他，shift加右键打开start.sh脚本，不过Windows命令行是没办法运行这个脚本的，所有它会默认用git bash打开。(突然发现git是不是就相当于一个Linux的bash？好多命令都可以用，那我不是可以通过它来管理我的电脑？这个坑之后再去补上)</p><p>会经过一段时间的等待，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-537ea3f96ecc2936.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="start.sh"></p><p>通过提示信息可以看到它正在进行默认的配置。</p><p>之后会打开virtual box，可以看到正在分配IP地址。</p><p>我这里貌似尝试了一次之后失败了，所以接着又尝试了一下，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-75439e732c5daddd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="docker"></p><p>成功了！！！</p><p>之后尝试了第一个命令：</p><p>docker run hello-world<br><img src="https://upload-images.jianshu.io/upload_images/10651191-123889bba280b779.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hello-world"></p><p>可以看到docker先在本地查找hello-world的镜像，没找到，然后去一个hub里面检查并下载，</p><p>这就是docker入门的开始啦！</p><blockquote><p>12月12日晚上</p></blockquote><p>运行docker命令总是报错,如下：</p><p><img src="https://upload-images.jianshu.io/upload_images/10651191-81c9d3de67632584.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="报错"></p><blockquote><p>E:\ProgramFiles\Docker Toolbox\docker.exe: error during connect: Post <a href="https://192.168.99.100:2376/v1.37/containers/create" target="_blank" rel="noopener">https://192.168.99.100:2376/v1.37/containers/create</a>: dial tcp 192.168.99.100:2376: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.<br>See ‘E:\ProgramFiles\Docker Toolbox\docker.exe run —help’.</p></blockquote><p>根据报错提示，可能是超时了，没有接收到响应。</p><p>另外记个笔记:</p><p>docker运行的时候，是有一个虚拟机开着的，这就是为啥安装Docker Toolbox的时候需要同时安装virtual box了。</p><p>所以重启电脑之后，需要手动开启虚拟机。</p><blockquote><p><a href="https://cr.console.aliyun.com/cn-hangzhou/mirrors" target="_blank" rel="noopener">阿里镜像</a></p><p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-for-windows/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">win10安装docker</a></p><p><a href="https://docs.docker.com/engine/reference/commandline/cli/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker文档</a></p><p><a href="https://docs.docker.com/engine/reference/builder/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">docker documentation</a></p><p><a href="http://mirrors.aliyun.com/docker-toolbox/windows/docker-toolbox/?spm=5176.8351553.0.0.13be1991LXrGiw" target="_blank" rel="noopener">toolbox</a></p></blockquote><p>之前说过win10安装docker有两种方式，但是win190更加推荐docker for Windows。</p><p>但是这个功能必须要求电脑开启了了hyper-v服务(应该就是win10自带的创建虚拟机的服务)</p><p>第一部当然是看一下处理器支不支持了，命令行下输入systeminfo</p><p>然而，如果是win10家庭版，默认是没有显示hyper-v服务的。</p><p><a href="https://jingyan.baidu.com/article/d7130635e5678113fcf4757f.html" target="_blank" rel="noopener">家庭版添加hyper-v</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pushd &quot;%~dp0&quot;</span><br><span class="line"></span><br><span class="line">dir /b %SystemRoot%\servicing\Packages\*Hyper-V*.mum &gt;hyper-v.txt</span><br><span class="line"></span><br><span class="line">for /f %%i in (&apos;findstr /i . hyper-v.txt 2^&gt;nul&apos;) do dism /online /norestart /add-package:&quot;%SystemRoot%\servicing\Packages\%%i&quot;</span><br><span class="line"></span><br><span class="line">del hyper-v.txt</span><br><span class="line"></span><br><span class="line">Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /ALL</span><br></pre></td></tr></table></figure></p><p>就是运行一个批处理程序。</p><p>然后我们就能愉快的找到hyper-v服务啦。<br><img src="https://upload-images.jianshu.io/upload_images/10651191-3fb991a84fa6f1e2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="hyper-v"></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h5 id=&quot;关于docker&quot;&gt;&lt;a href=&quot;#关于docker&quot; class=&quot;headerlink&quot; title=&quot;关于docker&quot;&gt;&lt;/a&gt;关于docker&lt;/h5&gt;&lt;p&gt;其实我也不知道docker是干嘛的，不过听说它很强大，所以试着玩一玩呗。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>200天啦</title>
-    <link href="https://prontosil.club/2018/12/11/200%E5%A4%A9%E5%95%A6/"/>
-    <id>https://prontosil.club/2018/12/11/200天啦/</id>
-    <published>2018-12-11T13:57:01.000Z</published>
-    <updated>2019-02-03T14:10:56.136Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="200天啦"><a href="#200天啦" class="headerlink" title="200天啦"></a>200天啦</h4><blockquote><p>我和我最爱的宝宝在一起已经200天啦！！！</p></blockquote><p>还记得懵懂的6月，情窦初开的我们牵手了。在你我的扶持下，携手走过了期末考试的旅程，又经过了暑假漫长的思念，到如今掐指，200个日夜已经流过。</p><p>虽然表面上嫌弃你这只zz，但是我怎么舍得丢下你呢，都是因为我，曾经那么聪慧的xjy变得这么zz了，我如果不好好惯着你，今后的日子你又该怎么过呢。</p><a id="more"></a><p>宝宝，虽然我会生你的气，但是我在生气的时候也是爱着你的鸭，如果哪一天我们之间再也没有争吵，那才不正常呢，那只能说明我们俩的心都已经死了。</p><p>宝宝，对不起呀，今天是我激动了一点。原本200天的纪念日应该给你惊喜的，可是却让你落泪了。都是你的zz的错嘛。唉，你的zz有时候太敏感了，虽然知道你的话没有恶意，可是还是忍不住往别的方向想，因为我童年的时候受到过太多的欺凌了，所以很容易将一句话误解成伤害我的话。</p><p>但是我可能防范地过度了，我不该对我的宝宝那么认真的(大哭.jpg)，宝宝是我最爱的人，又怎么会伤害我呢。</p><p>最爱我的宝宝，不管她zz也好，不过机智点就更好啦。</p><p>谨以此作为我们200天纪念日的祝福</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;200天啦&quot;&gt;&lt;a href=&quot;#200天啦&quot; class=&quot;headerlink&quot; title=&quot;200天啦&quot;&gt;&lt;/a&gt;200天啦&lt;/h4&gt;&lt;blockquote&gt;
-&lt;p&gt;我和我最爱的宝宝在一起已经200天啦！！！&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;还记得懵懂的6月，情窦初开的我们牵手了。在你我的扶持下，携手走过了期末考试的旅程，又经过了暑假漫长的思念，到如今掐指，200个日夜已经流过。&lt;/p&gt;
-&lt;p&gt;虽然表面上嫌弃你这只zz，但是我怎么舍得丢下你呢，都是因为我，曾经那么聪慧的xjy变得这么zz了，我如果不好好惯着你，今后的日子你又该怎么过呢。&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="杂念" scheme="https://prontosil.club/categories/%E6%9D%82%E5%BF%B5/"/>
-    
     
   </entry>
   

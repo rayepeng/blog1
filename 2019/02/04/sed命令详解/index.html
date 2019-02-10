@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="Linux,shell,">
 
 
 
@@ -81,17 +81,20 @@
 
 
 
-<meta name="description" content="还有很长的路要走">
+<meta name="description" content="abstract哪怕是除夕也要坚持更新博客 sed 简介sed 是一个很强大的文本编辑器。 可以对来自文本， 以及标准输入的文本进行编辑sed会从文件或者标准输入中读取一行，将其复制到缓冲区，对文本编辑完成之后，读取下一行直到所有的文本行都编辑完毕。  话不多说直接上示例  替换文本中的字符串  sed ‘s/book/books/‘ filename   -n 打印行号， p打印。 打印出那些发">
+<meta name="keywords" content="Linux,shell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sed命令详解">
 <meta property="og:url" content="https://prontosil.club/2019/02/04/sed命令详解/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="还有很长的路要走">
+<meta property="og:description" content="abstract哪怕是除夕也要坚持更新博客 sed 简介sed 是一个很强大的文本编辑器。 可以对来自文本， 以及标准输入的文本进行编辑sed会从文件或者标准输入中读取一行，将其复制到缓冲区，对文本编辑完成之后，读取下一行直到所有的文本行都编辑完毕。  话不多说直接上示例  替换文本中的字符串  sed ‘s/book/books/‘ filename   -n 打印行号， p打印。 打印出那些发">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-02-04T06:53:00.961Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-e4ab0e50bbf3371f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-02-10T13:38:43.679Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sed命令详解">
-<meta name="twitter:description" content="还有很长的路要走">
+<meta name="twitter:description" content="abstract哪怕是除夕也要坚持更新博客 sed 简介sed 是一个很强大的文本编辑器。 可以对来自文本， 以及标准输入的文本进行编辑sed会从文件或者标准输入中读取一行，将其复制到缓冲区，对文本编辑完成之后，读取下一行直到所有的文本行都编辑完毕。  话不多说直接上示例  替换文本中的字符串  sed ‘s/book/books/‘ filename   -n 打印行号， p打印。 打印出那些发">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-e4ab0e50bbf3371f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -316,12 +319,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-04T14:53:00+08:00">
-                2019-02-04
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-10T21:38:43+08:00">
+                2019-02-10
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -344,7 +369,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  0
+                  709
                 </span>
               
 
@@ -360,7 +385,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -381,7 +406,45 @@
       
 
       
-        
+        <h4 id="abstract"><a href="#abstract" class="headerlink" title="abstract"></a>abstract</h4><p>哪怕是除夕也要坚持更新博客</p>
+<h4 id="sed-简介"><a href="#sed-简介" class="headerlink" title="sed 简介"></a>sed 简介</h4><p>sed 是一个很强大的文本编辑器。 可以对来自文本， 以及标准输入的文本进行编辑<br>sed会从文件或者标准输入中读取一行，将其复制到缓冲区，对文本编辑完成之后，读取下一行直到所有的文本行都编辑完毕。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-e4ab0e50bbf3371f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="选项及其作用"></p>
+<p>话不多说直接上示例</p>
+<ul>
+<li><p>替换文本中的字符串</p>
+<blockquote>
+<p>sed ‘s/book/books/‘ filename</p>
+</blockquote>
+</li>
+<li><p>-n 打印行号， p打印。 打印出那些发生替换的行</p>
+<blockquote>
+<p>sed -n ‘s/test/TEST/p’ filename</p>
+</blockquote>
+</li>
+<li><p>直接编辑文件选项-i， 匹配文件中的每一行并替换</p>
+<blockquote>
+<p>sed  -i ‘s/book/books/g’ filename</p>
+</blockquote>
+</li>
+<li><p>全面替换标记g</p>
+<blockquote>
+<p>sed ‘s/book/books/g’  filename</p>
+</blockquote>
+</li>
+<li><p>当需要从第N处开始匹配时， 可以使用/Ng<br>echo sksksksks | sed ‘s/sk/SK/2g’</p>
+</li>
+<li><p>/经常被用来做定界符， 同时也可以使用任意的定界符， 如: or |</p>
+</li>
+<li><p>定界符出现在内部时， 需要进行转义</p>
+<blockquote>
+<p>sed ‘s/\\/bin/\\/usr\\/local\\/bin/g’</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="命令参数如下"><a href="#命令参数如下" class="headerlink" title="命令参数如下"></a>命令参数如下</h4><blockquote>
+<p><strong>a\\</strong> 在当前行下面插入文本。<br><strong>i\\</strong> 在当前行上面插入文本。<br><strong>c\\</strong> 把选定的行改为新的文本。<br><strong>d</strong> 删除，删除选择的行。<br><strong>D</strong> 删除模板块的第一行。<br><strong>s</strong> 替换指定字符<br><strong>h</strong> 拷贝模板块的内容到内存中的缓冲区。<br><strong>H</strong> 追加模板块的内容到内存中的缓冲区。<br><strong>g</strong> 获得内存缓冲区的内容，并替代当前模板块中的文本。<br><strong>G</strong> 获得内存缓冲区的内容，并追加到当前模板块文本的后面。<br><strong>l</strong> 列表不能打印字符的清单。<br><strong>n</strong> 读取下一个输入行，用下一个命令处理新的行而不是用第一个命令。<br><strong>N</strong> 追加下一个输入行到模板块后面并在二者间嵌入一个新行，改变当前行号码。<br><strong>p</strong> 打印模板块的行。<br><strong>P</strong>(大写) 打印模板块的第一行。<br><strong>q</strong> 退出Sed。<br><strong>b lable</strong> 分支到脚本中带有标记的地方，如果分支不存在则分支到脚本的末尾。<br><strong>r file</strong> 从file中读行。<br><strong>t label</strong> if分支，从最后一行开始，条件一旦满足或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。<br><strong>T label</strong> 错误分支，从最后一行开始，一旦发生错误或者T，t命令，将导致分支到带有标号的命令处，或者到脚本的末尾。<br><strong><a href="http://man.linuxde.net/w" title="w命令" target="_blank" rel="noopener">w</a> file</strong> 写并追加模板块到file末尾。<br><strong>W file</strong> 写并追加模板块的第一行到file末尾。<br><strong>!</strong> 表示后面的命令对所有没有被选定的行发生作用。<br><strong>=</strong> 打印当前行号码。<br><strong>#</strong> 把注释扩展到下一个换行符以前。 </p>
+</blockquote>
+
       
     </div>
     
@@ -395,6 +458,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Linux/" rel="tag"># Linux</a>
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
       
 
       
@@ -469,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -487,7 +567,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -498,7 +578,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -562,6 +642,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#abstract"><span class="nav-number">1.</span> <span class="nav-text">abstract</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sed-简介"><span class="nav-number">2.</span> <span class="nav-text">sed 简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令参数如下"><span class="nav-number">3.</span> <span class="nav-text">命令参数如下</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
