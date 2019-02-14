@@ -196,26 +196,6 @@
   </entry>
   
   <entry>
-    <title>对月思故人</title>
-    <link href="https://prontosil.club/2019/02/03/%E5%AF%B9%E6%9C%88%E6%80%9D%E6%95%85%E4%BA%BA/"/>
-    <id>https://prontosil.club/2019/02/03/对月思故人/</id>
-    <published>2019-02-03T14:12:12.000Z</published>
-    <updated>2019-02-04T06:49:32.608Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>掐指一算， 自己已经快20的人了， 这一路上， 不能说感谢有你， 也是至少有你们吧， 我才会走到今天</p><a id="more"></a><h4 id="2018年"><a href="#2018年" class="headerlink" title="2018年"></a>2018年</h4><ul><li>不用说， 2018年是我最快乐的一年， 不管其中是遭遇了考试失利呢， 也不管是奖学金评选的暗箱操作。 至少我遇到了一个我爱和爱我的人， 从此花前月下， 执子之手不再是梦想， 就好像被风吹起的一片叶子遇到了另一片叶子， 共同抵御吹起来的狂沙。爱护她，心疼她， 恨不得无时无刻不陪伴着她， 会有吵架， 会有伤心的时候，但情一字， 让我们经常是谁也不想离开谁。 会因为想看她笑而变蠢， 做出一些傻事来， 但是在那情人的眼中， 双目的对视中永远只有对方， 恁谁也别想阻拦。</li></ul><p>（我好想用一篇博客记录下来我们zz的故事， 但是碍于记忆不好， 难能实现）</p><ul><li>还有我的雨姐姐， 毕竟我有时候太急了，不过还好克制的住，才没和我的雨姐姐闹矛盾， 有你守候在锦盈的身旁，就算是借我十个胆子也不敢欺负锦盈呀。 虽然你比我和锦盈都大， 但是很多时候比我俩还放得开， 真的好像一个永远十八岁， 永远年轻的小姑娘。 嗯对， 我是故意说你的坏话呢， 但是在我心中你应该是我的妹妹才对呀。 是你一直默默关注着我和锦盈， 为我们爱情的小舟保驾护航呢。</li><li>宁宁， 这是我最之前暗恋过的人， 但是不像其他故事中发生一样， 我们还一直是很要好的朋友， 不管有什么东西， 总会想分享给对方。 而我们俩的爱好总是能保持一致， 最令人惊奇的当然是大一下学期的公选课居然能3节课都一模一样了。唉， 要是你是男生， 没准我们还能成为结拜兄弟呢。  有时候我累了， 往往会去找你聊天，这时候你总是会分享一些B站的视频给我看， 唉你怎么就知道我一定喜欢看呢， 不过我也确实喜欢看呀， 谢谢你给疲惫的我带来了一丝丝的清凉。</li><li>笑笑哥， 我怎么会把你给忘了呢， </li></ul>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;掐指一算， 自己已经快20的人了， 这一路上， 不能说感谢有你， 也是至少有你们吧， 我才会走到今天&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="随笔" scheme="https://prontosil.club/categories/%E9%9A%8F%E7%AC%94/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>next主题优化</title>
     <link href="https://prontosil.club/2019/02/03/next%E4%B8%BB%E9%A2%98%E4%BC%98%E5%8C%96-1/"/>
     <id>https://prontosil.club/2019/02/03/next主题优化-1/</id>
@@ -513,6 +493,42 @@
       <category term="UEFI" scheme="https://prontosil.club/tags/UEFI/"/>
     
       <category term="legacy" scheme="https://prontosil.club/tags/legacy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本</title>
+    <link href="https://prontosil.club/2018/12/15/shell%E8%84%9A%E6%9C%AC/"/>
+    <id>https://prontosil.club/2018/12/15/shell脚本/</id>
+    <published>2018-12-15T15:24:14.000Z</published>
+    <updated>2019-02-10T13:38:26.500Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="shell命令复习"><a href="#shell命令复习" class="headerlink" title="shell命令复习"></a>shell命令复习</h4><ol><li>ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), </li><li>lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)</li><li>md5sum，就是计算和检验MD5信息签名</li><li>uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)</li><li>history命令就是列出历史纪录</li><li>touch创建文件，或者修改已存在的文件的上一次修改时间</li><li>chmod和chown命令</li><li>cal显示日历和date</li><li>ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID</li><li>ps -A | grep -i apache2 </li><li>servive启动某个服务</li></ol><a id="more"></a><blockquote><p>以上是一些常用的命令，下面是一些命令常见的用法</p></blockquote><h5 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h5><p>.代表当前目录， find . -print, 其中print0可以指明使用’\0’作为定界符</p><p>-name 制定了文件名所必须匹配的字符串</p><p>-iname 忽视大小写</p><p>find . \(-name “<em>.txt” -o -name   “\</em>.pdf”\) -print</p><p>find .  -regex “.*(\.py | \.sh\) $ “</p><p>-type 指定搜索的类型，其中d是目录， f是普通文件， l是符号链接</p><p>-atime 用户最近一次访问的时间， -mtime文件内容最后一次被修改时间 ， -ctime 文件元数据最后一次被修改的时间</p><p>+7 代表访问时间超过七天的 7代表访问时间正好是七天， -7代表最近七天内被访问过的所有文件</p><p>同样的还可以用-amin, -mmin, -cmin 分钟做计量单位</p><p>-size 表示文件大小 w k M G 字 千 兆 吉</p><p>-perm 表示权限</p><p>-exec ，实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -user root  -exec  chown XXXX &#123;&#125;\;</span><br><span class="line">find . -type f -name &quot;*.c&quot; -exec cat &#123;&#125;\; &gt; all_c_files.txt</span><br><span class="line">find . -type f -mtime +10 -name &quot;*.txt&quot; -exec cp &#123;&#125; OLD \;</span><br><span class="line">find . -type f -name &quot;*.txt&quot; -exec printf &quot;The file : %s\n&quot; &#123;&#125;\;</span><br></pre></td></tr></table></figure><h5 id="玩转xargs"><a href="#玩转xargs" class="headerlink" title="玩转xargs"></a>玩转xargs</h5><p>cat example.txt | xargs</p><p>将单行输入转化为多行</p><p>cat example.txt | xargs -n 3</p><blockquote><p>结合fing使用xargs</p><p>find . -type f -name “<em>,txt” -print0 | xargs -0 rm -f<br>find dir -type f -name “</em>.c” -print0 | xargs -0 wc -l</p></blockquote><h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr ‘A-Z’ ‘a-z’</p><p>tr -d ‘[set1]’   指定被删除的字符集合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello 1 char 2 next 4 | tr -d -c &apos;0-9&apos; \n&apos;</span><br><span class="line">tr -s &apos; &apos;压缩输入中重复的空白字符</span><br></pre></td></tr></table></figure><h5 id="wget和cURL"><a href="#wget和cURL" class="headerlink" title="wget和cURL"></a>wget和cURL</h5><p>wget URL1 URL2 URL3</p><p>-t 用来指定重复次数</p><p>—limit-rate限速</p><p>—quota或-Q 指定最大下载配额</p><p>-c断点续传</p><p>-O指定下载到的文件名 -o将输出写入日志文件</p><p>cURL URL —silent</p><p>cURL不会讲下载的写入文件，而是写入标准输出</p><p>-O将下载到的内容写入到下载文件</p><p>-o写入指定名称的文件中</p><p>-C断点续传</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;shell命令复习&quot;&gt;&lt;a href=&quot;#shell命令复习&quot; class=&quot;headerlink&quot; title=&quot;shell命令复习&quot;&gt;&lt;/a&gt;shell命令复习&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), &lt;/li&gt;
+&lt;li&gt;lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)&lt;/li&gt;
+&lt;li&gt;md5sum，就是计算和检验MD5信息签名&lt;/li&gt;
+&lt;li&gt;uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)&lt;/li&gt;
+&lt;li&gt;history命令就是列出历史纪录&lt;/li&gt;
+&lt;li&gt;touch创建文件，或者修改已存在的文件的上一次修改时间&lt;/li&gt;
+&lt;li&gt;chmod和chown命令&lt;/li&gt;
+&lt;li&gt;cal显示日历和date&lt;/li&gt;
+&lt;li&gt;ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID&lt;/li&gt;
+&lt;li&gt;ps -A | grep -i apache2 &lt;/li&gt;
+&lt;li&gt;servive启动某个服务&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="shell" scheme="https://prontosil.club/tags/shell/"/>
     
   </entry>
   
