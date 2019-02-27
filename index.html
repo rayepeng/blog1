@@ -500,7 +500,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-27T08:18:02+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-27T08:19:10+08:00">
                 2019-02-27
               </time>
             
@@ -588,33 +588,14 @@
 
       
         
-          
-            <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>朋友用VMware安装了虚拟机Ubuntu， 然而却连不上网络。 本想帮助他解决这个问题， 然而却又深感力不从心。 不过幸好不急， 临时补习了一下VMware的网络连接方式， 经过一顿猛如虎的操作之后， 成功了！</p>
-<h2 id="VMware虚拟机的网络结构"><a href="#VMware虚拟机的网络结构" class="headerlink" title="VMware虚拟机的网络结构"></a>VMware虚拟机的网络结构</h2><h3 id="几样东西"><a href="#几样东西" class="headerlink" title="几样东西"></a>几样东西</h3><p><img src="https://upload-images.jianshu.io/upload_images/10651191-461b330ebea28f1c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="适配器"></p>
-<p>可以看到两个网络适配器</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10651191-99367fee7ce725e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="虚拟网络编辑器"></p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10651191-5de9e91f1d2c11cb.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="网络连接设置"></p>
-<p>打开vmware虚拟机，我们可以在选项栏的“编辑”下的“虚拟网络编辑器”中看到VMnet1（仅主机模式）、VMnet8（NAT模式），那么这些都是有什么作用呢？其实，我们现在看到的VMnet0表示的是用于桥接模式下的虚拟交换机；VMnet1表示的是用于仅主机模式下的虚拟交换机；VMnet8表示的是用于NAT模式下的虚拟交换机。</p>
-<h3 id="三种网络连接方式"><a href="#三种网络连接方式" class="headerlink" title="三种网络连接方式"></a>三种网络连接方式</h3><p><img src="https://upload-images.jianshu.io/upload_images/10651191-f71bb5abf8d7d5e9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="三种连接方式"></p>
-<h4 id="桥接方式-Bridge"><a href="#桥接方式-Bridge" class="headerlink" title="桥接方式(Bridge)"></a>桥接方式(Bridge)</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-d522e1e249aa0b36.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="桥接方式"></p>
-<p>桥接方式可以说就是直接通过VMnet0 交换机连接到外网<br>虚拟机与主机在同一个网段内， 共享相同的DNS服务器</p>
-<p>但是这种情况下是不适合在校园网内连接的， 因为校园网每个人只分配了两个IP， 而且还不固定。</p>
-<h4 id="NAT-模式-地址转发模式"><a href="#NAT-模式-地址转发模式" class="headerlink" title="NAT 模式(地址转发模式)"></a>NAT 模式(地址转发模式)</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-c6275dd55e2185fa.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="NAT模式"></p>
-<p>这种情况下相当于自己配置了一个局域网环境， 通过一台虚拟DHCP服务器来动态配置局域网内的ip地址， VMware Network Adapter VMnet8 相当于一个网关</p>
-<p>但是虚拟机能联通外网，不是通过VMware Network Adapter VMnet8虚拟网卡</p>
-<p>VMware Network Adapter VMnet8虚拟网卡是用来与虚拟机通信的。</p>
-<h4 id="host-only模式"><a href="#host-only模式" class="headerlink" title="host only模式"></a>host only模式</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-ea0aac98a9ee49e6.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="host only模式"></p>
-<p>这是一种隔离主机的方式， 所以没有对应模式的网卡。<br>其余的与NAT模式类似</p>
-<h2 id="做一点补充"><a href="#做一点补充" class="headerlink" title="做一点补充"></a>做一点补充</h2><p>尝试了通过ssh连接virtual box中的虚拟机</p>
-<p><img src="https://upload-images.jianshu.io/upload_images/10651191-dc01fc4062565f29.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="ifconfig"></p>
-<p>但是这个ip地址有点神奇(说实话我不太懂为啥是这个ip地址)</p>
-<p>主机无法ping 通 这个ip</p>
-<p>（Ubuntu 安装 openssh-server)</p>
-<p>之后<img src="https://upload-images.jianshu.io/upload_images/10651191-dafe7909bd00ef5c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="端口转发"></p>
-<p>之后通过新建端口转发<br>达到了这个目标</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/linjiaxin/p/6476480.html" target="_blank" rel="noopener">VMware 虚拟机连接的三种方式</a></p>
-
-          
+          <h2 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h2><p>朋友用VMware安装了虚拟机Ubuntu， 然而却连不上网络。 本想帮助他解决这个问题， 然而却又深感力不从心。 不过幸好不急， 临时补习了一下VMware的网络连接方式， 经过一顿猛如虎的操作之后， 成功了！</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/27/Vmware虚拟网络连接问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -711,7 +692,7 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-27T08:15:14+08:00">
+              <time title="Post modified" itemprop="dateModified" datetime="2019-02-27T08:19:25+08:00">
                 2019-02-27
               </time>
             
@@ -799,41 +780,14 @@
 
       
         
-          
-            <h4 id="grep的来历"><a href="#grep的来历" class="headerlink" title="grep的来历"></a>grep的来历</h4><p>global search regular expression and print out the line<br>全面搜索正则表达式， 并把行打印出来<br>还有几个 egrep 和 fgrep 命令类似</p>
-<h4 id="命令使用"><a href="#命令使用" class="headerlink" title="命令使用"></a>命令使用</h4><h5 id="基本搜索，-显示行号，-高亮显示"><a href="#基本搜索，-显示行号，-高亮显示" class="headerlink" title="基本搜索， 显示行号， 高亮显示"></a>基本搜索， 显示行号， 高亮显示</h5><blockquote>
-<p>grep root /etc/passwd</p>
-</blockquote>
-<p>在/etc/passwd中搜索root， 并打印出来<br>实现的方式可以用pipeline</p>
-<blockquote>
-<p>cat /etc/passwd | grep root</p>
-</blockquote>
-<p>如果要显示行号， 加入 -n 选项</p>
-<blockquote>
-<p>grep -n root /etc/passwd</p>
-</blockquote>
-<p>加上 —color=auto 将关键字部分使用颜色显示</p>
-<h5 id="反向搜索"><a href="#反向搜索" class="headerlink" title="反向搜索"></a>反向搜索</h5><p>加入 -v 选项</p>
-<blockquote>
-<p>grep -v root /etc/passwd<br>grep -v root /etc/passwd | grep  -v nologin</p>
-</blockquote>
-<p>使用dmesg列出核心信息， 再以grep找出内含有’eth’的那一行， 并显示关键字</p>
-<p>dmesg | grep -n —color=auto ‘eth’</p>
-<hr>
-<p>2月25号更新</p>
-<h4 id="grep的基本用法"><a href="#grep的基本用法" class="headerlink" title="grep的基本用法"></a>grep的基本用法</h4><p>grep name(有无引号均可)</p>
-<h4 id="反向选择-v"><a href="#反向选择-v" class="headerlink" title="反向选择 -v"></a>反向选择 -v</h4><h4 id="在文件中搜索"><a href="#在文件中搜索" class="headerlink" title="在文件中搜索"></a>在文件中搜索</h4><p>两种方式</p>
-<h5 id="cat-结合管道"><a href="#cat-结合管道" class="headerlink" title="cat 结合管道"></a>cat 结合管道</h5><p>` cat /etc/passwd | grep root</p>
-<h5 id="grep后面接文件名"><a href="#grep后面接文件名" class="headerlink" title="grep后面接文件名"></a>grep后面接文件名</h5><p><code>grep root /etc/passwd</code></p>
-<h4 id="文件搜索中的结果优化"><a href="#文件搜索中的结果优化" class="headerlink" title="文件搜索中的结果优化"></a>文件搜索中的结果优化</h4><h5 id="n"><a href="#n" class="headerlink" title="-n"></a>-n</h5><p>显示第几行</p>
-<h5 id="c"><a href="#c" class="headerlink" title="-c"></a>-c</h5><p>简单提示到底搜索到了多少行</p>
-<h4 id="找不到？"><a href="#找不到？" class="headerlink" title="找不到？"></a>找不到？</h4><h5 id="i"><a href="#i" class="headerlink" title="-i"></a>-i</h5><p>不区分大小写</p>
-<h5 id="A"><a href="#A" class="headerlink" title="-A"></a>-A</h5><p>after<br>-A 1<br>即还要匹配搜索到的下一行</p>
-<h5 id="B"><a href="#B" class="headerlink" title="-B"></a>-B</h5><p>before<br>-B 1<br>即还要匹配到搜索到的前一行</p>
-<h4 id="正则表达式的运用"><a href="#正则表达式的运用" class="headerlink" title="正则表达式的运用"></a>正则表达式的运用</h4><p>最好用引号引起来</p>
-<h4 id="找到了不想要的东西？"><a href="#找到了不想要的东西？" class="headerlink" title="找到了不想要的东西？"></a>找到了不想要的东西？</h4><h5 id="w"><a href="#w" class="headerlink" title="-w"></a>-w</h5><p>只找词语</p>
-
-          
+          <h4 id="grep的来历"><a href="#grep的来历" class="headerlink" title="grep的来历"></a>grep的来历</h4><p>global search regular expression and print out the line<br>全面搜索正则表达式， 并把行打印出来<br>还有几个 egrep 和 fgrep 命令类似</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/02/27/grep使用详解/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
