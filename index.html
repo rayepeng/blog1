@@ -450,6 +450,246 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/03/10/wifi渗透攻击总结/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/03/10/wifi渗透攻击总结/" itemprop="url">wifi渗透攻击总结</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-03-10T17:22:46+08:00">
+                2019-03-10
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-03-10T17:30:10+08:00">
+                2019-03-10
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/kali/" itemprop="url" rel="index">
+                    <span itemprop="name">kali</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  536
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="无线渗透工具介绍"><a href="#无线渗透工具介绍" class="headerlink" title="无线渗透工具介绍"></a>无线渗透工具介绍</h2><h3 id="kismet"><a href="#kismet" class="headerlink" title="kismet"></a>kismet</h3><p>在终端输入kismet， 进入界面<br><img src="https://upload-images.jianshu.io/upload_images/10651191-2cd1bebb01d27554.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="kismet"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-4c475956d612f6cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="添加网卡 "></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-c87d33c7ffde7cc0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="开始抓包"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-6b9dcec78a2726ec.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="数据"></p>
+<p>用wireshark 打开 cap文件<br><img src="https://upload-images.jianshu.io/upload_images/10651191-7af4877f18f79f11.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="wireshark"></p>
+<h3 id="Gerix"><a href="#Gerix" class="headerlink" title="Gerix"></a>Gerix</h3><p>Gerix Wifi Cracker 是另一个aircrack-ng 图形用户界面的网络破解工具。</p>
+<h4 id="下载Gerix软件包"><a href="#下载Gerix软件包" class="headerlink" title="下载Gerix软件包"></a>下载Gerix软件包</h4><p> <code>wget https://bitbucket.org/SKin36/gerix-wifi-cracker-master.rar</code></p>
+<p>之后解压软件包</p>
+<p>切换到所在的目录 ，执行 python greix.py</p>
+<p>之后按如下步骤应该是可以成功的，但是我没成功</p>
+<h4 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h4><p>第一次使用ettercap 需要修改其默认配置文件 <code>/etc/ettercap/etter.conf</code><br>需要我们把ettercap的ec_uid、ec_gid的值修改为0：以系统最高权限运行。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-24be1607504b5998.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>另外，如果系统使用了iptables防火墙，还需取消#后的注释使iptables配置生效，将：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-2bc547d07c89e2e0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="开启ipv4-数据包转发"><a href="#开启ipv4-数据包转发" class="headerlink" title="开启ipv4 数据包转发"></a>开启ipv4 数据包转发</h4><h4 id="进行iptables设置"><a href="#进行iptables设置" class="headerlink" title="进行iptables设置"></a>进行iptables设置</h4><h4 id="启动服务"><a href="#启动服务" class="headerlink" title="启动服务"></a>启动服务</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-d60776b069d58b9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-b348dee22eca6d8d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>修改<br><img src="https://upload-images.jianshu.io/upload_images/10651191-cea9a2b7d942efed.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-1573e7e9450456a0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="重启网络服务"><a href="#重启网络服务" class="headerlink" title="重启网络服务"></a>重启网络服务</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-6c80932981b4b8e7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-e5e541781b56045e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-a4d1001e7212323d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-774485eef89fb14a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-e3c13d220f6131b9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-64ca2357da1b3c18.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-121383a80183f570.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h4 id="服务正在启动"><a href="#服务正在启动" class="headerlink" title="服务正在启动"></a>服务正在启动</h4><p><img src="https://upload-images.jianshu.io/upload_images/10651191-381e21efb7f23f07.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h2 id="实战一下搭建钓鱼wifi"><a href="#实战一下搭建钓鱼wifi" class="headerlink" title="实战一下搭建钓鱼wifi"></a>实战一下搭建钓鱼wifi</h2><h3 id="1"><a href="#1" class="headerlink" title="1"></a>1</h3><p>开启网卡的监听模式</p>
+<p>没有网卡的同学可以关掉这个页面了</p>
+<p>有了网卡但是kali不能识别的也可以关掉这个页面了</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-201a548ef36b7cb0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="使用airbase-ng设置一个钓鱼AP"><a href="#使用airbase-ng设置一个钓鱼AP" class="headerlink" title="使用airbase-ng设置一个钓鱼AP"></a>使用airbase-ng设置一个钓鱼AP</h3><p><img src="https://upload-images.jianshu.io/upload_images/10651191-f6d8dc43ae36cc09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>实际上设置一个钓鱼AP的过程是很简单的，但是钓鱼AP能不能上网就又是一个问题了</p>
+<h3 id="在以太网接口和无赖AP之间搭一座桥-完成桥接"><a href="#在以太网接口和无赖AP之间搭一座桥-完成桥接" class="headerlink" title="在以太网接口和无赖AP之间搭一座桥(完成桥接)"></a>在以太网接口和无赖AP之间搭一座桥(完成桥接)</h3><p><img src="https://upload-images.jianshu.io/upload_images/10651191-f667ace6cb685706.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>在这之前需要</p>
+<blockquote>
+<p>apt install bridge-utils</p>
+</blockquote>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-092325c4663abaf7.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<p>这里总共有四块网卡</p>
+<ul>
+<li>at0是一块虚拟出来的网卡， 用来做AP， 但是它不能上网</li>
+<li>eth0是一块能够上网的网卡， 但是不能做AP</li>
+<li>lo是环回地址， 也就是127.0.0.1， 现在没啥用</li>
+<li>wlan0mon是开启了监听模式的网卡</li>
+</ul>
+<p>所以我们需要把来自at0的流量导入到eth0这一块网卡上。</p>
+<p><strong>至此， 钓鱼AP就已经搭建成功了， 但是你会发现上网速度真的贼鸡儿慢</strong></p>
+<h3 id="观察"><a href="#观察" class="headerlink" title="观察"></a>观察</h3><p>可以看到有人连接上了<br><img src="https://upload-images.jianshu.io/upload_images/10651191-e2d09add10bc871c.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<h3 id="happy！"><a href="#happy！" class="headerlink" title="happy！"></a>happy！</h3><p>接收到了传出过程中的图片<br><img src="https://upload-images.jianshu.io/upload_images/10651191-7074356519b58d64.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>这是我在聊天的时候发出去的图片， 可以看到是两张重叠了</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/10651191-6f1e443a1fc41e8a.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>还有，<br><img src="https://upload-images.jianshu.io/upload_images/10651191-efe6970595539a96.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="image.png"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>soft AP速度实在是太慢了…</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/27/Vmware虚拟网络连接问题/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1900,201 +2140,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/02/04/LinuxShellScrips/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/04/LinuxShellScrips/" itemprop="url">LinuxShellScrips</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-02-04T09:29:46+08:00">
-                2019-02-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-16T22:16:53+08:00">
-                2019-02-16
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  482
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h4 id="echo命令"><a href="#echo命令" class="headerlink" title="echo命令"></a>echo命令</h4><h5 id="echo嵌入变量"><a href="#echo嵌入变量" class="headerlink" title="echo嵌入变量"></a>echo嵌入变量</h5><blockquote>
-<p>echo “Hello $LOGNAME, Have a nice day !”</p>
-</blockquote>
-<p>echo 使用一对双引号， 同时会把对应的变量，转化为对应的值</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/02/04/LinuxShellScrips/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2147,7 +2192,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">33</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2169,7 +2214,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
