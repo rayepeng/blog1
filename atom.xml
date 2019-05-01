@@ -34,9 +34,9 @@
       <category term="kali" scheme="https://prontosil.club/categories/kali/"/>
     
     
-      <category term="wifi" scheme="https://prontosil.club/tags/wifi/"/>
-    
       <category term="kali" scheme="https://prontosil.club/tags/kali/"/>
+    
+      <category term="wifi" scheme="https://prontosil.club/tags/wifi/"/>
     
       <category term="渗透测试" scheme="https://prontosil.club/tags/%E6%B8%97%E9%80%8F%E6%B5%8B%E8%AF%95/"/>
     
@@ -89,34 +89,6 @@
       <category term="shell" scheme="https://prontosil.club/tags/shell/"/>
     
       <category term="grep" scheme="https://prontosil.club/tags/grep/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>vim 使用之道 </title>
-    <link href="https://prontosil.club/2019/02/07/vim-%E4%BD%BF%E7%94%A8%E4%B9%8B%E9%81%93/"/>
-    <id>https://prontosil.club/2019/02/07/vim-使用之道/</id>
-    <published>2019-02-07T07:15:56.000Z</published>
-    <updated>2019-02-07T07:15:56.510Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>使用Linux架设服务器</title>
-    <link href="https://prontosil.club/2019/02/07/%E4%BD%BF%E7%94%A8Linux%E6%9E%B6%E8%AE%BE%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
-    <id>https://prontosil.club/2019/02/07/使用Linux架设服务器/</id>
-    <published>2019-02-07T07:15:34.000Z</published>
-    <updated>2019-02-07T07:15:34.656Z</updated>
-    
-    <summary type="html">
-    
-    </summary>
-    
     
   </entry>
   
@@ -220,31 +192,6 @@
       <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
     
       <category term="shell" scheme="https://prontosil.club/tags/shell/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>序</title>
-    <link href="https://prontosil.club/2019/02/04/%E5%BA%8F/"/>
-    <id>https://prontosil.club/2019/02/04/序/</id>
-    <published>2019-02-04T06:46:32.000Z</published>
-    <updated>2019-02-05T13:12:16.211Z</updated>
-    
-    <content type="html"><![CDATA[<blockquote class="blockquote-center"><p>我总是在不断地追寻着， 却又时常忘记自己身在何方</p></blockquote><p>欢迎光临百浪多息的博客！</p><p>挂上一些友情链接</p><p><a href="http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg" target="_blank" rel="noopener">http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg</a></p><p><a href="https://blog.szfszf.top/" target="_blank" rel="noopener">https://blog.szfszf.top/</a></p><p><a href="https://darrenliuwei.com/" target="_blank" rel="noopener">https://darrenliuwei.com/</a></p><p><a href="https://blankj.com/" target="_blank" rel="noopener">https://blankj.com/</a></p><p><a href="https://sphard.com/" target="_blank" rel="noopener">https://sphard.com/</a></p><p><a href="http://iamwr.com/" target="_blank" rel="noopener">http://iamwr.com/</a></p><p><a href="https://leaferx.online/" target="_blank" rel="noopener">https://leaferx.online/</a></p><p><a href="https://kinegratii.github.io/" target="_blank" rel="noopener">https://kinegratii.github.io/</a></p><p><a href="http://iamwr.com/" target="_blank" rel="noopener">http://iamwr.com/</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;blockquote class=&quot;blockquote-center&quot;&gt;&lt;p&gt;我总是在不断地追寻着， 却又时常忘记自己身在何方&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;欢迎光临百浪多息的博客！&lt;/p&gt;
-&lt;p&gt;挂上一些友情链接&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;http://s
-      
-    
-    </summary>
-    
     
   </entry>
   
@@ -524,6 +471,91 @@
     
     
       <category term="matlab" scheme="https://prontosil.club/tags/matlab/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我和Linux的故事</title>
+    <link href="https://prontosil.club/2018/12/21/%E6%88%91%E5%92%8CLinux%E7%9A%84%E6%95%85%E4%BA%8B/"/>
+    <id>https://prontosil.club/2018/12/21/我和Linux的故事/</id>
+    <published>2018-12-21T12:01:44.000Z</published>
+    <updated>2019-02-03T14:04:29.280Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h4><p>依稀记得是去年这个时候接触到的Linux，当时装了一个Ubuntu的虚拟机，但是没怎么用，虽然感觉和Windows系统很像，但是毕竟不熟练，所以就没怎么关注这个系统，转眼间，Ubuntu系统都已经更新到了18.04LTS版本了。</p><a id="more"></a><p>由于参加ctf比赛的经历让我意识到Linux是一个很重要的操作系统，以后也会和它接触的很多，所以今年的年末不知道怎么心血来潮，开始折腾Linux， docker， git， bash这些工具了。</p><p>先把一些东西记在小本本上:</p><blockquote><p>deb <a href="https://mirrors.ustc.edu.cn/linuxmint/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/linuxmint/</a> tara main upstream import backport<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-updates main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-backports main restricted universe multiverse<br>deb <a href="https://mirrors.ustc.edu.cn/ubuntu/" target="_blank" rel="noopener">https://mirrors.ustc.edu.cn/ubuntu/</a> bionic-security main restricted universe multiverse<br>deb <a href="http://archive.canonical.com/ubuntu/" target="_blank" rel="noopener">http://archive.canonical.com/ubuntu/</a> bionic partner</p></blockquote><p>对，这是Linux mint发行版的镜像源。</p><hr><h5 id="一点小感慨"><a href="#一点小感慨" class="headerlink" title="一点小感慨"></a>一点小感慨</h5><p>第一次接触Linux的感觉已经淡淡消去了， 不过那个时候没有花很多的力气去了解这个操作系统， 直到很多工具在Linux上用的特别顺手的时候才真正的体会到Linux是有多么的好用。 不过就个人来说， Linux确实不适合个人计算机， 我当时就是囿于个人思维， 无法领会到为什么Linux要把文件权限分的那么清楚。不过就计算机发展的早期来说， 多任务， 分时， 支持多个用户的计算机操作系统才是主流， 那会儿都没有个人计算机这个概念呢！</p><h4 id="Linux好用在哪"><a href="#Linux好用在哪" class="headerlink" title="Linux好用在哪"></a>Linux好用在哪</h4><ul><li>apt-get 快速安装自己想要的软件包</li><li>正则表达式方便我们查找文件</li><li>vim编辑器</li><li>管道命令， shell scripts</li><li>各种实用工具</li></ul><h4 id="我能用Linux干什么"><a href="#我能用Linux干什么" class="headerlink" title="我能用Linux干什么"></a>我能用Linux干什么</h4><ul><li>毫无疑问， 管理自己的服务器！只有自己亲自部署一个服务器，然后在本地去远程连接的时候你才知道Linux是多么的有用</li><li>docker虚拟化技术， 使用docker file快速的在云端部署生产环境</li><li>黑客工具箱， kali操作系统(不过我现在很不喜欢这个操作系统了， burp是社区版， ssh服务开启贼麻烦， 想装双系统更是遇到一些神奇的错误)</li><li>管理Linux系统， 维护云端的环境</li><li>目前来看，使用Linux直接编辑代码还有一定的难度， 主要是vim和gcc， gdb这些工具使用的不是很熟悉。不知道怎么调试代码， 缺少GUI的直观</li></ul><h4 id="Linux怎么学"><a href="#Linux怎么学" class="headerlink" title="Linux怎么学"></a>Linux怎么学</h4><p>学Linux真的就像小学学九九乘法口诀表， 不背点东西是啥都不会的。</p><p>Linux好用， 这是对于那些熟悉了命令的人来说，就想乘法也很好算， 但是这是对那些熟悉了乘法表的人来说</p><p>乘法也就是小菜一碟</p><p>所以啊， 学Linux必须要过几关， 一关是bash， shell scripts， 一关是vim编辑器， 还有就是各种命令的常见参数要记得。</p><p>这些， 都要练呀。</p><hr><p>最后修改于2019年2月3日</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;写在前面&quot;&gt;&lt;a href=&quot;#写在前面&quot; class=&quot;headerlink&quot; title=&quot;写在前面&quot;&gt;&lt;/a&gt;写在前面&lt;/h4&gt;&lt;p&gt;依稀记得是去年这个时候接触到的Linux，当时装了一个Ubuntu的虚拟机，但是没怎么用，虽然感觉和Windows系统很像，但是毕竟不熟练，所以就没怎么关注这个系统，转眼间，Ubuntu系统都已经更新到了18.04LTS版本了。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="随笔" scheme="https://prontosil.club/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>UEFI和legacy</title>
+    <link href="https://prontosil.club/2018/12/20/UEFI%E5%92%8Clegacy/"/>
+    <id>https://prontosil.club/2018/12/20/UEFI和legacy/</id>
+    <published>2018-12-20T11:54:18.000Z</published>
+    <updated>2019-02-10T13:39:28.256Z</updated>
+    
+    <content type="html"><![CDATA[<h5 id="UEFI和legacy"><a href="#UEFI和legacy" class="headerlink" title="UEFI和legacy"></a>UEFI和legacy</h5><p>闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。</p><p>天哪，这就是联想的厉害吗。</p><a id="more"></a><p>然后开始装Ubuntu</p><p>好像我很傻逼。。。</p><p>看了<a href="https://blog.csdn.net/flyyufenfei/article/details/79187656" target="_blank" rel="noopener">这篇博客</a></p><p>才知道，分区要合理的规划。。。Windows下面没这个要求来着？？？</p><blockquote><p>分区的建议:</p><p>/boot - 200MB 实际需求 100~200MB</p><p>/  15~20GB </p><p>/home 存放用户数据，多多益善。</p><p>/swap 可以不用吧</p></blockquote><p>别跑题了，我本来是想探究用UEFI和legacy引导方式的区别的</p><blockquote><p>EFI全称“统一的可扩展固件接口”(Unified Extensible Firmware Interface)， 是一种详细描述类型接口的标准。这种接口用于操作系统自动从预启动的操作环境，加载到一种操作系统上。通俗的说，UEFI是一种新的主板引导初始化的标注设置，具有启动速度快、安全性高和支持大容量硬盘而闻名。出现这种技术的主要作用基本上就是为了实现开机快的效果，由于win8系统支持这种引导方式的启动，所以速度略显的有点快，</p></blockquote><p>上面说的好像不是人话23333</p><p>其实我主要的问题就是</p><p>在我装双系统的时候，为什么legacy是无法引导U盘中的系统的</p><p>只要当我全部启用了UEFI引导的时候才成功了。</p><hr><p>2019年2月3日更新一波</p><h4 id="UEFI"><a href="#UEFI" class="headerlink" title="UEFI"></a>UEFI</h4><p>UEFI 是一种新兴的启动方式， 就是一个特定的分区， 200M左右， 让bios启动的时候直接把引导权限交给这个分区，这样你就可以使用鼠标了，因为传统的legacy模式下只能用键盘， 还可以做到连接无线自动下载镜像安装。</p><h4 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h4><p>这就是为什么， 有时候安装Linux需要切换到legacy模式了，然而如果原来的系统是UEFI模式下安装的， 在lagacy模式是进不了的， 因为…bios不知道咋办了， 找不到UEFI</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h5 id=&quot;UEFI和legacy&quot;&gt;&lt;a href=&quot;#UEFI和legacy&quot; class=&quot;headerlink&quot; title=&quot;UEFI和legacy&quot;&gt;&lt;/a&gt;UEFI和legacy&lt;/h5&gt;&lt;p&gt;闲着那台旧电脑没地方用，然后开机看了看，woc 2G内存 辣鸡AMD处理器 居然。。。win10系统2秒钟开机。。。&lt;/p&gt;
+&lt;p&gt;天哪，这就是联想的厉害吗。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="瞎折腾" scheme="https://prontosil.club/categories/%E7%9E%8E%E6%8A%98%E8%85%BE/"/>
+    
+    
+      <category term="UEFI" scheme="https://prontosil.club/tags/UEFI/"/>
+    
+      <category term="legacy" scheme="https://prontosil.club/tags/legacy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>shell脚本</title>
+    <link href="https://prontosil.club/2018/12/15/shell%E8%84%9A%E6%9C%AC/"/>
+    <id>https://prontosil.club/2018/12/15/shell脚本/</id>
+    <published>2018-12-15T15:24:14.000Z</published>
+    <updated>2019-02-10T13:38:26.500Z</updated>
+    
+    <content type="html"><![CDATA[<h4 id="shell命令复习"><a href="#shell命令复习" class="headerlink" title="shell命令复习"></a>shell命令复习</h4><ol><li>ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), </li><li>lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)</li><li>md5sum，就是计算和检验MD5信息签名</li><li>uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)</li><li>history命令就是列出历史纪录</li><li>touch创建文件，或者修改已存在的文件的上一次修改时间</li><li>chmod和chown命令</li><li>cal显示日历和date</li><li>ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID</li><li>ps -A | grep -i apache2 </li><li>servive启动某个服务</li></ol><a id="more"></a><blockquote><p>以上是一些常用的命令，下面是一些命令常见的用法</p></blockquote><h5 id="查找命令find"><a href="#查找命令find" class="headerlink" title="查找命令find"></a>查找命令find</h5><p>.代表当前目录， find . -print, 其中print0可以指明使用’\0’作为定界符</p><p>-name 制定了文件名所必须匹配的字符串</p><p>-iname 忽视大小写</p><p>find . \(-name “<em>.txt” -o -name   “\</em>.pdf”\) -print</p><p>find .  -regex “.*(\.py | \.sh\) $ “</p><p>-type 指定搜索的类型，其中d是目录， f是普通文件， l是符号链接</p><p>-atime 用户最近一次访问的时间， -mtime文件内容最后一次被修改时间 ， -ctime 文件元数据最后一次被修改的时间</p><p>+7 代表访问时间超过七天的 7代表访问时间正好是七天， -7代表最近七天内被访问过的所有文件</p><p>同样的还可以用-amin, -mmin, -cmin 分钟做计量单位</p><p>-size 表示文件大小 w k M G 字 千 兆 吉</p><p>-perm 表示权限</p><p>-exec ，实例：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">find . -type f -user root  -exec  chown XXXX &#123;&#125;\;</span><br><span class="line">find . -type f -name &quot;*.c&quot; -exec cat &#123;&#125;\; &gt; all_c_files.txt</span><br><span class="line">find . -type f -mtime +10 -name &quot;*.txt&quot; -exec cp &#123;&#125; OLD \;</span><br><span class="line">find . -type f -name &quot;*.txt&quot; -exec printf &quot;The file : %s\n&quot; &#123;&#125;\;</span><br></pre></td></tr></table></figure><h5 id="玩转xargs"><a href="#玩转xargs" class="headerlink" title="玩转xargs"></a>玩转xargs</h5><p>cat example.txt | xargs</p><p>将单行输入转化为多行</p><p>cat example.txt | xargs -n 3</p><blockquote><p>结合fing使用xargs</p><p>find . -type f -name “<em>,txt” -print0 | xargs -0 rm -f<br>find dir -type f -name “</em>.c” -print0 | xargs -0 wc -l</p></blockquote><h5 id="tr命令"><a href="#tr命令" class="headerlink" title="tr命令"></a>tr命令</h5><p>tr ‘A-Z’ ‘a-z’</p><p>tr -d ‘[set1]’   指定被删除的字符集合</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;hello 1 char 2 next 4 | tr -d -c &apos;0-9&apos; \n&apos;</span><br><span class="line">tr -s &apos; &apos;压缩输入中重复的空白字符</span><br></pre></td></tr></table></figure><h5 id="wget和cURL"><a href="#wget和cURL" class="headerlink" title="wget和cURL"></a>wget和cURL</h5><p>wget URL1 URL2 URL3</p><p>-t 用来指定重复次数</p><p>—limit-rate限速</p><p>—quota或-Q 指定最大下载配额</p><p>-c断点续传</p><p>-O指定下载到的文件名 -o将输出写入日志文件</p><p>cURL URL —silent</p><p>cURL不会讲下载的写入文件，而是写入标准输出</p><p>-O将下载到的内容写入到下载文件</p><p>-o写入指定名称的文件中</p><p>-C断点续传</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h4 id=&quot;shell命令复习&quot;&gt;&lt;a href=&quot;#shell命令复习&quot; class=&quot;headerlink&quot; title=&quot;shell命令复习&quot;&gt;&lt;/a&gt;shell命令复习&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;ls命令， -l是以详细模式列出文件夹的内容，-a是列出所有内容，包括.开头的文件(all), &lt;/li&gt;
+&lt;li&gt;lsbls命令，列出块设备,以标准的的树状格式输出，-l是以列表格式输出显示块设备(lsblk， 可以用来了解新插入的usb设备的名字)&lt;/li&gt;
+&lt;li&gt;md5sum，就是计算和检验MD5信息签名&lt;/li&gt;
+&lt;li&gt;uname命令，就是unix name命令的缩写，显示机器名和操作系统，内核的详细信息，-a显示详细信息(all)&lt;/li&gt;
+&lt;li&gt;history命令就是列出历史纪录&lt;/li&gt;
+&lt;li&gt;touch创建文件，或者修改已存在的文件的上一次修改时间&lt;/li&gt;
+&lt;li&gt;chmod和chown命令&lt;/li&gt;
+&lt;li&gt;cal显示日历和date&lt;/li&gt;
+&lt;li&gt;ps命令给出正在运行的某个进程的状态， -A列出所有的进程及其PID&lt;/li&gt;
+&lt;li&gt;ps -A | grep -i apache2 &lt;/li&gt;
+&lt;li&gt;servive启动某个服务&lt;/li&gt;
+&lt;/ol&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://prontosil.club/categories/Linux/"/>
+    
+    
+      <category term="Linux" scheme="https://prontosil.club/tags/Linux/"/>
+    
+      <category term="shell" scheme="https://prontosil.club/tags/shell/"/>
     
   </entry>
   
