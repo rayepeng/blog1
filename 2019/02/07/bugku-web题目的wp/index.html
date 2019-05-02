@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="php,代码审计，wp,MD5,">
+  <meta name="keywords" content="wp,">
 
 
 
@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="一直想把自己做过的bugkuctf题目汇个总， 现在终于腾出时间来啦！">
-<meta name="keywords" content="php,代码审计，wp,MD5">
+<meta name="description" content="welcome to bugkuctf ctrl + U查看页面源代码，  如果有 $user且 file_get_contents($user, &amp;#39;r&amp;#39;) 的 值是 指定的字符串。 就会 include $file 的内容 。 并且提示是 hint.php这个文件 这里涉及到一个怎么把 get 方法传入的参数作为一个文件打开。 php伪协议这里用到了 php://input  但">
+<meta name="keywords" content="wp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="bugku web题目的wp">
 <meta property="og:url" content="https://prontosil.club/2019/02/07/bugku-web题目的wp/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="一直想把自己做过的bugkuctf题目汇个总， 现在终于腾出时间来啦！">
+<meta property="og:description" content="welcome to bugkuctf ctrl + U查看页面源代码，  如果有 $user且 file_get_contents($user, &amp;#39;r&amp;#39;) 的 值是 指定的字符串。 就会 include $file 的内容 。 并且提示是 hint.php这个文件 这里涉及到一个怎么把 get 方法传入的参数作为一个文件打开。 php伪协议这里用到了 php://input  但">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-a966a46b4a760043.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-abf093d0b999015b.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
@@ -99,10 +99,10 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-4d5ff01e48d389a2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/10651191-ef56d1734bae0225.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/5035860-05d52e6d3d0061b3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp">
-<meta property="og:updated_time" content="2019-02-15T06:09:15.599Z">
+<meta property="og:updated_time" content="2019-05-02T16:08:47.675Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="bugku web题目的wp">
-<meta name="twitter:description" content="一直想把自己做过的bugkuctf题目汇个总， 现在终于腾出时间来啦！">
+<meta name="twitter:description" content="welcome to bugkuctf ctrl + U查看页面源代码，  如果有 $user且 file_get_contents($user, &amp;#39;r&amp;#39;) 的 值是 指定的字符串。 就会 include $file 的内容 。 并且提示是 hint.php这个文件 这里涉及到一个怎么把 get 方法传入的参数作为一个文件打开。 php伪协议这里用到了 php://input  但">
 <meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/10651191-a966a46b4a760043.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-02-15T14:09:15+08:00">
-                2019-02-15
+              <time title="Post modified" itemprop="dateModified" datetime="2019-05-03T00:08:47+08:00">
+                2019-05-03
               </time>
             
           </span>
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.8k
+                  1.7k
                 </span>
               
 
@@ -426,7 +426,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  9
+                  8
                 </span>
               
             </div>
@@ -447,11 +447,7 @@
       
 
       
-        <blockquote>
-<p>一直想把自己做过的bugkuctf题目汇个总， 现在终于腾出时间来啦！</p>
-</blockquote>
-<a id="more"></a>
-<h1 id="welcome-to-bugkuctf"><a href="#welcome-to-bugkuctf" class="headerlink" title="welcome to bugkuctf"></a>welcome to bugkuctf</h1><p><img src="https://upload-images.jianshu.io/upload_images/10651191-a966a46b4a760043.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="源代码"></p>
+        <h1 id="welcome-to-bugkuctf"><a href="#welcome-to-bugkuctf" class="headerlink" title="welcome to bugkuctf"></a>welcome to bugkuctf</h1><p><img src="https://upload-images.jianshu.io/upload_images/10651191-a966a46b4a760043.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="源代码"></p>
 <p><code>ctrl + U</code>查看页面源代码，  如果有 <code>$user</code>且 <code>file_get_contents($user, &#39;r&#39;)</code> 的 值是 指定的字符串。 就会 <code>include</code> <code>$file</code> 的内容 。 并且提示是 <code>hint.php</code>这个文件</p>
 <p>这里涉及到一个怎么把 <code>get</code> 方法传入的参数作为一个文件打开。</p>
 <h2 id="php伪协议"><a href="#php伪协议" class="headerlink" title="php伪协议"></a>php伪协议</h2><p>这里用到了 <code>php://input</code></p>
@@ -524,11 +520,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/php/" rel="tag"># php</a>
-          
-            <a href="/tags/代码审计，wp/" rel="tag"># 代码审计，wp</a>
-          
-            <a href="/tags/MD5/" rel="tag"># MD5</a>
+            <a href="/tags/wp/" rel="tag"># wp</a>
           
         </div>
       
@@ -537,26 +529,6 @@
       
       
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/02/07/PHP语法摘录/" rel="next" title="PHP语法摘录">
-                <i class="fa fa-chevron-left"></i> PHP语法摘录
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/02/27/grep使用详解/" rel="prev" title="grep使用详解">
-                grep使用详解 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
 
       
@@ -632,7 +604,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -643,7 +615,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -654,7 +626,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
