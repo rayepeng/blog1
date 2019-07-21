@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="vscode,">
 
 
 
@@ -81,17 +81,22 @@
 
 
 
-<meta name="description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
-<meta property="og:type" content="website">
-<meta property="og:title" content="prontosil">
-<meta property="og:url" content="https://prontosil.club/lib/bookmark/README.html">
+<meta name="description" content="使用vscode调试php代码下载xdebug官网但是需要自己确定php的版本和编译器的版本 但是官网的链接似乎有问题，php5.5的两个反过来了  之后将其添加到php.ini文件中 1234[XDebug]zend_extension = php_xdebug-2.5.5-5.5-vc11.dllxdebug.remote_enable = 1xdebug.remote_autostart =">
+<meta name="keywords" content="vscode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vscode调试php">
+<meta property="og:url" content="https://prontosil.club/2019/07/21/vscode调试php/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta property="og:description" content="使用vscode调试php代码下载xdebug官网但是需要自己确定php的版本和编译器的版本 但是官网的链接似乎有问题，php5.5的两个反过来了  之后将其添加到php.ini文件中 1234[XDebug]zend_extension = php_xdebug-2.5.5-5.5-vc11.dllxdebug.remote_enable = 1xdebug.remote_autostart =">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T14:47:19.194Z">
+<meta property="og:image" content="https://i.imgur.com/5GBV27o.png">
+<meta property="og:image" content="https://i.imgur.com/cbMm5FT.png">
+<meta property="og:image" content="https://i.imgur.com/l1Vx4cI.png">
+<meta property="og:updated_time" content="2019-07-21T08:10:29.172Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prontosil">
-<meta name="twitter:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta name="twitter:title" content="vscode调试php">
+<meta name="twitter:description" content="使用vscode调试php代码下载xdebug官网但是需要自己确定php的版本和编译器的版本 但是官网的链接似乎有问题，php5.5的两个反过来了  之后将其添加到php.ini文件中 1234[XDebug]zend_extension = php_xdebug-2.5.5-5.5-vc11.dllxdebug.remote_enable = 1xdebug.remote_autostart =">
+<meta name="twitter:image" content="https://i.imgur.com/5GBV27o.png">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/lib/bookmark/README.html">
+  <link rel="canonical" href="https://prontosil.club/2019/07/21/vscode调试php/">
 
 
 
 
 
-  <title> | prontosil</title>
+  <title>vscode调试php | prontosil</title>
   
 
 
@@ -288,61 +293,229 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/vscode调试php/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 align="center">Bookmark for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1>
-
-<h2 align="center">Introduce</h2>
-
-<p>Bookmark is a plugin that allow the users save their reading position.</p>
-<p>The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position.</p>
-<p>And when they visit your blog in the next time, they can continue the last reading position by clicking the bookmark icon from the home page.</p>
-<h1 align="center">Installation</h1>
-
-<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
-
-<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
-
-<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 2 &rarr; Get module</h2>
-
-<p>Install module to <code>source/lib</code> directory:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-bookmark.git <span class="built_in">source</span>/lib/bookmark</span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 3 &rarr; Set it up</h2>
-
-<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bookmark:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  bookmark:</span> <span class="attr">https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js</span></span><br></pre></td></tr></table></figure>
-<h1 align="center">Update</h1>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/bookmark</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
+          <h1 class="post-title" itemprop="name headline">vscode调试php</h1>
         
-      </div>
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:06:48+08:00">
+                2019-07-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-21T16:10:29+08:00">
+                2019-07-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index">
+                    <span itemprop="name">config</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  242
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="使用vscode调试php代码"><a href="#使用vscode调试php代码" class="headerlink" title="使用vscode调试php代码"></a>使用vscode调试php代码</h1><h2 id="下载xdebug"><a href="#下载xdebug" class="headerlink" title="下载xdebug"></a>下载xdebug</h2><p><a href="https://xdebug.org/download.php" target="_blank" rel="noopener">官网</a><br>但是需要自己确定php的版本和编译器的版本</p>
+<p>但是官网的链接似乎有问题，php5.5的两个反过来了</p>
+<p><img src="https://i.imgur.com/5GBV27o.png" alt="php1"></p>
+<p>之后将其添加到<code>php.ini</code>文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[XDebug]</span><br><span class="line">zend_extension = php_xdebug-2.5.5-5.5-vc11.dll</span><br><span class="line">xdebug.remote_enable = 1</span><br><span class="line">xdebug.remote_autostart = 1</span><br></pre></td></tr></table></figure>
+<h2 id="将php添加到环境变量中"><a href="#将php添加到环境变量中" class="headerlink" title="将php添加到环境变量中"></a>将php添加到环境变量中</h2><p>这就不细说了</p>
+<h2 id="配置vscode中的php路径"><a href="#配置vscode中的php路径" class="headerlink" title="配置vscode中的php路径"></a>配置vscode中的php路径</h2><p>在settings.json中指定</p>
+<h2 id="调试"><a href="#调试" class="headerlink" title="调试"></a>调试</h2><p><img src="https://i.imgur.com/cbMm5FT.png" alt="php2"></p>
+<h1 id="踩到的坑"><a href="#踩到的坑" class="headerlink" title="踩到的坑"></a>踩到的坑</h1><ol>
+<li>VScode的php debug插件默认是用环境变量中的php来进行调试的，所以php如果没有加入到环境变量中的话是会报错的。</li>
+<li>我刚开始用了wampserver的php来进行调试，但是后来失败了，说是没办法加载xdebug插件，所以换成了phpstudy</li>
+<li>找不到setting文件？这个坑害惨了<br>在这个地方需要添加php的路径<br><img src="https://i.imgur.com/l1Vx4cI.png" alt="php0"></li>
+<li>两种调试方式，一种是listen for xdebug，需要打开浏览器，另一种是launch currently open script</li>
+</ol>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vscode/" rel="tag"># vscode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/20/IOT-D-link/" rel="next" title="IOT D-link">
+                <i class="fa fa-chevron-left"></i> IOT D-link
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/21/从Googlectf一道题认识一下链接文件/" rel="prev" title="从Googlectf一道题认识一下链接文件">
+                从Googlectf一道题认识一下链接文件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -487,7 +660,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Bookmark for NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">If you want to use the CDN instead of clone this repo, please jump to the Step 3.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Step 1 → Go to NexT dir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Step 2 → Get module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Step 3 → Set it up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Update</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#使用vscode调试php代码"><span class="nav-number">1.</span> <span class="nav-text">使用vscode调试php代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#下载xdebug"><span class="nav-number">1.1.</span> <span class="nav-text">下载xdebug</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#将php添加到环境变量中"><span class="nav-number">1.2.</span> <span class="nav-text">将php添加到环境变量中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置vscode中的php路径"><span class="nav-number">1.3.</span> <span class="nav-text">配置vscode中的php路径</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调试"><span class="nav-number">1.4.</span> <span class="nav-text">调试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#踩到的坑"><span class="nav-number">2.</span> <span class="nav-text">踩到的坑</span></a></li></ol></div>
             
 
           </div>

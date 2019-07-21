@@ -81,17 +81,21 @@
 
 
 
-<meta name="description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
-<meta property="og:type" content="website">
-<meta property="og:title" content="prontosil">
-<meta property="og:url" content="https://prontosil.club/lib/bookmark/README.html">
+<meta name="description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：bias|x|y|w0|w1|yout|y-yout|adj0|adj1|alpha|w0new|w1new—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|1|0.512|1.023|0.719|0.403|0.926|0.977|0.977|0.500|0.7">
+<meta property="og:type" content="article">
+<meta property="og:title" content="deep learning1">
+<meta property="og:url" content="https://prontosil.club/2019/07/21/deep-learning1/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta property="og:description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：bias|x|y|w0|w1|yout|y-yout|adj0|adj1|alpha|w0new|w1new—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|1|0.512|1.023|0.719|0.403|0.926|0.977|0.977|0.500|0.7">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T14:47:19.194Z">
+<meta property="og:image" content="https://i.loli.net/2019/07/10/5d2533696b1e993944.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/10/5d25354fec71179261.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/10/5d253567b050673436.png">
+<meta property="og:updated_time" content="2019-07-21T08:11:57.751Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prontosil">
-<meta name="twitter:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta name="twitter:title" content="deep learning1">
+<meta name="twitter:description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：bias|x|y|w0|w1|yout|y-yout|adj0|adj1|alpha|w0new|w1new—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|1|0.512|1.023|0.719|0.403|0.926|0.977|0.977|0.500|0.7">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/10/5d2533696b1e993944.png">
 
 
 
@@ -121,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/lib/bookmark/README.html">
+  <link rel="canonical" href="https://prontosil.club/2019/07/21/deep-learning1/">
 
 
 
 
 
-  <title> | prontosil</title>
+  <title>deep learning1 | prontosil</title>
   
 
 
@@ -288,61 +292,237 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/deep-learning1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 align="center">Bookmark for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1>
-
-<h2 align="center">Introduce</h2>
-
-<p>Bookmark is a plugin that allow the users save their reading position.</p>
-<p>The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position.</p>
-<p>And when they visit your blog in the next time, they can continue the last reading position by clicking the bookmark icon from the home page.</p>
-<h1 align="center">Installation</h1>
-
-<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
-
-<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
-
-<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 2 &rarr; Get module</h2>
-
-<p>Install module to <code>source/lib</code> directory:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-bookmark.git <span class="built_in">source</span>/lib/bookmark</span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 3 &rarr; Set it up</h2>
-
-<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bookmark:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  bookmark:</span> <span class="attr">https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js</span></span><br></pre></td></tr></table></figure>
-<h1 align="center">Update</h1>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/bookmark</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
+          <h1 class="post-title" itemprop="name headline">deep learning1</h1>
         
-      </div>
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:58+08:00">
+                2019-07-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-21T16:11:57+08:00">
+                2019-07-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  558
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="感知机补充"><a href="#感知机补充" class="headerlink" title="感知机补充"></a>感知机补充</h3><p>接着写</p>
+<p>感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$</p>
+<p>我们简要地看一下一次训练的结果：<br>bias|x|y|w0|w1|yout|y-yout|adj0|adj1|alpha|w0new|w1new<br>—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|—-|<br>1|0.512|1.023|0.719|0.403|0.926|0.977|0.977|0.500|0.7|0.788|0.438</p>
+<p>进行很多次训练之后画出的图形：<br><img src="https://i.loli.net/2019/07/10/5d2533696b1e993944.png" alt=""></p>
+<p>预测的还是挺准确的</p>
+<h3 id="为什么需要bias？"><a href="#为什么需要bias？" class="headerlink" title="为什么需要bias？"></a>为什么需要bias？</h3><p>概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了</p>
+<h2 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h2><p>一层的感知机是没办法处理异或问题的</p>
+<p>所以需要增加隐藏层<br>就像下面这样：<br><img src="https://i.loli.net/2019/07/10/5d25354fec71179261.png" alt=""><br>这样就可以做到了：</p>
+<p><img src="https://i.loli.net/2019/07/10/5d253567b050673436.png" alt=""></p>
+<p>感觉MLP的数学知识太过复杂了，暂时放着</p>
+<h2 id="keras"><a href="#keras" class="headerlink" title="keras"></a>keras</h2><p>从栗子代码开始：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">from keras.models import Sequential</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line">from keras.layers import Dense</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">使用add来堆叠模型</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">model.add(Dense(units=64, activation=&apos;relu&apos;, input_dim=100))</span><br><span class="line">model.add(Dense(units=10, activation=&apos;softmax&apos;))</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">使用compile来配置学习过程</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">model.compile(loss=&apos;categorical_crossentropy&apos;,</span><br><span class="line">              optimizer=&apos;sgd&apos;,</span><br><span class="line">              metrics=[&apos;accuracy&apos;])</span><br><span class="line"># x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。</span><br><span class="line">model.fit(x_train, y_train, epochs=5, batch_size=32)</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">评估模型</span><br><span class="line">&apos;&apos;&apos;</span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)</span><br><span class="line">classes = model.predict(x_test, batch_size=128)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><h3 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h3><p>在训练模型之前，需要配置学习过程，compile接收三个参数</p>
+<ul>
+<li>优化器optimizer</li>
+<li>损失函数loss</li>
+<li>评估标准metrics</li>
+</ul>
+<p>一个个来看</p>
+<ol>
+<li><p>优化器<br>可以先实例化一个优化器对象，然后将它传入<code>model.compile()</code>，或者可以通过</p>
+</li>
+<li><p>损失函数</p>
+</li>
+</ol>
+<p>损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>我们可以传递一个现有的损失函数名，或者一个tensorflow符号函数，有以下两个参数</p>
+<ul>
+<li>y_true: 真实标签.</li>
+<li>y_pred: 预测值,其shape与y_true相同</li>
+</ul>
+<p>可用的损失函数：<br>mean_squared_error<br>mean_absolute_error<br>等</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/xwd18280820053/article/details/70681750" target="_blank" rel="noopener">神经网络中w,b参数的作用（为何需要偏置b的解释）</a><br><a href="https://blog.csdn.net/hy13684802853/article/details/78717475" target="_blank" rel="noopener">深度学习中偏移项bias的作用</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/21/deep-learning0/" rel="next" title="deep learning0">
+                <i class="fa fa-chevron-left"></i> deep learning0
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -487,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Bookmark for NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">If you want to use the CDN instead of clone this repo, please jump to the Step 3.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Step 1 → Go to NexT dir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Step 2 → Get module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Step 3 → Set it up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Update</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#感知机补充"><span class="nav-number">1.</span> <span class="nav-text">感知机补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要bias？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要bias？</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#多层感知机"><span class="nav-number"></span> <span class="nav-text">多层感知机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras"><span class="nav-number"></span> <span class="nav-text">keras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">1.</span> <span class="nav-text">Sequential</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compile"><span class="nav-number">2.</span> <span class="nav-text">compile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></li></div>
             
 
           </div>

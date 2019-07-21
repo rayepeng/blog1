@@ -81,17 +81,22 @@
 
 
 
-<meta name="description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
-<meta property="og:type" content="website">
-<meta property="og:title" content="prontosil">
-<meta property="og:url" content="https://prontosil.club/lib/bookmark/README.html">
+<meta name="description" content="deep learning整理一下上课的笔记，不然全都会忘了去 无监督学习self organizing map 简称SOM算法 大意：给定一个向量$v_{k}$,寻找到距离最近的神经元  找到最接近的神经元 n_{bmu}=\underset{1\leqslant i\leqslant m}{argmin}\left \| v_{k}-n_{i} \right \| 更新$n_{i}$   wi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="deep learning0">
+<meta property="og:url" content="https://prontosil.club/2019/07/21/deep-learning0/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta property="og:description" content="deep learning整理一下上课的笔记，不然全都会忘了去 无监督学习self organizing map 简称SOM算法 大意：给定一个向量$v_{k}$,寻找到距离最近的神经元  找到最接近的神经元 n_{bmu}=\underset{1\leqslant i\leqslant m}{argmin}\left \| v_{k}-n_{i} \right \| 更新$n_{i}$   wi">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-10T14:47:19.194Z">
+<meta property="og:image" content="https://i.loli.net/2019/07/07/5d22023bd954e64199.png">
+<meta property="og:image" content="https://i.imgur.com/Uo24IIn.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/07/5d2204580b53040600.png">
+<meta property="og:image" content="https://i.loli.net/2019/07/07/5d220559de3ef92755.png">
+<meta property="og:updated_time" content="2019-07-21T08:11:03.903Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prontosil">
-<meta name="twitter:description" content="Bookmark for NexT  Introduce  Bookmark is a plugin that allow the users save their reading position. The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position">
+<meta name="twitter:title" content="deep learning0">
+<meta name="twitter:description" content="deep learning整理一下上课的笔记，不然全都会忘了去 无监督学习self organizing map 简称SOM算法 大意：给定一个向量$v_{k}$,寻找到距离最近的神经元  找到最接近的神经元 n_{bmu}=\underset{1\leqslant i\leqslant m}{argmin}\left \| v_{k}-n_{i} \right \| 更新$n_{i}$   wi">
+<meta name="twitter:image" content="https://i.loli.net/2019/07/07/5d22023bd954e64199.png">
 
 
 
@@ -121,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/lib/bookmark/README.html">
+  <link rel="canonical" href="https://prontosil.club/2019/07/21/deep-learning0/">
 
 
 
 
 
-  <title> | prontosil</title>
+  <title>deep learning0 | prontosil</title>
   
 
 
@@ -288,61 +293,250 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/deep-learning0/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline"></h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h1 align="center">Bookmark for <a href="https://github.com/theme-next" target="_blank" rel="noopener">NexT</a></h1>
-
-<h2 align="center">Introduce</h2>
-
-<p>Bookmark is a plugin that allow the users save their reading position.</p>
-<p>The users could just click the bookmark icon (like 🔖) in left-top of the page to save the position.</p>
-<p>And when they visit your blog in the next time, they can continue the last reading position by clicking the bookmark icon from the home page.</p>
-<h1 align="center">Installation</h1>
-
-<h2>If you want to use the CDN instead of clone this repo, please jump to the Step 3.</h2>
-
-<h2 align="center">Step 1 &rarr; Go to NexT dir</h2>
-
-<p>Change dir to <strong>NexT</strong> directory. There must be <code>layout</code>, <code>source</code>, <code>languages</code> and other directories:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next</span><br><span class="line">$ ls</span><br><span class="line">bower.json  _config.yml  docs  gulpfile.coffee  languages  layout  LICENSE.md  package.json  README.md  scripts  <span class="built_in">source</span>  <span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 2 &rarr; Get module</h2>
-
-<p>Install module to <code>source/lib</code> directory:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git <span class="built_in">clone</span> https://github.com/theme-next/theme-next-bookmark.git <span class="built_in">source</span>/lib/bookmark</span><br></pre></td></tr></table></figure>
-<h2 align="center">Step 3 &rarr; Set it up</h2>
-
-<p>Enable module in <strong>NexT</strong> <code>_config.yml</code> file:</p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">bookmark:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-<p><strong>And, if you wants to use the CDN, then need to set:</strong></p>
-<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">vendors:</span></span><br><span class="line">  <span class="string">...</span></span><br><span class="line"><span class="attr">  bookmark:</span> <span class="attr">https://cdn.jsdelivr.net/gh/theme-next/theme-next-bookmark@latest/bookmark.min.js</span></span><br></pre></td></tr></table></figure>
-<h1 align="center">Update</h1>
-
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">cd</span> themes/next/<span class="built_in">source</span>/lib/bookmark</span><br><span class="line">$ git pull</span><br></pre></td></tr></table></figure>
-
+          <h1 class="post-title" itemprop="name headline">deep learning0</h1>
         
-      </div>
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:44+08:00">
+                2019-07-21
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-21T16:11:03+08:00">
+                2019-07-21
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
+                    <span itemprop="name">deep learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  975
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h1 id="deep-learning"><a href="#deep-learning" class="headerlink" title="deep learning"></a>deep learning</h1><p>整理一下上课的笔记，不然全都会忘了去</p>
+<h2 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a>无监督学习</h2><p><code>self organizing map</code> 简称SOM算法</p>
+<p>大意：给定一个向量$v_{k}$,寻找到距离最近的神经元</p>
+<ul>
+<li><p>找到最接近的神经元</p>
+<script type="math/tex; mode=display">n_{bmu}=\underset{1\leqslant i\leqslant m}{argmin}\left \| v_{k}-n_{i} \right \|</script></li>
+<li><p>更新$n_{i}$</p>
+</li>
+</ul>
+<p>wikipedia上一张很形象的图片:</p>
+<blockquote>
+<p>蓝色斑点是训练数据的分布，小白色光盘是从该分布中抽取的当前训练数据。首先（左），SOM节点任意地位于数据空间中。选择最接近训练基准的节点（以黄色突出显示）。它被移向训练数据，因为（在较小程度上）是它在网格上的邻居。在多次迭代之后，网格倾向于近似数据分布（右）。</p>
+</blockquote>
+<p><img src="https://i.loli.net/2019/07/07/5d22023bd954e64199.png" alt=""></p>
+<h2 id="有监督学习"><a href="#有监督学习" class="headerlink" title="有监督学习"></a>有监督学习</h2><h3 id="数学知识"><a href="#数学知识" class="headerlink" title="数学知识"></a>数学知识</h3><h4 id="特征向量"><a href="#特征向量" class="headerlink" title="特征向量"></a>特征向量</h4><p>线性代数中的特征向量：</p>
+<blockquote>
+<p>对于一个给定的方阵A，它的特征向量v经过线性变化之后，得到的新向量仍然与原来的v保持在同一条直线上，但其长度或方向也许会改变，即：</p>
+<script type="math/tex; mode=display">Av=\lambda v</script><p>此时$v$就是矩阵$A$的特征向量，$\lambda$就是对应的特征值</p>
+</blockquote>
+<p>进一步：在一定条件下，一个变换可以由其特征值特征向量完全表述，也就是说，所有的特征向量组成了这向量空间的一组基底。<br>一个特征空间是具有相同特征值的特征向量与一个同维数的零向量的集合，比如$E_{\lambda }=\left \{ u\in V | Au=\lambda u\right \}$即为线性变化$A$中以$\lambda$为特征值的特征空间</p>
+<p>抽象概念不容易理解，举几个栗子：</p>
+<ul>
+<li>恒等变换$I$的特征向量<script type="math/tex; mode=display">I(v)=v=1\cdot v</script>可以看到所有的特征向量都是恒等变换$I$的特征向量，恒等变换的特征空间只有一个就是整个空间</li>
+<li>类似的，数乘变换$\lambda I$的特征向量也是所有的非零向量，因为按照定义：<script type="math/tex; mode=display">\lambda I(v) = \lambda \cdot v</script></li>
+</ul>
+<h3 id="感知器"><a href="#感知器" class="headerlink" title="感知器"></a>感知器</h3><p>看张图：</p>
+<p><img src="https://i.imgur.com/Uo24IIn.png" alt="Ncell"></p>
+<p>数学表述为：$t = f(\sum _{i=1}^{n} w_{i}x_{i} + b) = f(\mathbf{w}^{T} \mathbf{x})$</p>
+<p>f函数的表达式：</p>
+<script type="math/tex; mode=display">f(x) = \left\{\begin{matrix}
+1 & if \, w \cdot x + b > 0 \\
+0 & else
+\end{matrix}\right.</script><p>$\mathbf{x} = \left [ x_{1}\, x_{2} … \, x_{n} \,  1 \right]^{T}$, $\mathbf{w} = \left [ w_{1}\, w_{2} \, …w_{n} \,  b \right]^{T}$</p>
+<p>如何训练？</p>
+<p>我们来看一个训练与运算的demo<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  加载数据，input_data和labels对应</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    input_data = [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">    labels = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> input_data, labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_pre</span><span class="params">(input_data, y, iteration, rate)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  训练，更新w和b</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    unit_step = <span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">    w = np.random.rand(len(input_data[<span class="number">0</span>]))</span><br><span class="line">    bias = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(iteration):</span><br><span class="line">        samples = zip(input_data, y)</span><br><span class="line">        <span class="keyword">for</span> (input_i, label) <span class="keyword">in</span> samples:</span><br><span class="line">            result = input_i * w + bias</span><br><span class="line">            result = float(sum(result))</span><br><span class="line">            y_pred = float(unit_step(result))</span><br><span class="line">            w = w + rate * (label - y_pred) * np.array(input_i)</span><br><span class="line">            bias = rate * (label - y_pred)</span><br><span class="line">    <span class="keyword">return</span> w, bias</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(input_i, w, b)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  预测</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    unit_step = <span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">    result = input_i * w + b</span><br><span class="line">    result = sum(result)</span><br><span class="line">    y_pred = float(unit_step(result))</span><br><span class="line">    print(y_pred)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    input_data, y = load_data()</span><br><span class="line">    w, b = train_pre(input_data, y, <span class="number">20</span>, <span class="number">0.01</span>)</span><br><span class="line">    predict([<span class="number">1</span>, <span class="number">1</span>], w, b)</span><br></pre></td></tr></table></figure></p>
+<p>我们很惊讶地发现一个如此简单地模型竟然不可思议地完成了这个任务。<br>数据更新：<br>$w(j) := w(j) + \alpha (y-f(x))x(j) (j = 1,…n)$</p>
+<h3 id="异或问题"><a href="#异或问题" class="headerlink" title="异或问题"></a>异或问题</h3><p>当时老师上课时候提到异或问题是不可解的，后来查了一下资料才明白在神经网络发展的早期，异或问题确实是不可解的，不过通过加入隐藏层使得异或问题能够有了新的解法</p>
+<p>如下图：<br><img src="https://i.loli.net/2019/07/07/5d2204580b53040600.png" alt=""></p>
+<p>复习的时候才注意到原来老师提到了通过加入隐藏层的方式来解决异或问题</p>
+<p><img src="https://i.loli.net/2019/07/07/5d220559de3ef92755.png" alt=""></p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.cnblogs.com/Belter/p/6711160.html" target="_blank" rel="noopener">【机器学习】神经网络实现异或（XOR）</a><br><a href="https://zhuanlan.zhihu.com/p/25736962" target="_blank" rel="noopener">1.5 图形化理解神经网络中的异或问题</a><br><a href="https://zh.wikipedia.org/wiki/%E6%84%9F%E7%9F%A5%E5%99%A8" target="_blank" rel="noopener">感知器 wikipedia</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/21/从Googlectf一道题认识一下链接文件/" rel="next" title="从Googlectf一道题认识一下链接文件">
+                <i class="fa fa-chevron-left"></i> 从Googlectf一道题认识一下链接文件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/21/deep-learning1/" rel="prev" title="deep learning1">
+                deep learning1 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -487,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Bookmark for NexT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">Introduce</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">Installation</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">If you want to use the CDN instead of clone this repo, please jump to the Step 3.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">Step 1 → Go to NexT dir</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.3.</span> <span class="nav-text">Step 2 → Get module</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.4.</span> <span class="nav-text">Step 3 → Set it up</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">Update</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#deep-learning"><span class="nav-number">1.</span> <span class="nav-text">deep learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#无监督学习"><span class="nav-number">1.1.</span> <span class="nav-text">无监督学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#有监督学习"><span class="nav-number">1.2.</span> <span class="nav-text">有监督学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#数学知识"><span class="nav-number">1.2.1.</span> <span class="nav-text">数学知识</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征向量"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">特征向量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#感知器"><span class="nav-number">1.2.2.</span> <span class="nav-text">感知器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异或问题"><span class="nav-number">1.2.3.</span> <span class="nav-text">异或问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.3.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
             
 
           </div>
