@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="MIPS,">
 
 
 
@@ -82,6 +82,7 @@
 
 
 <meta name="description" content="MIPS栈溢出x86和MIPS指令集在我的理解看来，x86对于栈的操作多了push和pop操作，而MIPS指令集并没有这些，同时两者一个是小端序，一个是大端序，但是不知道为什么，在调试程序的时候依旧用的是小端序emmmm MISP指令集存在栈溢出的原因叶子函数和非叶子函数  叶子函数的返回地址是直接放在 ra 寄存器中，而非叶子函数需要调用另外的函数，这里的差异就照成了非叶子函数需要把当前的返回地">
+<meta name="keywords" content="MIPS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOT 栈溢出笔记">
 <meta property="og:url" content="https://prontosil.club/2019/07/20/IOT-栈溢出笔记/index.html">
@@ -103,7 +104,7 @@
 <meta property="og:image" content="https://i.imgur.com/EIr3CJx.png">
 <meta property="og:image" content="https://i.imgur.com/InVI4HI.png">
 <meta property="og:image" content="https://i.imgur.com/mIhckGP.png">
-<meta property="og:updated_time" content="2019-07-20T01:12:03.693Z">
+<meta property="og:updated_time" content="2019-07-22T05:26:18.420Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOT 栈溢出笔记">
 <meta name="twitter:description" content="MIPS栈溢出x86和MIPS指令集在我的理解看来，x86对于栈的操作多了push和pop操作，而MIPS指令集并没有这些，同时两者一个是小端序，一个是大端序，但是不知道为什么，在调试程序的时候依旧用的是小端序emmmm MISP指令集存在栈溢出的原因叶子函数和非叶子函数  叶子函数的返回地址是直接放在 ra 寄存器中，而非叶子函数需要调用另外的函数，这里的差异就照成了非叶子函数需要把当前的返回地">
@@ -321,7 +322,7 @@
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="百浪多息">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -364,12 +365,34 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-20T09:12:03+08:00">
-                2019-07-20
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:26:18+08:00">
+                2019-07-22
               </time>
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/IOT/" itemprop="url" rel="index">
+                    <span itemprop="name">IOT</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -517,6 +540,12 @@ stack01: ELF 32-bit LSB  executable, MIPS, MIPS32 version 1 (SYSV), statically l
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/MIPS/" rel="tag"># MIPS</a>
+          
+        </div>
+      
 
       
       
@@ -604,7 +633,7 @@ stack01: ELF 32-bit LSB  executable, MIPS, MIPS32 version 1 (SYSV), statically l
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="https://upload-images.jianshu.io/upload_images/10651191-c6a2b693f2366bdc.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="百浪多息">
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="百浪多息">
             
               <p class="site-author-name" itemprop="name">百浪多息</p>
               <p class="site-description motion-element" itemprop="description">还有很长的路要走</p>
@@ -628,7 +657,7 @@ stack01: ELF 32-bit LSB  executable, MIPS, MIPS32 version 1 (SYSV), statically l
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -639,7 +668,7 @@ stack01: ELF 32-bit LSB  executable, MIPS, MIPS32 version 1 (SYSV), statically l
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
