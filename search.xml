@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[探寻数据库]]></title>
+    <url>%2F2019%2F07%2F22%2F%E6%8E%A2%E5%AF%BB%E6%95%B0%E6%8D%AE%E5%BA%93%2F</url>
+    <content type="text"><![CDATA[mysql命令行操作小结感觉这些知识又快忘记了 登陆 mysql -u root -p 创建数据库 create database databasename 删除数据库 drop database databasename 从外部sql文件导入，如果sql文件中没有创建数据库需要先指定一个数据库然后source path/*.sql就可以导入了，再也不用受烦人的phpmyadmin影响了 删除数据表drop table table_name 导出表mysqldump -u root -p RUNOOB runoob_tbl &gt; dump.txt 导出数据库mysqldump -u root -p RUNOOB &gt; database_dump.txt 备份所有数据库mysqldump -u root -p --all-databases &gt; database_dump.txt 一般sql文件的写法： 123456789drop database if exists DBName;creat database DBName;use DBName;#开始创建表create ......#开始插入数据insert.... 使用pymysql连接数据库1234567891011import pymsqlcon = pymysql.connect('localhost', 'root', '', 'mpsa')try: with con.cursor() as cursor: sql = 'drop database runoob' cursor.execute(sql) con.commit()finally: con.close() 那个cursor函数我也不是很明白为什么，不过一般的用法就是这样啦 php连接数据库使用php连接数据库,创建数据库，然后删除 123456789101112131415$conn = mysqli_connect($dbhost, $dbuser, $dbpass);if(!$conn)&#123; die("error!!");&#125;echo "连接成功";//查询数据$sql = "create database runoob";$retval = mysqli_query($conn, $sql);if(!$retval)&#123; die("查询数据失败！");&#125;echo "创建成功";$sql1 = "drop database runoob";$retval = mysqli_query($conn, $sql);mysqli_close($conn); 遇到了问题： 查了一下stackoverflow看到了这个回答： The mysqli-&gt;connect_error property only works properly as of PHP versions 5.2.9 and 5.3.0. Use the mysqli_connect_error() function if compatibility with earlier PHP versions is required. 12345678910111213141516171819$mysqli = new mysqli('localhost', 'my_user', 'my_password', 'my_db');/* * This is the "official" OO way to do it, * BUT $connect_error was broken until PHP 5.2.9 and 5.3.0. */if ($mysqli-&gt;connect_error) &#123; die('Connect Error (' . $mysqli-&gt;connect_errno . ') ' . $mysqli-&gt;connect_error);&#125;/* * Use this instead of $connect_error if you need to ensure * compatibility with PHP versions prior to 5.2.9 and 5.3.0. */if (mysqli_connect_error()) &#123; die('Connect Error (' . mysqli_connect_errno() . ') ' . mysqli_connect_error());&#125; 原来是建立过程中的不稳定，怪不得我新建的数据库没有被删掉. 参考stackoverflow的回答pymysql文档，写的很简单]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[php-challenge9]]></title>
+    <url>%2F2019%2F07%2F22%2Fphp-challenge9%2F</url>
+    <content type="text"><![CDATA[php-challenge 9第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&lt;?php//A webshell is wait for youini_set('session.serialize_handler', 'php');session_start();class OowoO&#123; public $mdzz; function __construct() &#123; $this-&gt;mdzz = 'phpinfo();'; &#125; function __destruct() &#123; eval($this-&gt;mdzz); &#125;&#125;if(isset($_GET['phpinfo']))&#123; $m = new OowoO();&#125;else&#123; highlight_string(file_get_contents('index.php'));&#125;?&gt; 初看源代码觉得并没有哪里可以让我反序列化注入的地方但是问题就出在第一句话：ini_set(&#39;session.serialize_handler&#39;, &#39;php&#39;); 关键点在于，如果脚本中设置的序列化处理器与php.ini设置的不同，或者两个脚本注册session使用的序列化处理器不同，那么就会出现安全问题。 只需要加一个|就行 这道jarvisOj题目就是这个原题这里还用到了另外一个漏洞： 自己构造一个网页如下： 12345&lt;form action="http://web.jarvisoj.com:32784/index.php" method="POST" enctype="multipart/form-data"&gt; &lt;input type="hidden" name="PHP_SESSION_UPLOAD_PROGRESS" value="123" /&gt; &lt;input type="file" name="file" /&gt; &lt;input type="submit" /&gt;&lt;/form&gt; 然后在上传一个文件，本地抓包，这里遇到了一点小问题，就是没办法抓到本地的包，可以通过直接对局域网的网络连接进行设置即可. 此时就可以看到了 接下来继续利用 tql。。。有趣的php反序列化总结szfszfjarvisoj-web-writeup]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>php</tag>
+        <tag>ctf</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[deep learning1]]></title>
     <url>%2F2019%2F07%2F21%2Fdeep-learning1%2F</url>
     <content type="text"><![CDATA[感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果： bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new 1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438 进行很多次训练之后画出的图形： 预测的还是挺准确的 为什么需要bias？概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了 多层感知机一层的感知机是没办法处理异或问题的 所以需要增加隐藏层就像下面这样：这样就可以做到了： 感觉MLP的数学知识太过复杂了，暂时放着 keras从栗子代码开始：12345678910111213141516171819202122from keras.models import Sequentialmodel = Sequential()from keras.layers import Dense'''使用add来堆叠模型'''model.add(Dense(units=64, activation='relu', input_dim=100))model.add(Dense(units=10, activation='softmax'))'''使用compile来配置学习过程'''model.compile(loss='categorical_crossentropy', optimizer='sgd', metrics=['accuracy'])# x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。model.fit(x_train, y_train, epochs=5, batch_size=32)'''评估模型'''loss_and_metrics = model.evaluate(x_test, y_test, batch_size=128)classes = model.predict(x_test, batch_size=128) Sequentialcompile在训练模型之前，需要配置学习过程，compile接收三个参数 优化器optimizer 损失函数loss 评估标准metrics 一个个来看 优化器可以先实例化一个优化器对象，然后将它传入model.compile()，或者可以通过 损失函数 损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：1model.compile(loss='mean_squared_error', optimizer='sgd') 我们可以传递一个现有的损失函数名，或者一个tensorflow符号函数，有以下两个参数 y_true: 真实标签. y_pred: 预测值,其shape与y_true相同 可用的损失函数：mean_squared_errormean_absolute_error等 参考神经网络中w,b参数的作用（为何需要偏置b的解释）深度学习中偏移项bias的作用]]></content>
@@ -35,8 +58,8 @@
         <category>config</category>
       </categories>
       <tags>
-        <tag>vscode</tag>
         <tag>php</tag>
+        <tag>vscode</tag>
       </tags>
   </entry>
   <entry>
