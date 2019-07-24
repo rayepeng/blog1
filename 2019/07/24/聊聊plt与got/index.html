@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="ctf,pwn,">
 
 
 
@@ -81,16 +81,21 @@
 
 
 
-<meta name="description" content="还有很长的路要走">
-<meta property="og:type" content="website">
-<meta property="og:title" content="prontosil">
-<meta property="og:url" content="https://prontosil.club/archives/index.html">
+<meta name="description" content="深入理解plt和got先写一段代码： 123456789// Build with: gcc -m32 --no-pie -g -o plt plt.c#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main(int argc, char **argv) &amp;#123;  puts(&quot;Hello world!&quot;);  exit(0);&amp;#12">
+<meta name="keywords" content="ctf,pwn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="聊聊plt与got">
+<meta property="og:url" content="https://prontosil.club/2019/07/24/聊聊plt与got/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="还有很长的路要走">
+<meta property="og:description" content="深入理解plt和got先写一段代码： 123456789// Build with: gcc -m32 --no-pie -g -o plt plt.c#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main(int argc, char **argv) &amp;#123;  puts(&quot;Hello world!&quot;);  exit(0);&amp;#12">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://prontosil.club/assets/got0_bmqvjb601">
+<meta property="og:image" content="https://prontosil.club/assets/got1_8tzb6jmh9">
+<meta property="og:updated_time" content="2019-07-24T12:50:39.853Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prontosil">
-<meta name="twitter:description" content="还有很长的路要走">
+<meta name="twitter:title" content="聊聊plt与got">
+<meta name="twitter:description" content="深入理解plt和got先写一段代码： 123456789// Build with: gcc -m32 --no-pie -g -o plt plt.c#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main(int argc, char **argv) &amp;#123;  puts(&quot;Hello world!&quot;);  exit(0);&amp;#12">
+<meta name="twitter:image" content="https://prontosil.club/assets/got0_bmqvjb601">
 
 
 
@@ -120,13 +125,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/archives/">
+  <link rel="canonical" href="https://prontosil.club/2019/07/24/聊聊plt与got/">
 
 
 
 
 
-  <title>Archive | prontosil</title>
+  <title>聊聊plt与got | prontosil</title>
   
 
 
@@ -148,7 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left page-archive">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/xinyongpeng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
@@ -285,391 +290,281 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/24/聊聊plt与got/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">聊聊plt与got</h1>
         
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T20:46:14+08:00">
+                2019-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-24T20:50:39+08:00">
+                2019-07-24
+              </time>
+            
+          </span>
+
           
-        
-        Um..! 16 posts in total. Keep on posting.
-      </span>
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
 
-      
-
-        
-        
-        
-
-        
+                
+                
+              
+            </span>
           
-          <div class="collection-title">
-            <h1 class="archive-year" id="archive-year-2019">2019</h1>
-          </div>
-        
-        
 
-        
+          
+            
+          
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/24/聊聊plt与got/" itemprop="url">
+          
+
+          
+            <div class="post-wordcount">
               
-                <span itemprop="name">聊聊plt与got</span>
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.4k
+                </span>
               
-            </a>
-        
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-24T20:46:14+08:00" content="2019-07-24">
-          07-24
-        </time>
-      </div>
+              
+                <span class="post-meta-divider">|</span>
+              
 
-    </header>
-  </article>
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  6
+                </span>
+              
+            </div>
+          
 
+          
 
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/24/pwnable/" itemprop="url">
-              
-                <span itemprop="name">pwnable</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-24T20:46:03+08:00" content="2019-07-24">
-          07-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/24/python文档阅读笔记1/" itemprop="url">
-              
-                <span itemprop="name">python文档阅读笔记1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-24T20:45:43+08:00" content="2019-07-24">
-          07-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h1 id="深入理解plt和got"><a href="#深入理解plt和got" class="headerlink" title="深入理解plt和got"></a>深入理解plt和got</h1><p>先写一段代码：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Build with: gcc -m32 --no-pie -g -o plt plt.c</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Hello world!"</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>途中遇到了一个报错：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">In file included from /usr/include/stdio.h:27:0,</span><br><span class="line">                 from plt.c:3:</span><br><span class="line">/usr/include/features.h:374:25: fatal error: sys/cdefs.h: No such file or directory</span><br><span class="line"> #  include &lt;sys/cdefs.h&gt;</span><br></pre></td></tr></table></figure></p>
+<p>然后安装一个:<br><code>apt install libc6-dev-i386</code></p>
+<p>编译好程序之后</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ checksec plt     </span><br><span class="line">[*] &apos;/home/pxy/pwnable/plt&apos;</span><br><span class="line">    Arch:     i386-32-little</span><br><span class="line">    RELRO:    Partial RELRO</span><br><span class="line">    Stack:    No canary found</span><br><span class="line">    NX:       NX enabled</span><br><span class="line">    PIE:      No PIE (0x8048000)</span><br></pre></td></tr></table></figure>
+<p>程序是没有pie的</p>
+<p><code>readelf -S plt</code>查看节表</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al</span><br><span class="line">[12] .plt              PROGBITS        08048300 000300 000050 04  AX  0   0 16</span><br><span class="line">[13] .text             PROGBITS        08048350 000350 000192 00  AX  0   0 16</span><br><span class="line">[22] .got              PROGBITS        08049ffc 000ffc 000004 04  WA  0   0  4</span><br><span class="line">[23] .got.plt          PROGBITS        0804a000 001000 00001c 04  WA  0   0  4</span><br></pre></td></tr></table></figure>
+<p>可以看到：</p>
+<ul>
+<li>.plt 基地址为： <code>0x08048300</code></li>
+<li>.got 基地址为： <code>0x08049ffc</code></li>
+<li>.got.plt 基地址为： <code>0x0x804a000</code></li>
+</ul>
+<p>我们从调用puts函数那里开始单步执行</p>
+<p>首先跳转到plt表中<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">0x804845d &lt;main+16&gt;               call   puts@plt &lt;0x8048310&gt;</span><br><span class="line">0x8048310  &lt;puts@plt&gt;                  jmp    dword ptr [puts@got.plt] &lt;0x804a00c&gt;</span><br></pre></td></tr></table></figure></p>
+<p>call puts之后，下一条指令也是一个跳转</p>
+<p><code>jmp    dword ptr [puts@got.plt] &lt;0x804a00c&gt;</code><br>这条指令的意思是取出<code>puts@got.plt</code>表中的值，放到pc寄存器中</p>
+<p>所以？查看一下此处内存的值：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/2x 0x804a00c</span><br><span class="line">0x804a00c &lt;puts@got.plt&gt;:	0x08048316	0x08048326</span><br></pre></td></tr></table></figure>
+<p>所以下一条指令的地址就是<code>0x08048316</code>还是在plt表中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">► 0x8048316  &lt;puts@plt+6&gt;                push   0</span><br><span class="line">  0x804831b  &lt;puts@plt+11&gt;               jmp    0x8048300</span><br></pre></td></tr></table></figure>
+<p>这里先将0放到栈上，表明是要解析puts函数的地址，然后再跳转到<code>0x8048300</code>也就是plt表的开始部分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">► 0x8048300                              push   dword ptr [_GLOBAL_OFFSET_TABLE_+4] &lt;0x804a004&gt;</span><br><span class="line">  0x8048306                              jmp    dword ptr [0x804a008] &lt;0xf7ff0650&gt;</span><br></pre></td></tr></table></figure>
+<p>这时候先把.got.plt表中的第二项放到栈上<br>先查看一下.got.plt中前三项的内容:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/3x 0x804a000</span><br><span class="line">0x804a000:	0x08049f14	0xf7ffd938	0xf7ff0650</span><br></pre></td></tr></table></figure>
+<p>将<code>0xf7ffd938</code>放置到栈上，然后跳转到.got.plt中的第三项，也就是<br><code>0xf7ff0650</code>，这个地址就是<code>_dl_runtime_resolve</code>函数的地址<br>负责解析函数的地址</p>
+<p>此时我们的got表内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; got</span><br><span class="line"></span><br><span class="line">GOT protection: Partial RELRO | GOT functions: 4</span><br><span class="line"></span><br><span class="line">[0x804a00c] puts -&gt; 0x8048316 (puts@plt+6) ◂— push   0 /* &apos;h&apos; */</span><br><span class="line">[0x804a010] __gmon_start__ -&gt; 0x8048326 (__gmon_start__@plt+6) ◂— push   8</span><br><span class="line">[0x804a014] exit -&gt; 0x8048336 (exit@plt+6) ◂— push   0x10</span><br><span class="line">[0x804a018] __libc_start_main -&gt; 0xf7e26a00 (__libc_start_main) ◂— push   ebp</span><br></pre></td></tr></table></figure>
+<p>puts函数的地址还没有重定位</p>
+<p>当我们执行过一遍puts函数之后<br>这时候回过头来继续查看got表中的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; got</span><br><span class="line"></span><br><span class="line">GOT protection: Partial RELRO | GOT functions: 4</span><br><span class="line"></span><br><span class="line">[0x804a00c] puts -&gt; 0xf7e727e0 (puts) ◂— push   ebp</span><br><span class="line">[0x804a010] __gmon_start__ -&gt; 0x8048326 (__gmon_start__@plt+6) ◂— push   8</span><br><span class="line">[0x804a014] exit -&gt; 0x8048336 (exit@plt+6) ◂— push   0x10</span><br><span class="line">[0x804a018] __libc_start_main -&gt; 0xf7e26a00 (__libc_start_main) ◂— push   ebp</span><br></pre></td></tr></table></figure>
+<p>可以看到地址已经重定位好了</p>
+<p>这和Windows的PE文件格式似乎有点不同了，PE文件是装载进内存之后函数地址都已经重定位好了，而Linux的elf文件刚刚装进内存之后函数的地址还是不确定的，需要在运行的时候进行重定位。</p>
+<p>当我们将代码修改为如下时：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; l <span class="number">1</span>, <span class="number">20</span></span><br><span class="line"><span class="comment">// Build with: gcc -m32 -no-pie -g -o plt plt.c</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span>&#123;</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"Hello world!"</span>);</span><br><span class="line">  <span class="built_in">puts</span>(<span class="string">"hello world again !!!"</span>);</span><br><span class="line">  <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一次调用<code>puts</code>函数之后：<br><code>[0x804a00c] puts -&gt; 0xf7e727e0 (puts) ◂— push   ebp</code></p>
+<p>puts函数地址已经重定位好了</p>
+<p>接下来再次调用puts函数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">► 0x8048310  &lt;puts@plt&gt;    jmp    dword ptr [0x804a00c] &lt;0xf7e727e0&gt;</span><br><span class="line">   ↓</span><br><span class="line">  0xf7e727e0 &lt;puts&gt;        push   ebp</span><br><span class="line">  0xf7e727e1 &lt;puts+1&gt;      push   edi</span><br><span class="line">  0xf7e727e2 &lt;puts+2&gt;      push   esi</span><br><span class="line">  0xf7e727e3 &lt;puts+3&gt;      push   ebx</span><br></pre></td></tr></table></figure>
+<p>此时可以看到直接就跳到函数的地址了<br>因为此时的.got.plt已经是puts函数的地址了， Linux tql</p>
+<h1 id="整理一下"><a href="#整理一下" class="headerlink" title="整理一下"></a>整理一下</h1><p>之前看参考资料中博主的文章一直没有很理解，这里直接统一说一下我的理解：</p>
+<h2 id="何谓PLT与GOT"><a href="#何谓PLT与GOT" class="headerlink" title="何谓PLT与GOT"></a>何谓PLT与GOT</h2><p>其实这里准确的来说应该叫got.plt而不是叫got，不过为了方便我们还是叫它got表吧</p>
+<p><img src="/assets/got0_bmqvjb601" alt="got0"><br>要注意那个<code>jmp *printf@got</code> *号是取出地址处的值，并不是跳到got表中去</p>
+<h2 id="延迟重定位"><a href="#延迟重定位" class="headerlink" title="延迟重定位"></a>延迟重定位</h2><p>这篇文章我觉得写的很精彩</p>
+<p>Linux为了缩减代码,就是按照这种模式来的：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="built_in">printf</span>@plt()</span><br><span class="line">&#123;</span><br><span class="line">address_good:</span><br><span class="line">    jmp *<span class="built_in">printf</span>@got            <span class="comment">// 链接器将printf@got填成下一语句lookup_printf的地址</span></span><br><span class="line"></span><br><span class="line">lookup_printf:</span><br><span class="line">        调用重定位函数查找<span class="built_in">printf</span>地址，并写到<span class="built_in">printf</span>@got</span><br><span class="line"></span><br><span class="line">        <span class="keyword">goto</span> address_good;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>也就和上面那张图是一一对应的</p>
+<h2 id="公共got表项"><a href="#公共got表项" class="headerlink" title="公共got表项"></a>公共got表项</h2><p>在解析函数的真正地址时， <code>_dl_runtime_resolve</code>是怎么知道它要解析哪个函数的</p>
+<p>因为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">printf@plt&gt;:</span><br><span class="line">   jmp *0x80496f8</span><br><span class="line">   push $0x00</span><br><span class="line">   jmp common@plt</span><br></pre></td></tr></table></figure>
+<p>这里push的值不一样，相当于就是每个函数取了一个id</p>
+<p>之后就是公共got表的内容：</p>
+<ul>
+<li>got[0]: 本ELF动态段(.dynamic段）的装载地址</li>
+<li>got[1]：本ELF的link_map数据结构描述符地址</li>
+<li>got[2]：_dl_runtime_resolve函数的地址</li>
+</ul>
+<h2 id="穿针引线"><a href="#穿针引线" class="headerlink" title="穿针引线"></a>穿针引线</h2><p><img src="/assets/got1_8tzb6jmh9" alt="got1"></p>
+<blockquote>
+<p>PLT表中的第一项为公共表项，剩下的是每个动态库函数为一项（当然每项是由多条指令组成的，jmp *0xXXXXXXXX这条指令是所有plt的开始指令）每项PLT都从对应的GOT表项中读取目标函数地址</p>
+<p>GOT表中前3个为特殊项，分别用于保存 .dynamic段地址、本镜像的link_map数据结构地址和_dl_runtime_resolve函数地址；但在编译时，无法获取知道link_map地址和_dl_runtime_resolve函数地址，所以编译时填零地址，进程启动时由动态链接器进行填充</p>
+</blockquote>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://blog.csdn.net/linyt/article/details/51635768?from=singlemessage" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（１）——何谓PLT与GOT</a><br><a href="https://blog.csdn.net/linyt/article/details/51636753" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（２）——延迟重定位</a><br><a href="https://blog.csdn.net/linyt/article/details/51637832" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（３）——公共GOT表项</a><br><a href="https://blog.csdn.net/linyt/article/details/51893258" target="_blank" rel="noopener">聊聊Linux动态链接中的PLT和GOT（4）—— 穿针引线</a><br><a href="https://systemoverlord.com/2017/03/19/got-and-plt-for-pwning.html" target="_blank" rel="noopener">GOT and PLT for pwning.</a></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/22/探寻数据库/" itemprop="url">
-              
-                <span itemprop="name">探寻数据库</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-22T22:54:21+08:00" content="2019-07-22">
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/22/php-challenge9/" itemprop="url">
-              
-                <span itemprop="name">php-challenge9</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-22T22:50:01+08:00" content="2019-07-22">
-          07-22
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/21/deep-learning1/" itemprop="url">
-              
-                <span itemprop="name">deep learning1</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-21T16:07:58+08:00" content="2019-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/21/deep-learning0/" itemprop="url">
-              
-                <span itemprop="name">deep learning0</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-21T16:07:44+08:00" content="2019-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/21/从Googlectf一道题认识一下链接文件/" itemprop="url">
-              
-                <span itemprop="name">从Googlectf一道题认识一下链接文件</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-21T16:07:06+08:00" content="2019-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/21/vscode调试php/" itemprop="url">
-              
-                <span itemprop="name">vscode调试php</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-21T16:06:48+08:00" content="2019-07-21">
-          07-21
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/20/IOT-D-link/" itemprop="url">
-              
-                <span itemprop="name">IOT D-link</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-20T09:05:47+08:00" content="2019-07-20">
-          07-20
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ctf/" rel="tag"># ctf</a>
+          
+            <a href="/tags/pwn/" rel="tag"># pwn</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/07/24/pwnable/" rel="next" title="pwnable">
+                <i class="fa fa-chevron-left"></i> pwnable
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
+  </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -677,6 +572,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -697,8 +596,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -790,6 +698,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#深入理解plt和got"><span class="nav-number">1.</span> <span class="nav-text">深入理解plt和got</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#整理一下"><span class="nav-number">2.</span> <span class="nav-text">整理一下</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#何谓PLT与GOT"><span class="nav-number">2.1.</span> <span class="nav-text">何谓PLT与GOT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#延迟重定位"><span class="nav-number">2.2.</span> <span class="nav-text">延迟重定位</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#公共got表项"><span class="nav-number">2.3.</span> <span class="nav-text">公共got表项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#穿针引线"><span class="nav-number">2.4.</span> <span class="nav-text">穿针引线</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -928,6 +852,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
