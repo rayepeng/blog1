@@ -68,9 +68,9 @@
     
       <category term="ctf" scheme="https://prontosil.club/tags/ctf/"/>
     
-      <category term="pwn" scheme="https://prontosil.club/tags/pwn/"/>
-    
       <category term="wp" scheme="https://prontosil.club/tags/wp/"/>
+    
+      <category term="pwn" scheme="https://prontosil.club/tags/pwn/"/>
     
   </entry>
   
@@ -249,9 +249,9 @@
       <category term="config" scheme="https://prontosil.club/categories/config/"/>
     
     
-      <category term="vscode" scheme="https://prontosil.club/tags/vscode/"/>
-    
       <category term="php" scheme="https://prontosil.club/tags/php/"/>
+    
+      <category term="vscode" scheme="https://prontosil.club/tags/vscode/"/>
     
   </entry>
   
