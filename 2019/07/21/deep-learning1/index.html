@@ -81,12 +81,12 @@
 
 
 
-<meta name="description" content="感知机补充 接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：    bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438    进行很多次训练之后画">
+<meta name="description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：     bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438     进行很多次训练之后">
 <meta property="og:type" content="article">
 <meta property="og:title" content="deep learning1">
 <meta property="og:url" content="https://prontosil.club/2019/07/21/deep-learning1/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="感知机补充 接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：    bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438    进行很多次训练之后画">
+<meta property="og:description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：     bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438     进行很多次训练之后">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/07/10/5d2533696b1e993944.png">
 <meta property="og:image" content="https://i.loli.net/2019/07/10/5d25354fec71179261.png">
@@ -94,7 +94,7 @@
 <meta property="og:updated_time" content="2019-07-22T05:46:10.996Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="deep learning1">
-<meta name="twitter:description" content="感知机补充 接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：    bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438    进行很多次训练之后画">
+<meta name="twitter:description" content="感知机补充接着写 感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$ 我们简要地看一下一次训练的结果：     bias x y w0 w1 yout y-yout adj0 adj1 alpha w0new w1new     1 0.512 1.023 0.719 0.403 0.926 0.977 0.977 0.500 0.7 0.788 0.438     进行很多次训练之后">
 <meta name="twitter:image" content="https://i.loli.net/2019/07/10/5d2533696b1e993944.png">
 
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  532
+                  530
                 </span>
               
 
@@ -449,10 +449,10 @@
       
 
       
-        <h3>感知机补充</h3>
-<p>接着写</p>
+        <h3 id="感知机补充"><a href="#感知机补充" class="headerlink" title="感知机补充"></a>感知机补充</h3><p>接着写</p>
 <p>感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$</p>
 <p>我们简要地看一下一次训练的结果：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -487,25 +487,16 @@
 </tr>
 </tbody>
 </table>
-<p>进行很多次训练之后画出的图形：
-<img src="https://i.loli.net/2019/07/10/5d2533696b1e993944.png" alt=""></p>
+</div>
+<p>进行很多次训练之后画出的图形：<br><img src="https://i.loli.net/2019/07/10/5d2533696b1e993944.png" alt=""></p>
 <p>预测的还是挺准确的</p>
-<h3>为什么需要bias？</h3>
-<p>概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了</p>
-<h2>多层感知机</h2>
-<p>一层的感知机是没办法处理异或问题的</p>
-<p>所以需要增加隐藏层
-就像下面这样：
-<img src="https://i.loli.net/2019/07/10/5d25354fec71179261.png" alt="">
-这样就可以做到了：</p>
+<h3 id="为什么需要bias？"><a href="#为什么需要bias？" class="headerlink" title="为什么需要bias？"></a>为什么需要bias？</h3><p>概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了</p>
+<h2 id="多层感知机"><a href="#多层感知机" class="headerlink" title="多层感知机"></a>多层感知机</h2><p>一层的感知机是没办法处理异或问题的</p>
+<p>所以需要增加隐藏层<br>就像下面这样：<br><img src="https://i.loli.net/2019/07/10/5d25354fec71179261.png" alt=""><br>这样就可以做到了：</p>
 <p><img src="https://i.loli.net/2019/07/10/5d253567b050673436.png" alt=""></p>
 <p>感觉MLP的数学知识太过复杂了，暂时放着</p>
-<h2>keras</h2>
-<p>从栗子代码开始：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用add来堆叠模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.add(Dense(units=<span class="number">64</span>, activation=<span class="string">'relu'</span>, input_dim=<span class="number">100</span>))</span><br><span class="line">model.add(Dense(units=<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用compile来配置学习过程</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=<span class="string">'sgd'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。</span></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>, batch_size=<span class="number">32</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">评估模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=<span class="number">128</span>)</span><br><span class="line">classes = model.predict(x_test, batch_size=<span class="number">128</span>)</span><br></pre></td></tr></table></figure></p>
-<h3>Sequential</h3>
-<h3>compile</h3>
-<p>在训练模型之前，需要配置学习过程，compile接收三个参数</p>
+<h2 id="keras"><a href="#keras" class="headerlink" title="keras"></a>keras</h2><p>从栗子代码开始：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用add来堆叠模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.add(Dense(units=<span class="number">64</span>, activation=<span class="string">'relu'</span>, input_dim=<span class="number">100</span>))</span><br><span class="line">model.add(Dense(units=<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用compile来配置学习过程</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=<span class="string">'sgd'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。</span></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>, batch_size=<span class="number">32</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">评估模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=<span class="number">128</span>)</span><br><span class="line">classes = model.predict(x_test, batch_size=<span class="number">128</span>)</span><br></pre></td></tr></table></figure></p>
+<h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><h3 id="compile"><a href="#compile" class="headerlink" title="compile"></a>compile</h3><p>在训练模型之前，需要配置学习过程，compile接收三个参数</p>
 <ul>
 <li>优化器optimizer</li>
 <li>损失函数loss</li>
@@ -513,28 +504,19 @@
 </ul>
 <p>一个个来看</p>
 <ol>
-<li>
-<p>优化器
-可以先实例化一个优化器对象，然后将它传入<code>model.compile()</code>，或者可以通过</p>
+<li><p>优化器<br>可以先实例化一个优化器对象，然后将它传入<code>model.compile()</code>，或者可以通过</p>
 </li>
-<li>
-<p>损失函数</p>
+<li><p>损失函数</p>
 </li>
 </ol>
-<p>损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure></p>
 <p>我们可以传递一个现有的损失函数名，或者一个tensorflow符号函数，有以下两个参数</p>
 <ul>
 <li>y_true: 真实标签.</li>
 <li>y_pred: 预测值,其shape与y_true相同</li>
 </ul>
-<p>可用的损失函数：
-mean_squared_error
-mean_absolute_error
-等</p>
-<h2>参考</h2>
-<p><a href="https://blog.csdn.net/xwd18280820053/article/details/70681750" target="_blank" rel="noopener">神经网络中w,b参数的作用（为何需要偏置b的解释）</a>
-<a href="https://blog.csdn.net/hy13684802853/article/details/78717475" target="_blank" rel="noopener">深度学习中偏移项bias的作用</a></p>
+<p>可用的损失函数：<br>mean_squared_error<br>mean_absolute_error<br>等</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.csdn.net/xwd18280820053/article/details/70681750" target="_blank" rel="noopener">神经网络中w,b参数的作用（为何需要偏置b的解释）</a><br><a href="https://blog.csdn.net/hy13684802853/article/details/78717475" target="_blank" rel="noopener">深度学习中偏移项bias的作用</a></p>
 
       
     </div>
@@ -657,7 +639,7 @@ mean_absolute_error
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -766,7 +748,7 @@ mean_absolute_error
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">感知机补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">为什么需要bias？</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">多层感知机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">keras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Sequential</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">compile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number"></span> <span class="nav-text">参考</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#感知机补充"><span class="nav-number">1.</span> <span class="nav-text">感知机补充</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么需要bias？"><span class="nav-number">2.</span> <span class="nav-text">为什么需要bias？</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#多层感知机"><span class="nav-number"></span> <span class="nav-text">多层感知机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#keras"><span class="nav-number"></span> <span class="nav-text">keras</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">1.</span> <span class="nav-text">Sequential</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#compile"><span class="nav-number">2.</span> <span class="nav-text">compile</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number"></span> <span class="nav-text">参考</span></a></li></div>
             
 
           </div>
