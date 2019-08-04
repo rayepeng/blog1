@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="DIR-815栈溢出漏洞屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%s/">
+<meta name="description" content="DIR-815栈溢出漏洞 屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。 所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%">
 <meta name="keywords" content="IOT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="IOT D-link">
 <meta property="og:url" content="https://prontosil.club/2019/07/20/IOT-D-link/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="DIR-815栈溢出漏洞屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%s/">
+<meta property="og:description" content="DIR-815栈溢出漏洞 屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。 所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/oh6ghYW.png">
 <meta property="og:image" content="https://i.imgur.com/ANbYbap.png">
@@ -101,7 +101,7 @@
 <meta property="og:updated_time" content="2019-07-22T05:25:28.879Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="IOT D-link">
-<meta name="twitter:description" content="DIR-815栈溢出漏洞屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%s/">
+<meta name="twitter:description" content="DIR-815栈溢出漏洞 屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。 所以这个栈溢出是不存在的 123456789.text:0040BE04 move    $a3, $s2.text:0040BE08 la      $a2, aSSPostxml                  # &amp;quot;%s/%">
 <meta name="twitter:image" content="https://i.imgur.com/oh6ghYW.png">
 
 
@@ -419,7 +419,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  799
+                  807
                 </span>
               
 
@@ -456,30 +456,59 @@
       
 
       
-        <h1 id="DIR-815栈溢出漏洞"><a href="#DIR-815栈溢出漏洞" class="headerlink" title="DIR-815栈溢出漏洞"></a>DIR-815栈溢出漏洞</h1><p>屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。<br>所以这个栈溢出是不存在的</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.text:0040BE04 move    $a3, $s2</span><br><span class="line">.text:0040BE08 la      $a2, aSSPostxml                  # &quot;%s/%s/postxml&quot;</span><br><span class="line">.text:0040BE0C move    $a0, $s1                         # s</span><br><span class="line">.text:0040BE10 li      $a1, 0x400                       # maxlen</span><br><span class="line">.text:0040BE14 jalr    $t9 ; snprintf</span><br><span class="line">.text:0040BE18 sw      $v0, 0x4F0+var_4E0($sp)</span><br><span class="line">.text:0040BE1C lw      $gp, 0x4F0+var_4D8($sp)</span><br><span class="line">.text:0040BE20 move    $a2, $s1</span><br><span class="line">.text:0040BE24 la      $t9, xmldbc_del</span><br></pre></td></tr></table></figure>
-<h1 id="DIR-645-缓冲区溢出漏洞"><a href="#DIR-645-缓冲区溢出漏洞" class="headerlink" title="DIR-645 缓冲区溢出漏洞"></a>DIR-645 缓冲区溢出漏洞</h1><p>动态调试：<br>在<code>authenticationcgi_main</code>处下断点</p>
-<p>此时返回地址保存在这里：<br><img src="https://i.imgur.com/oh6ghYW.png" alt="645-0"></p>
-<p>之后运行到此处：<br><img src="https://i.imgur.com/ANbYbap.png" alt="645-1"></p>
-<p>此时返回地址被覆盖了<br><img src="https://i.imgur.com/FPyCjMv.png" alt="645-2"></p>
-<p>继续运行，程序果然崩溃了<br><img src="https://i.imgur.com/FL4my7C.png" alt="645-3"></p>
-<p>进入到函数<code>sub40A424</code><br>程序在此时崩溃了<br><img src="https://i.imgur.com/OXwIv4A.png" alt="645-4"></p>
-<p>尝试修改password长度<br><img src="https://i.imgur.com/DVBCxyS.png" alt="645-5"><br>程序还是崩溃了<br><img src="https://i.imgur.com/MpSoECY.png" alt="645-6"><br>查看反汇编代码<br>程序从外部读入<code>CONTENT_LENGTH</code>没有进行任何检查<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">text:0040B4A0                 la      $t9, getenv</span><br><span class="line">.text:0040B4A4                 la      $a0, aContent_length  # &quot;CONTENT_LENGTH&quot;</span><br><span class="line">.text:0040B4A8                 jalr    $t9 ; getenv</span><br><span class="line">.text:0040B4AC                 move    $s0, $v0</span><br><span class="line">.text:0040B4B0                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4B4                 beqz    $s0, loc_40B610</span><br><span class="line">.text:0040B4B8                 addiu   $a0, $sp, 0xF90+var_938</span><br><span class="line">.text:0040B4BC                 beqz    $v0, loc_40B614</span><br><span class="line">.text:0040B4C0                 addiu   $a1, $sp, 0xF90+var_E1C</span><br><span class="line">.text:0040B4C4                 la      $t9, atoi</span><br><span class="line">.text:0040B4C8                 nop</span><br><span class="line">.text:0040B4CC                 jalr    $t9 ; atoi</span><br><span class="line">.text:0040B4D0                 move    $a0, $v0         # nptr</span><br><span class="line">.text:0040B4D4                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4D8                 move    $s0, $v0</span><br><span class="line">.text:0040B4DC                 la      $v1, stdin</span><br><span class="line">.text:0040B4E0                 la      $t9, fileno</span><br><span class="line">.text:0040B4E4                 lw      $a0, (stdin - 0x4353CC)($v1)  # stream</span><br><span class="line">.text:0040B4E8                 jalr    $t9 ; fileno</span><br><span class="line">.text:0040B4EC                 addiu   $s1, $sp, 0xF90+var_430</span><br><span class="line">.text:0040B4F0                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4F4                 move    $a0, $v0         # fd</span><br><span class="line">.text:0040B4F8                 la      $t9, read</span><br><span class="line">.text:0040B4FC                 move    $a1, $s1         # buf</span><br><span class="line">.text:0040B500                 jalr    $t9 ; read</span><br></pre></td></tr></table></figure></p>
-<p>计算偏移量；<br><img src="https://i.imgur.com/a2gu75K.png" alt="645-7"></p>
+        <h1>DIR-815栈溢出漏洞</h1>
+<p>屡次调试都失败了，我才发现原来这个版本的DIR-815已经修复了(DIR-815_REVB_FIRMWARE_2.03.B08)。
+所以这个栈溢出是不存在的</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.text:0040BE04 move    $a3, $s2</span><br><span class="line">.text:0040BE08 la      $a2, aSSPostxml                  # &quot;%s/%s/postxml&quot;</span><br><span class="line">.text:0040BE0C move    $a0, $s1                         # s</span><br><span class="line">.text:0040BE10 li      $a1, 0x400                       # maxlen</span><br><span class="line">.text:0040BE14 jalr    $t9 ; snprintf</span><br><span class="line">.text:0040BE18 sw      $v0, 0x4F0+var_4E0($sp)</span><br><span class="line">.text:0040BE1C lw      $gp, 0x4F0+var_4D8($sp)</span><br><span class="line">.text:0040BE20 move    $a2, $s1</span><br><span class="line">.text:0040BE24 la      $t9, xmldbc_del</span><br></pre></td></tr></table></figure></p>
+<h1>DIR-645 缓冲区溢出漏洞</h1>
+<p>动态调试：
+在<code>authenticationcgi_main</code>处下断点</p>
+<p>此时返回地址保存在这里：
+<img src="https://i.imgur.com/oh6ghYW.png" alt="645-0"></p>
+<p>之后运行到此处：
+<img src="https://i.imgur.com/ANbYbap.png" alt="645-1"></p>
+<p>此时返回地址被覆盖了
+<img src="https://i.imgur.com/FPyCjMv.png" alt="645-2"></p>
+<p>继续运行，程序果然崩溃了
+<img src="https://i.imgur.com/FL4my7C.png" alt="645-3"></p>
+<p>进入到函数<code>sub40A424</code>
+程序在此时崩溃了
+<img src="https://i.imgur.com/OXwIv4A.png" alt="645-4"></p>
+<p>尝试修改password长度
+<img src="https://i.imgur.com/DVBCxyS.png" alt="645-5">
+程序还是崩溃了
+<img src="https://i.imgur.com/MpSoECY.png" alt="645-6">
+查看反汇编代码
+程序从外部读入<code>CONTENT_LENGTH</code>没有进行任何检查
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">text:0040B4A0                 la      $t9, getenv</span><br><span class="line">.text:0040B4A4                 la      $a0, aContent_length  # &quot;CONTENT_LENGTH&quot;</span><br><span class="line">.text:0040B4A8                 jalr    $t9 ; getenv</span><br><span class="line">.text:0040B4AC                 move    $s0, $v0</span><br><span class="line">.text:0040B4B0                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4B4                 beqz    $s0, loc_40B610</span><br><span class="line">.text:0040B4B8                 addiu   $a0, $sp, 0xF90+var_938</span><br><span class="line">.text:0040B4BC                 beqz    $v0, loc_40B614</span><br><span class="line">.text:0040B4C0                 addiu   $a1, $sp, 0xF90+var_E1C</span><br><span class="line">.text:0040B4C4                 la      $t9, atoi</span><br><span class="line">.text:0040B4C8                 nop</span><br><span class="line">.text:0040B4CC                 jalr    $t9 ; atoi</span><br><span class="line">.text:0040B4D0                 move    $a0, $v0         # nptr</span><br><span class="line">.text:0040B4D4                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4D8                 move    $s0, $v0</span><br><span class="line">.text:0040B4DC                 la      $v1, stdin</span><br><span class="line">.text:0040B4E0                 la      $t9, fileno</span><br><span class="line">.text:0040B4E4                 lw      $a0, (stdin - 0x4353CC)($v1)  # stream</span><br><span class="line">.text:0040B4E8                 jalr    $t9 ; fileno</span><br><span class="line">.text:0040B4EC                 addiu   $s1, $sp, 0xF90+var_430</span><br><span class="line">.text:0040B4F0                 lw      $gp, 0xF90+var_F78($sp)</span><br><span class="line">.text:0040B4F4                 move    $a0, $v0         # fd</span><br><span class="line">.text:0040B4F8                 la      $t9, read</span><br><span class="line">.text:0040B4FC                 move    $a1, $s1         # buf</span><br><span class="line">.text:0040B500                 jalr    $t9 ; read</span><br></pre></td></tr></table></figure></p>
+<p>计算偏移量；
+<img src="https://i.imgur.com/a2gu75K.png" alt="645-7"></p>
 <p>后面的利用过程感觉比较复杂，没能成功地复现</p>
-<h1 id="DIR-645命令执行漏洞"><a href="#DIR-645命令执行漏洞" class="headerlink" title="DIR-645命令执行漏洞"></a>DIR-645命令执行漏洞</h1><p>在安全客上看到了一篇分析DIR-645命令执行地文章，随分析一下原理</p>
+<h1>DIR-645命令执行漏洞</h1>
+<p>在安全客上看到了一篇分析DIR-645命令执行地文章，随分析一下原理</p>
 <p>直接查看<code>servicecgi_main</code>函数</p>
-<p>首先会对请求方法进行判断，如果是POST方法则会调用<code>cgibin_parse_request</code>解析参数，具体的实现暂时不考虑，主要是解析CONTENT_TYPE和CONTENT_LENGTH,之后会调用<code>sess_ispoweruser</code>判断是否为合法用户<br>之后获取 POST 表单字段，若字段名为 EVENT 的话，就将 “event %s &gt; /dev/null” 作为参数执行 lxmldbc_system 函数。<br>查看<code>lxmldbc_system</code>函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sw      $a1, 0x428+arg_4($sp)</span><br><span class="line">sw      $a2, 0x428+arg_8($sp)</span><br><span class="line">sw      $a3, 0x428+arg_C($sp)</span><br><span class="line">move    $a2, $a0         # format</span><br><span class="line">move    $a3, $v0         # arg</span><br><span class="line">move    $a0, $s0         # s</span><br><span class="line">sw      $v0, 0x428+var_410($sp)</span><br><span class="line">jalr    $t9 ; vsnprintf  </span><br><span class="line">li      $a1, 0x400       # maxlen</span><br></pre></td></tr></table></figure></p>
-<p>主要关注最后两条指令，因为这里用到了MIPS中地分支延迟槽技术，所以<code>$a1</code>传递参数的指令存放在<code>jalr</code>指令之后<br>故<code>vsnprintf($sp+0x428+var_40C,0x400,&quot;event %s &gt; /dev/null&quot;,arg_4)</code><br>vsnprintf函数的用法：</p>
+<p>首先会对请求方法进行判断，如果是POST方法则会调用<code>cgibin_parse_request</code>解析参数，具体的实现暂时不考虑，主要是解析CONTENT_TYPE和CONTENT_LENGTH,之后会调用<code>sess_ispoweruser</code>判断是否为合法用户
+之后获取 POST 表单字段，若字段名为 EVENT 的话，就将 &quot;event %s &gt; /dev/null&quot; 作为参数执行 lxmldbc_system 函数。
+查看<code>lxmldbc_system</code>函数
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">sw      $a1, 0x428+arg_4($sp)</span><br><span class="line">sw      $a2, 0x428+arg_8($sp)</span><br><span class="line">sw      $a3, 0x428+arg_C($sp)</span><br><span class="line">move    $a2, $a0         # format</span><br><span class="line">move    $a3, $v0         # arg</span><br><span class="line">move    $a0, $s0         # s</span><br><span class="line">sw      $v0, 0x428+var_410($sp)</span><br><span class="line">jalr    $t9 ; vsnprintf  </span><br><span class="line">li      $a1, 0x400       # maxlen</span><br></pre></td></tr></table></figure></p>
+<p>主要关注最后两条指令，因为这里用到了MIPS中地分支延迟槽技术，所以<code>$a1</code>传递参数的指令存放在<code>jalr</code>指令之后
+故<code>vsnprintf($sp+0x428+var_40C,0x400,&quot;event %s &gt; /dev/null&quot;,arg_4)</code>
+vsnprintf函数的用法：</p>
 <blockquote>
-<p>函数原型：int vsnprintf(char str, size_t size, const char format,va_list ap);<br>函数说明：将可变参数格式化输出到一个字符数组<br>参数：str输出到的数组，size指定大小，防止越界，format格式化参数，ap可变参数列表函数用法</p>
+<p>函数原型：int vsnprintf(char str, size_t size, const char format,va_list ap);
+函数说明：将可变参数格式化输出到一个字符数组
+参数：str输出到的数组，size指定大小，防止越界，format格式化参数，ap可变参数列表函数用法</p>
 </blockquote>
-<p>接着调用system函数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jalr    $t9 ; system</span><br><span class="line">move    $a0, $s0         # command</span><br></pre></td></tr></table></figure></p>
-<p>看一下参数的传递过程<br><img src="https://i.imgur.com/GJkYz9r.png" alt="645-8"></p>
+<p>接着调用system函数
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jalr    $t9 ; system</span><br><span class="line">move    $a0, $s0         # command</span><br></pre></td></tr></table></figure></p>
+<p>看一下参数的传递过程
+<img src="https://i.imgur.com/GJkYz9r.png" alt="645-8"></p>
 <p><code>$s0</code>本来是栈上的一个变量，<code>vsnprintf</code>将可变参数格式化输出到其中，之后又将其作为参数传递给<code>system</code>函数</p>
-<p>相当于执行了<br><code>system(&quot;event %s &gt; /dev/null&quot;)</code></p>
+<p>相当于执行了
+<code>system(&quot;event %s &gt; /dev/null&quot;)</code></p>
 <p>这样就可以想办法进行命令注入了</p>
-<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><p><a href="https://www.zybuluo.com/H4l0/note/1461277" target="_blank" rel="noopener">路由器漏洞挖掘之 DIR-815 栈溢出漏洞分析</a></p>
+<h1>参考</h1>
+<p><a href="https://www.zybuluo.com/H4l0/note/1461277" target="_blank" rel="noopener">路由器漏洞挖掘之 DIR-815 栈溢出漏洞分析</a></p>
 
       
     </div>
@@ -608,7 +637,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -630,7 +659,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -717,7 +746,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#DIR-815栈溢出漏洞"><span class="nav-number">1.</span> <span class="nav-text">DIR-815栈溢出漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DIR-645-缓冲区溢出漏洞"><span class="nav-number">2.</span> <span class="nav-text">DIR-645 缓冲区溢出漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#DIR-645命令执行漏洞"><span class="nav-number">3.</span> <span class="nav-text">DIR-645命令执行漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">DIR-815栈溢出漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">DIR-645 缓冲区溢出漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">DIR-645命令执行漏洞</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

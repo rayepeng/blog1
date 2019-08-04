@@ -81,20 +81,20 @@
 
 
 
-<meta name="description" content="php-challenge 9第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdzz">
+<meta name="description" content="php-challenge 9 第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdz">
 <meta name="keywords" content="php,ctf">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php-challenge9">
 <meta property="og:url" content="https://prontosil.club/2019/07/22/php-challenge9/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="php-challenge 9第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdzz">
+<meta property="og:description" content="php-challenge 9 第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdz">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://prontosil.club/2019/07/22/assets/flag1_rw5qoyd8a.png">
 <meta property="og:image" content="https://prontosil.club/assets/flag2_5a75jqie7.png">
 <meta property="og:updated_time" content="2019-07-22T14:59:18.962Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php-challenge9">
-<meta name="twitter:description" content="php-challenge 9第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdzz">
+<meta name="twitter:description" content="php-challenge 9 第一次接触到这个题目，被惊呆了 12345678910111213141516171819202122232425&amp;lt;?php//A webshell is wait for youini_set(&apos;session.serialize_handler&apos;, &apos;php&apos;);session_start();class OowoO&amp;#123;   public $mdz">
 <meta name="twitter:image" content="https://prontosil.club/2019/07/22/assets/flag1_rw5qoyd8a.png">
 
 
@@ -412,7 +412,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  336
+                  334
                 </span>
               
 
@@ -449,20 +449,29 @@
       
 
       
-        <h1 id="php-challenge-9"><a href="#php-challenge-9" class="headerlink" title="php-challenge 9"></a>php-challenge 9</h1><p>第一次接触到这个题目，被惊呆了</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//A webshell is wait for you</span></span><br><span class="line">ini_set(<span class="string">'session.serialize_handler'</span>, <span class="string">'php'</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OowoO</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> $mdzz;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">$this</span>-&gt;mdzz = <span class="string">'phpinfo();'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;mdzz);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'phpinfo'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">   $m = <span class="keyword">new</span> OowoO();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">   highlight_string(file_get_contents(<span class="string">'index.php'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>初看源代码觉得并没有哪里可以让我反序列化注入的地方<br>但是问题就出在第一句话：<br><code>ini_set(&#39;session.serialize_handler&#39;, &#39;php&#39;);</code></p>
+        <h1>php-challenge 9</h1>
+<p>第一次接触到这个题目，被惊呆了</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//A webshell is wait for you</span></span><br><span class="line">ini_set(<span class="string">'session.serialize_handler'</span>, <span class="string">'php'</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OowoO</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> $mdzz;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">$this</span>-&gt;mdzz = <span class="string">'phpinfo();'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;mdzz);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'phpinfo'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">   $m = <span class="keyword">new</span> OowoO();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">   highlight_string(file_get_contents(<span class="string">'index.php'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>初看源代码觉得并没有哪里可以让我反序列化注入的地方
+但是问题就出在第一句话：
+<code>ini_set('session.serialize_handler', 'php');</code></p>
 <blockquote>
 <p>关键点在于，如果脚本中设置的序列化处理器与php.ini设置的不同，或者两个脚本注册session使用的序列化处理器不同，那么就会出现安全问题。</p>
 </blockquote>
 <p>只需要加一个<code>|</code>就行</p>
-<p>这道<code>jarvisOj</code><a href="http://web.jarvisoj.com:32784/index.php" target="_blank" rel="noopener">题目</a>就是这个原题<br>这里还用到了另外一个漏洞：</p>
+<p>这道<code>jarvisOj</code><a href="http://web.jarvisoj.com:32784/index.php" target="_blank" rel="noopener">题目</a>就是这个原题
+这里还用到了另外一个漏洞：</p>
 <p>自己构造一个网页如下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://web.jarvisoj.com:32784/index.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"PHP_SESSION_UPLOAD_PROGRESS"</span> <span class="attr">value</span>=<span class="string">"123"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://web.jarvisoj.com:32784/index.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"PHP_SESSION_UPLOAD_PROGRESS"</span> <span class="attr">value</span>=<span class="string">"123"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在上传一个文件，本地抓包，这里遇到了一点小问题，就是没办法抓到本地的包，可以通过直接对局域网的网络连接进行设置即可.</p>
-<p><img src="../assets/flag1_rw5qoyd8a.png" alt="flag1"><br>此时就可以看到了</p>
-<p>接下来继续利用<br><img src="/assets/flag2_5a75jqie7.png" alt="flag2"></p>
-<p>tql。。。<br><a href="http://www.91ri.org/15925.html" target="_blank" rel="noopener">有趣的php反序列化总结</a><br><a href="https://blog.szfszf.top/tech/code-audit-challenge-%e4%bb%a3%e7%a0%81%e5%ae%a1%e8%ae%a1%e7%bb%83%e4%b9%a0%e7%ac%94%e8%ae%b0/#challenge9" target="_blank" rel="noopener">szfszf</a><br><a href="https://chybeta.github.io/2017/07/05/jarvisoj-web-writeup/#PHPINFO" target="_blank" rel="noopener">jarvisoj-web-writeup</a></p>
+<p><img src="../assets/flag1_rw5qoyd8a.png" alt="flag1">
+此时就可以看到了</p>
+<p>接下来继续利用
+<img src="/assets/flag2_5a75jqie7.png" alt="flag2"></p>
+<p>tql。。。
+<a href="http://www.91ri.org/15925.html" target="_blank" rel="noopener">有趣的php反序列化总结</a>
+<a href="https://blog.szfszf.top/tech/code-audit-challenge-%e4%bb%a3%e7%a0%81%e5%ae%a1%e8%ae%a1%e7%bb%83%e4%b9%a0%e7%ac%94%e8%ae%b0/#challenge9" target="_blank" rel="noopener">szfszf</a>
+<a href="https://chybeta.github.io/2017/07/05/jarvisoj-web-writeup/#PHPINFO" target="_blank" rel="noopener">jarvisoj-web-writeup</a></p>
 
       
     </div>
@@ -593,7 +602,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -615,7 +624,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -702,7 +711,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#php-challenge-9"><span class="nav-number">1.</span> <span class="nav-text">php-challenge 9</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">php-challenge 9</span></a></li></ol></div>
             
 
           </div>
