@@ -81,19 +81,18 @@
 
 
 
-<meta name="description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297) binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络   第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况 导出配置文件（信息泄露）。  &amp;lt;!--  --&amp;gt; 浏览器访问直接弹出了下载页面  导出配置文件，  获取到系统信息  goahead程">
+<meta name="description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络  第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况  导出配置文件（信息泄露）。   浏览器访问直接弹出了下载页面  导出配置文件， 获取到系统信息  goahead程序分析(命令注入)在查看固件的bi">
 <meta name="keywords" content="CVE,goahead">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DIR-823G复现">
 <meta property="og:url" content="https://prontosil.club/2019/08/03/DIR-823G复现/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297) binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络   第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况 导出配置文件（信息泄露）。  &amp;lt;!--  --&amp;gt; 浏览器访问直接弹出了下载页面  导出配置文件，  获取到系统信息  goahead程">
+<meta property="og:description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络  第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况  导出配置文件（信息泄露）。   浏览器访问直接弹出了下载页面  导出配置文件， 获取到系统信息  goahead程序分析(命令注入)在查看固件的bi">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ping0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-4.png">
 <meta property="og:image" content="https://i.imgur.com/2ElxWaU.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-0.png">
 <meta property="og:image" content="https://i.imgur.com/7Y9pWFQ.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-3.png">
@@ -106,7 +105,7 @@
 <meta property="og:updated_time" content="2019-08-03T10:07:13.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DIR-823G复现">
-<meta name="twitter:description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297) binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络   第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况 导出配置文件（信息泄露）。  &amp;lt;!--  --&amp;gt; 浏览器访问直接弹出了下载页面  导出配置文件，  获取到系统信息  goahead程">
+<meta name="twitter:description" content="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)binwale提取文件 文件下载地址  之后进行固件的模拟， 成功ping通网络  第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况  导出配置文件（信息泄露）。   浏览器访问直接弹出了下载页面  导出配置文件， 获取到系统信息  goahead程序分析(命令注入)在查看固件的bi">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823.png">
 
 
@@ -424,7 +423,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  288
+                  287
                 </span>
               
 
@@ -461,26 +460,22 @@
       
 
       
-        <h2>Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)</h2>
-<p>binwale提取文件</p>
+        <h2 id="Dlink-DIR-823G漏洞复现-CVE-2019-7298-CVE-2019-7297"><a href="#Dlink-DIR-823G漏洞复现-CVE-2019-7298-CVE-2019-7297" class="headerlink" title="Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)"></a>Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)</h2><p>binwale提取文件</p>
 <p>文件下载<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823GA1_FW102B03.bin" target="_blank" rel="noopener">地址</a></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823.png" alt=""></p>
 <p>之后进行固件的模拟，</p>
-<p>成功ping通网络
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ping0.png" alt=""></p>
+<p>成功ping通网络<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ping0.png" alt=""></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-4.png" alt=""></p>
 <p>第一次进入路由器需要需要进行一些设置页面，查看是否有未授权访问的情况</p>
-<p>导出配置文件（信息泄露）。</p>
+<p> 导出配置文件（信息泄露）。</p>
 <p><img src="https://i.imgur.com/2ElxWaU.png" alt="DIR823-0"></p>
-<p>&lt;!-- <img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-0.png" alt=""> --&gt;</p>
+<!-- ![](https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-0.png) -->
 <p>浏览器访问直接弹出了下载页面</p>
 <p><img src="https://i.imgur.com/7Y9pWFQ.png" alt="DIR823-1"></p>
-<p>导出配置文件，
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-2.png" alt=""></p>
+<p>导出配置文件，<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-2.png" alt=""></p>
 <p>获取到系统信息</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-3.png" alt=""></p>
-<h2>goahead程序分析(命令注入)</h2>
-<p>在查看固件的bin目录时发现了一个goahead的程序，说明此路由器是通过goahead进行开发的</p>
+<h2 id="goahead程序分析-命令注入"><a href="#goahead程序分析-命令注入" class="headerlink" title="goahead程序分析(命令注入)"></a>goahead程序分析(命令注入)</h2><p>在查看固件的bin目录时发现了一个goahead的程序，说明此路由器是通过goahead进行开发的</p>
 <p>拖入到IDA中进行分析，发现0x42424C处注册了处理函数</p>
 <p>抓取到登陆的数据包，是发往/HNAP1/的</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-5.png" alt=""></p>
@@ -491,12 +486,11 @@
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-7.png" alt=""></p>
 <p>找到了需要调用的处理函数后，会首先记录 POST 的原始报文, 首先用 snprintf 生成命令， 然后使用 system 执行。</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-8.png" alt=""></p>
-<p>我们可以通过直接注入 <code>'</code> 来命令执行</p>
+<p>我们可以通过直接注入 <code>&#39;</code> 来命令执行</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-9.png" alt=""></p>
 <p>验证一下：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/DIR823-10.png" alt=""></p>
-<h2>参考</h2>
-<p><a href="https://github.com/leonW7/D-Link/blob/master/Vul_2.md" target="_blank" rel="noopener">DIR-823G HNAP_Entry_Func</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://github.com/leonW7/D-Link/blob/master/Vul_2.md" target="_blank" rel="noopener">DIR-823G HNAP_Entry_Func</a></p>
 
       
     </div>
@@ -627,7 +621,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -649,7 +643,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -736,7 +730,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">goahead程序分析(命令注入)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Dlink-DIR-823G漏洞复现-CVE-2019-7298-CVE-2019-7297"><span class="nav-number">1.</span> <span class="nav-text">Dlink DIR-823G漏洞复现(CVE-2019-7298, CVE-2019-7297)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#goahead程序分析-命令注入"><span class="nav-number">2.</span> <span class="nav-text">goahead程序分析(命令注入)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
