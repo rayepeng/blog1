@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="python文件操作读文件，使用open函数打开一个文件如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象的方">
+<meta name="description" content="python文件操作 读文件，使用open函数打开一个文件 如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象">
 <meta name="keywords" content="python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python文档阅读笔记3">
 <meta property="og:url" content="https://prontosil.club/2019/07/31/python文档阅读笔记3/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="python文件操作读文件，使用open函数打开一个文件如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象的方">
+<meta property="og:description" content="python文件操作 读文件，使用open函数打开一个文件 如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-01T01:18:42.222Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python文档阅读笔记3">
-<meta name="twitter:description" content="python文件操作读文件，使用open函数打开一个文件如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象的方">
+<meta name="twitter:description" content="python文件操作 读文件，使用open函数打开一个文件 如果不指定模式，则默认以 text mode 打开  这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关  read()方法，可选参数size，当 size 被省略或者为负的时候，将读取并返回文件的整个内容 readline()方法，从文件中读取一行 如果要遍历文件，可以采取遍历文件对象">
 
 
 
@@ -381,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/31/python文档阅读笔记3/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/31/python文档阅读笔记3/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -446,19 +436,23 @@
       
 
       
-        <h2 id="python文件操作"><a href="#python文件操作" class="headerlink" title="python文件操作"></a>python文件操作</h2><p>读文件，使用<code>open</code>函数打开一个文件<br>如果不指定模式，则默认以 text mode 打开</p>
+        <h2>python文件操作</h2>
+<p>读文件，使用<code>open</code>函数打开一个文件
+如果不指定模式，则默认以 text mode 打开</p>
 <blockquote>
 <p>这意味着从文件中读取或写入字符串时，都会以指定的编码方式进行编码。如果未指定编码格式，默认值与平台相关</p>
 </blockquote>
 <p><code>read()</code>方法，可选参数<code>size</code>，当 size 被省略或者为负的时候，将读取并返回文件的整个内容</p>
 <p><code>readline()</code>方法，从文件中读取一行</p>
 <p>如果要遍历文件，可以采取遍历文件对象的方式：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line"><span class="meta">... </span>    print(line, end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line"><span class="meta">... </span>    print(line, end=<span class="string">''</span>)</span><br></pre></td></tr></table></figure></p>
 <p>这种实现方式比较高效</p>
 <p>在编写脚本的过程中，注意文件的打开方式，编码这些小细节</p>
 <p>写文件</p>
 <blockquote>
 <p>f.write(string) 会把 string 的内容写入到文件中，并返回写入的字符数。</p>
+</blockquote>
+<blockquote>
 <p>f.tell() 返回一个整数，给出文件对象在文件中的当前位置，表示为二进制模式下时从文件开始的字节数，以及文本模式下的不透明数字。</p>
 </blockquote>
 
@@ -533,12 +527,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
+  <div id="gitalk-container"></div>
   
 
 
@@ -589,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -611,7 +600,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -698,7 +687,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#python文件操作"><span class="nav-number">1.</span> <span class="nav-text">python文件操作</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">python文件操作</span></a></li></ol></div>
             
 
           </div>
@@ -882,46 +871,25 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'xinyongpeng',
-            repo: 'gitcomment',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
-            
-                client_id: '077d264849f8fc28a574'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b99d1afde2409a546f0',
+          clientSecret: '211820c84d1158586d2bd6b11d0ee21d0b1ac50d',
+          repo: 'xinyongpeng.github.io',
+          owner: 'xinyongpeng',
+          admin: ['xinyongpeng'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

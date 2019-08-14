@@ -381,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/10/0ctfbabyheap/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/10/0ctfbabyheap/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -409,7 +399,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  538
+                  539
                 </span>
               
 
@@ -449,24 +439,25 @@
         <p>被0ctf的这道题目搞了好久。记录一下</p>
 <p>思路是使用fastbin attack，how2heap上有一个栗子可以分析一下</p>
 <p>先申请5个chunk，free之后使得 <code>fastbin[0]-&gt;idx1-&gt;idx2-&gt;NULL</code></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 0, 0x00</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 1, 0x20</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 2, 0x40</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 3, 0x60</span></span><br><span class="line">allocate(<span class="number">0x80</span>)  <span class="comment"># idx 4, 0x80</span></span><br><span class="line"><span class="comment"># free idx 1, 2, fastbin[0]-&gt;idx1-&gt;idx2-&gt;NULL</span></span><br><span class="line">free(<span class="number">2</span>)</span><br><span class="line">free(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 0, 0x00</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 1, 0x20</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 2, 0x40</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 3, 0x60</span></span><br><span class="line">allocate(<span class="number">0x80</span>)  <span class="comment"># idx 4, 0x80</span></span><br><span class="line"><span class="comment"># free idx 1, 2, fastbin[0]-&gt;idx1-&gt;idx2-&gt;NULL</span></span><br><span class="line">free(<span class="number">2</span>)</span><br><span class="line">free(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
 <p>此时的bins</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x5619d93ea020 —▸ 0x5619d93ea040 ◂— 0x0</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br><span class="line">0x60: 0x0</span><br><span class="line">0x70: 0x0</span><br><span class="line">0x80: 0x0</span><br><span class="line">unsortedbin</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x5619d93ea000</span><br><span class="line">0x5619d93ea000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x5619d93ea010: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x5619d93ea030: 0x00005619d93ea040      0x0000000000000000</span><br><span class="line">0x5619d93ea040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x5619d93ea050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x5619d93ea070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x5619d93ea090: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0a0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0b0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0c0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0d0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0e0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0f0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea100: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea110: 0x0000000000000000      0x0000000000020ef1</span><br><span class="line">0x5619d93ea120: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x5619d93ea020 —▸ 0x5619d93ea040 ◂— 0x0</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br><span class="line">0x60: 0x0</span><br><span class="line">0x70: 0x0</span><br><span class="line">0x80: 0x0</span><br><span class="line">unsortedbin</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x5619d93ea000</span><br><span class="line">0x5619d93ea000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x5619d93ea010: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x5619d93ea030: 0x00005619d93ea040      0x0000000000000000</span><br><span class="line">0x5619d93ea040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x5619d93ea050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x5619d93ea070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x5619d93ea090: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0a0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0b0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0c0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0d0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0e0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea0f0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea100: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5619d93ea110: 0x0000000000000000      0x0000000000020ef1</span><br><span class="line">0x5619d93ea120: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
 <p>然后我们修改idx2的指针,通过fill idx0造成溢出，同时由于内存对齐，可以肯定idx4的指针最后肯定是0x80</p>
 <p>修改后如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x560e5e91c000</span><br><span class="line">0x560e5e91c000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x560e5e91c010: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x560e5e91c020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x560e5e91c030: 0x0000560e5e91c080      0x0000000000000000 </span><br><span class="line">0x560e5e91c040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x560e5e91c050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x560e5e91c060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x560e5e91c070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x560e5e91c080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x560e5e91c090: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x560e5e91c000</span><br><span class="line">0x560e5e91c000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x560e5e91c010: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x560e5e91c020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x560e5e91c030: 0x0000560e5e91c080      0x0000000000000000 </span><br><span class="line">0x560e5e91c040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x560e5e91c050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x560e5e91c060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x560e5e91c070: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x560e5e91c080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x560e5e91c090: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
 <p>此时的bins指向：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x560e5e91c020 —▸ 0x560e5e91c080 ◂— 0x0 (idx2--&gt;idx4)</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br></pre></td></tr></table></figure>
-<p>如果再连续申请两个chunk，那么第一次是idx2，第二次就是idx4<br>但是malloc有一个check机制，如果两个fastbin的大小不一样就会报错，所以我们再借用一下idx3，让其溢出到idx4，修改idx4的大小</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x5573e66cd000 </span><br><span class="line">0x5573e66cd000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x5573e66cd010: 0x6161616161616161      0x6161616161616161 </span><br><span class="line">0x5573e66cd020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x5573e66cd030: 0x00005573e66cd080      0x0000000000000000</span><br><span class="line">0x5573e66cd040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x5573e66cd050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5573e66cd060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x5573e66cd070: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x5573e66cd080: 0x0000000000000000      0x0000000000000021 ---&gt;idx4</span><br><span class="line">0x5573e66cd090: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x560e5e91c020 —▸ 0x560e5e91c080 ◂— 0x0 (idx2--&gt;idx4)</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br></pre></td></tr></table></figure></p>
+<p>如果再连续申请两个chunk，那么第一次是idx2，第二次就是idx4
+但是malloc有一个check机制，如果两个fastbin的大小不一样就会报错，所以我们再借用一下idx3，让其溢出到idx4，修改idx4的大小</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x5573e66cd000 </span><br><span class="line">0x5573e66cd000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x5573e66cd010: 0x6161616161616161      0x6161616161616161 </span><br><span class="line">0x5573e66cd020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x5573e66cd030: 0x00005573e66cd080      0x0000000000000000</span><br><span class="line">0x5573e66cd040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x5573e66cd050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x5573e66cd060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x5573e66cd070: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x5573e66cd080: 0x0000000000000000      0x0000000000000021 ---&gt;idx4</span><br><span class="line">0x5573e66cd090: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
 <p>此时idx4的大小已经被修改了，于是可以申请了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 1</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 2, which point to idx4's location</span></span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 1</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 2, which point to idx4's location</span></span><br></pre></td></tr></table></figure></p>
 <p>之后，如果我们想要将 idx 4 放到 unsorted bin 中的话，先需要把它的大小改回来，同时为了防止其与 top chunk 合并，我们需要再次申请一个 chunk。此后再释放 idx4 就会进入 unsorted bin 中去了。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x559b5b9a5000</span><br><span class="line">0x559b5b9a5000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x559b5b9a5010: 0x6161616161616161      0x6161616161616161 </span><br><span class="line">0x559b5b9a5020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x559b5b9a5030: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a5040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x559b5b9a5050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a5060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x559b5b9a5070: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x559b5b9a5080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x559b5b9a5090: 0x00007fa9e254eb78      0x00007fa9e254eb78</span><br><span class="line">0x559b5b9a50a0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a50b0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a50c0: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/40gx 0x559b5b9a5000</span><br><span class="line">0x559b5b9a5000: 0x0000000000000000      0x0000000000000021 ---&gt;idx0</span><br><span class="line">0x559b5b9a5010: 0x6161616161616161      0x6161616161616161 </span><br><span class="line">0x559b5b9a5020: 0x0000000000000000      0x0000000000000021 ---&gt;idx1</span><br><span class="line">0x559b5b9a5030: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a5040: 0x0000000000000000      0x0000000000000021 ---&gt;idx2</span><br><span class="line">0x559b5b9a5050: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a5060: 0x0000000000000000      0x0000000000000021 ---&gt;idx3</span><br><span class="line">0x559b5b9a5070: 0x6161616161616161      0x6161616161616161</span><br><span class="line">0x559b5b9a5080: 0x0000000000000000      0x0000000000000091 ---&gt;idx4</span><br><span class="line">0x559b5b9a5090: 0x00007fa9e254eb78      0x00007fa9e254eb78</span><br><span class="line">0x559b5b9a50a0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a50b0: 0x0000000000000000      0x0000000000000000</span><br><span class="line">0x559b5b9a50c0: 0x0000000000000000      0x0000000000000000</span><br></pre></td></tr></table></figure></p>
 <p>此时dump(2)就可以得到unsorted bin 的地址了。</p>
 <p>此时的bins如下</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x0</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br><span class="line">0x60: 0x0</span><br><span class="line">0x70: 0x0</span><br><span class="line">0x80: 0x0</span><br><span class="line">unsortedbin</span><br><span class="line">all: 0x559b5b9a5080 —▸ 0x7fa9e254eb78 (main_arena+88) ◂— 0x559b5b9a5080</span><br><span class="line">smallbins</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; bins</span><br><span class="line">fastbins</span><br><span class="line">0x20: 0x0</span><br><span class="line">0x30: 0x0</span><br><span class="line">0x40: 0x0</span><br><span class="line">0x50: 0x0</span><br><span class="line">0x60: 0x0</span><br><span class="line">0x70: 0x0</span><br><span class="line">0x80: 0x0</span><br><span class="line">unsortedbin</span><br><span class="line">all: 0x559b5b9a5080 —▸ 0x7fa9e254eb78 (main_arena+88) ◂— 0x559b5b9a5080</span><br><span class="line">smallbins</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -541,12 +532,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
+  <div id="gitalk-container"></div>
   
 
 
@@ -588,7 +574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -610,7 +596,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -865,46 +851,25 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'xinyongpeng',
-            repo: 'gitcomment',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
-            
-                client_id: '077d264849f8fc28a574'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b99d1afde2409a546f0',
+          clientSecret: '211820c84d1158586d2bd6b11d0ee21d0b1ac50d',
+          repo: 'xinyongpeng.github.io',
+          owner: 'xinyongpeng',
+          admin: ['xinyongpeng'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

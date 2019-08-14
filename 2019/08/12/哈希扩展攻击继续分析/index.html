@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程 MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用来">
+<meta name="description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程  MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用">
 <meta name="keywords" content="hash">
 <meta property="og:type" content="article">
 <meta property="og:title" content="哈希扩展攻击继续分析">
 <meta property="og:url" content="https://prontosil.club/2019/08/12/哈希扩展攻击继续分析/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程 MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用来">
+<meta property="og:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程  MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-08-12T02:30:55.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希扩展攻击继续分析">
-<meta name="twitter:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程 MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用来">
+<meta name="twitter:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程  MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用">
 
 
 
@@ -381,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/08/12/哈希扩展攻击继续分析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/08/12/哈希扩展攻击继续分析/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -449,34 +439,38 @@
         <p>最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下</p>
 <p><a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">链接</a>这篇文章讲的很仔细了，分析一下文章中的栗子</p>
 <p>师傅给的<a href="https://github.com/JoyChou93/md5-extension-attack" target="_blank" rel="noopener">代码</a></p>
-<h2 id="md5的过程"><a href="#md5的过程" class="headerlink" title="md5的过程"></a>md5的过程</h2><ol>
+<h2>md5的过程</h2>
+<ol>
 <li>MD5 padding</li>
 </ol>
 <blockquote>
 <p>如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用来记录原始输入信息长度</p>
 </blockquote>
-<ol>
-<li>MD5 compress<br>这个算法直接到网上找就行</li>
+<ol start="2">
+<li>MD5 compress
+这个算法直接到网上找就行</li>
 </ol>
 <p>所以MD5的过程就是：</p>
 <blockquote>
 <p>先进行消息长度的填充(padding)。填充完后，初始化的4个Magic number会和第一个64字节的Message block进行md5 compress压缩算法。压缩算法完成后，会产生新的4个Magic number。这样再进行第二个64字节Message block的md5 compress压缩算法。以此类推……直到压缩到最后64个字节的(Message block + padding)，最后得到的Magic number经过hex转化就是最后的md5 hash值</p>
 </blockquote>
-<p>比如md5(‘admin’),由于padding之后只有64个字节，所以只进行一轮的md5 compress 得到的密文就是：</p>
+<p>比如md5('admin'),由于padding之后只有64个字节，所以只进行一轮的md5 compress 得到的密文就是：</p>
 <p><code>21232f297a57a5a743894a0e4a801fc3</code></p>
 <p>我们可以从密文推导出4个magic number：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A=0x292f2321L</span><br><span class="line">B=0xa7a5577aL</span><br><span class="line">C=0xe4a8943L</span><br><span class="line">D=0xc31f804aL</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A=0x292f2321L</span><br><span class="line">B=0xa7a5577aL</span><br><span class="line">C=0xe4a8943L</span><br><span class="line">D=0xc31f804aL</span><br></pre></td></tr></table></figure></p>
 <p>这个关系就是大小端转化一下</p>
-<h2 id="md5长度扩展的攻击过程"><a href="#md5长度扩展的攻击过程" class="headerlink" title="md5长度扩展的攻击过程"></a>md5长度扩展的攻击过程</h2><p>知道如下三个值：</p>
+<h2>md5长度扩展的攻击过程</h2>
+<p>知道如下三个值：</p>
 <ol>
 <li>md5(salt+message)的值</li>
 <li>message内容</li>
 <li>salt+message长度</li>
 </ol>
 <p>我们可以根据md5(salt+message)的值逆向出最后的四个magic number</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_magic_number</span><span class="params">(self, md5str)</span>:</span></span><br><span class="line">    self.A = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">0</span>:<span class="number">8</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.B = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">8</span>:<span class="number">16</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.C = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">16</span>:<span class="number">24</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.D = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">24</span>:<span class="number">32</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_magic_number</span><span class="params">(self, md5str)</span>:</span></span><br><span class="line">    self.A = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">0</span>:<span class="number">8</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.B = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">8</span>:<span class="number">16</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.C = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">16</span>:<span class="number">24</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.D = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">24</span>:<span class="number">32</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
 <p>这个四个magic number去和m做一下次的md5 compress</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">Hash Length Extension Attack</a></p>
+<h2>参考</h2>
+<p><a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">Hash Length Extension Attack</a></p>
 
       
     </div>
@@ -549,12 +543,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
+  <div id="gitalk-container"></div>
   
 
 
@@ -605,7 +594,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -627,7 +616,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -714,7 +703,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#md5的过程"><span class="nav-number">1.</span> <span class="nav-text">md5的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#md5长度扩展的攻击过程"><span class="nav-number">2.</span> <span class="nav-text">md5长度扩展的攻击过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">md5的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">md5长度扩展的攻击过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
@@ -898,46 +887,25 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'xinyongpeng',
-            repo: 'gitcomment',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
-            
-                client_id: '077d264849f8fc28a574'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b99d1afde2409a546f0',
+          clientSecret: '211820c84d1158586d2bd6b11d0ee21d0b1ac50d',
+          repo: 'xinyongpeng.github.io',
+          owner: 'xinyongpeng',
+          admin: ['xinyongpeng'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="从redis源码开始都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
+<meta name="description" content="从redis源码开始 都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
 <meta name="keywords" content="C,redis,sds">
 <meta property="og:type" content="article">
 <meta property="og:title" content="redis源码阅读——sds">
 <meta property="og:url" content="https://prontosil.club/2019/07/30/redis源码阅读——sds/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="从redis源码开始都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
+<meta property="og:description" content="从redis源码开始 都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-30T16:02:26.090Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="redis源码阅读——sds">
-<meta name="twitter:description" content="从redis源码开始都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
+<meta name="twitter:description" content="从redis源码开始 都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码">
 
 
 
@@ -381,16 +381,6 @@
 
           
             
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2019/07/30/redis源码阅读——sds/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/07/30/redis源码阅读——sds/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
           
 
           
@@ -446,7 +436,8 @@
       
 
       
-        <h2 id="从redis源码开始"><a href="#从redis源码开始" class="headerlink" title="从redis源码开始"></a>从redis源码开始</h2><p>都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码</p>
+        <h2>从redis源码开始</h2>
+<p>都说写代码是在表达自己，阅读代码是在理解别人，尤其是阅读高质量的源代码，于是便从头开始读起了redis的源码</p>
 
       
     </div>
@@ -523,12 +514,7 @@
           
 
   
-    <div class="comments" id="comments">
-      
-        <div id="gitment-container"></div>
-      
-    </div>
-
+  <div id="gitalk-container"></div>
   
 
 
@@ -579,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">39</span>
+                  <span class="site-state-item-count">40</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -601,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-count">43</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -688,7 +674,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#从redis源码开始"><span class="nav-number">1.</span> <span class="nav-text">从redis源码开始</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">从redis源码开始</span></a></li></ol></div>
             
 
           </div>
@@ -872,46 +858,25 @@
 
 
 
-<!-- LOCAL: You can save these files to your site and update links -->
-    
-        
-        <link rel="stylesheet" href="https://aimingoo.github.io/gitmint/style/default.css">
-        <script src="https://aimingoo.github.io/gitmint/dist/gitmint.browser.js"></script>
-    
-<!-- END LOCAL -->
-
-    
-
-    
-      <script type="text/javascript">
-      function renderGitment(){
-        var gitment = new Gitmint({
-            id: window.location.pathname, 
-            owner: 'xinyongpeng',
-            repo: 'gitcomment',
-            
-            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
-            
-            oauth: {
-            
-            
-                client_secret: '6504c858cdee4a1f61f0e8c95b1eab199539dc78',
-            
-                client_id: '077d264849f8fc28a574'
-            }});
-        gitment.render('gitment-container');
-      }
-
-      
-      renderGitment();
-      
-      </script>
-    
 
 
 
 
 
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b99d1afde2409a546f0',
+          clientSecret: '211820c84d1158586d2bd6b11d0ee21d0b1ac50d',
+          repo: 'xinyongpeng.github.io',
+          owner: 'xinyongpeng',
+          admin: ['xinyongpeng'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   
