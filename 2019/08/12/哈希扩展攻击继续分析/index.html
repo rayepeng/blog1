@@ -89,10 +89,12 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程  MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-12T02:30:55.944Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hash0.jpg">
+<meta property="og:updated_time" content="2019-08-14T12:34:59.730Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="哈希扩展攻击继续分析">
 <meta name="twitter:description" content="最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下 链接这篇文章讲的很仔细了，分析一下文章中的栗子 师傅给的代码 md5的过程  MD5 padding   如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hash0.jpg">
 
 
 
@@ -349,8 +351,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-12T10:30:55+08:00">
-                2019-08-12
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T20:34:59+08:00">
+                2019-08-14
               </time>
             
           </span>
@@ -399,7 +401,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  466
+                  1.1k
                 </span>
               
 
@@ -415,7 +417,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  4
                 </span>
               
             </div>
@@ -469,8 +471,46 @@
 <p>我们可以根据md5(salt+message)的值逆向出最后的四个magic number</p>
 <p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_magic_number</span><span class="params">(self, md5str)</span>:</span></span><br><span class="line">    self.A = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">0</span>:<span class="number">8</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.B = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">8</span>:<span class="number">16</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.C = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">16</span>:<span class="number">24</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.D = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">24</span>:<span class="number">32</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
 <p>这个四个magic number去和m做一下次的md5 compress</p>
+<h2>再理解一下</h2>
+<p>继续又看了一篇师傅的文章，想要好好梳理一下哈希扩展攻击</p>
+<p>师傅是以sha1算法为例讲解的： sha1的流程如下：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hash0.jpg" alt=""></p>
+<p>sha1算法和md5很相似，也有最初的四个IV，并且是确定的(这是一种很不好的方法但是也是一种无奈的举动)</p>
+<p>一个不足64位的字符串会被padding至64位，并且由于只有一个分组，所以只需要一轮运算即可</p>
+<p>我们在前一次64位padding之后的字符串的基础上加入一些字符，sha1(salt+padding+add_data) 首先这里肯定是要分成两组的，前一组加密后的内容已经知道了，同时产生的新的IV会参与下一次的复杂的数学运算</p>
+<p>而这些IV是能够从第一组的密文中得知的，这就导致下一组加密后的内容实际上我们也可以知道的</p>
+<p>《白帽子讲web安全》上提到，如何利用长度扩展攻击：</p>
+<blockquote>
+<p>LengthExtension 使得可以在原文之后附加任意的值，并计算出新的hash值，最常见的地方就是签名</p>
+</blockquote>
+<ol>
+<li>错误的签名校验算法
+参数连接时没有使用分隔符，本来是<code>?a=1&amp;b=2&amp;c=3</code>在签名算法中简单地变成了<code>a1b2c3</code></li>
+</ol>
+<p>于是攻击者可以伪造参数<code>?a=1b2c3[...padding....]&amp;b=4&amp;c=5</code></p>
+<p>最终在签名算法中连接时变成了<code>a1b2c3[...padding...]b4c5</code></p>
+<ol start="2">
+<li>
+<p>附加任意的参数</p>
+</li>
+<li>
+<p>HPP</p>
+</li>
+</ol>
+<p>最简单的防护就是将secret放置在参数的末尾</p>
+<h2>举例</h2>
+<p>大师傅给的栗子：</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$role = $_REQUEST[<span class="string">"role"</span>];</span><br><span class="line">$hash = $_REQUEST[<span class="string">"hash"</span>];</span><br><span class="line">$salt = <span class="string">"meme"</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($hash !== md5($salt.$role))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'wrong!'</span>;     </span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( $role == <span class="string">'admin'</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'wrong, hash cann\'t be admin'</span>;</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"You are "</span>.$role.<span class="string">'&lt;/br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'Congradulation!'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>已知role为admin，salt的长度为4，hash值为：<code>c7813629f22b6a7d28a08041db3e80a9</code></p>
+<p>我们可以在<code>role</code>后面附加任意的数据使得第一个if被绕过</p>
+<p>用大师傅的脚本：</p>
+<p><code>python md5pad.py c7813629f22b6a7d28a08041db3e80a9 joychou 9</code></p>
+<p>当然也可以这样：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hashpump                                                                                                                        </span><br><span class="line">Input Signature: c7813629f22b6a7d28a08041db3e80a9</span><br><span class="line">Input Data: admin</span><br><span class="line">Input Key Length: 9</span><br><span class="line">Input Data to Add: joychou</span><br><span class="line">06cf5a94dcda53659f58c0f411ba0bd8</span><br><span class="line">admin\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00p\x00\x00\x00\x00\x00\x00\x00joychou</span><br></pre></td></tr></table></figure></p>
+<p>注意第三次输入的数据长度是包括salt在内的</p>
 <h2>参考</h2>
-<p><a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">Hash Length Extension Attack</a></p>
+<p><a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">深入理解hash长度扩展攻击（sha1为例）</a>
+<a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">Hash Length Extension Attack</a></p>
 
       
     </div>
@@ -703,7 +743,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">md5的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">md5长度扩展的攻击过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">md5的过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">md5长度扩展的攻击过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">再理解一下</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
