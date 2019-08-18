@@ -300,6 +300,730 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/php反序列化笔记/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/php反序列化笔记/" itemprop="url">php反序列化笔记</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T22:54:28+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T22:56:08+08:00">
+                2019-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  935
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>php 反序列化</h1>
+<p>先看一个栗子：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">"pxy"</span>;</span><br><span class="line">    <span class="keyword">private</span> $sex = <span class="string">"secret"</span>;</span><br><span class="line">    <span class="keyword">protected</span> $age = <span class="string">"20"</span>;</span><br><span class="line">&#125;</span><br><span class="line">$test1 = <span class="keyword">new</span> Test();</span><br><span class="line">$object = serialize($test1);</span><br><span class="line">print_r($object);</span><br></pre></td></tr></table></figure></p>
+<p>序列化之后得到的结果是：
+<code>O:4:&quot;Test&quot;:3:{s:4:&quot;name&quot;;s:3:&quot;pxy&quot;;s:9:&quot;Testsex&quot;;s:6:&quot;secret&quot;;s:6:&quot;*age&quot;;s:2:&quot;20&quot;;}</code></p>
+<p>O代表是对象，<code>Test</code>是类名，之后是属性，不同类型的属性其实序列化之后得到的结果是不一样的。</p>
+<p>看官方文档，解释了为什么需要序列化这种操作：</p>
+<blockquote>
+<p>serialize() 返回字符串，此字符串包含了表示 value 的字节流，可以存储于任何地方。
+这有利于存储或传递 PHP 的值，同时不丢失其类型和结构。</p>
+</blockquote>
+<p>同时提到了一个魔术方法：</p>
+<blockquote>
+<p>当序列化对象时，PHP 将试图在序列动作之前调用该对象的成员函数 __sleep()。这样就允许对象在被序列化之前做任何清除操作。类似的，当使用 unserialize() 恢复对象时， 将调用 __wakeup() 成员函数。</p>
+</blockquote>
+<p><code>__sleep()</code>和<code>__wakeup()</code>两个方法很形象地说明了什么时候调用。</p>
+<p>然后我就犯了一个新手很常见的错误：
+<code>__sleep()</code>方法必须是要返回一个<code>array</code>地
+<img src="https://i.imgur.com/pulCMhV.png" alt="php3"></p>
+<p>原来。。<code>__sleep()</code>方法是这样子调用的啊
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">"pxy"</span>;</span><br><span class="line">    <span class="keyword">private</span> $sex = <span class="string">"secret"</span>;</span><br><span class="line">    <span class="keyword">protected</span> $age = <span class="string">"20"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">'name'</span>, <span class="string">'sex'</span>, <span class="string">'age'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2>实际追踪一下为什么会出现反序列化</h2>
+<p>调试代码如下:
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $target = <span class="string">"this is a test"</span>;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="keyword">$this</span>-&gt;target;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a = $_GET[<span class="string">'b'</span>];</span><br><span class="line">$c = unserialize($a);</span><br></pre></td></tr></table></figure></p>
+<p>利用思路：传入的参数是可控的，并且这里还有一个<code>test</code>类和一个<code>__destruct()</code>魔术方法。
+那就是构造这个对象将其序列化之后传入，之后会自动反序列化同时在对象销毁的时候就会自动执行魔术方法了</p>
+<p>我们这样来写：
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $target = <span class="string">"&lt;script&gt;alert('xss');&lt;/script&gt;"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$object = <span class="keyword">new</span> test();</span><br><span class="line">print_r(serialize($object));</span><br></pre></td></tr></table></figure></p>
+<p>突然觉得序列化也有一点变量覆盖的味道，我在外部构造的类实例化的对象进入代码之后覆盖了原来的对象？</p>
+<p>调试过程如下：</p>
+<p>生成的序列化字符串如下：
+<code>O:4:&quot;test&quot;:1:{s:6:&quot;target&quot;;s:30:&quot;&lt;script&gt;alert('xss');&lt;/script&gt;&quot;;}</code>
+然后将其作为参数传入进去:</p>
+<p><code>http://localhost/test/testUnserialize0.php?b=O:4:%22test%22:1:{s:6:%22target%22;s:30:%22%3Cscript%3Ealert%28%27xss%27%29;%3C/script%3E%22;}</code></p>
+<p>此时接收到了参数：
+<img src="https://i.imgur.com/rbponzu.png" alt="php4">
+<code>$a</code>的值为：&quot;O:4:&quot;test&quot;:1:{s:6:&quot;target&quot;;s:30:&quot;&lt;script&gt;alert('xss');&lt;/script&gt;&quot;;}&quot;</p>
+<p>继续单步步入：
+这个时候就会去调用魔术方法了
+<img src="https://i.imgur.com/ozQZZiw.png" alt="php5"></p>
+<p>xss框框就弹出来啦。
+<img src="https://i.imgur.com/W3TNDdl.png" alt="xss3"></p>
+<p>接下来继续研究剩下的魔术方法：先看几个简单的</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">test</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> $name = <span class="string">'P2hm1n'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__construct()\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__destruct()\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__wakeup()\n"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__toString</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"__toString()"</span>.<span class="string">"\n"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__sleep</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"__sleep()\n"</span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">array</span>(<span class="string">"name"</span>);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">__call</span><span class="params">($funName, $argument)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"调用方法"</span>.$funName.<span class="string">"(:"</span>.<span class="string">"参数:"</span>;</span><br><span class="line">        print_r($argument);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"不存在！\n"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">__callStatic</span><span class="params">($funName, $argument)</span></span>&#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"调用静态方法"</span>.$funName.<span class="string">"(:"</span>.<span class="string">"参数:"</span>;</span><br><span class="line">        print_r($argument);</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"不存在！\n"</span>;        </span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$test1 = <span class="keyword">new</span> test();</span><br><span class="line">test::hello(<span class="string">"nihao"</span>); <span class="comment">//不实例化对象，此时调用的是静态方法</span></span><br><span class="line">$test1-&gt;hello(<span class="string">"nihao"</span>); <span class="comment">//实例化对象</span></span><br><span class="line">$test2 = serialize($test1);</span><br><span class="line"></span><br><span class="line">$test3 = unserialize($test2);</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>($test3);</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果如下：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">调用静态方法hello(:参数:Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; nihao</span><br><span class="line">)</span><br><span class="line">不存在！</span><br><span class="line">调用方法hello(:参数:Array</span><br><span class="line">(</span><br><span class="line">    [0] =&gt; nihao</span><br><span class="line">)</span><br><span class="line">不存在！</span><br><span class="line">__sleep()</span><br><span class="line">__wakeup()</span><br><span class="line">__toString()</span><br><span class="line">__destruct()</span><br><span class="line">__destruct()</span><br></pre></td></tr></table></figure></p>
+<p>这几个方法都还挺好区分的，比较难区分的就是<code>__call()</code>和<code>__callStatic()</code>方法了。</p>
+<p>TODO
+<a href="https://segmentfault.com/a/1190000007250604" target="_blank" rel="noopener">十六个魔术方法详解</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/php-manual-note-0/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/php-manual-note-0/" itemprop="url">php-manual-note-0</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T22:52:59+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T23:16:36+08:00">
+                2019-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  527
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>php doc阅读笔记0</h1>
+<h2>array</h2>
+<p>数组是php的key=&gt;value映射
+key只能是<code>integer</code>和<code>string</code>类型，value可以是任意类型</p>
+<p>所以key会有如下强制转换：</p>
+<ul>
+<li>包含有合法整型值的字符串会被转换为整型。例如键名 &quot;8&quot; 实际会被储存为 8。但是 &quot;08&quot; 则不会强制转换，因为其不是一个合法的十进制数值。</li>
+<li>浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名 8.7 实际会被储存为 8。</li>
+<li>布尔值也会被转换成整型。即键名 true 实际会被储存为 1 而键名 false 会被储存为 0。</li>
+<li>Null 会被转换为空字符串，即键名 null 实际会被储存为 &quot;&quot;。</li>
+<li>数组和对象不能被用为键名。坚持这么做会导致警告：Illegal offset type。</li>
+</ul>
+<p>比如官方举例如下：</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="number">1</span>    =&gt; <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"1"</span>  =&gt; <span class="string">"b"</span>,</span><br><span class="line">  <span class="number">1.5</span>  =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="keyword">true</span> =&gt; <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure></p>
+<p>输出如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>会导致数组的一部分值被覆盖掉</p>
+<blockquote>
+<p>上例中所有的键名都被强制转换为 1，则每一个新单元都会覆盖前一个的值，最后剩下的只有一个 &quot;d&quot;。</p>
+</blockquote>
+<p>同时：</p>
+<blockquote>
+<p>key 为可选项。如果未指定，PHP 将自动使用之前用过的最大 integer 键名加上 1 作为新的键名。</p>
+</blockquote>
+<p>那就会有这种结果：</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"b"</span>,</span><br><span class="line"><span class="number">6</span> =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure></p>
+<p>输出为：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array(4) &#123;</span><br><span class="line">  [0] =&gt;</span><br><span class="line">  string(1) &quot;a&quot;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;b&quot;</span><br><span class="line">  [6] =&gt;</span><br><span class="line">  string(1) &quot;c&quot;</span><br><span class="line">  [7] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3>神奇的解引用语法</h3>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArray</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解引用语法</span></span><br><span class="line"></span><br><span class="line">$a = getArray()[<span class="number">0</span>];</span><br><span class="line">var_dump($a);</span><br><span class="line"><span class="keyword">list</span>(, $secondelement) = getArray();</span><br><span class="line"></span><br><span class="line">var_dump($secondelement);</span><br></pre></td></tr></table></figure></p>
+<p>输出为：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(1)</span><br><span class="line">int(2)</span><br></pre></td></tr></table></figure></p>
+<p><code>list</code>定义为：将数组中的值赋值给变量</p>
+<h3>用[]的语法</h3>
+<p>如果有一个数组 <code>$arr = array(5 =&gt; 1, 12 =&gt; 2);</code>
+那么<code>$arr[] = 56</code>相当于<code>$arr[13]=56</code></p>
+<p>使用<code>unset</code>函数可以取消键值对映射比如<code>unset($arr[5])</code>,或者销毁一个数组<code>unset($arr)</code></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/python文档阅读笔记2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/30/python文档阅读笔记2/" itemprop="url">python文档阅读笔记2</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-30T22:50:01+08:00">
+                2019-07-30
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T22:51:49+08:00">
+                2019-07-30
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  912
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  3
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>fluent python reading notes</h1>
+<h2>列表推导式</h2>
+<p>最常见的一种写法</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">symboles = <span class="string">'ABC%^&amp;*#@$'</span></span><br><span class="line">beyond_ascii = [ord(s) <span class="keyword">for</span> s <span class="keyword">in</span> symboles <span class="keyword">if</span> ord(s) &gt; <span class="number">40</span>]</span><br><span class="line">print(beyond_ascii)</span><br></pre></td></tr></table></figure></p>
+<p>但是也可以同时用<code>filter</code>和<code>map</code>函数来实现</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">beyond_ascii = list(filter(<span class="keyword">lambda</span> x: x &gt; <span class="number">40</span>, map(ord, symboles)))</span><br><span class="line">print(beyond_ascii)</span><br></pre></td></tr></table></figure></p>
+<p>map函数将一个函数作用于list中的每一个值上，filter也是对数组中的每一个值作用一个函数，但是只返回为真的数值，python3中最后返回的是一个filter对象</p>
+<p>比如过滤列表中的所有奇数</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 过滤出列表中的所有奇数</span></span><br><span class="line">a = [<span class="number">1</span>,<span class="number">242</span>,<span class="number">45</span>,<span class="number">23</span>,<span class="number">536</span>,<span class="number">1</span>,<span class="number">325</span>,<span class="number">63635</span>,<span class="number">56335</span>]</span><br><span class="line">a_is_odd = list(filter(<span class="keyword">lambda</span> x: x % <span class="number">2</span> != <span class="number">0</span>, a))</span><br><span class="line">print(a_is_odd)</span><br></pre></td></tr></table></figure></p>
+<p>再比如过滤出1~100中平方根是整数的数字
+所谓整数就是能整除1的数字</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#过滤出1~100中平方根是整数的数</span></span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line">g_is = list(filter(<span class="keyword">lambda</span> x: math.sqrt(x) % <span class="number">1</span> == <span class="number">0</span>, range(<span class="number">1</span>, <span class="number">101</span>)))</span><br><span class="line">print(g_is)</span><br></pre></td></tr></table></figure></p>
+<h2>解包</h2>
+<p>如下是一个比较神奇的栗子，
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># python解包</span></span><br><span class="line">colors = [<span class="string">'black'</span>, <span class="string">'white'</span>]</span><br><span class="line">sizes = [<span class="string">'S'</span>, <span class="string">'M'</span>, <span class="string">'L'</span>]</span><br><span class="line"><span class="keyword">for</span> tshirt <span class="keyword">in</span> (<span class="string">'%s %s'</span> % (c, s) <span class="keyword">for</span> c <span class="keyword">in</span> colors</span><br><span class="line">                                <span class="keyword">for</span> s <span class="keyword">in</span> sizes):</span><br><span class="line">    print(tshirt)</span><br></pre></td></tr></table></figure></p>
+<p>这里用一个<code>%</code>将元组进行了拆包
+如何很好地理解列表推导式呢？</p>
+<p>你可以将其想象为一个函数，<code>for c in colors for s in sizes</code> 返回值是<code>(c, s)</code> 用一个<code>%</code>成功地对其进行了拆包转化为字符串形式</p>
+<p>下面这幅图应该比较好理解
+<img src="/assets/python_dvmmoijlo.png" alt="python"></p>
+<p>然后就有了返回值
+<img src="/assets/python0_9np9b5bvn.png" alt="python0"></p>
+<p>当然还有这种写法：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a, b, *rst = range(<span class="number">5</span>)</span><br></pre></td></tr></table></figure></p>
+<h2>陷阱</h2>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">t = (<span class="number">1</span>,<span class="number">2</span>, [<span class="number">30</span>, <span class="number">40</span>])</span><br><span class="line">t[<span class="number">2</span>] += [<span class="number">50</span>, <span class="number">60</span>]</span><br><span class="line">print(t)</span><br></pre></td></tr></table></figure></p>
+<p>在一个不可变对象中插入了可变对象！</p>
+<p>虽然报错但是t的值确实被修改了</p>
+<p>对其进行反汇编或者是反编译：
+得到：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>           <span class="number">0</span> LOAD_CONST               <span class="number">1</span> (<span class="number">1</span>)</span><br><span class="line">              <span class="number">3</span> LOAD_CONST               <span class="number">2</span> (<span class="number">2</span>)</span><br><span class="line">              <span class="number">6</span> LOAD_CONST               <span class="number">3</span> (<span class="number">30</span>)</span><br><span class="line">              <span class="number">9</span> LOAD_CONST               <span class="number">4</span> (<span class="number">40</span>)</span><br><span class="line">             <span class="number">12</span> BUILD_LIST               <span class="number">2</span></span><br><span class="line">             <span class="number">15</span> BUILD_TUPLE              <span class="number">3</span></span><br><span class="line">             <span class="number">18</span> STORE_FAST               <span class="number">0</span> (t)</span><br><span class="line"></span><br><span class="line">  <span class="number">4</span>          <span class="number">21</span> LOAD_FAST                <span class="number">0</span> (t)</span><br><span class="line">             <span class="number">24</span> LOAD_CONST               <span class="number">2</span> (<span class="number">2</span>)</span><br><span class="line">             <span class="number">27</span> DUP_TOP_TWO</span><br><span class="line">             <span class="number">28</span> BINARY_SUBSCR</span><br><span class="line">             <span class="number">29</span> LOAD_CONST               <span class="number">5</span> (<span class="number">50</span>)</span><br><span class="line">             <span class="number">32</span> LOAD_CONST               <span class="number">6</span> (<span class="number">60</span>)</span><br><span class="line">             <span class="number">35</span> BUILD_LIST               <span class="number">2</span></span><br><span class="line">             <span class="number">38</span> INPLACE_ADD</span><br><span class="line">             <span class="number">39</span> ROT_THREE</span><br><span class="line">             <span class="number">40</span> STORE_SUBSCR</span><br></pre></td></tr></table></figure></p>
+<p>作者提出的三个教训：</p>
+<ol>
+<li>不要把可变对象放在元组里面</li>
+<li>增量赋值不是一个原子操作</li>
+<li>查看python的字节码并不难，而且了解代码背后的运行机制很有帮助</li>
+</ol>
+<p>然后我们就来研究python的字节码</p>
+<h2>python字节码</h2>
+<h3>变量</h3>
+<blockquote>
+<p>LOAD_FAST一般加载局部变量的值，也就是读取值，用于计算或者函数调用传参等。
+STORE_FAST一般用于保存值到局部变量。</p>
+</blockquote>
+<p>比如：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">61</span>          <span class="number">77</span> LOAD_FAST                <span class="number">0</span> (n)</span><br><span class="line">             <span class="number">80</span> LOAD_FAST                <span class="number">3</span> (p)</span><br><span class="line">             <span class="number">83</span> INPLACE_DIVIDE</span><br><span class="line">             <span class="number">84</span> STORE_FAST               <span class="number">0</span> (n)</span><br></pre></td></tr></table></figure></p>
+<p><code>INPLACE_DIVIDE</code>就是原地除法，先加载n，然后加载p，然后除法，然后保存结果</p>
+<p>对应的就是</p>
+<p><code>n = n/p</code></p>
+<blockquote>
+<p>如何区分函数形参和其他的局部变量？</p>
+</blockquote>
+<blockquote>
+<p>形参没有初始化，也就是从函数开始到LOAD_FAST该变量的位置，如果没有看到STORE_FAST，那么该变量就是函数形参。</p>
+</blockquote>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">4</span>           <span class="number">0</span> LOAD_CONST               <span class="number">1</span> (<span class="number">0</span>)</span><br><span class="line">            <span class="number">3</span> STORE_FAST               <span class="number">1</span> (local1)</span><br><span class="line"></span><br><span class="line"><span class="number">5</span>           <span class="number">6</span> LOAD_FAST                <span class="number">1</span> (local1)</span><br><span class="line">            <span class="number">9</span> PRINT_ITEM</span><br><span class="line">           <span class="number">10</span> LOAD_FAST                <span class="number">0</span> (arg1)</span><br><span class="line">           <span class="number">13</span> PRINT_ITEM</span><br><span class="line">           <span class="number">14</span> PRINT_NEWLINE</span><br><span class="line">           <span class="number">15</span> LOAD_CONST               <span class="number">0</span> (<span class="keyword">None</span>)</span><br><span class="line">           <span class="number">18</span> RETURN_VALUE</span><br></pre></td></tr></table></figure></p>
+<p>这里<code>arg1</code>就没有<code>STORE_FAST</code>
+所以对应的源代码为：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(arg1)</span>:</span></span><br><span class="line">    local1 = <span class="number">0</span></span><br><span class="line">    <span class="keyword">print</span> local1, arg1</span><br></pre></td></tr></table></figure></p>
+<h3>全局变量</h3>
+<blockquote>
+<p>LOAD_GLOBAL用来加载全局变量，包括指定函数名，类名，模块名等全局符号。</p>
+</blockquote>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span>           <span class="number">6</span> LOAD_CONST               <span class="number">2</span> (<span class="number">101</span>)</span><br><span class="line">            <span class="number">9</span> STORE_GLOBAL             <span class="number">0</span> (global1)</span><br><span class="line">            <span class="number">20</span> LOAD_GLOBAL              <span class="number">0</span> (global1)</span><br><span class="line">            <span class="number">23</span> PRINT_ITEM</span><br></pre></td></tr></table></figure></p>
+<p>对应的python代码：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">global</span> global1</span><br><span class="line">    global1 = <span class="number">101</span></span><br><span class="line">    <span class="keyword">print</span> global1</span><br></pre></td></tr></table></figure></p>
+<h3>常用数据类型</h3>
+<blockquote>
+<p>BUILD_LIST用于创建一个list结构。</p>
+</blockquote>
+<p>如果是用列表推导式呢？</p>
+<blockquote>
+<p>BUILD_MAP用于创建一个空的dict。STORE_MAP用于初始化dict的内容。</p>
+</blockquote>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">3</span>           <span class="number">0</span> LOAD_CONST               <span class="number">1</span> (<span class="string">'a'</span>)</span><br><span class="line">              <span class="number">3</span> LOAD_CONST               <span class="number">2</span> (<span class="string">'1'</span>)</span><br><span class="line">              <span class="number">6</span> BUILD_MAP                <span class="number">1</span></span><br><span class="line">              <span class="number">9</span> STORE_FAST               <span class="number">0</span> (k)</span><br><span class="line">             <span class="number">12</span> LOAD_CONST               <span class="number">0</span> (<span class="keyword">None</span>)</span><br><span class="line">             <span class="number">15</span> RETURN_VALUE</span><br></pre></td></tr></table></figure></p>
+<h1>参考</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/45101508" target="_blank" rel="noopener">死磕python字节码-手工还原python源码</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/30/C语言缓冲区/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1903,752 +2627,11 @@ exp如下：
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/deep-learning1/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/deep-learning1/" itemprop="url">deep learning1</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:58+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:46:10+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">deep learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  532
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  2
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h3>感知机补充</h3>
-<p>接着写</p>
-<p>感知机的训练中，老师还提供了一部份资料，比如训练出$y=2x$</p>
-<p>我们简要地看一下一次训练的结果：</p>
-<table>
-<thead>
-<tr>
-<th>bias</th>
-<th>x</th>
-<th>y</th>
-<th>w0</th>
-<th>w1</th>
-<th>yout</th>
-<th>y-yout</th>
-<th>adj0</th>
-<th>adj1</th>
-<th>alpha</th>
-<th>w0new</th>
-<th>w1new</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.512</td>
-<td>1.023</td>
-<td>0.719</td>
-<td>0.403</td>
-<td>0.926</td>
-<td>0.977</td>
-<td>0.977</td>
-<td>0.500</td>
-<td>0.7</td>
-<td>0.788</td>
-<td>0.438</td>
-</tr>
-</tbody>
-</table>
-<p>进行很多次训练之后画出的图形：
-<img src="https://i.loli.net/2019/07/10/5d2533696b1e993944.png" alt=""></p>
-<p>预测的还是挺准确的</p>
-<h3>为什么需要bias？</h3>
-<p>概念上很好理解，bias就是将一个正比例函数变为了一次函数，这样不必每次都过原点，分类的准确性也就大大地提高了</p>
-<h2>多层感知机</h2>
-<p>一层的感知机是没办法处理异或问题的</p>
-<p>所以需要增加隐藏层
-就像下面这样：
-<img src="https://i.loli.net/2019/07/10/5d25354fec71179261.png" alt="">
-这样就可以做到了：</p>
-<p><img src="https://i.loli.net/2019/07/10/5d253567b050673436.png" alt=""></p>
-<p>感觉MLP的数学知识太过复杂了，暂时放着</p>
-<h2>keras</h2>
-<p>从栗子代码开始：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"></span><br><span class="line">model = Sequential()</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用add来堆叠模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.add(Dense(units=<span class="number">64</span>, activation=<span class="string">'relu'</span>, input_dim=<span class="number">100</span>))</span><br><span class="line">model.add(Dense(units=<span class="number">10</span>, activation=<span class="string">'softmax'</span>))</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">使用compile来配置学习过程</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">              optimizer=<span class="string">'sgd'</span>,</span><br><span class="line">              metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line"><span class="comment"># x_train 和 y_train 是 Numpy 数组 -- 就像在 Scikit-Learn API 中一样。</span></span><br><span class="line">model.fit(x_train, y_train, epochs=<span class="number">5</span>, batch_size=<span class="number">32</span>)</span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">评估模型</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line">loss_and_metrics = model.evaluate(x_test, y_test, batch_size=<span class="number">128</span>)</span><br><span class="line">classes = model.predict(x_test, batch_size=<span class="number">128</span>)</span><br></pre></td></tr></table></figure></p>
-<h3>Sequential</h3>
-<h3>compile</h3>
-<p>在训练模型之前，需要配置学习过程，compile接收三个参数</p>
-<ul>
-<li>优化器optimizer</li>
-<li>损失函数loss</li>
-<li>评估标准metrics</li>
-</ul>
-<p>一个个来看</p>
-<ol>
-<li>
-<p>优化器
-可以先实例化一个优化器对象，然后将它传入<code>model.compile()</code>，或者可以通过</p>
-</li>
-<li>
-<p>损失函数</p>
-</li>
-</ol>
-<p>损失函数（或称目标函数、优化评分函数）是编译模型时所需的两个参数之一：
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'mean_squared_error'</span>, optimizer=<span class="string">'sgd'</span>)</span><br></pre></td></tr></table></figure></p>
-<p>我们可以传递一个现有的损失函数名，或者一个tensorflow符号函数，有以下两个参数</p>
-<ul>
-<li>y_true: 真实标签.</li>
-<li>y_pred: 预测值,其shape与y_true相同</li>
-</ul>
-<p>可用的损失函数：
-mean_squared_error
-mean_absolute_error
-等</p>
-<h2>参考</h2>
-<p><a href="https://blog.csdn.net/xwd18280820053/article/details/70681750" target="_blank" rel="noopener">神经网络中w,b参数的作用（为何需要偏置b的解释）</a>
-<a href="https://blog.csdn.net/hy13684802853/article/details/78717475" target="_blank" rel="noopener">深度学习中偏移项bias的作用</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/deep-learning0/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/deep-learning0/" itemprop="url">deep learning0</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:44+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:26:27+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/deep-learning/" itemprop="url" rel="index">
-                    <span itemprop="name">deep learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  978
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  4
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>deep learning</h1>
-<p>整理一下上课的笔记，不然全都会忘了去</p>
-<h2>无监督学习</h2>
-<p><code>self organizing map</code> 简称SOM算法</p>
-<p>大意：给定一个向量$v_{k}$,寻找到距离最近的神经元</p>
-<ul>
-<li>
-<p>找到最接近的神经元
-$$n_{bmu}=\underset{1\leqslant i\leqslant m}{argmin}\left | v_{k}-n_{i} \right |$$</p>
-</li>
-<li>
-<p>更新$n_{i}$</p>
-</li>
-</ul>
-<p>wikipedia上一张很形象的图片:</p>
-<blockquote>
-<p>蓝色斑点是训练数据的分布，小白色光盘是从该分布中抽取的当前训练数据。首先（左），SOM节点任意地位于数据空间中。选择最接近训练基准的节点（以黄色突出显示）。它被移向训练数据，因为（在较小程度上）是它在网格上的邻居。在多次迭代之后，网格倾向于近似数据分布（右）。</p>
-</blockquote>
-<p><img src="https://i.loli.net/2019/07/07/5d22023bd954e64199.png" alt=""></p>
-<h2>有监督学习</h2>
-<h3>数学知识</h3>
-<h4>特征向量</h4>
-<p>线性代数中的特征向量：</p>
-<blockquote>
-<p>对于一个给定的方阵A，它的特征向量v经过线性变化之后，得到的新向量仍然与原来的v保持在同一条直线上，但其长度或方向也许会改变，即：
-$$Av=\lambda v$$
-此时$v$就是矩阵$A$的特征向量，$\lambda$就是对应的特征值</p>
-</blockquote>
-<p>进一步：在一定条件下，一个变换可以由其特征值特征向量完全表述，也就是说，所有的特征向量组成了这向量空间的一组基底。
-一个特征空间是具有相同特征值的特征向量与一个同维数的零向量的集合，比如$E_{\lambda }=\left { u\in V | Au=\lambda u\right }$即为线性变化$A$中以$\lambda$为特征值的特征空间</p>
-<p>抽象概念不容易理解，举几个栗子：</p>
-<ul>
-<li>恒等变换$I$的特征向量
-$$I(v)=v=1\cdot v$$
-可以看到所有的特征向量都是恒等变换$I$的特征向量，恒等变换的特征空间只有一个就是整个空间</li>
-<li>类似的，数乘变换$\lambda I$的特征向量也是所有的非零向量，因为按照定义：
-$$\lambda I(v) = \lambda \cdot v$$</li>
-</ul>
-<h3>感知器</h3>
-<p>看张图：</p>
-<p><img src="https://i.imgur.com/Uo24IIn.png" alt="Ncell"></p>
-<p>数学表述为：$t = f(\sum <em>{i=1}^{n} w</em>{i}x_{i} + b) = f(\mathbf{w}^{T} \mathbf{x})$</p>
-<p>f函数的表达式：
-$$f(x) = \left{\begin{matrix}
-1 &amp; if , w \cdot x + b &gt; 0 \
-0 &amp; else
-\end{matrix}\right.$$</p>
-<p>$\mathbf{x} = \left [ x_{1}, x_{2} ... , x_{n} , \ 1 \right]^{T}$, $\mathbf{w} = \left [ w_{1}, w_{2} , ...w_{n} , \ b \right]^{T}$</p>
-<p>如何训练？</p>
-<p>我们来看一个训练与运算的demo
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_data</span><span class="params">()</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  加载数据，input_data和labels对应</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    input_data = [[<span class="number">1</span>, <span class="number">1</span>], [<span class="number">0</span>, <span class="number">0</span>], [<span class="number">1</span>, <span class="number">0</span>], [<span class="number">0</span>, <span class="number">1</span>]]</span><br><span class="line">    labels = [<span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">    <span class="keyword">return</span> input_data, labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train_pre</span><span class="params">(input_data, y, iteration, rate)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  训练，更新w和b</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    unit_step = <span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">    w = np.random.rand(len(input_data[<span class="number">0</span>]))</span><br><span class="line">    bias = <span class="number">0.0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(iteration):</span><br><span class="line">        samples = zip(input_data, y)</span><br><span class="line">        <span class="keyword">for</span> (input_i, label) <span class="keyword">in</span> samples:</span><br><span class="line">            result = input_i * w + bias</span><br><span class="line">            result = float(sum(result))</span><br><span class="line">            y_pred = float(unit_step(result))</span><br><span class="line">            w = w + rate * (label - y_pred) * np.array(input_i)</span><br><span class="line">            bias = rate * (label - y_pred)</span><br><span class="line">    <span class="keyword">return</span> w, bias</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">predict</span><span class="params">(input_i, w, b)</span>:</span></span><br><span class="line">  <span class="string">'''</span></span><br><span class="line"><span class="string">  预测</span></span><br><span class="line"><span class="string">  '''</span></span><br><span class="line">    unit_step = <span class="keyword">lambda</span> x: <span class="number">0</span> <span class="keyword">if</span> x &lt; <span class="number">0</span> <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line">    result = input_i * w + b</span><br><span class="line">    result = sum(result)</span><br><span class="line">    y_pred = float(unit_step(result))</span><br><span class="line">    print(y_pred)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    input_data, y = load_data()</span><br><span class="line">    w, b = train_pre(input_data, y, <span class="number">20</span>, <span class="number">0.01</span>)</span><br><span class="line">    predict([<span class="number">1</span>, <span class="number">1</span>], w, b)</span><br></pre></td></tr></table></figure></p>
-<p>我们很惊讶地发现一个如此简单地模型竟然不可思议地完成了这个任务。
-数据更新：
-$w(j) := w(j) + \alpha (y-f(x))x(j) (j = 1,...n)$</p>
-<h3>异或问题</h3>
-<p>当时老师上课时候提到异或问题是不可解的，后来查了一下资料才明白在神经网络发展的早期，异或问题确实是不可解的，不过通过加入隐藏层使得异或问题能够有了新的解法</p>
-<p>如下图：
-<img src="https://i.loli.net/2019/07/07/5d2204580b53040600.png" alt=""></p>
-<p>复习的时候才注意到原来老师提到了通过加入隐藏层的方式来解决异或问题</p>
-<p><img src="https://i.loli.net/2019/07/07/5d220559de3ef92755.png" alt=""></p>
-<h2>参考资料</h2>
-<p><a href="https://www.cnblogs.com/Belter/p/6711160.html" target="_blank" rel="noopener">【机器学习】神经网络实现异或（XOR）</a>
-<a href="https://zhuanlan.zhihu.com/p/25736962" target="_blank" rel="noopener">1.5 图形化理解神经网络中的异或问题</a>
-<a href="https://zh.wikipedia.org/wiki/%E6%84%9F%E7%9F%A5%E5%99%A8" target="_blank" rel="noopener">感知器 wikipedia</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/21/从Googlectf一道题认识一下链接文件/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/21/从Googlectf一道题认识一下链接文件/" itemprop="url">从Googlectf一道题认识一下链接文件</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-21T16:07:06+08:00">
-                2019-07-21
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-21T16:09:01+08:00">
-                2019-07-21
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  338
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>Linux目录</h1>
-<p>源自Googlectf2017的一道题</p>
-<p><img src="https://miro.medium.com/max/1094/1*A0WzQ3KOMSLvPFog50KRfQ.png" alt="">
-可以通过f参数直接读取到想读的文件
-flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？</p>
-<p>Linux中有一个叫做<code>symlink method</code>
-也就是相当于一个快捷方式，但是却不同于Windows中的shortcut
-而正好：<code>/dev/fd</code>这个指向了<code>/proc/self/fd</code>这样payload就不难理解了：
-<code>/dev/fd/../environ</code>
-访问<code>/dev/fd</code>就相当于访问了<code>/proc/self</code>之后回退一次就可以找到<code>environ</code>这个文件了</p>
-<p>Linux中 <code>/dev/fd/0</code>运行效果是这样的，相当于你输入啥它就会回答啥
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> ✘ pxy@LAPTOP-UBIEP4K5  ~  sudo cat /dev/fd/0</span><br><span class="line">a</span><br><span class="line">a</span><br><span class="line">pxy</span><br><span class="line">pxy</span><br></pre></td></tr></table></figure></p>
-<p>接下来了解一下ln命令</p>
-<ul>
-<li>软链接：英文<code>symbolic link</code>非常类似于Windows中的快捷方式</li>
-<li>硬链接：英文<code>hard link</code>这类文件会拥有自己的inode节点和名称，其inode会指向文件内容所在的数据块emmm后面不是很懂了</li>
-</ul>
-<p>建立软链接的方式：
-<code>ln -s 源文件名称 软链接文件名称</code>
-目录和文件均可</p>
-<p>现在当前吗目录下创建一个指向<code>/proc/sys</code>的链接
-<img src="https://i.imgur.com/RmHcXEq.png" alt="linux0"></p>
-<p>然后我们就可以通过目录遍历来进入到其他的目录了。
-<img src="https://i.imgur.com/ssSnuQU.png" alt="linux1"></p>
-<p>软链接还会存在这个问题：</p>
-<p>链接的重复定义
-<img src="https://i.imgur.com/RESHwi3.png" alt="linux2"></p>
-<p>这样就不会出问题了，加个<code>-n</code>选项
-<img src="https://i.imgur.com/sHZv4QY.png" alt="linux3"></p>
-<p><a href="https://medium.com/@forwardsecrecy/google-ctf-2017-mindreader-570e8acf53b7" target="_blank" rel="noopener">参考</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2696,7 +2679,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2718,7 +2701,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">48</span>
+                  <span class="site-state-item-count">51</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
