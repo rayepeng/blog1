@@ -300,6 +300,225 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/22/探寻数据库/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/22/探寻数据库/" itemprop="url">探寻数据库</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-22T22:54:21+08:00">
+                2019-07-22
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T22:55:29+08:00">
+                2019-07-22
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  478
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  2
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>mysql命令行操作小结</h1>
+<p>感觉这些知识又快忘记了</p>
+<ul>
+<li>登陆 <code>mysql -u root -p</code></li>
+<li>创建数据库 <code>create database databasename</code></li>
+<li>删除数据库 <code>drop database databasename</code></li>
+<li>从外部sql文件导入，如果sql文件中没有创建数据库需要先指定一个数据库然后<code>source path/*.sql</code>就可以导入了，再也不用受烦人的<code>phpmyadmin</code>影响了</li>
+<li>删除数据表<code>drop table table_name</code></li>
+<li>导出表<code>mysqldump -u root -p RUNOOB runoob_tbl &gt; dump.txt</code></li>
+<li>导出数据库<code>mysqldump -u root -p RUNOOB &gt; database_dump.txt</code></li>
+<li>备份所有数据库<code>mysqldump -u root -p --all-databases &gt; database_dump.txt</code></li>
+</ul>
+<p>一般<code>sql</code>文件的写法：</p>
+<p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> <span class="keyword">if</span> <span class="keyword">exists</span> DBName;</span><br><span class="line">creat database DBName;</span><br><span class="line"><span class="keyword">use</span> DBName;</span><br><span class="line"></span><br><span class="line"><span class="comment">#开始创建表</span></span><br><span class="line"><span class="keyword">create</span> ......</span><br><span class="line"></span><br><span class="line"><span class="comment">#开始插入数据</span></span><br><span class="line">insert....</span><br></pre></td></tr></table></figure></p>
+<h2>使用<code>pymysql</code>连接数据库</h2>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymsql</span><br><span class="line">con = pymysql.connect(<span class="string">'localhost'</span>, <span class="string">'root'</span>, <span class="string">''</span>, <span class="string">'mpsa'</span>)</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> con.cursor() <span class="keyword">as</span> cursor:</span><br><span class="line">        sql = <span class="string">'drop database runoob'</span></span><br><span class="line">        cursor.execute(sql)</span><br><span class="line"></span><br><span class="line">    con.commit()</span><br><span class="line"></span><br><span class="line"><span class="keyword">finally</span>:</span><br><span class="line">    con.close()</span><br></pre></td></tr></table></figure></p>
+<p>那个<code>cursor</code>函数我也不是很明白为什么，不过一般的用法就是这样啦</p>
+<h2>php连接数据库</h2>
+<p>使用php连接数据库,创建数据库，然后删除</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">$conn = mysqli_connect($dbhost, $dbuser, $dbpass);</span><br><span class="line"><span class="keyword">if</span>(!$conn)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"error!!"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"连接成功"</span>;</span><br><span class="line"><span class="comment">//查询数据</span></span><br><span class="line">$sql = <span class="string">"create database runoob"</span>;</span><br><span class="line">$retval = mysqli_query($conn, $sql);</span><br><span class="line"><span class="keyword">if</span>(!$retval)&#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">"查询数据失败！"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"创建成功"</span>;</span><br><span class="line">$sql1 = <span class="string">"drop database runoob"</span>;</span><br><span class="line">$retval = mysqli_query($conn, $sql);</span><br><span class="line">mysqli_close($conn);</span><br></pre></td></tr></table></figure></p>
+<p>遇到了问题：</p>
+<p><img src="https://i.imgur.com/IcnNipt.png" alt="php6"></p>
+<p>查了一下<code>stackoverflow</code>
+看到了这个回答：</p>
+<blockquote>
+<p>The mysqli-&gt;connect_error property only works properly as of PHP versions 5.2.9 and 5.3.0. Use the mysqli_connect_error() function if compatibility with earlier PHP versions is required.</p>
+</blockquote>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$mysqli = <span class="keyword">new</span> mysqli(<span class="string">'localhost'</span>, <span class="string">'my_user'</span>, <span class="string">'my_password'</span>, <span class="string">'my_db'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * This is the "official" OO way to do it,</span></span><br><span class="line"><span class="comment"> * BUT $connect_error was broken until PHP 5.2.9 and 5.3.0.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> ($mysqli-&gt;connect_error) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'Connect Error ('</span> . $mysqli-&gt;connect_errno . <span class="string">') '</span></span><br><span class="line">            . $mysqli-&gt;connect_error);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * Use this instead of $connect_error if you need to ensure</span></span><br><span class="line"><span class="comment"> * compatibility with PHP versions prior to 5.2.9 and 5.3.0.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">if</span> (mysqli_connect_error()) &#123;</span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'Connect Error ('</span> . mysqli_connect_errno() . <span class="string">') '</span></span><br><span class="line">            . mysqli_connect_error());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>原来是建立过程中的不稳定，怪不得我新建的数据库没有被删掉.</p>
+<h1>参考</h1>
+<p><a href="https://stackoverflow.com/questions/18831863/property-access-is-not-allowed-yet-warning-when-using-prepared-statement" target="_blank" rel="noopener">stackoverflow的回答</a>
+<a href="https://pymysql.readthedocs.io/en/latest/user/development.html" target="_blank" rel="noopener">pymysql文档，写的很简单</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/22/php-challenge9/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2574,220 +2793,6 @@ vsnprintf函数的用法：</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/15/Leetcode-2/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/15/Leetcode-2/" itemprop="url">Leetcode 2</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:12:08+08:00">
-                2019-07-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:31:17+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/leetcode/" itemprop="url" rel="index">
-                    <span itemprop="name">leetcode</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  379
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>错解</h1>
-<p>怎么快速地将链表倒置</p>
-<p>😕</p>
-<p><img src="https://i.imgur.com/phNwhfi.png" alt="wrong"></p>
-<p>最后还是因为溢出的问题</p>
-<p>思路：</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">​        <span class="keyword">int</span> k = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        ListNode temp1 = l1;</span><br><span class="line"></span><br><span class="line">        ListNode temp2 = l2;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> resultl1 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">double</span> resultl2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span> (temp1 != <span class="keyword">null</span>) &#123;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">int</span> tempvalue = temp1.val;</span><br><span class="line"></span><br><span class="line">            resultl1 = resultl1 + tempvalue * Math.pow(<span class="number">10</span>, k);</span><br><span class="line"></span><br><span class="line">            k++;</span><br><span class="line"></span><br><span class="line">            temp1 = temp1.next;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
-<p>就是将其转化为整数，因为链表的第一个元素是最低位，之后是十位，百位等</p>
-<p>将得到的结果在转化为链表</p>
-<p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">int</span> result = (<span class="keyword">int</span>) (resultl1 + resultl2);</span><br><span class="line"></span><br><span class="line">ListNode ans = <span class="keyword">new</span> ListNode(<span class="number">0</span>); <span class="comment">//先取一个头节点</span></span><br><span class="line"></span><br><span class="line">ListNode head = ans;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> length = Integer.toString(result).length();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++) &#123;</span><br><span class="line"></span><br><span class="line">    ListNode temp = <span class="keyword">new</span> ListNode(result % <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">    head.next = temp;</span><br><span class="line"></span><br><span class="line">    head = head.next;</span><br><span class="line"></span><br><span class="line">    result = result / <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>记录一下将整数转为string的操作</p>
-<blockquote>
-<p>Integer.toString(result)</p>
-</blockquote>
-<p>Math.pow函数的返回值必须是double类型的</p>
-<p>但是这样会面临一个问题，也就是最开图片的那个，溢出！</p>
-<h1>正解</h1>
-<p>看了眼答案，才明白自己从开始就想错了</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">public ListNode addTwoNumbers(ListNode l1, ListNode l2) &#123;</span><br><span class="line"></span><br><span class="line">    ListNode dummyHead = new ListNode(0);</span><br><span class="line"></span><br><span class="line">    ListNode p = l1, q = l2, curr = dummyHead;</span><br><span class="line"></span><br><span class="line">    int carry = 0;</span><br><span class="line"></span><br><span class="line">    while (p != null || q != null) &#123;</span><br><span class="line"></span><br><span class="line">        int x = (p != null) ? p.val : 0;</span><br><span class="line"></span><br><span class="line">        int y = (q != null) ? q.val : 0;</span><br><span class="line"></span><br><span class="line">        int sum = carry + x + y;</span><br><span class="line"></span><br><span class="line">        carry = sum / 10;</span><br><span class="line"></span><br><span class="line">        curr.next = new ListNode(sum % 10);</span><br><span class="line"></span><br><span class="line">        curr = curr.next;</span><br><span class="line"></span><br><span class="line">        if (p != null) p = p.next;</span><br><span class="line"></span><br><span class="line">        if (q != null) q = q.next;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    if (carry &gt; 0) &#123;</span><br><span class="line"></span><br><span class="line">        curr.next = new ListNode(carry);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    return dummyHead.next;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>最关键的就是</p>
-<p>==int x = (p != null) ? p.val : 0;</p>
-<p>int y = (q != null) ? q.val : 0;</p>
-<p>int sum = carry + x + y;</p>
-<p>carry = sum / 10;</p>
-<p>curr.next = new ListNode(sum % 10);==</p>
-<p>其实只需要从低位开始一位位的加上去就好了。</p>
-<p>然后再把它们给链起来</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2840,7 +2845,7 @@ vsnprintf函数的用法：</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2862,7 +2867,7 @@ vsnprintf函数的用法：</p>
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">52</span>
+                  <span class="site-state-item-count">54</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
