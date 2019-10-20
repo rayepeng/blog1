@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&amp;#39;example&amp;#39; 那这就很">
+<meta name="description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&apos;example&apos; 那这就很奇怪了，明明字母">
 <meta name="keywords" content="python,str,byte">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python中的编码问题">
 <meta property="og:url" content="https://prontosil.club/2019/08/18/python-zhong-de-bian-ma-wen-ti/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&amp;#39;example&amp;#39; 那这就很">
+<meta property="og:description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&apos;example&apos; 那这就很奇怪了，明明字母">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/2aqRykLTjgoCSGZ.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/18/Tgfm8l1NxwvM4BL.png">
@@ -97,7 +97,7 @@
 <meta property="og:updated_time" content="2019-08-19T13:03:01.935Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python中的编码问题">
-<meta name="twitter:description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&amp;#39;example&amp;#39; 那这就很">
+<meta name="twitter:description" content="似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下 python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码 好我们先来看： 12a = &apos;example&apos;  ---&amp;gt; a 是 str类型b = a.encode(&apos;utf-8&apos;) ---&amp;gt; 编码为字符 此时b的值为： b&apos;example&apos; 那这就很奇怪了，明明字母">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/18/2aqRykLTjgoCSGZ.png">
 
 
@@ -405,7 +405,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  340
+                  338
                 </span>
               
 
@@ -445,8 +445,8 @@
         <p>似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下</p>
 <p>python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码</p>
 <p>好我们先来看：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 'example'  ---&gt; a 是 str类型</span><br><span class="line">b = a.encode('utf-8') ---&gt; 编码为字符</span><br></pre></td></tr></table></figure>
-<p>此时b的值为： <code>b&#39;example&#39;</code></p>
+<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 'example'  ---&gt; a 是 str类型</span><br><span class="line">b = a.encode('utf-8') ---&gt; 编码为字符</span><br></pre></td></tr></table></figure></p>
+<p>此时b的值为： <code>b'example'</code></p>
 <p>那这就很奇怪了，明明字母e德utf-8编码是0x65,为什么这里还是原来的？？</p>
 <p>不妨看这个：</p>
 <p><img src="https://i.loli.net/2019/08/18/2aqRykLTjgoCSGZ.png" alt="quicker_b9eba1c7-a187-429c-9fe8-00d4a77b6bc3.png"></p>
@@ -457,10 +457,11 @@
 <p>ok到这里大概疑惑就没了，用什么格式编码得到的byte，就需要用对应的格式解码回去</p>
 <p><img src="https://i.loli.net/2019/08/18/giCLUX7GzTrQ6Vu.png" alt="quicker_c7be18fe-114e-4a98-80c8-b2c58a1c0eed.png"></p>
 <p>可以看出不同的编码得到的byte是不一样的，并且python默认会将可打印的字符直接打印出来？</p>
-<h2 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h2><ol>
+<h2>问题</h2>
+<ol>
 <li>十六进制</li>
 </ol>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'example'</span></span><br><span class="line">b = <span class="string">b'example'</span></span><br><span class="line">res = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">    res += str(hex(i))[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'example'</span></span><br><span class="line">b = <span class="string">b'example'</span></span><br><span class="line">res = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">    res += str(hex(i))[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure></p>
 <p>此时res的值为：<code>6578616d706c65</code></p>
 <p>如果要将其变回原来的字符串怎么办</p>
 <p>也就是一种ASCII hex编码</p>
@@ -594,7 +595,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -703,7 +704,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#问题"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">问题</span></a></li></ol></div>
             
 
           </div>

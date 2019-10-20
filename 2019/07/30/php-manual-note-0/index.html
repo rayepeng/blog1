@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="php doc阅读笔记0array数组是php的key=&amp;gt;value映射key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 “8” 实际会被储存为 8。但是 “08” 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名 8.7 实际会">
+<meta name="description" content="php doc阅读笔记0 array 数组是php的key=&amp;gt;value映射 key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 &amp;quot;8&amp;quot; 实际会被储存为 8。但是 &amp;quot;08&amp;quot; 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味">
 <meta name="keywords" content="php">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php-manual-note-0">
 <meta property="og:url" content="https://prontosil.club/2019/07/30/php-manual-note-0/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="php doc阅读笔记0array数组是php的key=&amp;gt;value映射key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 “8” 实际会被储存为 8。但是 “08” 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名 8.7 实际会">
+<meta property="og:description" content="php doc阅读笔记0 array 数组是php的key=&amp;gt;value映射 key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 &amp;quot;8&amp;quot; 实际会被储存为 8。但是 &amp;quot;08&amp;quot; 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-07-30T15:16:36.577Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php-manual-note-0">
-<meta name="twitter:description" content="php doc阅读笔记0array数组是php的key=&amp;gt;value映射key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 “8” 实际会被储存为 8。但是 “08” 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名 8.7 实际会">
+<meta name="twitter:description" content="php doc阅读笔记0 array 数组是php的key=&amp;gt;value映射 key只能是integer和string类型，value可以是任意类型 所以key会有如下强制转换：  包含有合法整型值的字符串会被转换为整型。例如键名 &amp;quot;8&amp;quot; 实际会被储存为 8。但是 &amp;quot;08&amp;quot; 则不会强制转换，因为其不是一个合法的十进制数值。 浮点数也会被转换为整型，意味">
 
 
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  516
+                  527
                 </span>
               
 
@@ -436,35 +436,42 @@
       
 
       
-        <h1 id="php-doc阅读笔记0"><a href="#php-doc阅读笔记0" class="headerlink" title="php doc阅读笔记0"></a>php doc阅读笔记0</h1><h2 id="array"><a href="#array" class="headerlink" title="array"></a>array</h2><p>数组是php的key=&gt;value映射<br>key只能是<code>integer</code>和<code>string</code>类型，value可以是任意类型</p>
+        <h1>php doc阅读笔记0</h1>
+<h2>array</h2>
+<p>数组是php的key=&gt;value映射
+key只能是<code>integer</code>和<code>string</code>类型，value可以是任意类型</p>
 <p>所以key会有如下强制转换：</p>
 <ul>
-<li>包含有合法整型值的字符串会被转换为整型。例如键名 “8” 实际会被储存为 8。但是 “08” 则不会强制转换，因为其不是一个合法的十进制数值。</li>
+<li>包含有合法整型值的字符串会被转换为整型。例如键名 &quot;8&quot; 实际会被储存为 8。但是 &quot;08&quot; 则不会强制转换，因为其不是一个合法的十进制数值。</li>
 <li>浮点数也会被转换为整型，意味着其小数部分会被舍去。例如键名 8.7 实际会被储存为 8。</li>
 <li>布尔值也会被转换成整型。即键名 true 实际会被储存为 1 而键名 false 会被储存为 0。</li>
-<li>Null 会被转换为空字符串，即键名 null 实际会被储存为 “”。</li>
+<li>Null 会被转换为空字符串，即键名 null 实际会被储存为 &quot;&quot;。</li>
 <li>数组和对象不能被用为键名。坚持这么做会导致警告：Illegal offset type。</li>
 </ul>
 <p>比如官方举例如下：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="number">1</span>    =&gt; <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"1"</span>  =&gt; <span class="string">"b"</span>,</span><br><span class="line">  <span class="number">1.5</span>  =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="keyword">true</span> =&gt; <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="number">1</span>    =&gt; <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"1"</span>  =&gt; <span class="string">"b"</span>,</span><br><span class="line">  <span class="number">1.5</span>  =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="keyword">true</span> =&gt; <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure></p>
 <p>输出如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">array(1) &#123;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>会导致数组的一部分值被覆盖掉</p>
 <blockquote>
-<p>上例中所有的键名都被强制转换为 1，则每一个新单元都会覆盖前一个的值，最后剩下的只有一个 “d”。</p>
+<p>上例中所有的键名都被强制转换为 1，则每一个新单元都会覆盖前一个的值，最后剩下的只有一个 &quot;d&quot;。</p>
 </blockquote>
 <p>同时：</p>
 <blockquote>
 <p>key 为可选项。如果未指定，PHP 将自动使用之前用过的最大 integer 键名加上 1 作为新的键名。</p>
 </blockquote>
 <p>那就会有这种结果：</p>
-<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"b"</span>,</span><br><span class="line"><span class="number">6</span> =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$array = <span class="keyword">array</span>(</span><br><span class="line">  <span class="string">"a"</span>,</span><br><span class="line">  <span class="string">"b"</span>,</span><br><span class="line"><span class="number">6</span> =&gt; <span class="string">"c"</span>,</span><br><span class="line">  <span class="string">"d"</span>,</span><br><span class="line">);</span><br><span class="line">var_dump($array);</span><br></pre></td></tr></table></figure></p>
 <p>输出为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array(4) &#123;</span><br><span class="line">  [0] =&gt;</span><br><span class="line">  string(1) &quot;a&quot;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;b&quot;</span><br><span class="line">  [6] =&gt;</span><br><span class="line">  string(1) &quot;c&quot;</span><br><span class="line">  [7] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="神奇的解引用语法"><a href="#神奇的解引用语法" class="headerlink" title="神奇的解引用语法"></a>神奇的解引用语法</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArray</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解引用语法</span></span><br><span class="line"></span><br><span class="line">$a = getArray()[<span class="number">0</span>];</span><br><span class="line">var_dump($a);</span><br><span class="line"><span class="keyword">list</span>(, $secondelement) = getArray();</span><br><span class="line"></span><br><span class="line">var_dump($secondelement);</span><br></pre></td></tr></table></figure>
-<p>输出为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(1)</span><br><span class="line">int(2)</span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">array(4) &#123;</span><br><span class="line">  [0] =&gt;</span><br><span class="line">  string(1) &quot;a&quot;</span><br><span class="line">  [1] =&gt;</span><br><span class="line">  string(1) &quot;b&quot;</span><br><span class="line">  [6] =&gt;</span><br><span class="line">  string(1) &quot;c&quot;</span><br><span class="line">  [7] =&gt;</span><br><span class="line">  string(1) &quot;d&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3>神奇的解引用语法</h3>
+<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getArray</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">array</span>(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解引用语法</span></span><br><span class="line"></span><br><span class="line">$a = getArray()[<span class="number">0</span>];</span><br><span class="line">var_dump($a);</span><br><span class="line"><span class="keyword">list</span>(, $secondelement) = getArray();</span><br><span class="line"></span><br><span class="line">var_dump($secondelement);</span><br></pre></td></tr></table></figure></p>
+<p>输出为：
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">int(1)</span><br><span class="line">int(2)</span><br></pre></td></tr></table></figure></p>
 <p><code>list</code>定义为：将数组中的值赋值给变量</p>
-<h3 id="用-的语法"><a href="#用-的语法" class="headerlink" title="用[]的语法"></a>用[]的语法</h3><p>如果有一个数组 <code>$arr = array(5 =&gt; 1, 12 =&gt; 2);</code><br>那么<code>$arr[] = 56</code>相当于<code>$arr[13]=56</code></p>
+<h3>用[]的语法</h3>
+<p>如果有一个数组 <code>$arr = array(5 =&gt; 1, 12 =&gt; 2);</code>
+那么<code>$arr[] = 56</code>相当于<code>$arr[13]=56</code></p>
 <p>使用<code>unset</code>函数可以取消键值对映射比如<code>unset($arr[5])</code>,或者销毁一个数组<code>unset($arr)</code></p>
 
       
@@ -589,7 +596,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -698,7 +705,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#php-doc阅读笔记0"><span class="nav-number">1.</span> <span class="nav-text">php doc阅读笔记0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#array"><span class="nav-number">1.1.</span> <span class="nav-text">array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#神奇的解引用语法"><span class="nav-number">1.1.1.</span> <span class="nav-text">神奇的解引用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#用-的语法"><span class="nav-number">1.1.2.</span> <span class="nav-text">用[]的语法</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">php doc阅读笔记0</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">array</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.1.</span> <span class="nav-text">神奇的解引用语法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.2.</span> <span class="nav-text">用[]的语法</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

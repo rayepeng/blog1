@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”攻击：首先上传一个php文件当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件">
+<meta name="description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的">
 <meta name="keywords" content="web">
 <meta property="og:type" content="article">
 <meta property="og:title" content="上传竞争">
 <meta property="og:url" content="https://prontosil.club/2019/08/17/shang-chuan-jing-zheng/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”攻击：首先上传一个php文件当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件">
+<meta property="og:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png">
 <meta property="og:updated_time" content="2019-08-20T03:24:21.495Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上传竞争">
-<meta name="twitter:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”攻击：首先上传一个php文件当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件">
+<meta name="twitter:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png">
 
 
@@ -442,12 +442,14 @@
 <p>上传竞争的来源：</p>
 <p>栗子：先存储文件，再判断是否合法，然后再删除。</p>
 <blockquote>
-<p>首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”<br>攻击：首先上传一个php文件<br>当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个shell。</p>
+<p>首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”
+攻击：首先上传一个php文件
+当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个shell。</p>
 </blockquote>
 <p>这里有一道对于文件上传竞争的wp：</p>
 <p><a href="https://blog.csdn.net/iamsongyu/article/details/83346029" target="_blank" rel="noopener">2018护网杯第一场 web easy tornado LTshop超详细解答</a></p>
 <p>同时我们来看一下moctf的一道题:</p>
-<p><a href="http://119.23.73.3:5006/web2/index2.php" target="_blank" rel="noopener">http://119.23.73.3:5006/web2/index2.php</a></p>
+<p>http://119.23.73.3:5006/web2/index2.php</p>
 <p>直接访问index2.php肯定不正常，抓包修改成index.php，提示uploadsomething.php</p>
 <p>访问之后是一个文件上传页面。自定义文件名和文件内容</p>
 <p>文件名可以是php后缀的，那思路就是写一个shell进去再访问，但是访问时候页面提示太慢了。</p>
@@ -459,7 +461,8 @@
 <p>然后爆破第二个：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png" alt=""></p>
 <p>就会有flag了</p>
-<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://shuaizhupeiqi.github.io/2018/11/15/条件竞争漏洞/" target="_blank" rel="noopener">CTF中的条件竞争漏洞</a></p>
+<h2>参考</h2>
+<p><a href="https://shuaizhupeiqi.github.io/2018/11/15/%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">CTF中的条件竞争漏洞</a></p>
 
       
     </div>
@@ -583,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">71</span>
+                  <span class="site-state-item-count">72</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -692,7 +695,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
