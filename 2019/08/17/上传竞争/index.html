@@ -89,13 +89,12 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://prontosil.club/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png">
-<meta property="og:updated_time" content="2019-08-17T02:37:34.145Z">
+<meta property="og:updated_time" content="2019-08-19T10:39:00.308Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="上传竞争">
 <meta name="twitter:description" content="文件上传的题目遇到的不是很多，这里分析一下文件上传竞争 上传竞争的来源： 栗子：先存储文件，再判断是否合法，然后再删除。  首先将文件上传到服务器，然后检测文件后缀名，如果不符合条件，就删掉，典型的“引狼入室” 攻击：首先上传一个php文件 当然这个文件会被立马删掉，所以我们使用多线程并发的访问上传的文件，总会有一次在上传文件到删除文件这个时间段内访问到上传的php文件，一旦我们成功访问到了上传的">
-<meta name="twitter:image" content="https://prontosil.club/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png">
 
 
 
@@ -352,8 +351,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-17T10:37:34+08:00">
-                2019-08-17
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-19T18:39:00+08:00">
+                2019-08-19
               </time>
             
           </span>
@@ -459,7 +458,6 @@
 <p>另一个是访问的 <code>/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php</code></p>
 <p>都发送到intruder模块，设置线程为50，字典为空</p>
 <p>先爆破第一个：</p>
-<p><img src="/web2/uploads/56db0b8d99fd6116ed67d35b607cd9351ea94156/1.php" alt=""></p>
 <p>然后爆破第二个：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/upload1.png" alt=""></p>
 <p>就会有flag了</p>
@@ -588,7 +586,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -610,7 +608,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

