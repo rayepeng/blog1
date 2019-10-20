@@ -89,13 +89,13 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="深入理解plt和got 先写一段代码： 123456789// Build with: gcc -m32 --no-pie -g -o plt plt.c#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main(int argc, char **argv) &amp;#123;  puts(&quot;Hello world!&quot;);  exit(0);&amp;#1">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://prontosil.club/assets/got0_bmqvjb601">
-<meta property="og:image" content="https://prontosil.club/assets/got1_8tzb6jmh9">
-<meta property="og:updated_time" content="2019-07-24T12:50:39.853Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/got0_bmqvjb601.jpg">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/got1_8tzb6jmh9">
+<meta property="og:updated_time" content="2019-08-20T03:23:20.399Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="聊聊plt与got">
 <meta name="twitter:description" content="深入理解plt和got 先写一段代码： 123456789// Build with: gcc -m32 --no-pie -g -o plt plt.c#include &amp;lt;stdio.h&amp;gt;#include &amp;lt;stdlib.h&amp;gt;int main(int argc, char **argv) &amp;#123;  puts(&quot;Hello world!&quot;);  exit(0);&amp;#1">
-<meta name="twitter:image" content="https://prontosil.club/assets/got0_bmqvjb601">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/got0_bmqvjb601.jpg">
 
 
 
@@ -352,8 +352,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-24T20:50:39+08:00">
-                2019-07-24
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-20T11:23:20+08:00">
+                2019-08-20
               </time>
             
           </span>
@@ -496,7 +496,7 @@
 <p>之前看参考资料中博主的文章一直没有很理解，这里直接统一说一下我的理解：</p>
 <h2>何谓PLT与GOT</h2>
 <p>其实这里准确的来说应该叫got.plt而不是叫got，不过为了方便我们还是叫它got表吧</p>
-<p><img src="/assets/got0_bmqvjb601" alt="got0">
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/got0_bmqvjb601.jpg" alt="got">
 要注意那个<code>jmp *printf@got</code> *号是取出地址处的值，并不是跳到got表中去</p>
 <h2>延迟重定位</h2>
 <p>这篇文章我觉得写的很精彩</p>
@@ -515,7 +515,7 @@
 <li>got[2]：_dl_runtime_resolve函数的地址</li>
 </ul>
 <h2>穿针引线</h2>
-<p><img src="/assets/got1_8tzb6jmh9" alt="got1"></p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/got1_8tzb6jmh9" alt="got"></p>
 <blockquote>
 <p>PLT表中的第一项为公共表项，剩下的是每个动态库函数为一项（当然每项是由多条指令组成的，jmp *0xXXXXXXXX这条指令是所有plt的开始指令）每项PLT都从对应的GOT表项中读取目标函数地址</p>
 </blockquote>
@@ -653,7 +653,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -664,7 +664,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -675,7 +675,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

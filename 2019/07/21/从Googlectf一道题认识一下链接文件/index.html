@@ -81,24 +81,25 @@
 
 
 
-<meta name="description" content="Linux目录 源自Googlectf2017的一道题  可以通过f参数直接读取到想读的文件 flag藏在 /proc/environ中，怎么才能进入到这个目录？ Linux中有一个叫做symlink method 也就是相当于一个快捷方式，但是却不同于Windows中的shortcut 而正好：/dev/fd这个指向了/proc/self/fd这样payload就不难理解了： /dev/fd/.">
+<meta name="description" content="有时候看看国外的ctf比赛的wp还是挺好的 wp Mindreder  可以通过f参数直接读取到想读的文件 那么如何确定flag的位置？ 既然可以读文件，那么第一步的想法就是读源码  确定后端是flask 源码： 12345678910111213141516171819202122232425262728293031323334353637from flask import Flask, req">
 <meta name="keywords" content="ctf">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从Googlectf一道题认识一下链接文件">
+<meta property="og:title" content="Google ctf2017">
 <meta property="og:url" content="https://prontosil.club/2019/07/21/从Googlectf一道题认识一下链接文件/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="Linux目录 源自Googlectf2017的一道题  可以通过f参数直接读取到想读的文件 flag藏在 /proc/environ中，怎么才能进入到这个目录？ Linux中有一个叫做symlink method 也就是相当于一个快捷方式，但是却不同于Windows中的shortcut 而正好：/dev/fd这个指向了/proc/self/fd这样payload就不难理解了： /dev/fd/.">
+<meta property="og:description" content="有时候看看国外的ctf比赛的wp还是挺好的 wp Mindreder  可以通过f参数直接读取到想读的文件 那么如何确定flag的位置？ 既然可以读文件，那么第一步的想法就是读源码  确定后端是flask 源码： 12345678910111213141516171819202122232425262728293031323334353637from flask import Flask, req">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://miro.medium.com/max/1094/1*A0WzQ3KOMSLvPFog50KRfQ.png">
-<meta property="og:image" content="https://i.imgur.com/RmHcXEq.png">
-<meta property="og:image" content="https://i.imgur.com/ssSnuQU.png">
-<meta property="og:image" content="https://i.imgur.com/RESHwi3.png">
-<meta property="og:image" content="https://i.imgur.com/sHZv4QY.png">
-<meta property="og:updated_time" content="2019-07-21T08:09:01.831Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google6.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google2.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google4.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google5.png">
+<meta property="og:updated_time" content="2019-08-20T14:46:56.348Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从Googlectf一道题认识一下链接文件">
-<meta name="twitter:description" content="Linux目录 源自Googlectf2017的一道题  可以通过f参数直接读取到想读的文件 flag藏在 /proc/environ中，怎么才能进入到这个目录？ Linux中有一个叫做symlink method 也就是相当于一个快捷方式，但是却不同于Windows中的shortcut 而正好：/dev/fd这个指向了/proc/self/fd这样payload就不难理解了： /dev/fd/.">
-<meta name="twitter:image" content="https://miro.medium.com/max/1094/1*A0WzQ3KOMSLvPFog50KRfQ.png">
+<meta name="twitter:title" content="Google ctf2017">
+<meta name="twitter:description" content="有时候看看国外的ctf比赛的wp还是挺好的 wp Mindreder  可以通过f参数直接读取到想读的文件 那么如何确定flag的位置？ 既然可以读文件，那么第一步的想法就是读源码  确定后端是flask 源码： 12345678910111213141516171819202122232425262728293031323334353637from flask import Flask, req">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google1.png">
 
 
 
@@ -134,7 +135,7 @@
 
 
 
-  <title>从Googlectf一道题认识一下链接文件 | prontosil</title>
+  <title>Google ctf2017 | prontosil</title>
   
 
 
@@ -324,7 +325,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从Googlectf一道题认识一下链接文件</h1>
+          <h1 class="post-title" itemprop="name headline">Google ctf2017</h1>
         
 
 		
@@ -355,8 +356,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-21T16:09:01+08:00">
-                2019-07-21
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-20T22:46:56+08:00">
+                2019-08-20
               </time>
             
           </span>
@@ -405,7 +406,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  338
+                  535
                 </span>
               
 
@@ -421,7 +422,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  1
+                  2
                 </span>
               
             </div>
@@ -442,11 +443,21 @@
       
 
       
-        <h1>Linux目录</h1>
-<p>源自Googlectf2017的一道题</p>
-<p><img src="https://miro.medium.com/max/1094/1*A0WzQ3KOMSLvPFog50KRfQ.png" alt="">
-可以通过f参数直接读取到想读的文件
-flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？</p>
+        <p>有时候看看国外的ctf比赛的wp还是挺好的</p>
+<p><a href="https://ctftime.org/event/455/tasks/" target="_blank" rel="noopener">wp</a></p>
+<h1>Mindreder</h1>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google1.png" alt="">
+可以通过f参数直接读取到想读的文件</p>
+<p>那么如何确定flag的位置？</p>
+<p>既然可以读文件，那么第一步的想法就是读源码</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google6.png" alt="requirement"></p>
+<p>确定后端是flask</p>
+<p>源码：</p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, request, abort</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> os.environ[<span class="string">'FLAG'</span>]</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line">INDEX = open(<span class="string">'index.html'</span>).read()</span><br><span class="line"></span><br><span class="line">HALL_OF_SHAME = [</span><br><span class="line">    <span class="string">'173.171.203.59'</span>,</span><br><span class="line">    <span class="string">'2a02:6b8:b010:6026:84:201:185:197'</span>,</span><br><span class="line">    <span class="string">'35.185.158.159'</span>,</span><br><span class="line">    <span class="string">'81.17.25.8'</span></span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">index</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">for</span> ip <span class="keyword">in</span> request.headers.get(<span class="string">'X-Forwarded-For'</span>, <span class="string">''</span>).split(<span class="string">','</span>):</span><br><span class="line">        ip = ip.strip().lower()</span><br><span class="line">        <span class="keyword">if</span> ip <span class="keyword">in</span> HALL_OF_SHAME:</span><br><span class="line">            abort(<span class="number">403</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> <span class="string">'f'</span> <span class="keyword">in</span> request.args:</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            f = request.args[<span class="string">'f'</span>]</span><br><span class="line">            <span class="keyword">if</span> re.search(<span class="string">r'proc|random|zero|stdout|stderr'</span>, f):</span><br><span class="line">                abort(<span class="number">403</span>)</span><br><span class="line">            <span class="keyword">elif</span> <span class="string">'\x00'</span> <span class="keyword">in</span> f:</span><br><span class="line">                abort(<span class="number">404</span>)</span><br><span class="line">            <span class="keyword">return</span> open(f).read(<span class="number">4096</span>)</span><br><span class="line">        <span class="keyword">except</span> IOError:</span><br><span class="line">            abort(<span class="number">404</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> INDEX</span><br></pre></td></tr></table></figure></p>
+<p>看到flag是藏在环境变量里面的，而环境变量就在<code>/proc/environ</code>中</p>
+<p>那就直接去读呗</p>
+<p>但是限制了：
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> <span class="string">'f'</span> <span class="keyword">in</span> request.args:</span><br><span class="line">     <span class="keyword">try</span>:</span><br><span class="line">         f = request.args[<span class="string">'f'</span>]</span><br><span class="line">         <span class="keyword">if</span> re.search(<span class="string">r'proc|random|zero|stdout|stderr'</span>, f):</span><br><span class="line">             abort(<span class="number">403</span>)</span><br><span class="line">         <span class="keyword">elif</span> <span class="string">'\x00'</span> <span class="keyword">in</span> f:</span><br></pre></td></tr></table></figure></p>
 <p>Linux中有一个叫做<code>symlink method</code>
 也就是相当于一个快捷方式，但是却不同于Windows中的shortcut
 而正好：<code>/dev/fd</code>这个指向了<code>/proc/self/fd</code>这样payload就不难理解了：
@@ -462,16 +473,18 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
 <p>建立软链接的方式：
 <code>ln -s 源文件名称 软链接文件名称</code>
 目录和文件均可</p>
-<p>现在当前吗目录下创建一个指向<code>/proc/sys</code>的链接
-<img src="https://i.imgur.com/RmHcXEq.png" alt="linux0"></p>
+<p>现在当前目录下创建一个指向<code>/proc/sys</code>的链接
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google2.png" alt=""></p>
 <p>然后我们就可以通过目录遍历来进入到其他的目录了。
-<img src="https://i.imgur.com/ssSnuQU.png" alt="linux1"></p>
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google3.png" alt=""></p>
 <p>软链接还会存在这个问题：</p>
 <p>链接的重复定义
-<img src="https://i.imgur.com/RESHwi3.png" alt="linux2"></p>
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google4.png" alt=""></p>
 <p>这样就不会出问题了，加个<code>-n</code>选项
-<img src="https://i.imgur.com/sHZv4QY.png" alt="linux3"></p>
-<p><a href="https://medium.com/@forwardsecrecy/google-ctf-2017-mindreader-570e8acf53b7" target="_blank" rel="noopener">参考</a></p>
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/google5.png" alt=""></p>
+<h2></h2>
+<p><a href="https://medium.com/@forwardsecrecy/google-ctf-2017-mindreader-570e8acf53b7" target="_blank" rel="noopener">参考</a>
+<a href="https://www.rootnetsec.com/googlectf-mindreader/" target="_blank" rel="noopener">GoogleCTF - Mindreader</a></p>
 
       
     </div>
@@ -595,7 +608,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -606,7 +619,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -617,7 +630,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -704,7 +717,7 @@ flag藏在 <code>/proc/environ</code>中，怎么才能进入到这个目录？<
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Linux目录</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">Mindreder</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text"></span></a></li></ol></li></ol></div>
             
 
           </div>

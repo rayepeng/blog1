@@ -89,10 +89,12 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="被0ctf的这道题目搞了好久。记录一下 思路是使用fastbin attack，how2heap上有一个栗子可以分析一下 先申请5个chunk，free之后使得 fastbin[0]-&amp;gt;idx1-&amp;gt;idx2-&amp;gt;NULL 12345678allocate(0x10)  # idx 0, 0x00allocate(0x10)  # idx 1, 0x20allocate(0x10)">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-08-10T12:54:46.781Z">
+<meta property="og:image" content="https://prontosil.club/2019/08/asset/1570201109766.png">
+<meta property="og:updated_time" content="2019-10-04T14:58:49.931Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="0ctfbabyheap">
 <meta name="twitter:description" content="被0ctf的这道题目搞了好久。记录一下 思路是使用fastbin attack，how2heap上有一个栗子可以分析一下 先申请5个chunk，free之后使得 fastbin[0]-&amp;gt;idx1-&amp;gt;idx2-&amp;gt;NULL 12345678allocate(0x10)  # idx 0, 0x00allocate(0x10)  # idx 1, 0x20allocate(0x10)">
+<meta name="twitter:image" content="https://prontosil.club/2019/08/asset/1570201109766.png">
 
 
 
@@ -349,8 +351,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-10T20:54:46+08:00">
-                2019-08-10
+              <time title="Post modified" itemprop="dateModified" datetime="2019-10-04T22:58:49+08:00">
+                2019-10-04
               </time>
             
           </span>
@@ -436,7 +438,8 @@
       
 
       
-        <p>被0ctf的这道题目搞了好久。记录一下</p>
+        <p><img src="../../asset/1570201109766.png" alt="1570201109766"></p>
+<p>被0ctf的这道题目搞了好久。记录一下</p>
 <p>思路是使用fastbin attack，how2heap上有一个栗子可以分析一下</p>
 <p>先申请5个chunk，free之后使得 <code>fastbin[0]-&gt;idx1-&gt;idx2-&gt;NULL</code></p>
 <p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 0, 0x00</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 1, 0x20</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 2, 0x40</span></span><br><span class="line">allocate(<span class="number">0x10</span>)  <span class="comment"># idx 3, 0x60</span></span><br><span class="line">allocate(<span class="number">0x80</span>)  <span class="comment"># idx 4, 0x80</span></span><br><span class="line"><span class="comment"># free idx 1, 2, fastbin[0]-&gt;idx1-&gt;idx2-&gt;NULL</span></span><br><span class="line">free(<span class="number">2</span>)</span><br><span class="line">free(<span class="number">1</span>)</span><br></pre></td></tr></table></figure></p>
@@ -574,7 +577,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -585,7 +588,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -596,7 +599,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

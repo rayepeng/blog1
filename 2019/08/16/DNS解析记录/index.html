@@ -90,7 +90,7 @@
 <meta property="og:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：   A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录   CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNA">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png">
-<meta property="og:updated_time" content="2019-08-15T23:25:04.131Z">
+<meta property="og:updated_time" content="2019-08-20T03:27:24.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DNS解析记录">
 <meta name="twitter:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：   A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录   CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNA">
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-16T07:25:04+08:00">
-                2019-08-16
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-20T11:27:24+08:00">
+                2019-08-20
               </time>
             
           </span>
@@ -482,7 +482,7 @@
 <p>所以这题就是：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务器:  192.168.1.1</span><br><span class="line">Address:  192.168.1.1</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">gamectf.com     text =</span><br><span class="line"></span><br><span class="line">        &quot;flag&#123;welcome_TXT&#125;&quot;</span><br></pre></td></tr></table></figure></p>
 <p>比如我的域名解析记录：</p>
-<p><img src="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png" alt="quicker_27d67457-bbf6-4743-96d0-c339bf676212.png"></p>
+<p><img src="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png" alt=""></p>
 <p>用dig命令也行：</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ dig -t txt gamectf.com                                                                                                          </span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; -t txt gamectf.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16974</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;gamectf.com.                   IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">gamectf.com.            600     IN      TXT     &quot;flag&#123;welcome_TXT&#125;&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 26 msec</span><br><span class="line">;; SERVER: 192.168.1.1#53(192.168.1.1)</span><br><span class="line">;; WHEN: Fri Aug 16 07:18:56 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 70</span><br></pre></td></tr></table></figure></p>
 <p>使用dig命令甚至可以直观地感受到DNS解析的全过程，然而在我的WSL上只有一点点记录</p>
@@ -600,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -611,7 +611,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -622,7 +622,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

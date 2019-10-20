@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba6.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba7.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/shiyanba8.png">
-<meta property="og:updated_time" content="2019-08-08T10:41:36.606Z">
+<meta property="og:updated_time" content="2019-08-20T03:24:25.087Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实验吧web">
 <meta name="twitter:description" content="记录一下实验吧的wp 后台登陆 ctrl+u查看源码 123456789&amp;lt;!-- $password=$_POST[&apos;password&apos;];	$sql = &quot;SELECT * FROM admin WHERE username = &apos;admin&apos; and password = &apos;&quot;.md5($password,true).&quot;&apos;&quot;;	$result=mysqli_query($link,$sq">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-08T18:41:36+08:00">
-                2019-08-08
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-20T11:24:25+08:00">
+                2019-08-20
               </time>
             
           </span>
@@ -449,13 +449,16 @@
 <p>查了一下官方文档，md5函数的第二个参数如果为true,那么就会返回原始16字符二进制格式</p>
 <p>而且sql语句显然是可以拼接注入的，关键在于如何注入了</p>
 <p>提供一个字符串： ffifdyop
-md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&gt;解析:存在  or  即代码的两边有一边为真既可以绕过，&lt;trach&gt;其实为垃圾代码没有任何用的。or 后面有6，非零值即为真。既可以成功绕过。</p>
+md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&gt;解析:存在  or  即代码的两边有一边为真既可以绕过，后面的其实为垃圾代码没有任何用的。or 后面有6，非零值即为真。既可以成功绕过。</p>
 <blockquote>
 <p>http://ctf5.shiyanbar.com/web/houtai/ffifdyop.php</p>
 </blockquote>
 <p>当然看评论也有说密码就是e58的
 <a href="https://www.jianshu.com/p/" target="_blank" rel="noopener">参考</a></p>
 <h2>认真一点</h2>
+<blockquote>
+<p>http://ctf5.shiyanbar.com/web/earnest/index.php</p>
+</blockquote>
 <p>这道题是盲注的题目，不太好搞</p>
 <h2>天下武功唯快不破</h2>
 <p>这个可以通过浏览器抓包，然后发现响应头中有一个FLAG字段显然是base64加密过的，解密之后就会得到提示，让你写脚本post提交</p>
@@ -466,7 +469,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
 <h2>拐弯抹角</h2>
 <p>这个涉及到我的知识盲区，叫做伪静态页面
 <a href="https://baike.baidu.com/item/%E4%BC%AA%E9%9D%99%E6%80%81" target="_blank" rel="noopener">百度百科</a></p>
-<p>payload</p>
+<p>payload 如下：</p>
 <blockquote>
 <p>http://ctf5.shiyanbar.com/indirection/index.php/a/index.php</p>
 </blockquote>
@@ -637,7 +640,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -648,7 +651,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -659,7 +662,7 @@ md5后，276f722736c95d99e921722cf9ed621c再转成字符串:' ' 'or' 6&lt;trach&
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

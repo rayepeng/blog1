@@ -104,7 +104,11 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf2.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf3.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf4.png">
-<meta property="og:updated_time" content="2019-08-17T14:11:54.460Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis0.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis3.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis2.png">
+<meta property="og:updated_time" content="2019-08-21T02:04:01.046Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JarvisOJ">
 <meta name="twitter:description" content="神盾局的秘密 查看页面源码，猜测是本地文件包含 先查看showimg.php 123456789101112&amp;lt;?php	$f = $_GET[&apos;img&apos;];	if (!empty($f)) &amp;#123;		$f = base64_decode($f);		if (stripos($f,&apos;..&apos;)===FALSE &amp;amp;&amp;amp; stripos($f,&apos;/&apos;)===FALSE &amp;amp;">
@@ -365,8 +369,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-17T22:11:54+08:00">
-                2019-08-17
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-21T10:04:01+08:00">
+                2019-08-21
               </time>
             
           </span>
@@ -415,7 +419,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  1.1k
+                  1.4k
                 </span>
               
 
@@ -431,7 +435,7 @@
                   <span class="post-meta-item-text">Reading time &asymp;</span>
                 
                 <span title="Reading time">
-                  5
+                  6
                 </span>
               
             </div>
@@ -462,16 +466,16 @@
 <p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">	<span class="comment">//flag is in pctf.php</span></span><br><span class="line">	<span class="class"><span class="keyword">class</span> <span class="title">Shield</span> </span>&#123;</span><br><span class="line">		<span class="keyword">public</span> $file;</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">__construct</span><span class="params">($filename = <span class="string">''</span>)</span> </span>&#123;</span><br><span class="line">			<span class="keyword">$this</span> -&gt; file = $filename;</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">function</span> <span class="title">readfile</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="keyword">if</span> (!<span class="keyword">empty</span>(<span class="keyword">$this</span>-&gt;file) &amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'..'</span>)===<span class="keyword">FALSE</span>  </span><br><span class="line">			&amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'/'</span>)===<span class="keyword">FALSE</span> &amp;&amp; stripos(<span class="keyword">$this</span>-&gt;file,<span class="string">'\\'</span>)==<span class="keyword">FALSE</span>) &#123;</span><br><span class="line">				<span class="keyword">return</span> @file_get_contents(<span class="keyword">$this</span>-&gt;file);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>尝试直接查看<code>pctf.php</code>没有成功</p>
 <p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Shield</span></span>&#123;</span><br><span class="line">    <span class="keyword">public</span> $file=<span class="string">'pctf.php'</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">$a=  <span class="keyword">new</span> Shield();</span><br><span class="line"><span class="keyword">echo</span> serialize($a);</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.loli.net/2019/08/16/WKC9PquOA6FipmG.png" alt="quicker_f6470f92-f278-4533-8040-33be0a4804a7.png"></p>
+<p><img src="https://i.loli.net/2019/08/16/WKC9PquOA6FipmG.png" alt=""></p>
 <h2>IN a mess</h2>
 <p>源代码提示访问 index.phps</p>
 <p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"></span><br><span class="line">error_reporting(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"&lt;!--index.phps--&gt;"</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(!$_GET[<span class="string">'id'</span>])</span><br><span class="line">&#123;</span><br><span class="line">	header(<span class="string">'Location: index.php?id=1'</span>);</span><br><span class="line">	<span class="keyword">exit</span>();</span><br><span class="line">&#125;</span><br><span class="line">$id=$_GET[<span class="string">'id'</span>];</span><br><span class="line">$a=$_GET[<span class="string">'a'</span>];</span><br><span class="line">$b=$_GET[<span class="string">'b'</span>];</span><br><span class="line"><span class="keyword">if</span>(stripos($a,<span class="string">'.'</span>))</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">echo</span> <span class="string">'Hahahahahaha'</span>;</span><br><span class="line">	<span class="keyword">return</span> ;</span><br><span class="line">&#125;</span><br><span class="line">$data = @file_get_contents($a,<span class="string">'r'</span>);</span><br><span class="line"><span class="keyword">if</span>($data==<span class="string">"1112 is a nice lab!"</span> <span class="keyword">and</span> $id==<span class="number">0</span> <span class="keyword">and</span> strlen($b)&gt;<span class="number">5</span> <span class="keyword">and</span> eregi(<span class="string">"111"</span>.substr($b,<span class="number">0</span>,<span class="number">1</span>),<span class="string">"1114"</span>) <span class="keyword">and</span> substr($b,<span class="number">0</span>,<span class="number">1</span>)!=<span class="number">4</span>)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">require</span>(<span class="string">"flag.txt"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">&#123;</span><br><span class="line">	<span class="keyword">print</span> <span class="string">"work harder!harder!harder!"</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>这个审计题目是见过的</p>
 <p>精心构造的payload</p>
 <p>用0a绕过弱类型，用伪协议绕过文件读取，用<code>%001111</code>绕过substr和strlen</p>
-<p><img src="https://i.loli.net/2019/08/16/Kt6qHmT2fUFQrav.png" alt="quicker_d87071e9-7b1b-46f4-925c-12de06f24ea6.png"></p>
+<p><img src="https://i.loli.net/2019/08/16/Kt6qHmT2fUFQrav.png" alt=""></p>
 <p>之后来到第二关：</p>
-<p><img src="https://i.loli.net/2019/08/16/diMvmqeHyjugJcN.png" alt="quicker_92050a33-bfc6-4fb3-b1eb-27b0ecd571c1.png"></p>
+<p><img src="https://i.loli.net/2019/08/16/diMvmqeHyjugJcN.png" alt=""></p>
 <p>发现是注入</p>
 <p>过滤了空格和一些关键字符，可以使用双写绕过</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sql0.png" alt=""></p>
@@ -512,11 +516,33 @@
 <p>尝试读取index.php和index.html，index.php没有，index.html就是原来的页面</p>
 <p>这时候去admin目录下探测：</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf3.png" alt=""></p>
-<p>尝试探测w文件：</p>
+<p>尝试探测一下文件：</p>
 <p><code>view-source:http://web.jarvisoj.com:32782/proxy.php?url=File:///opt/lampp/htdocs/admin/robots.txt</code></p>
 <p>就发现robots.txt</p>
 <p>于是读</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/ssrf4.png" alt=""></p>
+<h2>PORT 51</h2>
+<p>记录一下curl的姿势</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis0.png" alt="">
+在自己的vps上通过<code>curl --local-port=51</code>进行访问</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis3.png" alt="">
+<code>curl</code>命令是一个很强大的命令，由于浏览器访问网站的时候存在重定向的问题，于是可以直接用curl访问原始的网页，<code>cybrics</code>的签到题就是这个思路</p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">DESCRIPTION</span><br><span class="line">       curl  is  a  tool  to transfer data from or to a server, using one of the supported protocols (DICT, FILE, FTP, FTPS, GOPHER, HTTP, HTTPS,</span><br><span class="line">       IMAP, IMAPS, LDAP, LDAPS, POP3, POP3S, RTMP, RTSP, SCP, SFTP, SMB, SMBS, SMTP, SMTPS, TELNET and TFTP). The command is  designed  to  work</span><br><span class="line">       without user interaction.</span><br></pre></td></tr></table></figure></p>
+<p>可以看到curl支持很多协议，包括<code>POP3</code></p>
+<p>常见的用法</p>
+<p><code>curl https://prontosil.club</code> 直接访问原始页面</p>
+<p><code>curl -I https://prontosil.club</code> 得到请求头</p>
+<p><code>curl -H</code>发送自定义的请求头</p>
+<p><code>curl -d</code>发送post请求</p>
+<p><a href="https://man.linuxde.net/curl" target="_blank" rel="noopener">curl命令详解</a></p>
+<h2>localhost</h2>
+<p>只能在本地访问，</p>
+<p>伪造请求头即可
+<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis1.png" alt=""></p>
+<h2>login</h2>
+<p>注意抓包，请求头中有hint</p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/jarvis2.png" alt=""></p>
+<p>参考<a href="http://www.am0s.com/functions/204.html" target="_blank" rel="noopener">这篇文章</a></p>
 
       
     </div>
@@ -640,7 +666,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -651,7 +677,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -662,7 +688,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -749,7 +775,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">神盾局的秘密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">IN a mess</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">chopper</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">神盾局的秘密</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">IN a mess</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">chopper</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">PORT 51</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text">localhost</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">6.</span> <span class="nav-text">login</span></a></li></ol></div>
             
 
           </div>

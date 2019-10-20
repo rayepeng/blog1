@@ -89,12 +89,12 @@
 <meta property="og:site_name" content="prontosil">
 <meta property="og:description" content="调试一下c语言程序 自我感觉很久没写C语言了 getchar函数 1234567   char a = getchar();printf(&quot;a is %c\n&quot;, a);char b = getchar();printf(&quot;b is %c\n&quot;, b);char c = getchar();printf(&quot;c is %c\n&quot;, c);return 0; getchar函数是依次从缓冲区中取出字符">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://i.imgur.com/YrxXMwq.png">
-<meta property="og:updated_time" content="2019-07-30T14:48:50.335Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/c0.png">
+<meta property="og:updated_time" content="2019-08-20T03:25:54.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C语言缓冲区">
 <meta name="twitter:description" content="调试一下c语言程序 自我感觉很久没写C语言了 getchar函数 1234567   char a = getchar();printf(&quot;a is %c\n&quot;, a);char b = getchar();printf(&quot;b is %c\n&quot;, b);char c = getchar();printf(&quot;c is %c\n&quot;, c);return 0; getchar函数是依次从缓冲区中取出字符">
-<meta name="twitter:image" content="https://i.imgur.com/YrxXMwq.png">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/c0.png">
 
 
 
@@ -351,8 +351,8 @@
               
                 <span class="post-meta-item-text">Post modified&#58;</span>
               
-              <time title="Post modified" itemprop="dateModified" datetime="2019-07-30T22:48:50+08:00">
-                2019-07-30
+              <time title="Post modified" itemprop="dateModified" datetime="2019-08-20T11:25:54+08:00">
+                2019-08-20
               </time>
             
           </span>
@@ -466,7 +466,7 @@
 <p>那么会要求用户继续输入
 我又输入了一个换行符，很明显此时读取的结果非空，所以跳出while循环</p>
 <p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">00D524D8  call        dword ptr [__imp__getchar (0D5F220h)]  </span><br><span class="line">00D524DE  cmp         esi,esp  </span><br><span class="line">00D524E0  call        __RTC_CheckEsp (0D51357h)  </span><br><span class="line">00D524E5  test        eax,eax   ;检查eax是否为空</span><br><span class="line">00D524E7  jne         main+11Bh (0D524EBh)  </span><br><span class="line">00D524E9  jmp         main+0DEh (0D524AEh)</span><br></pre></td></tr></table></figure></p>
-<p><img src="https://i.imgur.com/YrxXMwq.png" alt="eax"></p>
+<p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/c0.png" alt="eax"></p>
 <h2>遇到的尴尬</h2>
 <p>如果要程序的健壮性，那么用户多输入一个空格就会出错，因为多输入一个空格程序就不知道后面那个是什么了，同时还涉及到<code>getchar</code>函数清空缓冲区，那个while循环的写法确实很经典，但是就没有考虑过如果缓冲区本身就是空的呢？</p>
 <p>我修改了一下原有的代码，加入了<code>cin.peek</code>函数来帮助判断</p>
@@ -600,7 +600,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">70</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -611,7 +611,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -622,7 +622,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">53</span>
+                  <span class="site-state-item-count">75</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
