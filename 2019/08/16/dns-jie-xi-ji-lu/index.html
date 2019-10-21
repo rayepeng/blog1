@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：   A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录   CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNA">
+<meta name="description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：  A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录  CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME">
 <meta name="keywords" content="DNS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DNS解析记录">
 <meta property="og:url" content="https://prontosil.club/2019/08/16/dns-jie-xi-ji-lu/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：   A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录   CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNA">
+<meta property="og:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：  A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录  CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png">
 <meta property="og:updated_time" content="2019-08-20T03:27:24.954Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DNS解析记录">
-<meta name="twitter:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：   A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录   CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNA">
+<meta name="twitter:description" content="又遇到了一到头疼的MISC签到题，虽说有点脑洞但还是基础知识积累的不够。 DNS解析记录：  A记录、AAAA记录、CNAME记录、MX记录、NS记录、TXT记录、SRV记录、URL转发  各种记录简记如下：  A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录  CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png">
 
 
@@ -445,46 +445,35 @@
 </blockquote>
 <p>各种记录简记如下：</p>
 <ul>
-<li>
-<p>A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录</p>
+<li><p>A记录： 将域名指向一个IPv4地址（例如：100.100.100.100），需要增加A记录</p>
 </li>
-<li>
-<p>CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。这个域名一般是主机服务商提供的一个域名</p>
+<li><p>CNAME记录： 如果将域名指向一个域名，实现与被指向域名相同的访问效果，需要增加CNAME记录。这个域名一般是主机服务商提供的一个域名</p>
 </li>
-<li>
-<p>MX记录： 建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录。建立邮箱时，一般会根据邮箱服务商提供的MX记录填写此记录</p>
+<li><p>MX记录： 建立电子邮箱服务，将指向邮件服务器地址，需要设置MX记录。建立邮箱时，一般会根据邮箱服务商提供的MX记录填写此记录</p>
 </li>
-<li>
-<p>NS记录： 域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录</p>
+<li><p>NS记录： 域名解析服务器记录，如果要将子域名指定某个域名服务器来解析，需要设置NS记录</p>
 </li>
-<li>
-<p>TXT记录： 可任意填写，可为空。一般做一些验证记录时会使用此项，如：做SPF（反垃圾邮件）记录</p>
+<li><p>TXT记录： 可任意填写，可为空。一般做一些验证记录时会使用此项，如：做SPF（反垃圾邮件）记录</p>
 </li>
-<li>
-<p>AAAA记录： 将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录</p>
+<li><p>AAAA记录： 将主机名（或域名）指向一个IPv6地址（例如：ff03:0:0:0:0:0:0:c1），需要添加AAAA记录</p>
 </li>
-<li>
-<p>SRV记录： 添加服务记录服务器服务记录时会添加此项，SRV记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）。</p>
+<li><p>SRV记录： 添加服务记录服务器服务记录时会添加此项，SRV记录了哪台计算机提供了哪个服务。格式为：服务的名字.协议的类型（例如：_example-server._tcp）。</p>
 </li>
-<li>
-<p>SOA记录： SOA叫做起始授权机构记录，NS用于标识多台域名解析服务器，SOA记录用于在众多NS记录中那一台是主服务器</p>
+<li><p>SOA记录： SOA叫做起始授权机构记录，NS用于标识多台域名解析服务器，SOA记录用于在众多NS记录中那一台是主服务器</p>
 </li>
-<li>
-<p>PTR记录： PTR记录是A记录的逆向记录，又称做IP反查记录或指针记录，负责将IP反向解析为域名</p>
+<li><p>PTR记录： PTR记录是A记录的逆向记录，又称做IP反查记录或指针记录，负责将IP反向解析为域名</p>
 </li>
-<li>
-<p>显性URL转发记录： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址为：www.itbilu.com。</p>
+<li><p>显性URL转发记录： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址为：www.itbilu.com。</p>
 </li>
-<li>
-<p>隐性UR转发记录L： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址，隐性转发会隐藏真实的目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址仍然是：www.liuht.cn。</p>
+<li><p>隐性UR转发记录L： 将域名指向一个http(s)协议地址，访问域名时，自动跳转至目标地址，隐性转发会隐藏真实的目标地址。例如：将www.liuht.cn显性转发到www.itbilu.com后，访问www.liuht.cn时，地址栏显示的地址仍然是：www.liuht.cn。</p>
 </li>
 </ul>
 <p>所以这题就是：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务器:  192.168.1.1</span><br><span class="line">Address:  192.168.1.1</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">gamectf.com     text =</span><br><span class="line"></span><br><span class="line">        &quot;flag&#123;welcome_TXT&#125;&quot;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">服务器:  192.168.1.1</span><br><span class="line">Address:  192.168.1.1</span><br><span class="line"></span><br><span class="line">非权威应答:</span><br><span class="line">gamectf.com     text =</span><br><span class="line"></span><br><span class="line">        &quot;flag&#123;welcome_TXT&#125;&quot;</span><br></pre></td></tr></table></figure>
 <p>比如我的域名解析记录：</p>
 <p><img src="https://i.loli.net/2019/08/16/hHjMUOFqE1KZIlS.png" alt=""></p>
 <p>用dig命令也行：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ dig -t txt gamectf.com                                                                                                          </span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; -t txt gamectf.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16974</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;gamectf.com.                   IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">gamectf.com.            600     IN      TXT     &quot;flag&#123;welcome_TXT&#125;&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 26 msec</span><br><span class="line">;; SERVER: 192.168.1.1#53(192.168.1.1)</span><br><span class="line">;; WHEN: Fri Aug 16 07:18:56 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 70</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">$ dig -t txt gamectf.com                                                                                                          </span><br><span class="line">; &lt;&lt;&gt;&gt; DiG 9.11.3-1ubuntu1.3-Ubuntu &lt;&lt;&gt;&gt; -t txt gamectf.com</span><br><span class="line">;; global options: +cmd</span><br><span class="line">;; Got answer:</span><br><span class="line">;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 16974</span><br><span class="line">;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 1</span><br><span class="line"></span><br><span class="line">;; OPT PSEUDOSECTION:</span><br><span class="line">; EDNS: version: 0, flags:; udp: 4096</span><br><span class="line">;; QUESTION SECTION:</span><br><span class="line">;gamectf.com.                   IN      TXT</span><br><span class="line"></span><br><span class="line">;; ANSWER SECTION:</span><br><span class="line">gamectf.com.            600     IN      TXT     &quot;flag&#123;welcome_TXT&#125;&quot;</span><br><span class="line"></span><br><span class="line">;; Query time: 26 msec</span><br><span class="line">;; SERVER: 192.168.1.1#53(192.168.1.1)</span><br><span class="line">;; WHEN: Fri Aug 16 07:18:56 CST 2019</span><br><span class="line">;; MSG SIZE  rcvd: 70</span><br></pre></td></tr></table></figure>
 <p>使用dig命令甚至可以直观地感受到DNS解析的全过程，然而在我的WSL上只有一点点记录</p>
 
       

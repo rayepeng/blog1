@@ -81,19 +81,19 @@
 
 
 
-<meta name="description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理 git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  ---摘自廖雪峰    命令git tag &amp;lt;tagname&amp;gt;用于新建一个标签，默认为HEAD，也">
+<meta name="description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  —-摘自廖雪峰   命令git tag 用于新建一个标签，默认为HEAD，也可以指定一个commit id；">
 <meta name="keywords" content="git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="复习git">
 <meta property="og:url" content="https://prontosil.club/2019/08/16/fu-xi-git/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理 git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  ---摘自廖雪峰    命令git tag &amp;lt;tagname&amp;gt;用于新建一个标签，默认为HEAD，也">
+<meta property="og:description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  —-摘自廖雪峰   命令git tag 用于新建一个标签，默认为HEAD，也可以指定一个commit id；">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.loli.net/2019/08/16/ALhQ2poTiesaFZz.png">
 <meta property="og:updated_time" content="2019-08-20T03:17:02.252Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="复习git">
-<meta name="twitter:description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理 git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  ---摘自廖雪峰    命令git tag &amp;lt;tagname&amp;gt;用于新建一个标签，默认为HEAD，也">
+<meta name="twitter:description" content="最近发现自己还不是很懂git，于是好好学习一下 git标签管理git有一个打标签的功能，这个功能可以理解成虚拟机的快照，  Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  —-摘自廖雪峰   命令git tag 用于新建一个标签，默认为HEAD，也可以指定一个commit id；">
 <meta name="twitter:image" content="https://i.loli.net/2019/08/16/ALhQ2poTiesaFZz.png">
 
 
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  375
+                  354
                 </span>
               
 
@@ -439,47 +439,32 @@
 
       
         <p>最近发现自己还不是很懂git，于是好好学习一下</p>
-<h2>git标签管理</h2>
-<p>git有一个打标签的功能，这个功能可以理解成虚拟机的快照，</p>
+<h2 id="git标签管理"><a href="#git标签管理" class="headerlink" title="git标签管理"></a>git标签管理</h2><p>git有一个打标签的功能，这个功能可以理解成虚拟机的快照，</p>
 <blockquote>
-<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  ---摘自廖雪峰</p>
+<p>Git的标签虽然是版本库的快照，但其实它就是指向某个commit的指针（跟分支很像对不对？但是分支可以移动，标签不能移动），所以，创建和删除标签都是瞬间完成的。  —-摘自廖雪峰</p>
 </blockquote>
 <ul>
-<li>
-<p>命令git tag &lt;tagname&gt;用于新建一个标签，默认为HEAD，也可以指定一个commit id；</p>
+<li><p>命令git tag <tagname>用于新建一个标签，默认为HEAD，也可以指定一个commit id；</tagname></p>
 </li>
-<li>
-<p>命令git tag -a &lt;tagname&gt; -m &quot;blablabla...&quot;可以指定标签信息；</p>
+<li><p>命令git tag -a <tagname> -m “blablabla…”可以指定标签信息；</tagname></p>
 </li>
-<li>
-<p>命令git tag可以查看所有标签。</p>
+<li><p>命令git tag可以查看所有标签。</p>
 </li>
-<li>
-<p>命令git push origin &lt;tagname&gt;可以推送一个本地标签；</p>
+<li><p>命令git push origin <tagname>可以推送一个本地标签；</tagname></p>
 </li>
-<li>
-<p>命令git push origin --tags可以推送全部未推送过的本地标签；</p>
+<li><p>命令git push origin —tags可以推送全部未推送过的本地标签；</p>
 </li>
-<li>
-<p>命令git tag -d &lt;tagname&gt;可以删除一个本地标签；</p>
+<li><p>命令git tag -d <tagname>可以删除一个本地标签；</tagname></p>
 </li>
-<li>
-<p>命令git push origin :refs/tags/&lt;tagname&gt;可以删除一个远程标签。</p>
+<li><p>命令git push origin :refs/tags/<tagname>可以删除一个远程标签。</tagname></p>
 </li>
 </ul>
-<h2>GitHack的原理</h2>
-<p>如果将.git文件夹部署到线上环境，将引起git源码泄露</p>
+<h2 id="GitHack的原理"><a href="#GitHack的原理" class="headerlink" title="GitHack的原理"></a>GitHack的原理</h2><p>如果将.git文件夹部署到线上环境，将引起git源码泄露</p>
 <p>工作原理：</p>
-<p>1、解析.git/index文件，找到工程中所有的： ( 文件名，文件sha1 )
-2、去.git/objects/ 文件夹下下载对应的文件
-3、zlib解压文件，按原始的目录结构写入源代码</p>
-<h2>git的原理</h2>
-<p>git cat-file 命令</p>
+<p>1、解析.git/index文件，找到工程中所有的： ( 文件名，文件sha1 )<br>2、去.git/objects/ 文件夹下下载对应的文件<br>3、zlib解压文件，按原始的目录结构写入源代码</p>
+<h2 id="git的原理"><a href="#git的原理" class="headerlink" title="git的原理"></a>git的原理</h2><p>git cat-file 命令</p>
 <p><img src="https://i.loli.net/2019/08/16/ALhQ2poTiesaFZz.png" alt="git cat-file"></p>
-<h2>参考</h2>
-<p><a href="https://www.freebuf.com/sectool/66096.html" target="_blank" rel="noopener">GitHack：一个git泄露利用脚本</a>
-<a href="https://www.bbsmax.com/A/o75NM9mKJW/" target="_blank" rel="noopener">git内部原理</a>
-<a href="https://www.leavesongs.com/PENETRATION/XDCTF-2015-WEB2-WRITEUP.html" target="_blank" rel="noopener">XDCTF2015代码审计全解</a></p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.freebuf.com/sectool/66096.html" target="_blank" rel="noopener">GitHack：一个git泄露利用脚本</a><br><a href="https://www.bbsmax.com/A/o75NM9mKJW/" target="_blank" rel="noopener">git内部原理</a><br><a href="https://www.leavesongs.com/PENETRATION/XDCTF-2015-WEB2-WRITEUP.html" target="_blank" rel="noopener">XDCTF2015代码审计全解</a></p>
 
       
     </div>
@@ -712,7 +697,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">git标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">GitHack的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">git的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#git标签管理"><span class="nav-number">1.</span> <span class="nav-text">git标签管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#GitHack的原理"><span class="nav-number">2.</span> <span class="nav-text">GitHack的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的原理"><span class="nav-number">3.</span> <span class="nav-text">git的原理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>

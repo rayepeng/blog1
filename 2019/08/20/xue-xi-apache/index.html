@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习 .htaccess文件 先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_R">
+<meta name="description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习.htaccess文件先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_REF">
 <meta name="keywords" content="apache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习apache">
 <meta property="og:url" content="https://prontosil.club/2019/08/20/xue-xi-apache/index.html">
 <meta property="og:site_name" content="prontosil">
-<meta property="og:description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习 .htaccess文件 先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_R">
+<meta property="og:description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习.htaccess文件先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_REF">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-09-16T03:05:16.248Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="学习apache">
-<meta name="twitter:description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习 .htaccess文件 先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_R">
+<meta name="twitter:description" content="一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了 apache配置学习.htaccess文件先看一段防盗链的代码： 1234567RewriteBase /RewriteCond %&amp;#123;HTTP_REFERER&amp;#125; !^$RewriteCond %&amp;#123;HTTP_REF">
 
 
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">Words count in article&#58;</span>
                 
                 <span title="Words count in article">
-                  202
+                  203
                 </span>
               
 
@@ -437,22 +437,18 @@
 
       
         <p>一直以来习惯了在Windows下通过wampserver和phpstudy来进行php,apache,mysql的组合，现在有必要自己从头开始进行一些学习了</p>
-<h2>apache配置学习</h2>
-<h2>.htaccess文件</h2>
-<p>先看一段防盗链的代码：</p>
-<p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase /</span><br><span class="line"></span><br><span class="line">RewriteCond %&#123;HTTP_REFERER&#125; !^$</span><br><span class="line"></span><br><span class="line">RewriteCond %&#123;HTTP_REFERER&#125; !^http://(www.)?aqee.net/.*$ [NC]</span><br><span class="line"></span><br><span class="line">RewriteRule .(gif|jpg|swf|flv|png)$ /feed/ [R=302,L]</span><br></pre></td></tr></table></figure></p>
+<h2 id="apache配置学习"><a href="#apache配置学习" class="headerlink" title="apache配置学习"></a>apache配置学习</h2><h2 id="htaccess文件"><a href="#htaccess文件" class="headerlink" title=".htaccess文件"></a>.htaccess文件</h2><p>先看一段防盗链的代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">RewriteBase /</span><br><span class="line"></span><br><span class="line">RewriteCond %&#123;HTTP_REFERER&#125; !^$</span><br><span class="line"></span><br><span class="line">RewriteCond %&#123;HTTP_REFERER&#125; !^http://(www.)?aqee.net/.*$ [NC]</span><br><span class="line"></span><br><span class="line">RewriteRule .(gif|jpg|swf|flv|png)$ /feed/ [R=302,L]</span><br></pre></td></tr></table></figure>
 <p>肯定是一脸茫然</p>
 <p>那就好好学习一下.htaccess文件</p>
-<h2>服务器状态码</h2>
-<p>在服务器回应客户端时会回应相应的状态码，不同的状态码具有不同的含义</p>
+<h2 id="服务器状态码"><a href="#服务器状态码" class="headerlink" title="服务器状态码"></a>服务器状态码</h2><p>在服务器回应客户端时会回应相应的状态码，不同的状态码具有不同的含义</p>
 <p>1xx：信息类</p>
 <p>2xx：成功类</p>
 <p>3xx：重定向类</p>
 <p>4xx：客户端错误类</p>
 <p>5xx：服务端错误类</p>
-<p>（比如我用flask写一个小型的应用时，遇到了500的错误其实是代码出错了😢</p>
-<h2>参考</h2>
-<p><a href="https://blog.51cto.com/jackcui/1858989" target="_blank" rel="noopener">由浅入深学习apache</a></p>
+<p>（比如我用flask写一个小型的应用时，遇到了500的错误其实是代码出错了:cry:</p>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://blog.51cto.com/jackcui/1858989" target="_blank" rel="noopener">由浅入深学习apache</a></p>
 
       
     </div>
@@ -685,7 +681,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text">apache配置学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text">.htaccess文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">服务器状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#apache配置学习"><span class="nav-number">1.</span> <span class="nav-text">apache配置学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#htaccess文件"><span class="nav-number">2.</span> <span class="nav-text">.htaccess文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#服务器状态码"><span class="nav-number">3.</span> <span class="nav-text">服务器状态码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考"><span class="nav-number">4.</span> <span class="nav-text">参考</span></a></li></ol></div>
             
 
           </div>
